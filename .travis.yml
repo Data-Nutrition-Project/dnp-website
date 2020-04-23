@@ -18,3 +18,11 @@ before_script:
 
 script:
   - gatsby build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: 506fd99f95088d1735fb65f15c30c55654ad04b3
+  keep_history: true
+  on:
+    branch: master
