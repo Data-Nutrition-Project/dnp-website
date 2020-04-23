@@ -21,7 +21,12 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "babel-jest": "^25.4.0",
+    "babel-preset-gatsby": "^0.3.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.4.0",
+    "prettier": "^1.19.1",
+    "react-test-renderer": "^16.13.1"
   },
   "keywords": [
     "gatsby"
@@ -34,7 +39,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
