@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelTitle renders correctly 1`] = `
+<div>
+  <h1 />
+  <span
+    class="underline"
+  >
+    <h2 />
+  </span>
+  <span
+    class="weighted-underline"
+  >
+    <p />
+  </span>
+</div>
+`;
