@@ -2,14 +2,13 @@ import React from "react"
 
 const LabelTitle = props => {
   return (
-    <div>
-      <h1>{}</h1>
-
-      <span class="underline">
-        <h2></h2>
+    <div className="Label-Title">
+      <h1 className="dataset-label-header">{}</h1>
+      <span className="light-line">
+        <h2 className="dataset-name-link"></h2>
       </span>
-      <span class="weighted-underline">
-        <p></p>
+      <span className="weighted-line">
+        <p className="dataset-origin-link"></p>
       </span>
     </div>
   )

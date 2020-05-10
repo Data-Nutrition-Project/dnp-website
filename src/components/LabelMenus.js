@@ -2,10 +2,10 @@ import React from "react"
 
 const LabelMenus = props => {
   return (
-    <div>
-      <header></header>
-      <span>
-        <p></p>
+    <div className="Label-Menus">
+      <header className="section-name"></header>
+      <span className="weighted-line">
+        <p>Lorem Ipsum</p>
       </span>
       <p></p>
     </div>

@@ -2,8 +2,8 @@ import React from "react"
 
 const LabelBase = () => {
   return (
-    <div>
-      <header></header>
+    <div className="Label-Base">
+      <header className="label-base-header"></header>
       <span className="weighted-line">
         <h2></h2>
       </span>
