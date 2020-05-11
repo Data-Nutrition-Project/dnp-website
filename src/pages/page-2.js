@@ -11,6 +11,8 @@ const SecondPage = () => (
     <p>Welcome to page 2</p>
     <Button>Click Me!</Button>
     <Link to="/">Go back to the homepage</Link>
+    <div></div>
+    <Link to="/page-3/">Menus</Link>
   </Layout>
 )
 

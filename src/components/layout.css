@@ -615,6 +615,26 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+/* Label Menu */
+.weighted-line {
+  border-bottom: 5px solid currentColor;
+  display: inline-block;
+  line-height: 0.85;
+  padding-right: 20rem;
+}
+
+.menu-div {
+  background-color: rgb(245, 245, 245);
+  padding: 0.5rem;
+  margin: 2rem;
+  border-radius: 5px;
+  display: inline-block;
+}
+.menu-paragraph {
+  margin-right: 17rem;
+  margin-top: 0.5rem;
+}
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
