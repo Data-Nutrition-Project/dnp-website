@@ -5,11 +5,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const MenusPage = () => (
-  <Layout>
+  <div>
     <SEO title="Menus" />
     <LabelMenus />
     <Link to="/">Go back to the homepage</Link>
-  </Layout>
+  </div>
 )
 
 export default MenusPage

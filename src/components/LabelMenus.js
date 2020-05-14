@@ -1,24 +1,32 @@
 import React, { useState } from "react"
 import MenuItem from "./MenuItem"
+//TURN INTO A CLASS COMPONENT
 //what does the menu item
 const LabelMenus = props => {
-  const [MenuTitle, setText] = useState("UseCases and Alerts")
+  // const [MenuTitle, setText] = useState("UseCases and Alerts")
   const [itemList, setList] = useState([
     "Use Cases and Alerts",
     "Overview",
     "Maintenance",
   ])
-  function clickMenu() {
-    //create a function that changes the header text to the
-    //create id from the props to change the text to the correct name
-    setText("")
-  }
+  const [color, setColor] = useState("gray")
+
+  //   //create a function that changes the header text to the
+  //   //create id from the props to change the text to the correct name
+  // onClickFunction=this.props.dispatch(item.key)
   return (
-    <div className="Label-Menus" onClick={clickMenu}>
+    <div className="Label-Menus">
       <div className="section-name">
         {itemList.map(item => {
           return (
-            <div key={item.id} className="menu-div">
+            <div
+              // style={{ background: color }}
+              key={item.name}
+              // onClick={() => {
+              //   setColor("black")
+              // }}
+              className="menu-div"
+            >
               <MenuItem name={item} />
               <span className="weighted-line">
                 <p>Lorem Ipsum</p>
