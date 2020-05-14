@@ -1,0 +1,45 @@
+header {
+  width: 285px;
+  height: 26px;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  font-family: Helvetica;
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--black);
+}
+.labelTitle {
+}
+
+.datasetLabelHeader {
+  width: 405px;
+  height: 28px;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.79;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--black);
+}
+
+.lightLine {
+}
+
+.datasetNameLink {
+}
+
+.weightedLine {
+}
+
+.datasetOriginLink {
+}

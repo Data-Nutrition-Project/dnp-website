@@ -1,0 +1,30 @@
+.labelBase {
+}
+
+.labelBaseHeader {
+  width: 285px;
+  height: 28px;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.79;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--black);
+}
+.weightedLine {
+  width: 1037px;
+  height: 671px;
+  border: solid 1px #707070;
+  background-color: #f4f4f4;
+}
+.lightLine {
+  width: 1037px;
+  height: 671px;
+  border: solid 1px #707070;
+  background-color: #f4f4f4;
+}

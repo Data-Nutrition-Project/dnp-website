@@ -1,0 +1,60 @@
+.labelMenus {
+}
+
+.sectionName {
+  width: 125px;
+  height: 28px;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.79;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--black);
+}
+
+.lorem {
+  width: 82px;
+  height: 14px;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  font-family: Helvetica;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--black);
+}
+
+.menuDiv {
+}
+
+.weightedLine {
+  width: 291px;
+  height: 208px;
+  border: solid 1px #707070;
+  background-color: #f4f4f4;
+}
+
+.menuParagraph {
+  width: 246px;
+  height: 84px;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  font-family: Helvetica;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--brownish-grey);
+}
