@@ -6,3 +6,4 @@
 
 // You can delete this file if you're not using it
 import "./node_modules/bootstrap/dist/css/bootstrap.css"
+export { default as wrapRootElement } from "./src/store/reduxwrapper"
