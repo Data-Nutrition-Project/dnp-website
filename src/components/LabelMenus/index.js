@@ -1,4 +1,3 @@
-
 import styles from "./styles.module.css"
 import React, { Component } from "react"
 import { connect } from "react-redux"
@@ -39,10 +38,11 @@ class LabelMenus extends Component {
                 // onClick={this.highlightLabel}
               >
                 {/* <MenuItem name={title.name} key={title.key} /> */}
-                {/* <span>{title}</span> */}
-                <span className={styles.weightedLine}>
-                  <p className={styles.lorem}>Lorem </p>
-                </span>
+                <span className={styles.menuTitle}>{title}</span>
+                <div className={styles.flexbox}>
+                  <p className={styles.lorem}>Lorem</p>
+                  <span className={styles.weightedLine}></span>
+                </div>
                 {/* <button onClick={this.highlightLabel}>HI THEREEEE</button> */}
 
                 <p className={styles.menuParagraph}>

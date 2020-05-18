@@ -3,6 +3,8 @@
   height: 208px;
   border: solid 1px #707070;
   background-color: #f4f4f4;
+  margin: 40px;
+  padding: 30px 0px 0px 0px;
 }
 
 .sectionName {
@@ -22,6 +24,8 @@
 }
 
 .lorem {
+  flex: 1;
+  display: flex;
   width: 82px;
   height: 14px;
   /* -webkit-filter: blur(10px); */
@@ -34,6 +38,7 @@
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
+  margin: 4px 0px 0px 23.5px;
   /* color: var(--black); */
 }
 .highlightLabel {
@@ -44,9 +49,12 @@
 }
 
 .weightedLine {
-  border-bottom: 1px solid #000000;
-  width: 200px;
-  padding-bottom: 5px;
+  flex: 80% 0 0;
+  border-bottom: 3px solid currentColor;
+  display: inline;
+  line-height: 0.85;
+
+  margin: 7.5px 0px 0px 23.5px;
 }
 
 .menuParagraph {
@@ -62,5 +70,27 @@
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
+  margin-left: 23.5px;
+  margin-top: 8.5px;
+
   color: var(--brownish-grey);
+}
+.menuTitle {
+  margin-left: 21.5px;
+  width: 98px;
+  height: 22px;
+  font-family: Helvetica;
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.flexbox {
+  display: -webkit-flex;
+  align-content: center;
+  flex-wrap: wrap;
 }
