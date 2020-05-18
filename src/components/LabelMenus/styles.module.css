@@ -1,5 +1,9 @@
-/* .labelMenus {
-} */
+.labelMenus {
+  width: 291px;
+  height: 208px;
+  border: solid 1px #707070;
+  background-color: #f4f4f4;
+}
 
 .sectionName {
   width: 125px;
@@ -30,7 +34,7 @@
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
-  color: var(--black);
+  /* color: var(--black); */
 }
 .highlightLabel {
   width: 8px;
@@ -40,10 +44,9 @@
 }
 
 .weightedLine {
-  width: 291px;
-  height: 208px;
-  border: solid 1px #707070;
-  background-color: #f4f4f4;
+  border-bottom: 1px solid #000000;
+  width: 200px;
+  padding-bottom: 5px;
 }
 
 .menuParagraph {
