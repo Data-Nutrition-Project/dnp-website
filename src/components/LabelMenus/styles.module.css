@@ -8,28 +8,10 @@
   position: relative;
 }
 .highlightLabel {
-  position: absolute;
-  width: 8px;
-  height: 208px;
-  margin: -200px 0px 0px 0px;
-  border: solid 1px #707070;
-  background-color: #393939;
-  z-index: 9;
-}
-.sectionName {
-  width: 125px;
-  height: 28px;
-  /* -webkit-filter: blur(10px); */
-  /* filter: blur(10px); */
-  font-family: Helvetica;
-  font-size: 28px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.79;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--black);
+  background-image: url("/highlightbar.png");
+
+  background-size: 8px 560px;
+  background-repeat: no-repeat;
 }
 
 .lorem {
@@ -37,8 +19,6 @@
   display: flex;
   width: 82px;
   height: 14px;
-  /* -webkit-filter: blur(10px); */
-  /* filter: blur(10px); */
   font-family: Helvetica;
   font-size: 14px;
   font-weight: normal;
@@ -48,13 +28,6 @@
   letter-spacing: normal;
   text-align: left;
   margin: 4px 0px 0px 23.5px;
-  /* color: var(--black); */
-}
-.highlightLabel {
-  width: 8px;
-  height: 208px;
-  border: solid 1px #707070;
-  background-color: #393939;
 }
 
 .weightedLine {
@@ -62,15 +35,12 @@
   border-bottom: 3px solid currentColor;
   display: inline;
   line-height: 0.85;
-
   margin: 7.5px 0px 0px 23.5px;
 }
 
 .menuParagraph {
   width: 246px;
   height: 84px;
-  /* -webkit-filter: blur(10px);
-  filter: blur(10px); */
   font-family: Helvetica;
   font-size: 12px;
   font-weight: normal;
@@ -81,9 +51,8 @@
   text-align: left;
   margin-left: 23.5px;
   margin-top: 8.5px;
-
-  color: var(--brownish-grey);
 }
+
 .menuTitle {
   margin-left: 21.5px;
   width: 98px;
