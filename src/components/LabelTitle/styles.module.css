@@ -1,8 +1,7 @@
 header {
+  margin: 27px 0px 0px 40px;
   width: 285px;
   height: 26px;
-  -webkit-filter: blur(10px);
-  filter: blur(10px);
   font-family: Helvetica;
   font-size: 26px;
   font-weight: bold;
@@ -11,16 +10,14 @@ header {
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
-  color: var(--black);
 }
 .labelTitle {
 }
 
 .datasetLabelHeader {
-  width: 405px;
+  margin: 11px 0px 0px 40px;
+  width: 450px;
   height: 28px;
-  -webkit-filter: blur(10px);
-  filter: blur(10px);
   font-family: Helvetica;
   font-size: 28px;
   font-weight: normal;
@@ -29,17 +26,33 @@ header {
   line-height: 0.79;
   letter-spacing: normal;
   text-align: left;
-  color: var(--black);
 }
 
-.lightLine {
-}
-
-.datasetNameLink {
+#datasetLink {
+  margin: 11px 0px 0px 40px;
+  width: 981px;
+  height: 180px;
 }
 
 .weightedLine {
+  margin: 11px 0px 0px 40px;
+  border-bottom: 5px solid currentColor;
+  display: inline-block;
+  line-height: 1;
+  padding-right: 20rem;
+  width: 90%;
 }
 
 .datasetOriginLink {
+  margin: -15px 0px 0px 40px;
+  width: 204px;
+  height: 16px;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.88;
+  letter-spacing: normal;
+  text-align: left;
 }

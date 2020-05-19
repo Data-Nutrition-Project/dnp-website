@@ -1,5 +1,6 @@
 import styles from "./styles.module.css"
 import React, { Component } from "react"
+import LabelTitle from "../LabelTitle/index"
 import { connect } from "react-redux"
 
 class LabelMenus extends Component {
@@ -18,6 +19,7 @@ class LabelMenus extends Component {
   render() {
     return (
       <div>
+        <LabelTitle />
         <div style={{ display: this.state.titleList }}>
           {this.state.titleList.map(title => {
             return (
