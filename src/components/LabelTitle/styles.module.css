@@ -1,3 +1,9 @@
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 header {
   margin: 27px 0px 0px 40px;
   width: 285px;
@@ -10,8 +16,6 @@ header {
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
-}
-.labelTitle {
 }
 
 .datasetLabelHeader {
@@ -28,14 +32,16 @@ header {
   text-align: left;
 }
 
-#datasetLink {
-  margin: 11px 0px 0px 40px;
-  width: 981px;
-  height: 180px;
+img  {
+  margin-top: -25px;
+  margin-left: 250px;
+  width: 14px;
+  height: 14px;
+  opacity: 1.2;
 }
 
 .weightedLine {
-  margin: 11px 0px 0px 40px;
+  margin: -80px 0px 0px 40px;
   border-bottom: 5px solid currentColor;
   display: inline-block;
   line-height: 1;
@@ -44,7 +50,7 @@ header {
 }
 
 .datasetOriginLink {
-  margin: -15px 0px 0px 40px;
+  margin: -15px 5px 0px 40px;
   width: 204px;
   height: 16px;
   font-family: Helvetica;
@@ -54,5 +60,15 @@ header {
   font-style: normal;
   line-height: 0.88;
   letter-spacing: normal;
-  text-align: left;
+  width: 50%;
+}
+
+.link {
+display: flex;
+width: 100%;
+}
+
+.datasetBoldLink {
+  margin-top: -30px;
+  margin-left: 220px;
 }
