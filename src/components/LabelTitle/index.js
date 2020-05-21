@@ -30,8 +30,4 @@ const LabelTitle = props => {
   )
 }
 
-// styles.module.css
-// import {styles} from "./styles.module.css"
-// styles.labelHeader
-// className={styles.labelHeader}
 export default LabelTitle
