@@ -7,7 +7,7 @@
   font-size: 16px;
 }
 header {
-  margin: 1.6875rem 0rem 0rem 2.5rem;
+  margin: 0rem 0rem 0rem 0rem;
   width: 17.8125rem;
   height: 1.625rem;
   font-family: Helvetica;
@@ -21,7 +21,7 @@ header {
 }
 
 .datasetLabelHeader {
-  margin: 0.6875rem 0rem 0rem 2.5rem;
+  margin: 0.6875rem 0rem 0rem 0rem;
   width: 28.125rem;
   height: 1.75rem;
   font-family: Helvetica;
@@ -36,23 +36,23 @@ header {
 
 img {
   margin-top: -1.5625rem;
-  margin-left: 15.625rem;
+  margin-left: 13.3rem;
   width: 0.875rem;
   height: 0.875rem;
   opacity: 1.2;
 }
 
 .weightedLine {
-  margin: -5rem 0rem 0rem 2.5rem;
+  margin: -5rem 0rem 0rem 0rem;
   border-bottom: 0.3125rem solid currentColor;
   display: inline-block;
   line-height: 1;
-  padding-right: 20rem;
-  width: 90%;
+  /* padding-right: 20rem; */
+  width: 100%;
 }
 
 .datasetOriginLink {
-  margin: -0.9375rem 0.3125rem 0rem 2.5rem;
+  margin: -0.9375rem 0.3125rem 0rem 0rem;
   width: 12.75rem;
   height: 1rem;
   font-family: Helvetica;
