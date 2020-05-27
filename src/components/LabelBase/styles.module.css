@@ -1,11 +1,19 @@
+:root {
+  font-size: 16px;
+}
 .labelBase {
+  width: 75%;
+  height: 41.9375rem;
+  border: solid 0.0625rem #707070;
+  background-color: #f4f4f4;
+  margin-top: 2.1875rem;
+  /* /* margin-left: 370px; */
+  padding-right: 2.6875rem;
 }
 
 .labelBaseHeader {
-  width: 285px;
+  width: 17.8125rem;
   height: 28px;
-  -webkit-filter: blur(10px);
-  filter: blur(10px);
   font-family: Helvetica;
   font-size: 28px;
   font-weight: bold;

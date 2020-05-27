@@ -1,17 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LabelTitle renders correctly 1`] = `
-<div>
-  <h1 />
-  <span
-    class="underline"
+<div
+  className="labelTitle"
+>
+  <header>
+    Data Nutrition Label
+  </header>
+  <h1
+    className="datasetLabelHeader"
   >
-    <h2 />
-  </span>
-  <span
-    class="weighted-underline"
+    College Scoreboard Dataset 2020
+  </h1>
+  <div
+    className="link"
   >
-    <p />
+    <h2
+      className="datasetNameLink"
+    />
+  </div>
+  <div
+    className="link"
+  >
+    <a
+      className="datasetBoldLink"
+      href="#"
+    >
+      <img
+        alt=""
+        id="datasetLink"
+        src="/linkimg.png"
+      />
+    </a>
+  </div>
+  <div
+    className="link"
+  >
+    <p
+      className="datasetOriginLink"
+    >
+      US Department of Education
+    </p>
+  </div>
+  <div
+    className="link"
+  >
+    <a
+      className="datasetLink"
+      href="#"
+    >
+      <img
+        alt=""
+        id="datasetLink"
+        src="/linkimg.png"
+      />
+    </a>
+  </div>
+  <span
+    className="weightedLine"
+  >
+     
   </span>
 </div>
 `;

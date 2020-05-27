@@ -1,15 +1,17 @@
-
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+:root {
+  font-size: 16px;
+}
 header {
-  margin: 27px 0px 0px 40px;
-  width: 285px;
-  height: 26px;
+  margin: 1.6875rem 0rem 0rem 2.5rem;
+  width: 17.8125rem;
+  height: 1.625rem;
   font-family: Helvetica;
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -19,11 +21,11 @@ header {
 }
 
 .datasetLabelHeader {
-  margin: 11px 0px 0px 40px;
-  width: 450px;
-  height: 28px;
+  margin: 0.6875rem 0rem 0rem 2.5rem;
+  width: 28.125rem;
+  height: 1.75rem;
   font-family: Helvetica;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -32,17 +34,17 @@ header {
   text-align: left;
 }
 
-img  {
-  margin-top: -25px;
-  margin-left: 250px;
-  width: 14px;
-  height: 14px;
+img {
+  margin-top: -1.5625rem;
+  margin-left: 15.625rem;
+  width: 0.875rem;
+  height: 0.875rem;
   opacity: 1.2;
 }
 
 .weightedLine {
-  margin: -80px 0px 0px 40px;
-  border-bottom: 5px solid currentColor;
+  margin: -5rem 0rem 0rem 2.5rem;
+  border-bottom: 0.3125rem solid currentColor;
   display: inline-block;
   line-height: 1;
   padding-right: 20rem;
@@ -50,11 +52,11 @@ img  {
 }
 
 .datasetOriginLink {
-  margin: -15px 5px 0px 40px;
-  width: 204px;
-  height: 16px;
+  margin: -0.9375rem 0.3125rem 0rem 2.5rem;
+  width: 12.75rem;
+  height: 1rem;
   font-family: Helvetica;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -64,11 +66,11 @@ img  {
 }
 
 .link {
-display: flex;
-width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .datasetBoldLink {
-  margin-top: -30px;
-  margin-left: 220px;
+  margin-top: -1.875rem;
+  margin-left: 13.75rem;
 }

@@ -1,20 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LabelBase renders correctly 1`] = `
-<div>
-  <header />
+<div
+  className="labelBase"
+>
+  <header
+    className="labelBaseHeader"
+  />
   <span
-    className="weighted-line"
+    className="weightedLine"
   >
     <h2 />
   </span>
   <span
-    className="light-line"
+    className="lightLine"
   >
     <h1 />
   </span>
   <span
-    className="light-line"
+    className="lightLine"
   >
     <h1 />
   </span>
