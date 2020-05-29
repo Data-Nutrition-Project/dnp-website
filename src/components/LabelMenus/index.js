@@ -2,7 +2,6 @@ import styles from "./styles.module.css"
 import React, { Component } from "react"
 import LabelTitle from "../LabelTitle/index"
 import LabelBase from "../LabelBase/index.js"
-import { connect } from "react-redux"
 
 class LabelMenus extends Component {
   constructor(props) {
@@ -23,9 +22,6 @@ class LabelMenus extends Component {
       <div>
         <LabelTitle />
         <div className={styles.flexComponents}>
-          {/* call labelbase label section */}
-          {/* create a base component to gather all the child components */}
-
           <div
             className={styles.labelMenu}
             style={{ display: this.state.titleList }}
@@ -50,7 +46,7 @@ class LabelMenus extends Component {
                   ></div>
                   <span className={styles.menuTitle}>{title}</span>
                   <div className={styles.flexbox}>
-                    <p className={styles.lorem}>Lorem</p>
+                    <p className={styles.labelMenuDescription}>Lorem</p>
                     <span className={styles.weightedLine}></span>
                   </div>
                   <p className={styles.menuParagraph}>
@@ -71,9 +67,4 @@ class LabelMenus extends Component {
   }
 }
 
-// const mapState = state => {
-//   return {
-//     title: state.title,
-//   }
-// }
 export default LabelMenus

@@ -2,7 +2,6 @@ import React from "React"
 import { toggleHighlight } from "../../store/labelMenu"
 import styles from "./styles.module.css"
 const MenuItem = props => {
-  //add PropTypes to check for bugs ,and default values
   return (
     <div
       className={styles.regular}
