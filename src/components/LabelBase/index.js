@@ -3,7 +3,7 @@ import styles from "./styles.module.css"
 const LabelBase = () => {
   return (
     <div className={styles.labelBase}>
-      <header className={styles.labelBaseHeader}></header>
+      <h1 className={styles.labelBaseHeader}></h1>
       <span className={styles.weightedLine}>
         <h2></h2>
       </span>

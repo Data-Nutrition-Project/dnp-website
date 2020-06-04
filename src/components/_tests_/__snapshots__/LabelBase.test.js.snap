@@ -4,7 +4,7 @@ exports[`LabelBase renders correctly 1`] = `
 <div
   className="labelBase"
 >
-  <header
+  <h1
     className="labelBaseHeader"
   />
   <span

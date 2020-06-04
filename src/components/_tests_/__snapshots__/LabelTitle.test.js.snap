@@ -4,9 +4,11 @@ exports[`LabelTitle renders correctly 1`] = `
 <div
   className="labelTitle"
 >
-  <header>
+  <h1
+    className="headertTitle"
+  >
     Data Nutrition Label
-  </header>
+  </h1>
   <h1
     className="datasetLabelHeader"
   >

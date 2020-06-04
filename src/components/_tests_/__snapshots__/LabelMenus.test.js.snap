@@ -5,9 +5,11 @@ exports[`LabelMenus renders correctly 1`] = `
   <div
     className="labelTitle"
   >
-    <header>
+    <h1
+      className="headertTitle"
+    >
       Data Nutrition Label
-    </header>
+    </h1>
     <h1
       className="datasetLabelHeader"
     >
@@ -99,7 +101,7 @@ exports[`LabelMenus renders correctly 1`] = `
           className="flexbox"
         >
           <p
-            className="lorem"
+            className="labelMenuDescription"
           >
             Lorem
           </p>
@@ -134,7 +136,7 @@ exports[`LabelMenus renders correctly 1`] = `
           className="flexbox"
         >
           <p
-            className="lorem"
+            className="labelMenuDescription"
           >
             Lorem
           </p>
@@ -169,7 +171,7 @@ exports[`LabelMenus renders correctly 1`] = `
           className="flexbox"
         >
           <p
-            className="lorem"
+            className="labelMenuDescription"
           >
             Lorem
           </p>
@@ -187,7 +189,7 @@ exports[`LabelMenus renders correctly 1`] = `
     <div
       className="labelBase"
     >
-      <header
+      <h1
         className="labelBaseHeader"
       />
       <span

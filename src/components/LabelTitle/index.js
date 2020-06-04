@@ -3,7 +3,7 @@ import styles from "./styles.module.css"
 const LabelTitle = props => {
   return (
     <div className={styles.labelTitle}>
-      <header>Data Nutrition Label</header>
+      <h1 className={styles.headertTitle}>Data Nutrition Label</h1>
       <h1 className={styles.datasetLabelHeader}>
         College Scoreboard Dataset 2020
       </h1>
