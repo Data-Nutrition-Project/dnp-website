@@ -1,26 +1,23 @@
 import React from "react"
 import styles from "./styles.module.css"
 import LabelMenus from "../LabelMenus/index"
-import { getDataThunk } from "../../store/labelWrapper"
-import { connect } from "react-redux"
+import LabelTitle from "../LabelTitle"
 
-const LabelWrapper = () => {
+const LabelWrapper = props => {
   return (
     <div className={styles.labelWrapper}>
       <LabelMenus />
+      {props.titleList == "Overview" ? (
+        <OverviewComponent />
+      ) : props.titleList == "Use Cases and Alerts" ? (
+        <UseCases />
+      ) : props.titleList == "Maintenance" ? (
+        <Maintenaince />
+      ) : (
+        ""
+      )}
     </div>
   )
 }
 
-const mapState = state => {
-  return {
-    data: state.data,
-  }
-}
-const mapDispatch = dispatch => {
-  return {
-    getData: () => dispatch(getDataThunk()),
-  }
-}
-
-export default connect(mapState, mapDispatch)(LabelWrapper)
+export default LabelWrapper
