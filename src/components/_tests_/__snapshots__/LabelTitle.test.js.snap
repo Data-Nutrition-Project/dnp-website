@@ -10,7 +10,7 @@ exports[`LabelTitle renders correctly 1`] = `
     Data Nutrition Label
   </h1>
   <h1
-    className="datasetLabelHeader"
+    className="datasetLabel"
   >
     College Scoreboard Dataset 2020
   </h1>

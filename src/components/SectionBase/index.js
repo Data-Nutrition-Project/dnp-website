@@ -1,9 +1,9 @@
 import React from "react"
 import styles from "./styles.module.css"
-const LabelBase = () => {
+const SectionBase = () => {
   return (
-    <div className={styles.labelBase}>
-      <h1 className={styles.labelBaseHeader}></h1>
+    <div className={styles.sectionBase}>
+      <h1 className={styles.sectionBaseHeader}></h1>
       <span className={styles.weightedLine}>
         <h2></h2>
       </span>
@@ -17,4 +17,4 @@ const LabelBase = () => {
   )
 }
 
-export default LabelBase
+export default SectionBase

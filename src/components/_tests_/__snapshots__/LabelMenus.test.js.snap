@@ -11,7 +11,7 @@ exports[`LabelMenus renders correctly 1`] = `
       Data Nutrition Label
     </h1>
     <h1
-      className="datasetLabelHeader"
+      className="datasetLabel"
     >
       College Scoreboard Dataset 2020
     </h1>
@@ -187,10 +187,10 @@ exports[`LabelMenus renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="labelBase"
+      className="sectionBase"
     >
       <h1
-        className="labelBaseHeader"
+        className="sectionBaseHeader"
       />
       <span
         className="weightedLine"
