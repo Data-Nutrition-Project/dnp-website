@@ -1,10 +1,10 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import LabelBase from "../LabelBase"
+import SectionBase from "../SectionBase"
 
-describe("LabelBase", () => {
+describe("SectionBase", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<LabelBase />).toJSON()
+    const tree = renderer.create(<SectionBase />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

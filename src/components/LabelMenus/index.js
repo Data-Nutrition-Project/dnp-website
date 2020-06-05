@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import React, { Component } from "react"
 import LabelTitle from "../LabelTitle/index"
-import LabelBase from "../LabelBase/index.js"
+import SectionBase from "../SectionBase/index.js"
 
 class LabelMenus extends Component {
   constructor(props) {
@@ -60,7 +60,7 @@ class LabelMenus extends Component {
               )
             })}
           </div>
-          <LabelBase />
+          <SectionBase />
         </div>
       </div>
     )

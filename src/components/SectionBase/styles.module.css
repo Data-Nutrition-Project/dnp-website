@@ -1,4 +1,4 @@
-.labelBase {
+.sectionBase {
   width: 75%;
   height: 41.9375rem;
   border: solid 0.0625rem #707070;
@@ -7,7 +7,7 @@
   padding-right: 2.6875rem;
 }
 
-.labelBaseHeader {
+.sectionBaseHeader {
   width: 17.8125rem;
   height: 28px;
   font-family: Helvetica;
