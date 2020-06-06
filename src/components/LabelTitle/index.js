@@ -3,14 +3,21 @@ import styles from "./styles.module.css"
 const LabelTitle = props => {
   return (
     <div className={styles.labelTitle}>
-      <h1 className={styles.headertTitle}>Data Nutrition Label</h1>
-      <h1 className={styles.datasetLabel}>College Scoreboard Dataset 2020</h1>
+      <h1 className={styles.pageHeader}>Data Nutrition Label</h1>
+      <h1 className={styles.datasetLabelHeader}>
+        College Scoreboard Dataset 2020
+      </h1>
       <div className={styles.link}>
         <h2 className={styles.datasetNameLink}></h2>
       </div>
       <div className={styles.link}>
         <a className={styles.datasetBoldLink} href="#">
-          <img src="/linkimg.png" alt="" id="datasetLink" />
+          <img
+            className={styles.linkImg}
+            src="/linkimg.png"
+            alt="icon for link"
+            id="datasetLink"
+          />
         </a>
       </div>
       <div className={styles.link}>

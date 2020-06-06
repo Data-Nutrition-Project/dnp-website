@@ -29,7 +29,8 @@ exports[`LabelTitle renders correctly 1`] = `
       href="#"
     >
       <img
-        alt=""
+        alt="icon for link"
+        className="linkImg"
         id="datasetLink"
         src="/linkimg.png"
       />
