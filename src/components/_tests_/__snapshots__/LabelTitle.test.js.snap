@@ -5,12 +5,12 @@ exports[`LabelTitle renders correctly 1`] = `
   className="labelTitle"
 >
   <h1
-    className="headertTitle"
+    className="pageHeader"
   >
     Data Nutrition Label
   </h1>
   <h1
-    className="datasetLabel"
+    className="datasetLabelHeader"
   >
     College Scoreboard Dataset 2020
   </h1>

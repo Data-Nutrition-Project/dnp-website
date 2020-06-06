@@ -7,7 +7,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const SecondPage = () => (
-  <LabelMenus />
+    <Layout>
+        <LabelMenus />
+    </Layout>
 )
 
 export default SecondPage
