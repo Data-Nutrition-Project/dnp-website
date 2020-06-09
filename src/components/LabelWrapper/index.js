@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import styles from "./styles.module.css"
 import LabelMenus from "../LabelMenus/index"
+import LabelTitle from "../LabelTitle/index"
 // import { fetchDataThunk } from "../store/labelBase.js"
 import Maintenance from "../_Labels_/Maintenance/index"
 import Overview from "../_Labels_/Overview/index"
@@ -20,10 +21,13 @@ class LabelWrapper extends Component {
   render() {
     return (
       <div className={styles.labelWrapper}>
-        <LabelMenus />
-        {this.props.base === "Overview" && <Overview />}
-        {this.props.base === "Use Cases and Alerts" && <UseCases />}
-        {this.props.base === "Maintenance" && <Maintenance />}
+        <LabelTitle />
+        <div className={styles.flexComponents}>
+          <LabelMenus />
+          {this.props.base === "Overview" && <Overview />}
+          {this.props.base === "Use Cases and Alerts" && <UseCases />}
+          {this.props.base === "Maintenance" && <Maintenance />}
+        </div>
       </div>
     )
   }

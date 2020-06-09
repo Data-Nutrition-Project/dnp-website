@@ -26,51 +26,41 @@ class LabelMenus extends Component {
 
   render() {
     return (
-      <div>
-        <LabelTitle />
-        <div className={styles.flexComponents}>
-          {/* call labelbase label section */}
-          {/* create a base component to gather all the child components */}
-
-          <div
-            className={styles.labelMenu}
-            style={{ display: this.state.titleList }}
-          >
-            {this.state.titleList.map((title, id) => {
-              return (
-                <div
-                  id="selectButton"
-                  onClick={() => this.selectItem(title)}
-                  className={
-                    this.state.selectedItem === title
-                      ? `${styles.highlightLabel} ${styles.labelMenus}`
-                      : styles.labelMenus
-                  }
-                  key={id}
-                >
-                  <div
-                    style={{
-                      display: this.state.showHighlight ? "block" : "none",
-                    }}
-                  ></div>
-                  <span className={styles.menuTitle}>{title}</span>
-                  <div className={styles.flexbox}>
-                    <p className={styles.lorem}>Lorem</p>
-                    <span className={styles.weightedLine}></span>
-                  </div>
-                  <p className={styles.menuParagraph}>
-                    Qui ut occaecat exercitation amet mollit excepteur do
-                    aliquip et sunt sit aliqua consectetur. Sit minim voluptate
-                    aliqua id do velit deserunt. Voluptate irure proident esse
-                    sint duis mollit culpa eiusmod officia ullamco aliqua in
-                    magna dolore.
-                  </p>
-                </div>
-              )
-            })}
-          </div>
-          {/* <SectionBase /> */}
-        </div>
+      <div
+        className={styles.labelMenu}
+        style={{ display: this.state.titleList }}
+      >
+        {this.state.titleList.map((title, id) => {
+          return (
+            <div
+              id="selectButton"
+              onClick={() => this.selectItem(title)}
+              className={
+                this.state.selectedItem === title
+                  ? `${styles.highlightLabel} ${styles.labelMenus}`
+                  : styles.labelMenus
+              }
+              key={id}
+            >
+              <div
+                style={{
+                  display: this.state.showHighlight ? "block" : "none",
+                }}
+              ></div>
+              <span className={styles.menuTitle}>{title}</span>
+              <div className={styles.flexbox}>
+                <p className={styles.lorem}>Lorem</p>
+                <span className={styles.weightedLine}></span>
+              </div>
+              <p className={styles.menuParagraph}>
+                Qui ut occaecat exercitation amet mollit excepteur do aliquip et
+                sunt sit aliqua consectetur. Sit minim voluptate aliqua id do
+                velit deserunt. Voluptate irure proident esse sint duis mollit
+                culpa eiusmod officia ullamco aliqua in magna dolore.
+              </p>
+            </div>
+          )
+        })}
       </div>
     )
   }

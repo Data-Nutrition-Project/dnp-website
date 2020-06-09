@@ -80,8 +80,8 @@
   flex-wrap: wrap;
 }
 
-.flexComponents {
+/* .flexComponents {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} */
