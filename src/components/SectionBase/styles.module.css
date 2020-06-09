@@ -1,7 +1,7 @@
 :root {
   font-size: 16px;
 }
-.labelBase {
+.sectionBase {
   width: 77%;
   height: 43.5rem;
   border: solid 0.0625rem #707070;
@@ -11,7 +11,7 @@
   /* padding-right: 2.6875rem; */
 }
 
-.labelBaseHeader {
+.sectionBaseHeader {
   width: 17.8125rem;
   height: 28px;
   font-family: Helvetica;

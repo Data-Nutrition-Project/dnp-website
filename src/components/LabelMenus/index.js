@@ -1,9 +1,10 @@
 import styles from "./styles.module.css"
 import React, { Component } from "react"
 import LabelTitle from "../LabelTitle/index"
-import LabelBase from "../LabelBase/index.js"
+// import SectionBase from "../SectionBase/index.js"
 import { connect } from "react-redux"
-
+// import { withRouter } from "react-router-dom"
+import { sendBaseInfo } from "../../store/bases"
 class LabelMenus extends Component {
   constructor(props) {
     super(props)
@@ -11,13 +12,18 @@ class LabelMenus extends Component {
       showHighlight: this.props.highlightValue,
       titleList: ["Use Cases and Alerts", "Overview", "Maintenance"],
     }
+    this.selectItem = this.selectItem.bind(this)
   }
 
-  selectItem = item =>
+  selectItem = item => {
     this.setState({
       selectedItem: item,
       showHighlight: false,
     })
+    console.log("item", item)
+    this.props.sendBaseInfo(item)
+  }
+
   render() {
     return (
       <div>
@@ -30,20 +36,19 @@ class LabelMenus extends Component {
             className={styles.labelMenu}
             style={{ display: this.state.titleList }}
           >
-            {this.state.titleList.map(title => {
+            {this.state.titleList.map((title, id) => {
               return (
                 <div
                   id="selectButton"
-                  key={title.id}
                   onClick={() => this.selectItem(title)}
                   className={
                     this.state.selectedItem === title
                       ? `${styles.highlightLabel} ${styles.labelMenus}`
                       : styles.labelMenus
                   }
+                  key={id}
                 >
                   <div
-                    key={title.id}
                     style={{
                       display: this.state.showHighlight ? "block" : "none",
                     }}
@@ -64,7 +69,7 @@ class LabelMenus extends Component {
               )
             })}
           </div>
-          <LabelBase />
+          {/* <SectionBase /> */}
         </div>
       </div>
     )
@@ -76,4 +81,10 @@ class LabelMenus extends Component {
 //     title: state.title,
 //   }
 // }
-export default LabelMenus
+
+const mapDispatch = dispatch => {
+  return {
+    sendBaseInfo: status => dispatch(sendBaseInfo(status)),
+  }
+}
+export default connect(null, mapDispatch)(LabelMenus)

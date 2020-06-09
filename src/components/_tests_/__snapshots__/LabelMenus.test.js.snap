@@ -185,10 +185,10 @@ exports[`LabelMenus renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="labelBase"
+      className="sectionBase"
     >
       <header
-        className="labelBaseHeader"
+        className="sectionBaseHeader"
       />
       <span
         className="weightedLine"

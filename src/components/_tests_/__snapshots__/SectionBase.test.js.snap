@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LabelBase renders correctly 1`] = `
+exports[`SectionBase renders correctly 1`] = `
 <div
-  className="labelBase"
+  className="sectionBase"
 >
   <header
-    className="labelBaseHeader"
+    className="sectionBaseHeader"
   />
   <span
     className="weightedLine"

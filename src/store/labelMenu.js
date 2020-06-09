@@ -9,7 +9,7 @@ export const toggleHighlight = isHighlight => ({
   isHighlight,
 })
 
-export default (state = initialState, action) => {
+export default function labelMenuReducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_HIGHLIGHT:
       return { ...state, isHighlight: action.isHighlight }
