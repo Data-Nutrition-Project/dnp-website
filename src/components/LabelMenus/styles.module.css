@@ -8,16 +8,14 @@
   background-color: #f4f4f4;
   margin: 2.1875rem 0rem;
   padding: 1.875rem 0rem 0rem 0rem;
-  /* position: relative; */
 }
 .highlightLabel {
   background-image: url("/highlightbar.png");
-
   background-size: 0.5rem 35rem;
   background-repeat: no-repeat;
 }
 
-.lorem {
+.labelMenuDescription {
   flex: 1;
   display: flex;
   width: 5.125rem;

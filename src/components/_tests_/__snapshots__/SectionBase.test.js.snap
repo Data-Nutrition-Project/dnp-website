@@ -4,7 +4,7 @@ exports[`SectionBase renders correctly 1`] = `
 <div
   className="sectionBase"
 >
-  <header
+  <h1
     className="sectionBaseHeader"
   />
   <span
