@@ -1,13 +1,13 @@
 .highlightLabel {
-  width: 8px;
-  height: 208px;
-  border: solid 1px #707070;
+  width: 0.5rem;
+  height: 13rem;
+  border: solid 0.0625rem #707070;
   background-color: #393939;
 }
 
 .regular {
-  width: 291px;
-  height: 208px;
-  border: solid 1px #707070;
+  width: 218.1875rem;
+  height: 13rem;
+  border: solid 0.0625rem #707070;
   background-color: #f4f4f4;
 }

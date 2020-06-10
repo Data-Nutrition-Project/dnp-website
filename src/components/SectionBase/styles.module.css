@@ -4,15 +4,13 @@
   border: solid 0.0625rem #707070;
   background-color: #f4f4f4;
   margin-top: 2.1875rem;
-  /* margin-left: 1rem; */
-  /* padding-right: 2.6875rem; */
 }
 
 .sectionBaseHeader {
   width: 17.8125rem;
-  height: 28px;
+  height: 1.75rem;
   font-family: Helvetica;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -22,14 +20,14 @@
   color: var(--black);
 }
 .weightedLine {
-  width: 1037px;
-  height: 671px;
-  border: solid 1px #707070;
+  width: 64.8125rem;
+  height: 41.9375rem;
+  border: solid 0.0625rem #707070;
   background-color: #f4f4f4;
 }
 .lightLine {
-  width: 1037px;
-  height: 671px;
-  border: solid 1px #707070;
+  width: 64.8125rem;
+  height: 41.9375rem;
+  border: solid 0.0625rem #707070;
   background-color: #f4f4f4;
 }
