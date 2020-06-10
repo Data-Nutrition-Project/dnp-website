@@ -1,9 +1,6 @@
 import styles from "./styles.module.css"
 import React, { Component } from "react"
-import LabelTitle from "../LabelTitle/index"
-// import SectionBase from "../SectionBase/index.js"
 import { connect } from "react-redux"
-// import { withRouter } from "react-router-dom"
 import { sendBaseInfo } from "../../store/bases"
 class LabelMenus extends Component {
   constructor(props) {
@@ -49,7 +46,7 @@ class LabelMenus extends Component {
               ></div>
               <span className={styles.menuTitle}>{title}</span>
               <div className={styles.flexbox}>
-                <p className={styles.lorem}>Lorem</p>
+                <p className={styles.labelMenuDescription}>Lorem</p>
                 <span className={styles.weightedLine}></span>
               </div>
               <p className={styles.menuParagraph}>
@@ -65,12 +62,6 @@ class LabelMenus extends Component {
     )
   }
 }
-
-// const mapState = state => {
-//   return {
-//     title: state.title,
-//   }
-// }
 
 const mapDispatch = dispatch => {
   return {
