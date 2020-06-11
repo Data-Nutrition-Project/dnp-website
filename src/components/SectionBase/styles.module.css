@@ -1,8 +1,13 @@
+@value layout: "../layout.css";
+
+@value lightGray from layout;
+@value borderDarkGray from layout;
+
 .sectionBase {
-  width: 77%;
-  height: 43.5rem;
-  border: solid 0.0625rem #707070;
-  background-color: #f4f4f4;
+  width: 75%;
+  height: 41.9375rem;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: lightGray;
   margin-top: 2.1875rem;
 }
 
@@ -22,12 +27,12 @@
 .weightedLine {
   width: 64.8125rem;
   height: 41.9375rem;
-  border: solid 0.0625rem #707070;
-  background-color: #f4f4f4;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: lightGray;
 }
 .lightLine {
   width: 64.8125rem;
   height: 41.9375rem;
-  border: solid 0.0625rem #707070;
-  background-color: #f4f4f4;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: lightGray;
 }
