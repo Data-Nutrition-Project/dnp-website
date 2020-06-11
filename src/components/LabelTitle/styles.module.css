@@ -4,25 +4,26 @@
   box-sizing: border-box;
 }
 
-.headertTitle {
-  margin: 1.6875rem 0rem 0rem 2.5rem;
+.headerTitle {
+  margin-top: 1.6875rem;
+  margin-bottom: .25rem;
   width: 17.8125rem;
-  height: 1.625rem;
-  font-family: Helvetica;
   font-size: 1.625rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1;
   letter-spacing: normal;
   text-align: left;
 }
 
+.pageSubHeaderRow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1rem 0;
+}
+
 .datasetLabelHeader {
-  margin: 0.6875rem 0rem 0rem 2.5rem;
-  width: 28.125rem;
-  height: 1.75rem;
-  font-family: Helvetica;
   font-size: 1.75rem;
   font-weight: normal;
   font-stretch: normal;
@@ -32,43 +33,36 @@
   text-align: left;
 }
 
-img {
-  margin-top: -1.5625rem;
-  margin-left: 15.625rem;
+.iconLink {
+  margin-left: .5rem;
+}
+
+.iconLinkImg {
+  display: block;
   width: 0.875rem;
   height: 0.875rem;
-  opacity: 1.2;
 }
 
 .weightedLine {
-  margin: -5rem 0rem 0rem 2.5rem;
+  margin-top: -5rem;
   border-bottom: 0.3125rem solid currentColor;
   display: inline-block;
   line-height: 1;
   padding-right: 20rem;
-  width: 90%;
+  width: 100%;
 }
 
 .datasetOriginLink {
-  margin: -0.9375rem 0.3125rem 0rem 2.5rem;
-  width: 12.75rem;
   height: 1rem;
-  font-family: Helvetica;
   font-size: 1rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 0.88;
   letter-spacing: normal;
-  width: 50%;
 }
 
 .link {
   display: flex;
   width: 100%;
-}
-
-.datasetBoldLink {
-  margin-top: -1.875rem;
-  margin-left: 13.75rem;
 }
