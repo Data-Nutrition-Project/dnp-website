@@ -7,7 +7,23 @@ class LabelMenus extends Component {
     super(props)
     this.state = {
       showHighlight: this.props.highlightValue,
-      titleList: ["Overview", "Use Cases and Alerts", "Maintenance"],
+      menus: [
+        {
+          title: "Overview",
+          desc:
+            "Overview information about the dataset including Description, Provenance, Composition, and Collection.",
+        },
+        {
+          title: "Use Cases and Alerts",
+          desc:
+            "Relevant alerts for data practitioners who intent to use this dataset for specific use cases (types of analyses).",
+        },
+        {
+          title: "Maintenance",
+          desc:
+            "Information about the ongoing management of the dataset, such as how the data will be maintained, updated, and the best contact for further inquiries.",
+        },
+      ],
     }
     this.selectItem = this.selectItem.bind(this)
   }
@@ -27,13 +43,13 @@ class LabelMenus extends Component {
         className={styles.labelMenu}
         style={{ display: this.state.titleList }}
       >
-        {this.state.titleList.map((title, id) => {
+        {this.state.menus.map((menu, id) => {
           return (
             <div
               id="selectButton"
-              onClick={() => this.selectItem(title)}
+              onClick={() => this.selectItem(menu.title)}
               className={
-                this.state.selectedItem === title
+                this.state.selectedItem === menu.title
                   ? `${styles.highlightLabel} ${styles.labelMenus}`
                   : styles.labelMenus
               }
@@ -44,17 +60,11 @@ class LabelMenus extends Component {
                   display: this.state.showHighlight ? "block" : "none",
                 }}
               ></div>
-              <span className={styles.menuTitle}>{title}</span>
+              <span className={styles.menuTitle}>{menu.title}</span>
               <div className={styles.flexbox}>
-                <p className={styles.labelMenuDescription}>Lorem</p>
                 <span className={styles.weightedLine}></span>
               </div>
-              <p className={styles.menuParagraph}>
-                Qui ut occaecat exercitation amet mollit excepteur do aliquip et
-                sunt sit aliqua consectetur. Sit minim voluptate aliqua id do
-                velit deserunt. Voluptate irure proident esse sint duis mollit
-                culpa eiusmod officia ullamco aliqua in magna dolore.
-              </p>
+              <p className={styles.menuParagraph}>{menu.desc}</p>
             </div>
           )
         })}
