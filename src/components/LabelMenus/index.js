@@ -7,7 +7,7 @@ class LabelMenus extends Component {
     super(props)
     this.state = {
       showHighlight: this.props.highlightValue,
-      titleList: ["Use Cases and Alerts", "Overview", "Maintenance"],
+      titleList: ["Overview", "Use Cases and Alerts", "Maintenance"],
     }
     this.selectItem = this.selectItem.bind(this)
   }
