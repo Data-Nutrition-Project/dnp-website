@@ -19,9 +19,15 @@ class LabelWrapper extends Component {
         <LabelTitle />
         <div className={styles.flexComponents}>
           <LabelMenus />
-          {this.props.base === "Overview" && <Overview />}
-          {this.props.base === "Use Cases and Alerts" && <UseCases />}
-          {this.props.base === "Maintenance" && <Maintenance />}
+          {this.props.base === "Overview" ? (
+            <Overview />
+          ) : this.props.base === "Use Cases and Alerts" ? (
+            <UseCases />
+          ) : this.props.base === "Maintenance" ? (
+            <Maintenance />
+          ) : (
+            <Overview />
+          )}
         </div>
       </div>
     )
