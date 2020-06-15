@@ -1,6 +1,10 @@
 /* color contants */
 @value darkSlateBlue: #203f66;
 @value teal: #1ABC9C;
+@value alertRed: #f0190c;
+@value alertOrange: #f5931e;
+@value alertYellow: #fcda24;
+@value gray: #969696;
 
 /* responsive constants */
 @value tabletMaxWidth: 991px;
