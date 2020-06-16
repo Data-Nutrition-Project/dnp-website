@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 
 import classNames from "classnames"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 
 import style from "./index.module.css"
 
@@ -23,7 +22,12 @@ const IndexPage = (props) => (
                         <Link to="/page-2" className="button button-xlarge nobottommargin mod-aqua">
                             <i className="icon-play-circle"></i>prototype
                         </Link>
-                        <a href="https://arxiv.org/abs/1805.03677" target="_blank" className="button button-xlarge nobottommargin mod-aqua">
+                        <a
+                            className="button button-xlarge nobottommargin mod-aqua"
+                            href="https://arxiv.org/abs/1805.03677"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
                             <i className="icon-line-paper"></i>paper
                         </a>
                         <a href="mailto:nutrition@media.mit.edu" className="button  button-xlarge nobottommargin"><i className="icon-line2-users"></i>Work with us</a>

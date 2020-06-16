@@ -8,24 +8,24 @@
 @value portraitMaxWidth: 479px;
 
 .copyrights {
-  padding: 40px 0;
-  background-color: #DDD;
-  font-size: 14px;
-  line-height: 1.8;
+    padding: 40px 0;
+    background-color: #DDD;
+    font-size: 14px;
+    line-height: 1.8;
 }
 
 .copyrights i.footer-icon {
-  position: relative;
-  top: 1px;
-  font-size: 14px;
-  width: 14px;
-  text-align: center;
-  margin-right: 3px;
+    position: relative;
+    top: 1px;
+    font-size: 14px;
+    width: 14px;
+    text-align: center;
+    margin-right: 3px;
 }
 
 .dark .social-icon {
-  color: #DDD !important;
-  border-color: #DDD;
+    color: #DDD !important;
+    border-color: #DDD;
 }
 
 .si-twitter:hover,

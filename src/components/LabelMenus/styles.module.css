@@ -1,81 +1,81 @@
 .labelMenu {
-  width: 20%;
+    width: 20%;
 }
 
 .labelMenus {
-  height: 13rem;
-  border: solid 0.0625rem #707070;
-  background-color: #f4f4f4;
-  margin: 2.1875rem 0rem;
-  padding: 1.875rem 0rem 0rem 0rem;
+    height: 13rem;
+    border: solid 0.0625rem #707070;
+    background-color: #f4f4f4;
+    margin: 2.1875rem 0rem;
+    padding: 1.875rem 0rem 0rem 0rem;
 }
 .highlightLabel {
-  background-image: url("/highlightbar.png");
-  background-size: 0.5rem 35rem;
-  background-repeat: no-repeat;
+    background-image: url("/highlightbar.png");
+    background-size: 0.5rem 35rem;
+    background-repeat: no-repeat;
 }
 
 .labelMenuDescription {
-  flex: 1;
-  display: flex;
-  width: 5.125rem;
-  height: 0.875rem;
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: left;
-  margin: 0.25rem 0rem 0rem 1.46875rem;
+    flex: 1;
+    display: flex;
+    width: 5.125rem;
+    height: 0.875rem;
+    font-family: Helvetica;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    margin: 0.25rem 0rem 0rem 1.46875rem;
 }
 
 .weightedLine {
-  flex: 80% 0 0;
-  border-bottom: 0.1875rem solid currentColor;
-  display: inline;
-  line-height: 0.85;
-  margin: 0.46875rem 0rem 0rem 1.46875rem;
+    flex: 80% 0 0;
+    border-bottom: 0.1875rem solid currentColor;
+    display: inline;
+    line-height: 0.85;
+    margin: 0.46875rem 0rem 0rem 1.46875rem;
 }
 
 .menuParagraph {
-  width: 15.375rem;
-  height: 5.25rem;
-  font-family: Helvetica;
-  font-size: 0.75rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: left;
-  margin-left: 1.46875rem;
-  margin-top: 0.53125rem;
+    width: 15.375rem;
+    height: 5.25rem;
+    font-family: Helvetica;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    margin-left: 1.46875rem;
+    margin-top: 0.53125rem;
 }
 
 .menuTitle {
-  margin-left: 1.34375rem;
-  width: 6.125rem;
-  height: 1.375rem;
-  font-family: Helvetica;
-  font-size: 1.375rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: left;
+    margin-left: 1.34375rem;
+    width: 6.125rem;
+    height: 1.375rem;
+    font-family: Helvetica;
+    font-size: 1.375rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
 }
 
 .flexbox {
-  display: -webkit-flex;
-  align-content: center;
-  flex-wrap: wrap;
+    display: -webkit-flex;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .flexComponents {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

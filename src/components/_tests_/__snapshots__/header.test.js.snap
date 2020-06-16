@@ -13,6 +13,9 @@ exports[`Header renders correctly 1`] = `
       <div
         className="primaryMenuTrigger"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
       >
         <i
           className="icon-reorder"
