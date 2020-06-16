@@ -1,0 +1,39 @@
+/* color contants */
+@value darkSlateBlue: #203f66;
+@value teal: #1ABC9C;
+
+/* responsive constants */
+@value tabletMaxWidth: 991px;
+@value landscapeMaxWidth: 767px;
+@value portraitMaxWidth: 479px;
+
+.copyrights {
+    padding: 40px 0;
+    background-color: #DDD;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.copyrights i.footer-icon {
+    position: relative;
+    top: 1px;
+    font-size: 14px;
+    width: 14px;
+    text-align: center;
+    margin-right: 3px;
+}
+
+.dark .social-icon {
+    color: #DDD !important;
+    border-color: #DDD;
+}
+
+.si-twitter:hover,
+.si-colored.si-twitter { background-color: #00ACEE !important; }
+.si-rounded { border-radius: 50%; }
+
+.copyrights .col_half { margin-bottom: 0 !important; }
+
+.copyrights a:first-child { margin-left: 0; }
+
+.copyrights .tright a:last-child { margin-right: 0; }
