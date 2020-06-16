@@ -1,68 +1,68 @@
 * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .headerTitle {
-  margin-top: 1.6875rem;
-  margin-bottom: .25rem;
-  width: 17.8125rem;
-  font-size: 1.625rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-align: left;
+    margin-top: 1.6875rem;
+    margin-bottom: .25rem;
+    width: 17.8125rem;
+    font-size: 1.625rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
 }
 
 .pageSubHeaderRow {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 1rem 0;
 }
 
 .datasetLabelHeader {
-  font-size: 1.75rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.79;
-  letter-spacing: normal;
-  text-align: left;
+    font-size: 1.75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.79;
+    letter-spacing: normal;
+    text-align: left;
 }
 
 .iconLink {
-  margin-left: .5rem;
+    margin-left: .5rem;
 }
 
 .iconLinkImg {
-  display: block;
-  width: 0.875rem;
-  height: 0.875rem;
+    display: block;
+    width: 0.875rem;
+    height: 0.875rem;
 }
 
 .weightedLine {
-  margin-top: -5rem;
-  border-bottom: 0.3125rem solid currentColor;
-  display: inline-block;
-  line-height: 1;
-  padding-right: 20rem;
-  width: 100%;
+    margin-top: -5rem;
+    border-bottom: 0.3125rem solid currentColor;
+    display: inline-block;
+    line-height: 1;
+    padding-right: 20rem;
+    width: 100%;
 }
 
 .datasetOriginLink {
-  height: 1rem;
-  font-size: 1rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.88;
-  letter-spacing: normal;
+    height: 1rem;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
 }
 
 .link {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 }
