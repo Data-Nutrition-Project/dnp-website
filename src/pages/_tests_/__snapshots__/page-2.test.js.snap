@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+<<<<<<< HEAD
 exports[`Test second page render renders correctly 1`] = `<LabelWrapper />`;
+=======
+exports[`Test second page render renders correctly 1`] = `
+<Layout>
+  <LabelMenus />
+</Layout>
+`;
+>>>>>>> 4e75ff02b6d65beb9dc18c1f8e3acb7d875c6a62
