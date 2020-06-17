@@ -4,7 +4,6 @@
 @value borderDarkGray from layout;
 
 .highlightLabel {
-<<<<<<< HEAD
   width: 0.5rem;
   height: 13rem;
   border: solid 0.0625rem borderDarkGray;
@@ -16,17 +15,4 @@
   height: 13rem;
   border: solid 0.0625rem borderDarkGray;
   background-color: lightGray;
-=======
-    width: 8px;
-    height: 208px;
-    border: solid 1px borderDarkGray;
-    background-color: #393939;
-}
-
-.regular {
-    width: 291px;
-    height: 208px;
-    border: solid 1px borderDarkGray;
-    background-color: lightGray;
->>>>>>> 4e75ff02b6d65beb9dc18c1f8e3acb7d875c6a62
 }
