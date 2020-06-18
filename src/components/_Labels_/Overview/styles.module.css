@@ -9,11 +9,17 @@
 }
 
 .overviewUnderline {
-  flex: 80% 0 0;
+  /* flex: 80% 0 0;
   line-height: 0.5;
   border-bottom: 0.3125rem solid currentColor;
   border: thin solid black;
-  display: inline-block;
+  display: inline-block; */
+  display: block;
+  width: 99%;
+  height: 1px;
+  border: solid 1px borderDarkGray;
+  background-color: black;
+  margin: 0 0 16.5px 0;
 }
 /* 35, 30 */
 .overviewSubHeader {
@@ -25,11 +31,13 @@
 }
 
 .overviewParagraph {
+  margin-top: -19px;
   width: 58rem;
   height: 2.375rem;
   font-family: Helvetica;
   font-size: 1rem;
-  line-height: 0.75;
+  line-height: 1.5;
+  letter-spacing: normal;
   text-align: left;
 }
 

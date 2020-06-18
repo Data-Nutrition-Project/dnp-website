@@ -4,9 +4,10 @@
   border: solid 0.0625rem #707070;
   background-color: #f4f4f4;
   margin-top: 2.1875rem;
+  padding: 35px 30.5px;
 }
 
-.sectionBaseHeader {
+/* .sectionBaseHeader {
   width: 17.8125rem;
   height: 1.75rem;
   font-family: Helvetica;
@@ -30,4 +31,4 @@
   height: 41.9375rem;
   border: solid 0.0625rem #707070;
   background-color: #f4f4f4;
-}
+} */

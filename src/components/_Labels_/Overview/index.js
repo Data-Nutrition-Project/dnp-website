@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import SectionBase from "../../SectionBase/index.js"
-import { render } from "enzyme"
 import styles from "./styles.module.css"
 class Overview extends Component {
   constructor(props) {
@@ -8,22 +7,40 @@ class Overview extends Component {
     this.state = {}
   }
   render() {
-    return (
+    const { overviewInfo } = this.props.fetchOverviewThunk();
       <SectionBase>
         <div clasName={styles.flexbox}>
           <h1 className={styles.overviewTitle}>Overview</h1>
           <span className={styles.overviewUnderline}></span>
         </div>
         <h2 className={styles.overviewSubHeader}>About</h2>
-        <p className={styles.overviewParagraph}>dfsdfsdfdsf</p>
+        <p className={styles.overviewParagraph}>
+          Lorem Ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+          ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem lorem
+          ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+          lorem ipsum lorem ipsum lorem ipsum lorem.
+        </p>
         <span className={styles.overviewUnderline}></span>
-        <h2 className={styles.overviewSubHeader}>Motivation</h2>
-        <p className={styles.overviewParagraph}>dfsdfsdfdsf</p>
+        <div>
+          <h2 className={styles.overviewSubHeader}>Motivation</h2>
+          <p className={styles.overviewParagraph}>
+            The questions in this section are primarily intended to encourage
+            dataset creators to clearly articulate their reasons for creating
+            the dataset and to promote transparency about funding interests.
+          </p>
+        </div>
+
         <span className={styles.overviewUnderline}></span>
         <ol className={styles.overviewList}>
-          <li>sfsdfdsf</li>
-          <li>sdfdsfdf</li>
+            <div>
+          {overviewInfo[description].map(overview => (
+            <li>overview.question</li>
+  // <li>sdfdsfdf</li>
+          ))}
+          </div>
         </ol>
+        <span className={styles.overviewUnderline}></span>
+        <h2 className={styles.overviewSubHeader}>Composition</h2>
       </SectionBase>
     )
   }
