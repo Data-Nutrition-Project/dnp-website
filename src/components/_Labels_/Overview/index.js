@@ -1,15 +1,19 @@
 import React, { Component } from "react"
 import SectionBase from "../../SectionBase/index.js"
 import styles from "./styles.module.css"
+import { connect } from "react-redux"
+import { fetchOverviewThunk } from "../../../store/overviewStore"
 class Overview extends Component {
   constructor(props) {
     super(props)
     this.state = {}
   }
   render() {
-    const { overviewInfo } = this.props.fetchOverviewThunk();
+    const overviewInfo = this.props.overview
+    const collection = overviewInfo.collection || []
+    return (
       <SectionBase>
-        <div clasName={styles.flexbox}>
+        <div className={styles.flexbox}>
           <h1 className={styles.overviewTitle}>Overview</h1>
           <span className={styles.overviewUnderline}></span>
         </div>
@@ -32,12 +36,9 @@ class Overview extends Component {
 
         <span className={styles.overviewUnderline}></span>
         <ol className={styles.overviewList}>
-            <div>
-          {overviewInfo[description].map(overview => (
-            <li>overview.question</li>
-  // <li>sdfdsfdf</li>
+          {collection.map(overview => (
+            <li>{overview.question}</li>
           ))}
-          </div>
         </ol>
         <span className={styles.overviewUnderline}></span>
         <h2 className={styles.overviewSubHeader}>Composition</h2>
@@ -46,4 +47,15 @@ class Overview extends Component {
   }
 }
 
-export default Overview
+const mapStateToProps = state => {
+  return {
+    overview: state.overview,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchOverview: dispatch(fetchOverviewThunk()),
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Overview)

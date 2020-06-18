@@ -17,7 +17,6 @@ class LabelMenus extends Component {
       selectedItem: item,
       showHighlight: false,
     })
-    console.log("item", item)
     this.props.sendBaseInfo(item)
   }
 

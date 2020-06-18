@@ -40,7 +40,9 @@
   letter-spacing: normal;
   text-align: left;
 }
-
+.overviewList {
+  font-family: Helvetica;
+}
 .flexbox {
   display: -webkit-flex;
   align-content: center;
