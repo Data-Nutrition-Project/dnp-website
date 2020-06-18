@@ -2,10 +2,6 @@ import axios from "axios"
 import overviewInfo from "../../public/overview.json"
 const GET_OVERVIEW = "GET_OVERVIEW"
 
-// const initialCase = {
-//   overview: {},
-// }
-
 const getOverview = overview => ({ type: GET_OVERVIEW, overview })
 
 export const fetchOverviewThunk = () => async dispatch => {
