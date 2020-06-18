@@ -36,3 +36,11 @@
   border: solid 0.0625rem borderDarkGray;
   background-color: lightGray;
 }
+
+.blockDiv {
+  display: block;
+}
+
+.hiddenDiv {
+  display: none;
+}

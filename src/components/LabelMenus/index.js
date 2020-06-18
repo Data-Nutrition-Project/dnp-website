@@ -57,9 +57,9 @@ class LabelMenus extends Component {
               key={id}
             >
               <div
-                style={{
-                  display: this.state.showHighlight ? "block" : "none",
-                }}
+                className={classNames(styles.hiddenDiv, {
+                  [styles.blockDiv]: this.state.showHighlight === true,
+                })}
               ></div>
               <span className={styles.menuTitle}>{menu.title}</span>
               <div className={styles.flexbox}>
