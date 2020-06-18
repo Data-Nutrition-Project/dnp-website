@@ -6,6 +6,7 @@ import LabelTitle from "../LabelTitle/index"
 import Maintenance from "../_Labels_/Maintenance/index"
 import Overview from "../_Labels_/Overview/index"
 import UseCases from "../_Labels_/UseCases/index"
+import PropTypes from "prop-types"
 
 class LabelWrapper extends Component {
   constructor() {
@@ -32,6 +33,14 @@ class LabelWrapper extends Component {
       </div>
     )
   }
+}
+
+LabelWrapper.propTypes = {
+  base: PropTypes.string.isRequired,
+}
+
+LabelWrapper.defaultProps = {
+  base: "Overview",
 }
 
 const mapState = state => {

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sendBaseInfo } from "../../store/bases"
+import PropTypes from "prop-types"
 class LabelMenus extends Component {
   constructor(props) {
     super(props)
@@ -69,6 +70,9 @@ class LabelMenus extends Component {
       </div>
     )
   }
+}
+LabelMenus.propTypes = {
+  sendBaseInfo: PropTypes.function.isRequired,
 }
 
 const mapDispatch = dispatch => {
