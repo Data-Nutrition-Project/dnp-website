@@ -10,7 +10,7 @@ class Overview extends Component {
   }
   render() {
     const overviewInfo = this.props.overview
-    const collection = overviewInfo.collection || []
+    const description = overviewInfo.description || []
     return (
       <SectionBase>
         <div className={styles.flexbox}>
@@ -36,7 +36,7 @@ class Overview extends Component {
 
         <span className={styles.overviewUnderline}></span>
         <ol className={styles.overviewList}>
-          {collection.map(overview => (
+          {description.map(overview => (
             <li>{overview.question}</li>
           ))}
         </ol>
