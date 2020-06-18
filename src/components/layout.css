@@ -1,6 +1,8 @@
 /* color contants */
 @value darkSlateBlue: #203f66;
 @value teal: #1ABC9C;
+@value lightGray: #f4f4f4;
+@value borderDarkGray: #707070;
 
 /* responsive constants */
 @value tabletMaxWidth: 991px;
