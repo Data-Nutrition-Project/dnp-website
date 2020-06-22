@@ -17,24 +17,7 @@ class Overview extends Component {
           <h1 className={styles.overviewTitle}>Overview</h1>
           <span className={styles.overviewUnderline}></span>
         </div>
-        <h2 className={styles.overviewSubHeader}>About</h2>
-        <p className={styles.overviewParagraph}>
-          Lorem Ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-          ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem lorem
-          ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-          lorem ipsum lorem ipsum lorem ipsum lorem.
-        </p>
-        <span className={styles.overviewUnderline}></span>
-        <div>
-          <h2 className={styles.overviewSubHeader}>Motivation</h2>
-          <p className={styles.overviewParagraph}>
-            The questions in this section are primarily intended to encourage
-            dataset creators to clearly articulate their reasons for creating
-            the dataset and to promote transparency about funding interests.
-          </p>
-        </div>
-
-        <span className={styles.overviewUnderline}></span>
+        <h2 className={styles.overviewSubHeader}>Description</h2>
         <ol className={styles.overviewList}>
           {description.map(overview => (
             <li>{overview.question}</li>
