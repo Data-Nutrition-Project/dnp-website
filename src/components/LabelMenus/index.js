@@ -1,13 +1,14 @@
-import styles from "./styles.module.css"
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sendBaseInfo } from "../../store/bases"
+
 class LabelMenus extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showHighlight: this.props.highlightValue,
-      titleList: ["Use Cases and Alerts", "Overview", "Maintenance"],
+    constructor(props) {
+        super(props)
+        this.state = {
+            showHighlight: this.props.highlightValue,
+            titleList: ["Use Cases and Alerts", "Overview", "Maintenance"],
+        }
     }
     this.selectItem = this.selectItem.bind(this)
   }

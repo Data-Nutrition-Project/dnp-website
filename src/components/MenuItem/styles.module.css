@@ -1,3 +1,8 @@
+@value layout: "../layout.css";
+
+@value lightGray from layout;
+@value borderDarkGray from layout;
+
 .highlightLabel {
   width: 0.5rem;
   height: 13rem;

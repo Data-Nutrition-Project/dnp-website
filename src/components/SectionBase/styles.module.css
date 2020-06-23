@@ -1,3 +1,8 @@
+@value layout: "../layout.css";
+
+@value lightGray from layout;
+@value borderDarkGray from layout;
+
 .sectionBase {
   width: 77%;
   height: 43.5rem;

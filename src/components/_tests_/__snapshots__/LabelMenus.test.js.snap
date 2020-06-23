@@ -6,33 +6,27 @@ exports[`LabelMenus renders correctly 1`] = `
     className="labelTitle"
   >
     <h1
-      className="headertTitle"
+      className="headerTitle"
     >
       Data Nutrition Label
     </h1>
-    <h1
-      className="datasetLabel"
-    >
-      College Scoreboard Dataset 2020
-    </h1>
     <div
-      className="link"
+      className="pageSubHeaderRow"
     >
       <h2
-        className="datasetNameLink"
-      />
-    </div>
-    <div
-      className="link"
-    >
+        className="datasetLabelHeader"
+      >
+        College Scoreboard Dataset 2020
+      </h2>
       <a
-        className="datasetBoldLink"
+        className="iconLink"
         href="#"
       >
         <img
-          alt=""
+          alt="icon for link"
+          className="iconLinkImg"
           id="datasetLink"
-          src="/linkimg.png"
+          src="linkimg.png"
         />
       </a>
     </div>
@@ -84,6 +78,9 @@ exports[`LabelMenus renders correctly 1`] = `
         className="labelMenus"
         id="selectButton"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={1}
       >
         <div
           style={
@@ -119,6 +116,9 @@ exports[`LabelMenus renders correctly 1`] = `
         className="labelMenus"
         id="selectButton"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={2}
       >
         <div
           style={
@@ -154,6 +154,9 @@ exports[`LabelMenus renders correctly 1`] = `
         className="labelMenus"
         id="selectButton"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={3}
       >
         <div
           style={
@@ -191,21 +194,29 @@ exports[`LabelMenus renders correctly 1`] = `
     >
       <h1
         className="sectionBaseHeader"
-      />
+      >
+         
+      </h1>
       <span
         className="weightedLine"
       >
-        <h2 />
+        <h2>
+           
+        </h2>
       </span>
       <span
         className="lightLine"
       >
-        <h1 />
+        <h1>
+           
+        </h1>
       </span>
       <span
         className="lightLine"
       >
-        <h1 />
+        <h1>
+           
+        </h1>
       </span>
     </div>
   </div>
