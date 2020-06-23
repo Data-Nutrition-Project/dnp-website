@@ -48,3 +48,15 @@
   align-content: center;
   flex-wrap: wrap;
 }
+
+.overviewCaret {
+  border: none !important;
+  outline: none;
+  background-color: transparent;
+  border-color: transparent;
+  margin-left: 0.5rem;
+}
+
+.overviewCaretImg {
+  width: 1rem;
+}
