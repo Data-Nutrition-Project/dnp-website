@@ -24,7 +24,7 @@ class Overview extends Component {
           <Accordion.Toggle className={styles.overviewCaret}>
             <img
               className={styles.overviewCaretImg}
-              src={require("../../images/caret.png")}
+              src={require("../../../images/caret.png")}
               alt="dropdown toggle"
             />
           </Accordion.Toggle>
