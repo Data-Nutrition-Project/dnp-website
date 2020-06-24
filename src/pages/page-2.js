@@ -1,12 +1,13 @@
 import React from "react"
-
-import LabelMenus from "../components/LabelMenus/index.js"
+import { Link } from "gatsby"
+import { Button } from "react-bootstrap"
+import LabelWrapper from "../components/LabelWrapper/index.js"
 import Layout from "../components/layout"
 
 const SecondPage = () => (
-    <Layout>
-        <LabelMenus />
-    </Layout>
+  <Layout>
+    <LabelWrapper />
+  </Layout>
 )
 
 export default SecondPage
