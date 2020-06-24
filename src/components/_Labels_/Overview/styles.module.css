@@ -8,6 +8,20 @@
   font-weight: bold;
 }
 
+.overviewUnderlineBold {
+  /* flex: 80% 0 0;
+  line-height: 0.5;
+  border-bottom: 0.3125rem solid currentColor;
+  border: thin solid black;
+  display: inline-block; */
+  display: block;
+  width: 99%;
+  height: 5px;
+  border: solid 1px borderDarkGray;
+  background-color: black;
+  margin: 0 0 16.5px 0;
+  font-weight: bold;
+}
 .overviewUnderline {
   /* flex: 80% 0 0;
   line-height: 0.5;
@@ -28,6 +42,7 @@
   font-weight: normal;
   font-family: Helvetica;
   text-align: left;
+  font-weight: bold;
 }
 
 .overviewParagraph {

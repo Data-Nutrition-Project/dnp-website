@@ -6,6 +6,7 @@ import LabelTitle from "../LabelTitle/index"
 import Maintenance from "../_Labels_/Maintenance/index"
 import Overview from "../_Labels_/Overview/index"
 import UseCases from "../_Labels_/UseCases/index"
+import PropTypes from "prop-types"
 
 class LabelWrapper extends Component {
   constructor() {
@@ -19,9 +20,15 @@ class LabelWrapper extends Component {
         <LabelTitle />
         <div className={styles.flexComponents}>
           <LabelMenus />
-          {this.props.base === "Overview" && <Overview />}
-          {this.props.base === "Use Cases and Alerts" && <UseCases />}
-          {this.props.base === "Maintenance" && <Maintenance />}
+          {this.props.base === "Overview" ? (
+            <Overview />
+          ) : this.props.base === "Use Cases and Alerts" ? (
+            <UseCases />
+          ) : this.props.base === "Maintenance" ? (
+            <Maintenance />
+          ) : (
+            <Overview />
+          )}
         </div>
       </div>
     )
@@ -36,4 +43,11 @@ const mapState = state => {
   }
 }
 
+LabelWrapper.propTypes = {
+  base: PropTypes.string.isRequired,
+}
+
+LabelWrapper.defaultProps = {
+  base: "Overview",
+}
 export default connect(mapState, null)(LabelWrapper)
