@@ -1,0 +1,9 @@
+.labelWrapper {
+  padding: 2.5rem;
+}
+
+.flexComponents {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

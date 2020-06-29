@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SectionBase renders correctly 1`] = `
+<div
+  className="sectionBase"
+>
+  <h1
+    className="sectionBaseHeader"
+  >
+     
+  </h1>
+  <span
+    className="weightedLine"
+  >
+    <h2>
+       
+    </h2>
+  </span>
+  <span
+    className="lightLine"
+  >
+    <h1>
+       
+    </h1>
+  </span>
+  <span
+    className="lightLine"
+  >
+    <h1>
+       
+    </h1>
+  </span>
+</div>
+`;
