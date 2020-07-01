@@ -17,7 +17,7 @@ const menus = [
       "Relevant alerts for data practitioners who intent to use this dataset for specific use cases (types of analyses).",
   },
   {
-    title: "Maintenance",
+    title: "Dataset Info",
     desc:
       "Information about the ongoing management of the dataset, such as how the data will be maintained, updated, and the best contact for further inquiries.",
   },
