@@ -14,7 +14,7 @@ class Overview extends Component {
     const overviewInfo = this.props.overview
     const description = overviewInfo.description || []
     return (
-      <div>
+      <div className={styles.overviewBase}>
         <div className={styles.flexbox}>
           <h1 className={styles.overviewTitle}>Overview</h1>
           <span className={styles.overviewUnderlineBold}></span>

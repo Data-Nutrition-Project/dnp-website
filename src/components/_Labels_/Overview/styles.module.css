@@ -1,3 +1,10 @@
+.overviewBase {
+  width: 77%;
+  height: 43.5rem;
+  margin-top: 2.1875rem;
+  padding: 35px 30.5px;
+}
+
 .overviewTitle {
   font-size: 1.75rem;
   width: 7.8125rem;
