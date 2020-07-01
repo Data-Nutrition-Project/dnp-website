@@ -4,21 +4,12 @@
 @value borderDarkGray from layout;
 
 .sectionBase {
-<<<<<<< HEAD
-    width: 75%;
-    height: 41.9375rem;
-    border: solid 0.0625rem borderDarkGray;
-    background-color: lightGray;
-    margin-top: 2.1875rem;
-    padding-right: 2.6875rem;
-=======
-  width: 77%;
+  width: 75%;
   height: 43.5rem;
-  border: solid 0.0625rem #707070;
-  background-color: #f4f4f4;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: lightGray;
   margin-top: 2.1875rem;
-  padding: 35px 30.5px;
->>>>>>> 6e60ba3ae3467508eafa3c40f2c8c29d47f14a9d
+  padding-right: 2.6875rem;
 }
 
 /* .sectionBaseHeader {
@@ -43,10 +34,9 @@
 .lightLine {
   width: 64.8125rem;
   height: 41.9375rem;
-<<<<<<< HEAD
   border: solid 0.0625rem borderDarkGray;
   background-color: lightGray;
-}
+} */
 
 .blockDiv {
   display: block;
@@ -55,8 +45,3 @@
 .hiddenDiv {
   display: none;
 }
-=======
-  border: solid 0.0625rem #707070;
-  background-color: #f4f4f4;
-} */
->>>>>>> 6e60ba3ae3467508eafa3c40f2c8c29d47f14a9d

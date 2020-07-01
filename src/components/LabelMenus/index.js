@@ -3,7 +3,6 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sendBaseInfo } from "../../store/bases"
 import PropTypes from "prop-types"
-import styles from "./styles.module.css"
 import classNames from "classnames"
 
 const menus = [

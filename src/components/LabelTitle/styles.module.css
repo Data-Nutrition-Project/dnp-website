@@ -4,64 +4,6 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-.headerTitle {
-    margin-top: 1.6875rem;
-    margin-bottom: .25rem;
-    width: 17.8125rem;
-    font-size: 1.625rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    letter-spacing: normal;
-    text-align: left;
-}
-
-.pageSubHeaderRow {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin: 1rem 0;
-}
-
-.datasetLabelHeader {
-    font-size: 1.75rem;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 0.79;
-    letter-spacing: normal;
-    text-align: left;
-}
-
-.iconLink {
-    margin-left: .5rem;
-}
-
-.iconLinkImg {
-    display: block;
-    width: 0.875rem;
-    height: 0.875rem;
-}
-
-.weightedLine {
-    margin-top: -5rem;
-    border-bottom: 0.3125rem solid currentColor;
-    display: inline-block;
-    line-height: 1;
-    padding-right: 20rem;
-    width: 100%;
-}
-
-.datasetOriginLink {
-    height: 1rem;
-    font-size: 1rem;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 0.88;
-    letter-spacing: normal;
-=======
 .headertTitle {
   margin: 0rem 0rem 0rem 0rem;
   width: 17.8125rem;
@@ -119,7 +61,6 @@ img {
   line-height: 0.88;
   letter-spacing: normal;
   width: 50%;
->>>>>>> 6e60ba3ae3467508eafa3c40f2c8c29d47f14a9d
 }
 
 .link {
