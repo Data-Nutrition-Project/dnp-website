@@ -2,7 +2,6 @@ import styles from "./styles.module.css"
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sendBaseInfo } from "../../store/bases"
-<<<<<<< HEAD
 import PropTypes from "prop-types"
 import styles from "./styles.module.css"
 import classNames from "classnames"
@@ -25,17 +24,11 @@ const menus = [
   },
 ]
 
-=======
->>>>>>> 6e60ba3ae3467508eafa3c40f2c8c29d47f14a9d
 class LabelMenus extends Component {
   constructor(props) {
     super(props)
     this.state = {
       showHighlight: this.props.highlightValue,
-<<<<<<< HEAD
-=======
-      titleList: ["Use Cases and Alerts", "Overview", "Maintenance"],
->>>>>>> 6e60ba3ae3467508eafa3c40f2c8c29d47f14a9d
     }
     this.selectItem = this.selectItem.bind(this)
   }
@@ -80,13 +73,10 @@ class LabelMenus extends Component {
       </div>
     )
   }
-<<<<<<< HEAD
 }
 
 LabelMenus.propTypes = {
   sendBaseInfo: PropTypes.func.isRequired,
-=======
->>>>>>> 6e60ba3ae3467508eafa3c40f2c8c29d47f14a9d
 }
 
 const mapDispatch = dispatch => {

@@ -24,13 +24,8 @@ class LabelWrapper extends Component {
             <Overview />
           ) : this.props.base === "Use Cases and Alerts" ? (
             <UseCases />
-<<<<<<< HEAD
           ) : this.props.base === "Dataset Info" ? (
             <DatasetInfo />
-=======
-          ) : this.props.base === "Maintenance" ? (
-            <Maintenance />
->>>>>>> 6e60ba3ae3467508eafa3c40f2c8c29d47f14a9d
           ) : (
             <Overview />
           )}
@@ -56,11 +51,4 @@ const mapState = state => {
   }
 }
 
-LabelWrapper.propTypes = {
-  base: PropTypes.string.isRequired,
-}
-
-LabelWrapper.defaultProps = {
-  base: "Overview",
-}
 export default connect(mapState, null)(LabelWrapper)
