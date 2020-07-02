@@ -1,53 +1,57 @@
 import React from "react"
 import { connect } from "react-redux"
 import styles from "./styles.module.css"
-import { fetchOverviewThunk } from "../../../store/overviewStore"
+import { fetchDatasetThunk } from "../../../store/datasetStore"
 
 class DatasetInfo extends React.Component {
   render() {
-    const overviewInfo = this.props.overview
-    const description = overviewInfo.description || []
-    const collections = overviewInfo.collection || []
+    const datasetInfo = this.props.dataset
+    const descriptions = datasetInfo.description || []
+    const compositions = datasetInfo.composition || []
+    const provenances = datasetInfo.provenance || []
+    const collections = datasetInfo.collection || []
     return (
-      <div className={styles.overviewBase}>
+      <div className={styles.datasetBase}>
         <div className={styles.flexbox}>
-          <h1 className={styles.overviewTitle}>Dataset Information</h1>
-          <span className={styles.overviewUnderlineBold}></span>
+          <h1 className={styles.datasetTitle}>Dataset Information</h1>
+          <span className={styles.datasetUnderlineBold}></span>
         </div>
-        <h2 className={styles.overviewSubHeader}>About</h2>
-        <p className={styles.overviewParagraph}>Tell us about this dataset</p>
-        <ol className={styles.overviewList}>
-          {description.map(overview => (
-            <li>{overview.question}</li>
-          ))}
-        </ol>
-        <span className={styles.overviewUnderline}></span>
-        <h2 className={styles.overviewSubHeader}>Motivation</h2>
-        <p className={styles.overviewParagraph}>
-          The questions in this section are primarily intended to encourage
-          dataset creators to clearly articulate their reasons for creating the
-          dataset and to promote transparency about funding interests.
-        </p>
-        <p className={styles.questionSubHeader}>Intended Purpose:</p>
-        <p className={styles.overviewParagraph}>
-          The College Scorecard project provides data to help students and
-          families compare college costs and outcomes as they weight the
-          tradeoffs of different colleges, accouting for their own needs and
-          educational goals.
+        <p className={styles.datasetParagraph}>
+          Information about the ongoing management of the dataset, such as how
+          the data will be maintained, updated, and the best contact for further
+          inquiries.
         </p>
 
-        <span className={styles.overviewUnderline}></span>
-        <h2 className={styles.overviewSubHeader}>Composition</h2>
-        <span className={styles.overviewUnderline}></span>
-        <h2 className={styles.overviewSubHeader}>Collection</h2>
-        <ol className={styles.overviewList}>
+        <span className={styles.datasetUnderline}></span>
+        <h2 className={styles.datasetSubHeader}>Description</h2>
+        <ol className={styles.datasetList}>
+          {descriptions.map(description => (
+            <li>{description.question}</li>
+          ))}
+        </ol>
+        <span className={styles.datasetUnderline}></span>
+        <h2 className={styles.datasetSubHeader}>Composition</h2>
+        <ol className={styles.datasetList}>
+          {compositions.map(composition => (
+            <li>{composition.question}</li>
+          ))}
+        </ol>
+        <span className={styles.datasetUnderline}></span>
+        <h2 className={styles.datasetSubHeader}>Provenance</h2>
+        <ol className={styles.datasetList}>
+          {provenances.map(provenance => (
+            <li>{provenance.question}</li>
+          ))}
+        </ol>
+        <span className={styles.datasetUnderline}></span>
+
+        <h2 className={styles.datasetSubHeader}>Collection</h2>
+        <ol className={styles.datasetList}>
           {collections.map(collection => (
             <li>{collection.question}</li>
           ))}
         </ol>
-        <span className={styles.overviewUnderline}></span>
-        <h2 className={styles.overviewSubHeader}>Management</h2>
-        <span className={styles.overviewUnderline}></span>
+        <span className={styles.datasetUnderline}></span>
       </div>
     )
   }
@@ -55,13 +59,13 @@ class DatasetInfo extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    overview: state.overview,
+    dataset: state.dataset,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchOverview: dispatch(fetchOverviewThunk()),
+    fetchDataset: dispatch(fetchDatasetThunk()),
   }
 }
 
