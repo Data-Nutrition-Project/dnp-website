@@ -10,6 +10,7 @@ class DatasetInfo extends React.Component {
     const compositions = datasetInfo.composition || []
     const provenances = datasetInfo.provenance || []
     const collections = datasetInfo.collection || []
+    const managements = datasetInfo.management || []
     return (
       <div className={styles.datasetBase}>
         <div className={styles.flexbox}>
@@ -49,6 +50,13 @@ class DatasetInfo extends React.Component {
         <ol className={styles.datasetList}>
           {collections.map(collection => (
             <li>{collection.question}</li>
+          ))}
+        </ol>
+        <span className={styles.datasetUnderline}></span>
+        <h2 className={styles.datasetSubHeader}>Management</h2>
+        <ol className={styles.datasetList}>
+          {managements.map(management => (
+            <li>{management.question}</li>
           ))}
         </ol>
         <span className={styles.datasetUnderline}></span>
