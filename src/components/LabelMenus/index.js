@@ -7,19 +7,13 @@ import classNames from "classnames"
 
 const menus = [
   {
-    title: "Overview",
-    desc:
-      "Overview information about the dataset including Description, Provenance, Composition, and Collection.",
+    title: "OVERVIEW",
   },
   {
-    title: "Use Cases and Alerts",
-    desc:
-      "Relevant alerts for data practitioners who intent to use this dataset for specific use cases (types of analyses).",
+    title: "USE CASES/ALERTS",
   },
   {
-    title: "Dataset Info",
-    desc:
-      "Information about the ongoing management of the dataset, such as how the data will be maintained, updated, and the best contact for further inquiries.",
+    title: "DATASET INFO",
   },
 ]
 
@@ -62,10 +56,7 @@ class LabelMenus extends Component {
                 })}
               ></div>
               <span className={styles.menuTitle}>{menu.title}</span>
-              <div className={styles.flexbox}>
-                <span className={styles.weightedLine}></span>
-              </div>
-              <p className={styles.menuParagraph}>{menu.desc}</p>
+              <div className={styles.flexbox}></div>
             </div>
           )
         })}

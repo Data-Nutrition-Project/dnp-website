@@ -20,11 +20,11 @@ class LabelWrapper extends Component {
         <LabelTitle />
         <div className={styles.flexComponents}>
           <LabelMenus />
-          {this.props.base === "Overview" ? (
+          {this.props.base === "OVERVIEW" ? (
             <Overview />
-          ) : this.props.base === "Use Cases and Alerts" ? (
+          ) : this.props.base === "USE CASES/ALERTS" ? (
             <UseCases />
-          ) : this.props.base === "Dataset Info" ? (
+          ) : this.props.base === "DATASET INFO" ? (
             <DatasetInfo />
           ) : (
             <Overview />
