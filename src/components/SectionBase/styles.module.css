@@ -4,14 +4,15 @@
 @value borderDarkGray from layout;
 
 .sectionBase {
-  width: 75%;
-  height: 43.5rem;
+  overflow: hidden;
+  width: 77%;
+  /* height: 43.5rem; */
   border-top: 1rem solid #000;
   border-right: solid 0.2rem #000;
   border-left: solid 0.2rem #000;
   border-bottom: solid 0.2rem #000;
   margin-top: 2.1875rem;
-  padding-right: 2.6875rem;
+  padding: 2.6875rem;
 }
 
 .blockDiv {

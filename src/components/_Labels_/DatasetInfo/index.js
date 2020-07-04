@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import styles from "./styles.module.css"
+import SectionBase from "../../SectionBase/index.js"
 import { fetchDatasetThunk } from "../../../store/datasetStore"
 
 class DatasetInfo extends React.Component {
@@ -12,7 +13,8 @@ class DatasetInfo extends React.Component {
     const collections = datasetInfo.collection || []
     const managements = datasetInfo.management || []
     return (
-      <div className={styles.datasetBase}>
+      // <div className={styles.datasetBase}>
+      <SectionBase>
         <div className={styles.flexbox}>
           <h1 className={styles.datasetTitle}>Dataset Information</h1>
           <span className={styles.datasetUnderlineBold}></span>
@@ -60,7 +62,8 @@ class DatasetInfo extends React.Component {
           ))}
         </ol>
         <span className={styles.datasetUnderline}></span>
-      </div>
+      </SectionBase>
+      // </div>
     )
   }
 }
