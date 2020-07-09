@@ -140,9 +140,9 @@ const data = {
     alerts: {
       "no-racial-breakdown": {
         title: "",
-        "alert-level": "high",
+        severity: "high",
         type: "markdown",
-        tags: [],
+        tags: [], //at least has one tag that is on it's filter list , and that,
         content:
           "[Recent studies have shown](url) that there are racial disparities in who the virus impacts. While some new data is starting to be reported on this in this dataset, it's not comprehensive, since not all states are including this data in their reports.",
       },
