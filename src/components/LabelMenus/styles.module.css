@@ -20,7 +20,6 @@
   display: flex;
   width: 5.125rem;
   height: 0.875rem;
-  font-family: Helvetica;
   font-size: 0.875rem;
   font-weight: normal;
   font-stretch: normal;
@@ -42,7 +41,6 @@
 .menuParagraph {
   width: 15.375rem;
   height: 5.25rem;
-  font-family: Helvetica;
   font-size: 0.75rem;
   font-weight: normal;
   font-stretch: normal;
@@ -58,7 +56,6 @@
   margin-left: 1.34375rem;
   width: 6.125rem;
   height: 1.375rem;
-  font-family: Helvetica;
   font-size: 1.375rem;
   font-weight: bold;
   font-stretch: normal;

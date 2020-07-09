@@ -9,7 +9,6 @@
   font-size: 2.75rem;
   /* width: 7.8125rem; */
   height: 1.75rem;
-  font-family: Helvetica;
   line-height: 0.79;
   text-align: left;
   font-weight: bold;
@@ -49,7 +48,6 @@
   font-size: 1.7rem;
   height: 1.375rem;
   font-weight: normal;
-  font-family: Helvetica;
   text-align: left;
   font-weight: bold;
   margin-top: 30px;
@@ -58,7 +56,6 @@
 .questionSubHeader {
   text-transform: uppercase;
   font-weight: bold;
-  font-family: Helvetica;
   margin-top: 30px;
   font-size: 1rem;
 }
@@ -66,7 +63,6 @@
   margin-top: 20px;
   width: 58rem;
   height: 2.375rem;
-  font-family: Helvetica;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: normal;
@@ -74,7 +70,6 @@
 }
 .datasetList {
   margin-top: 30px;
-  font-family: Helvetica;
 }
 .flexbox {
   display: -webkit-flex;
