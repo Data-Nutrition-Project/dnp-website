@@ -2,65 +2,53 @@
   width: 77%;
   height: 43.5rem;
   margin-top: 2.1875rem;
-  padding: 35px 30.5px;
+  padding: 2.1875rem 1.90625rem;
 }
 
 .datasetTitle {
   font-size: 2.75rem;
-  /* width: 7.8125rem; */
   height: 1.75rem;
   line-height: 0.79;
   text-align: left;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 .datasetUnderlineBold {
-  /* flex: 80% 0 0;
-    line-height: 0.5;
-    border-bottom: 0.3125rem solid currentColor;
-    border: thin solid black;
-    display: inline-block; */
   display: block;
   width: 99%;
-  height: 8px;
-  border: solid 3px borderDarkGray;
+  height: 0.5rem;
+  border: solid 0.1875rem borderDarkGray;
   background-color: black;
-  margin: 0 0 16.5px 0;
+  margin: 0 0 1.03125rem 0;
   font-weight: bold;
 }
 .datasetUnderline {
-  /* flex: 80% 0 0;
-    line-height: 0.5;
-    border-bottom: 0.3125rem solid currentColor;
-    border: thin solid black;
-    display: inline-block; */
-
   display: block;
   width: 99%;
-  height: 4px;
-  border: solid 1px borderDarkGray;
+  height: 0.25rem;
+  border: solid 0.0625rem borderDarkGray;
   background-color: black;
-  margin: 30px 0 16.5px 0;
+  margin: 1.875rem 0 1.03125rem 0;
 }
-/* 35, 30 */
+
 .datasetSubHeader {
   font-size: 1.7rem;
   height: 1.375rem;
   font-weight: normal;
   text-align: left;
   font-weight: bold;
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 .questionSubHeader {
   text-transform: uppercase;
   font-weight: bold;
-  margin-top: 30px;
+  margin-top: 1.875rem;
   font-size: 1rem;
 }
 .datasetParagraph {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   width: 58rem;
   height: 2.375rem;
   font-size: 1rem;
@@ -69,7 +57,7 @@
   text-align: left;
 }
 .datasetList {
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 .flexbox {
   display: -webkit-flex;
