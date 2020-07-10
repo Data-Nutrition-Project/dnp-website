@@ -7,11 +7,38 @@
 @value borderDarkGray: #707070;
 @value lightGray: #f4f4f4;
 @value gray: #969696;
+@value backgroundGray: #F9F9F9;
 
 /* responsive constants */
 @value tabletMaxWidth: 991px;
 @value landscapeMaxWidth: 767px;
 @value portraitMaxWidth: 479px;
+
+
+body {
+    font-family: 'railway', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #444;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 2rem 0;
+}
+
+a {
+    text-decoration: none !important;
+    color: darkSlateBlue;
+}
+
+a:hover {
+    color: teal;
+
+}
 
 .copyrights {
     padding: 40px 0;

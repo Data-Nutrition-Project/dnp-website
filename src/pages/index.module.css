@@ -1,4 +1,271 @@
+@value layout: "../components/layout.css";
+
+@value darkSlateBlue from layout;
+@value teal from layout;
+@value backgroundGray from layout;
+
+
+/* General layout */
+
 .feature {
-    margin: 2rem auto;
-    max-width: 500px;
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.section {
+    position: relative;
+    padding: 3.75rem 0;
+    overflow: hidden;
+}
+
+.modGray {
+    background-color: backgroundGray;
+}
+
+.clearfix {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.img {
+    max-width: 100%;
+}
+
+.sectionImage {
+    height: 34.375rem;
+    overflow: hidden;
+}
+
+.sectionImageImg {
+    margin: -4.5rem 0;
+}
+
+.titleBlock {
+    text-align: center;
+    margin-top: 22.5vh;
+    margin-bottom: 3.5rem;
+    border-bottom: none;
+    color: #FFF;
+}
+
+.pageTitleHeader {
+    margin-bottom: 0;
+    padding: 0 1rem;
+    line-height: 1.5;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.pageTitleSpan {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.tealButton {
+    background-color: teal;
+    padding: 0 2rem;
+    margin: .375rem;
+    border: none;
+    font-weight: 600;
+    letter-spacing: .125rem;
+    line-height: 3.5rem;
+    text-transform: uppercase;
+}
+
+.tealButtonLink {
+    color: white;
+}
+
+.tealButtonLink i {
+    margin-right: .375rem;
+}
+
+.tealButton:hover,
+.tealButton:focus,
+.tealButton:active {
+    background-color: darkSlateBlue;
+}
+
+.photoCredit {
+    width: 100%;
+    padding: .875rem;
+    text-align: right;
+}
+
+.headingBlock {
+    margin-bottom: 3.125rem;
+}
+
+.headingBlock::after {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    margin: 2.875rem auto 0;
+    border-top: .125rem solid black;
+}
+
+.headingBlock h1,
+.headingBlock h2,
+.headingBlock h3,
+.headingBlock h4 {
+    margin-bottom: 0;
+    padding: 0 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+}
+
+.headingBlock h2 {
+    font-size: 2rem;
+}
+
+.headingSubHeader {
+    display: block;
+    margin-top: .875rem;
+    font-weight: 300;
+    font-size: 1.5rem;  
+    color: #777;
+    max-width: 43.75rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Title Block */
+
+.slider {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 92.5vh;
+    background-color: #000;
+    background-image: linear-gradient(rgba(0,0,0, 0) 0%, rgba(0,0,0, 1) 100%), url('../images/background-header-2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.sliderParallax { 
+    position: relative; 
+}
+
+.sliderParallax .sliderParallaxInner {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.device-touch .sliderParallax .sliderParallax-inner { position: relative; }
+
+body:not(.side-header) .sliderParallax .sliderParallaxInner { left: 0; }
+
+body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
+
+.header.transparentHeader + .sliderParallax .sliderParallaxInner { top: 0; }
+
+
+/* Info sections */
+
+.missionRow {
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.lead {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.missionList {
+    list-style-type: none;
+    font-size: 1.25rem;
+    padding-left: 0;
+}
+
+.modPictureBelow {
+    margin-bottom: 0;
+}
+
+.modPictureAbove {
+    margin-top: 0;
+}
+
+
+/* Team section */
+
+.disclaimer {
+    font-size: .625rem;
+}
+
+.team {
+    position: relative;
+}
+
+.teamDesc {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.teamTitle {
+    position: relative; 
+    padding-top: 0;
+}
+
+.teamTitleName {
+    display: block;
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.teamTitleRole {
+    display: block;
+    color: teal;
+    font-weight: 400;
+    font-family: 'Crete Round', serif;
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: .375rem;
+}
+
+.teamContent {
+    margin-top: 1rem;
+    color: #777;
+}
+
+.teamImage {
+    float: left;
+    width: 15rem;
+    margin-right: 1.875rem;
+}
+
+.teamImageImg {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    max-height: 15rem;
+}
+
+.modAlum {
+    display: flex;
+    align-items: center;
 }
