@@ -9,9 +9,9 @@ const LabelTitle = props => {
     <div className={styles.labelTitle}>
       <h1 className={styles.headerTitle}>{props.datasetName}</h1>
       <div className={styles.pageSubHeaderRow}></div>
-      <div className={styles.link}>
-        <p className={styles.datasetOriginLink}>Dataset Nutrition Label</p>
-      </div>
+
+      <p className={styles.datasetOriginLink}>Dataset Nutrition Label</p>
+
       <div className={styles.link}>
         <a className={styles.datasetLink} href={props.datasetOrgLink}>
           <img src="/linkimg.png" alt="" id="datasetLink" />

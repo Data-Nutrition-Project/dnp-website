@@ -4,12 +4,12 @@
 @value borderDarkGray from layout;
 
 .sectionBase {
-    width: 75%;
-    height: 41.9375rem;
-    border: solid 0.0625rem borderDarkGray;
-    background-color: lightGray;
-    margin-top: 2.1875rem;
-    padding-right: 2.6875rem;
+  width: 75%;
+  height: 41.9375rem;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: lightGray;
+  margin-top: 2.1875rem;
+  /* padding-right: 2.6875rem; */
 }
 
 .sectionBaseHeader {

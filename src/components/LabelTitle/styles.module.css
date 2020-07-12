@@ -1,3 +1,7 @@
+@value layout: "../layout.css";
+
+@value sideSectionPadding from layout;
+
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -16,7 +20,8 @@
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
-  text-align: left;
+  text-align: right;
+  padding-right: sideSectionPadding;
 }
 
 .pageSubHeaderRow {
@@ -60,13 +65,15 @@ a {
 
 .datasetOriginLink {
   height: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 0.88;
   letter-spacing: normal;
   margin: -0.4rem 0;
+  text-align: right;
+  padding-right: sideSectionPadding;
 }
 
 .link {

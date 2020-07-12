@@ -1,3 +1,7 @@
+@value layout: "../layout.css";
+
+@value sideSectionPadding from layout;
+
 .labelMenu {
   width: 20%;
 }
@@ -5,14 +9,15 @@
 .labelMenus {
   height: 0.2rem;
   margin: 1.1875rem 0rem;
-  padding: 1.875rem 0rem 0rem 0rem;
+  padding: 1.875rem 0rem 0rem 5.7rem;
+  text-align: right;
 }
 .highlightLabel {
   background-image: url("/highlightbar.png");
   background-size: 0.5rem 35rem;
   background-repeat: no-repeat;
 }
-
+/* 
 .labelMenuDescription {
   flex: 1;
   display: flex;
@@ -27,7 +32,7 @@
   letter-spacing: normal;
   text-align: left;
   margin: 0.25rem 0rem 0rem 1.46875rem;
-}
+} */
 
 .weightedLine {
   flex: 80% 0 0;
@@ -67,14 +72,14 @@
   text-align: right;
 }
 
-.flexbox {
+/* .flexbox {
   display: -webkit-flex;
   align-content: center;
   flex-wrap: wrap;
-}
+} */
 
-.flexComponents {
+/* .flexComponents {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} */
