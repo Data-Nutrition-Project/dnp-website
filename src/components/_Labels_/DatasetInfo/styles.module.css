@@ -1,3 +1,7 @@
+@value layout: "../../layout.css";
+
+@value black from layout;
+
 .datasetBase {
   width: 77%;
   height: 43.5rem;
