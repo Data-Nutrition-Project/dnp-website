@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import styles from "./styles.module.css"
 import SectionBase from "../../SectionBase/index.js"
 import ReactMarkdown from "react-markdown"
+import PropTypes from "prop-types"
 import { fetchDatasetThunk } from "../../../store/datasetStore"
 
 class DatasetInfo extends React.Component {
@@ -128,6 +129,13 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchDataset: dispatch(fetchDatasetThunk()),
   }
+}
+
+DatasetInfo.propTypes = {
+  shape: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number,
+  }),
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DatasetInfo)
