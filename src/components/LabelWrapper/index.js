@@ -17,9 +17,11 @@ class LabelWrapper extends Component {
   render() {
     return (
       <div className={styles.labelWrapper}>
-        <LabelTitle />
         <div className={styles.flexComponents}>
-          <LabelMenus />
+          <div className={styles.flexTitleMenus}>
+            <LabelTitle />
+            <LabelMenus />
+          </div>
           {this.props.base === "OVERVIEW" ? (
             <Overview />
           ) : this.props.base === "USE CASES/ALERTS" ? (

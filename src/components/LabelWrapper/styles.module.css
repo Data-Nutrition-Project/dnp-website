@@ -7,3 +7,8 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.flexTitleMenus {
+  display: flex;
+  flex-direction: column;
+}
