@@ -11,14 +11,14 @@
   line-height: 0.79;
   text-align: left;
   font-weight: bold;
-  margin-bottom: 1.875rem;
+  margin-bottom: 3.875rem;
 }
 
 .datasetUnderlineBold {
   display: block;
   width: 99%;
-  height: 0.5rem;
-  border: solid 0.1875rem borderDarkGray;
+  height: 15px;
+  border: solid 10px borderDarkGray;
   background-color: black;
   margin: 0 0 1.03125rem 0;
   font-weight: bold;
@@ -26,10 +26,10 @@
 .datasetUnderline {
   display: block;
   width: 99%;
-  height: 0.25rem;
+  height: 6px;
   border: solid 0.0625rem borderDarkGray;
   background-color: black;
-  margin: 1.875rem 0 1.03125rem 0;
+  margin: 3rem 0 1.03125rem 0;
 }
 
 .datasetSubHeader {
@@ -45,6 +45,7 @@
   text-transform: uppercase;
   font-weight: bold;
   margin-top: 1.875rem;
+  margin-bottom: -20px;
   font-size: 1rem;
 }
 .datasetParagraph {
@@ -56,13 +57,29 @@
   letter-spacing: normal;
   text-align: left;
 }
-.datasetList {
+.datasetOl {
   margin-top: 1.875rem;
+}
+
+ol {
+  margin-left: 0px;
+  padding-left: 1.5625rem;
+}
+.datasetLi {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 30px;
 }
 .flexbox {
   display: -webkit-flex;
   align-content: center;
   flex-wrap: wrap;
+}
+
+.datasetMrkdwn {
+  text-transform: none;
+  font-weight: normal;
+  margin-top: 10px;
 }
 
 .datasetCaret {

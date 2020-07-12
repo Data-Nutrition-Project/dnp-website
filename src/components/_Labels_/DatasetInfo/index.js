@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import styles from "./styles.module.css"
 import SectionBase from "../../SectionBase/index.js"
+import ReactMarkdown from "react-markdown"
 import { fetchDatasetThunk } from "../../../store/datasetStore"
 
 class DatasetInfo extends React.Component {
@@ -12,8 +13,8 @@ class DatasetInfo extends React.Component {
     const provenances = datasetInfo.provenance || []
     const collections = datasetInfo.collection || []
     const managements = datasetInfo.management || []
+
     return (
-      // <div className={styles.datasetBase}>
       <SectionBase>
         <div className={styles.flexbox}>
           <h1 className={styles.datasetTitle}>Dataset Information</h1>
@@ -27,43 +28,92 @@ class DatasetInfo extends React.Component {
 
         <span className={styles.datasetUnderline}></span>
         <h2 className={styles.datasetSubHeader}>Description</h2>
-        <ol className={styles.datasetList}>
+        <ol className={styles.datasetOl}>
           {descriptions.map(description => (
-            <li>{description.question}</li>
+            <li className={styles.datasetLi}>
+              {description.question}
+              {description.type === "markdown" ? (
+                <ReactMarkdown
+                  className={styles.datasetMrkdwn}
+                  source={description.answer || description.content}
+                />
+              ) : (
+                ""
+              )}
+            </li>
           ))}
         </ol>
         <span className={styles.datasetUnderline}></span>
         <h2 className={styles.datasetSubHeader}>Composition</h2>
-        <ol className={styles.datasetList}>
+        <ol className={styles.datasetOl}>
           {compositions.map(composition => (
-            <li>{composition.question}</li>
+            <li className={styles.datasetLi}>
+              {composition.question}
+              {composition.type === "markdown" ? (
+                <ReactMarkdown
+                  className={styles.datasetMrkdwn}
+                  source={composition.answer || composition.content}
+                />
+              ) : (
+                ""
+              )}
+            </li>
           ))}
         </ol>
         <span className={styles.datasetUnderline}></span>
         <h2 className={styles.datasetSubHeader}>Provenance</h2>
-        <ol className={styles.datasetList}>
+        <ol className={styles.datasetOl}>
           {provenances.map(provenance => (
-            <li>{provenance.question}</li>
+            <li className={styles.datasetLi}>
+              {provenance.question}
+              {provenance.type === "markdown" ? (
+                <ReactMarkdown
+                  className={styles.datasetMrkdwn}
+                  source={provenance.answer || provenance.content}
+                />
+              ) : (
+                ""
+              )}
+            </li>
           ))}
         </ol>
         <span className={styles.datasetUnderline}></span>
 
         <h2 className={styles.datasetSubHeader}>Collection</h2>
-        <ol className={styles.datasetList}>
+        <ol className={styles.datasetOl}>
           {collections.map(collection => (
-            <li>{collection.question}</li>
+            <li className={styles.datasetLi}>
+              {collection.question}
+              {collection.type === "markdown" ? (
+                <ReactMarkdown
+                  className={styles.datasetMrkdwn}
+                  source={collection.answer || collection.content}
+                />
+              ) : (
+                ""
+              )}
+            </li>
           ))}
         </ol>
         <span className={styles.datasetUnderline}></span>
         <h2 className={styles.datasetSubHeader}>Management</h2>
-        <ol className={styles.datasetList}>
+        <ol className={styles.datasetOl}>
           {managements.map(management => (
-            <li>{management.question}</li>
+            <li className={styles.datasetLi}>
+              {management.question}
+              {management.type === "markdown" ? (
+                <ReactMarkdown
+                  className={styles.datasetMrkdwn}
+                  source={management.answer || management.content}
+                />
+              ) : (
+                ""
+              )}
+            </li>
           ))}
         </ol>
         <span className={styles.datasetUnderline}></span>
       </SectionBase>
-      // </div>
     )
   }
 }
