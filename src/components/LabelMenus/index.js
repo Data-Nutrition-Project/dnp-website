@@ -36,30 +36,33 @@ class LabelMenus extends Component {
 
   render() {
     return (
-      <div
-        className={styles.labelMenu}
-        style={{ display: this.state.titleList }}
-      >
-        {menus.map((menu, id) => {
-          return (
-            <div
-              id="selectButton"
-              onClick={() => this.selectItem(menu.title)}
-              className={classNames(styles.labelMenus, {
-                [styles.highlightLabel]: this.state.selectedItem === menu.title,
-              })}
-              key={id}
-            >
+      <div className={styles.menuTop}>
+        <div
+          className={styles.labelMenu}
+          style={{ display: this.state.titleList }}
+        >
+          {menus.map((menu, id) => {
+            return (
               <div
-                className={classNames(styles.hiddenDiv, {
-                  [styles.blockDiv]: this.state.showHighlight === true,
+                id="selectButton"
+                onClick={() => this.selectItem(menu.title)}
+                className={classNames(styles.labelMenus, {
+                  [styles.highlightLabel]:
+                    this.state.selectedItem === menu.title,
                 })}
-              ></div>
-              <span className={styles.menuTitle}>{menu.title}</span>
-              <div className={styles.flexbox}></div>
-            </div>
-          )
-        })}
+                key={id}
+              >
+                <div
+                  className={classNames(styles.hiddenDiv, {
+                    [styles.blockDiv]: this.state.showHighlight === true,
+                  })}
+                ></div>
+                <span className={styles.menuTitle}>{menu.title}</span>
+                <div className={styles.flexbox}></div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     )
   }

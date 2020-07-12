@@ -23,8 +23,6 @@ const LabelTitle = props => {
 
 LabelTitle.propTypes = {
   datasetName: PropTypes.string.isRequired,
-  datasetOrg: PropTypes.string.isRequired,
-  datasetNameLink: PropTypes.string.isRequired,
   datasetOrgLink: PropTypes.string.isRequired,
 }
 

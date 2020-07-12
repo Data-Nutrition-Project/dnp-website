@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import styles from "./styles.module.css"
 import LabelMenus from "../LabelMenus/index"
 import LabelTitle from "../LabelTitle/index"
+import ShareButton from "../ShareButton/index"
 import DatasetInfo from "../_Labels_/DatasetInfo/index"
 import Overview from "../_Labels_/Overview/index"
 import UseCases from "../_Labels_/UseCases/index"
@@ -20,6 +21,7 @@ class LabelWrapper extends Component {
         <div className={styles.flexComponents}>
           <div className={styles.flexTitleMenus}>
             <LabelTitle />
+            <ShareButton />
             <LabelMenus />
           </div>
           {this.props.base === "OVERVIEW" ? (

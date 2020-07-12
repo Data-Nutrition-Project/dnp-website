@@ -1,14 +1,13 @@
-@value layout: "../layout.css";
-
-@value sideSectionPadding from layout;
-
 .labelMenu {
   width: 20%;
 }
 
+.menuTop {
+  margin-top: 1.5rem;
+}
 .labelMenus {
   height: 0.2rem;
-  margin: 1.1875rem 0rem;
+  margin: 1.1875rem 0rem 0rem 0rem;
   padding: 1.875rem 0rem 0rem 5.7rem;
   text-align: right;
 }
