@@ -1,0 +1,49 @@
+// @value layout: "../layout.css";
+
+// @value sideSectionPadding from layout;
+// @value darkSlateBlue from layout;
+// @value teal: #1ABC9C;
+
+// import "bootstrap";
+// @import "_buttons.scss";
+
+$newBackgroundColor: darkSlateBlue;
+
+.buttonSpacing {
+  padding: 1.7rem 0rem 0rem 16.03rem;
+}
+
+.buttonStyle {
+  width: 90px;
+  height: 30px;
+  background-color: darkSlateBlue;
+  border: 1px;
+  border-radius: 1px;
+}
+
+.buttonText {
+  padding: 0;
+  position: relative;
+  bottom: 4px;
+  font-size: 0.94rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.buttonStyle:hover {
+  background-color: teal;
+}
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  @include button-variant(
+    $newBackgroundColor,
+    darken($newBackgroundColor, 7.5%),
+    darken($newBackgroundColor, 10%),
+    lighten($newBackgroundColor, 5%),
+    lighten($newBackgroundColor, 10%),
+    darken($newBackgroundColor, 30%)
+  );
+}

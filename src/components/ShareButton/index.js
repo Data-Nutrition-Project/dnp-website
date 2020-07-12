@@ -1,6 +1,6 @@
 import React from "react"
 import Button from "react-bootstrap/Button"
-import styles from "./styles.module.css"
+import styles from "./styles.module.scss"
 
 const ShareButton = () => {
   return (
