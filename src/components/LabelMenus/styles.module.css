@@ -3,18 +3,24 @@
 }
 
 .menuTop {
-  margin-top: 1.5rem;
+  margin-top: 3.5rem;
 }
 .labelMenus {
   height: 0.2rem;
   margin: 1.1875rem 0rem 0rem 0rem;
   padding: 1.875rem 0rem 0rem 5.7rem;
   text-align: right;
+  cursor: pointer;
 }
+
+/* .labelMenus:hover {
+  text-decoration: bold underline;
+} */
 .highlightLabel {
-  background-image: url("/highlightbar.png");
-  background-size: 0.5rem 35rem;
-  background-repeat: no-repeat;
+  text-decoration: none;
+  border-bottom: 4px solid black;
+  cursor: pointer;
+  padding-bottom: 30px;
 }
 /* 
 .labelMenuDescription {
@@ -58,7 +64,8 @@
 
 .menuTitle {
   display: block;
-  margin-left: 1.34375rem;
+  margin-left: 7.34375rem;
+  margin-top: 1.1875rem;
   width: 14.125rem;
   height: 1.375rem;
   font-family: Helvetica;
@@ -71,11 +78,15 @@
   text-align: right;
 }
 
-/* .flexbox {
-  display: -webkit-flex;
-  align-content: center;
-  flex-wrap: wrap;
-} */
+.menuTitle:hover {
+  cursor: pointer;
+}
+
+.flexbox {
+  display: flex;
+  align-content: flex-start;
+  justify-content: first baseline;
+}
 
 /* .flexComponents {
   display: flex;

@@ -1,13 +1,11 @@
-// @value layout: "../layout.css";
+@value layout: "../layout.css";
 
-// @value sideSectionPadding from layout;
-// @value darkSlateBlue from layout;
-// @value teal: #1ABC9C;
-
-// import "bootstrap";
-// @import "_buttons.scss";
-
-$newBackgroundColor: darkSlateBlue;
+@value sideSectionPadding from layout;
+@value darkSlateBlue from layout;
+@value teal: #1ABC9C;
+/* 
+ import "bootstrap";
+@import "_buttons.scss"; */
 
 .buttonSpacing {
   padding: 1.7rem 0rem 0rem 16.03rem;
