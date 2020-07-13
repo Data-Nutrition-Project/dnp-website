@@ -81,12 +81,21 @@
 .menuTitle:hover {
   cursor: pointer;
 }
+.useButton .btn-primary {
+  background-color: none !important;
+}
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: white !important;
+  color: black !important;
+}
 
-.flexbox {
+/* .flexbox {
   display: flex;
   align-content: flex-start;
   justify-content: first baseline;
-}
+} */
 
 /* .flexComponents {
   display: flex;

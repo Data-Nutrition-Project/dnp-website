@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import UseCasesDropdown from "../UseCasesDropdown"
+import DatasetDropdown from "../DatasetDropdown"
 import { connect } from "react-redux"
 import { sendBaseInfo } from "../../store/bases"
 import PropTypes from "prop-types"
@@ -30,6 +32,7 @@ class LabelMenus extends Component {
     this.setState({
       selectedItem: item,
       showHighlight: false,
+      open: item,
     })
     this.props.sendBaseInfo(item)
   }
@@ -57,8 +60,16 @@ class LabelMenus extends Component {
                         this.state.selectedItem === menu.title,
                     })}
                   >
-                    <p>{menu.title} </p>
+                    {menu.title}
                   </span>
+                  {this.state.open === "USE CASES/ALERTS" &&
+                  menu.title === "USE CASES/ALERTS" ? (
+                    <UseCasesDropdown />
+                  ) : null}
+                  {this.state.open === "DATASET INFO" &&
+                  menu.title === "DATASET INFO" ? (
+                    <DatasetDropdown />
+                  ) : null}
                 </div>
                 {/* </div> */}
               </div>
