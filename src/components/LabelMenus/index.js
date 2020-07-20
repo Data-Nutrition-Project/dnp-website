@@ -46,21 +46,18 @@ class LabelMenus extends Component {
         >
           {menus.map((menu, id) => {
             return (
-              <div className={styles.flexbox}>
+              <div>
                 <div id="selectButton" key={id}>
-                  {/* <div
-                    className={classNames(styles.hiddenDiv, {
-                      [styles.blockDiv]: this.state.showHighlight === true,
-                    })}
-                  > */}
-                  <span
-                    onClick={() => this.selectItem(menu.title)}
-                    className={classNames(styles.menuTitle, {
-                      [styles.highlightLabel]:
-                        this.state.selectedItem === menu.title,
-                    })}
-                  >
-                    {menu.title}
+                  <span className={styles.menuTitle}>
+                    <span
+                      onClick={() => this.selectItem(menu.title)}
+                      className={classNames(styles.menuTitlem, {
+                        [styles.highlightLabel]:
+                          this.state.selectedItem === menu.title,
+                      })}
+                    >
+                      {menu.title}
+                    </span>
                   </span>
                   {this.state.open === "USE CASES/ALERTS" &&
                   menu.title === "USE CASES/ALERTS" ? (
@@ -71,7 +68,6 @@ class LabelMenus extends Component {
                     <DatasetDropdown />
                   ) : null}
                 </div>
-                {/* </div> */}
               </div>
             )
           })}

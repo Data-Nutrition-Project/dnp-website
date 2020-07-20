@@ -10,33 +10,19 @@
   padding: 1.875rem 0rem 0rem 5.7rem;
   text-align: right;
   cursor: pointer;
+  display: inline-block;
+  position: relative;
 }
 
-/* .labelMenus:hover {
-  text-decoration: bold underline;
-} */
 .highlightLabel {
-  text-decoration: none;
   border-bottom: 4px solid black;
   cursor: pointer;
-  padding-bottom: 30px;
+  padding-bottom: 5px;
 }
-/* 
-.labelMenuDescription {
-  flex: 1;
-  display: flex;
-  width: 5.125rem;
-  height: 0.875rem;
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: left;
-  margin: 0.25rem 0rem 0rem 1.46875rem;
-} */
+.span {
+  display: block;
+  width: 100%;
+}
 
 .weightedLine {
   flex: 80% 0 0;
@@ -83,15 +69,3 @@
 .useButton .btn-primary {
   background-color: none !important;
 }
-.btn-primary:not(:disabled):not(.disabled).active,
-.btn-primary:not(:disabled):not(.disabled):active,
-.show > .btn-primary.dropdown-toggle {
-  background-color: white !important;
-  color: black !important;
-}
-
-/* .flexbox {
-  display: flex;
-  align-content: flex-start;
-  justify-content: first baseline;
-} */
