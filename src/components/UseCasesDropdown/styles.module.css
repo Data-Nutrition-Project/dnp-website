@@ -1,7 +1,17 @@
 .list {
   text-decoration: none;
   list-style-type: none;
-  text-align: right;
-  margin-left: 280px;
+  float: right;
+  clear: both;
   margin-top: 10px;
+}
+
+.dropdownContent {
+  margin-left: 230px;
+  z-index: 1;
+}
+
+.navbar {
+  position: relative;
+  display: inline-block;
 }

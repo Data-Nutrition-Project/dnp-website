@@ -1,7 +1,18 @@
-.list {
+.listSet {
   text-decoration: none;
   list-style-type: none;
-  text-align: right;
-  margin-left: 280px;
-  margin-top: 10px;
+  float: right;
+  clear: both;
+}
+
+.dropdown {
+  position: absolute;
+  margin-left: 200px;
+
+  z-index: 1;
+}
+
+.navbar {
+  position: relative;
+  display: inline-block;
 }
