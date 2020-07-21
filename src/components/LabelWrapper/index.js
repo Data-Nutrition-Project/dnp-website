@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import styles from "./styles.module.css"
 import LabelMenus from "../LabelMenus/index"
 import LabelTitle from "../LabelTitle/index"
-import Maintenance from "../_Labels_/Maintenance/index"
+import DatasetInfo from "../_Labels_/DatasetInfo/index"
 import Overview from "../_Labels_/Overview/index"
 import UseCases from "../_Labels_/UseCases/index"
 import PropTypes from "prop-types"
@@ -24,8 +24,8 @@ class LabelWrapper extends Component {
             <Overview />
           ) : this.props.base === "Use Cases and Alerts" ? (
             <UseCases />
-          ) : this.props.base === "Maintenance" ? (
-            <Maintenance />
+          ) : this.props.base === "Dataset Info" ? (
+            <DatasetInfo />
           ) : (
             <Overview />
           )}
@@ -47,6 +47,7 @@ const mapState = state => {
   return {
     data: state.data,
     base: state.base,
+    overview: state.overview,
   }
 }
 

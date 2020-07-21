@@ -1,8 +1,8 @@
+import styles from "./styles.module.css"
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sendBaseInfo } from "../../store/bases"
 import PropTypes from "prop-types"
-import styles from "./styles.module.css"
 import classNames from "classnames"
 
 const menus = [
@@ -17,7 +17,7 @@ const menus = [
       "Relevant alerts for data practitioners who intent to use this dataset for specific use cases (types of analyses).",
   },
   {
-    title: "Maintenance",
+    title: "Dataset Info",
     desc:
       "Information about the ongoing management of the dataset, such as how the data will be maintained, updated, and the best contact for further inquiries.",
   },
