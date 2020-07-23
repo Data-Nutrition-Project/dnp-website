@@ -7,7 +7,7 @@
 @value borderDarkGray: #707070;
 @value lightGray: #f4f4f4;
 @value gray: #969696;
-
+@value black: #000000;
 /* responsive constants */
 @value tabletMaxWidth: 991px;
 @value landscapeMaxWidth: 767px;

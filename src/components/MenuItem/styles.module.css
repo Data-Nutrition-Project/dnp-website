@@ -1,0 +1,18 @@
+@value layout: "../layout.css";
+
+@value lightGray from layout;
+@value borderDarkGray from layout;
+
+.highlightLabel {
+  width: 0.5rem;
+  height: 13rem;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: #393939;
+}
+
+.regular {
+  width: 18.1875rem;
+  height: 13rem;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: lightGray;
+}

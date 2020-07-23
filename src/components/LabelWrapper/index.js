@@ -51,6 +51,7 @@ const mapState = state => {
   return {
     data: state.data,
     base: state.base,
+    overview: state.overview,
   }
 }
 
