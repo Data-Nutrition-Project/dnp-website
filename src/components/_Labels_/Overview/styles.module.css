@@ -1,0 +1,42 @@
+.row {
+    margin-bottom: 2rem;
+}
+
+.sectionTitle {
+    margin-bottom: 1rem;
+}
+
+.datasetUnderline {
+  display: block;
+  width: 99%;
+  height: 0.375rem;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: black;
+  margin: 0 0 1.03125rem 0;
+}
+
+.summaryCreationSection {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.qAndA {
+    margin-bottom: 1.5rem;
+}
+
+.question {
+    font-weight: 600;
+}
+
+.answer {
+
+}
+
+.listNumber {
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+.alertGraph {
+    width: 100%;
+}
