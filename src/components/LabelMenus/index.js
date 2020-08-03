@@ -35,6 +35,7 @@ class LabelMenus extends Component {
       open: item,
     })
     this.props.sendBaseInfo(item)
+    console.log("showHighlight")
   }
 
   render() {

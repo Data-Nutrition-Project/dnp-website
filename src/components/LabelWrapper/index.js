@@ -17,9 +17,9 @@ class LabelWrapper extends Component {
 
   render() {
     return (
-      <div className={styles.labelWrapper}>
-        <div className={styles.flexComponents}>
-          <div className={styles.flexTitleMenus}>
+      <div key={0} className={styles.labelWrapper}>
+        <div key={1} className={styles.flexComponents}>
+          <div key={2} className={styles.flexTitleMenus}>
             <LabelTitle />
             <ShareButton />
             <LabelMenus />

@@ -1,21 +1,59 @@
-import React from "react"
-
+import React, { Component } from "react"
+import { Link } from "gatsby"
 import styles from "./styles.module.css"
+import classNames from "classnames"
 
-const DatasetDropdown = () => {
-  return (
-    // create a dropdown component and then add it to an onClick listener
+const dropdowns = [
+  "Description",
+  "Composition",
+  "Provenance",
+  "Collection",
+  "Management",
+]
+class DatasetDropdown extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      bold: "",
+      selectBold: this.props.optionsState,
+    }
 
-    <nav className={styles.navbar}>
-      <ul className={styles.dropdown}>
-        <li className={styles.listSet}>About</li>
-        <li className={styles.listSet}>Motivation</li>
-        <li className={styles.listSet}>Composition</li>
-        <li className={styles.listSet}>Collection</li>
-        <li className={styles.listSet}>Management</li>
-      </ul>
-    </nav>
-  )
+    this.boldButton = this.boldButton.bind(this)
+  }
+  boldButton = e => {
+    this.setState({
+      bold: e,
+      selectedLink: true,
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <nav className={styles.navbar}>
+          <ul className={styles.dropdown}>
+            {dropdowns.map(dropdown => {
+              return (
+                <Link
+                  spy={true}
+                  smooth={true}
+                  to={`#${dropdown}-title`}
+                  onClick={() => {
+                    this.boldButton(dropdown)
+                  }}
+                  className={classNames(styles.listSet, {
+                    [styles.listSetBold]: this.state.bold === dropdown,
+                  })}
+                >
+                  <div>{dropdown}</div>
+                </Link>
+              )
+            })}
+          </ul>
+        </nav>
+      </div>
+    )
+  }
 }
 
 export default DatasetDropdown

@@ -34,10 +34,10 @@
 .iconLink {
   margin-left: 0.5rem;
 }
-a {
+/* a {
   padding: 0;
   font-size: 0;
-}
+} */
 .iconLinkImg {
   display: block;
   width: 0.875rem;
