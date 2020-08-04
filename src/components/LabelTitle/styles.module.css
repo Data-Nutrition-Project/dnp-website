@@ -1,62 +1,79 @@
+@value layout: "../layout.css";
+
+@value sideSectionPadding from layout;
+
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-.headertTitle {
-  margin: 0rem 0rem 0rem 0rem;
-  width: 17.8125rem;
-  height: 1.625rem;
-  font-size: 1.625rem;
+.labelTitle {
+  padding: 0;
+  font-size: 0;
+}
+.headerTitle {
+  margin-top: 5.6875rem;
+  margin-bottom: 0.25rem;
+  width: 25.8125rem;
+  font-size: 2rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1;
   letter-spacing: normal;
-  text-align: left;
+  text-align: right;
+  padding-right: sideSectionPadding;
 }
 
-.datasetLabel {
-  margin: 0.6875rem 0rem 0rem 0rem;
-  width: 28.125rem;
-  height: 1.75rem;
-  font-size: 1.75rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.79;
-  letter-spacing: normal;
-  text-align: left;
+.pageSubHeaderRow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0.5rem 0;
 }
 
+.iconLink {
+  margin-left: 0.5rem;
+}
+/* a {
+  padding: 0;
+  font-size: 0;
+} */
 .iconLinkImg {
-  margin-top: -1.5625rem;
-  margin-left: 15rem;
+  display: block;
   width: 0.875rem;
   height: 0.875rem;
-  opacity: 1.2;
+}
+.datasetLinkImg {
+  position: relative;
+  padding: 0;
+  font-size: 0;
+  top: -30px;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-left: 520px;
+  margin-bottom: -4px;
 }
 
-.weightedLine {
-  margin: -5rem 0rem 0rem 0rem;
+/* .weightedLine {
+  margin-top: -5rem;
   border-bottom: 0.3125rem solid currentColor;
   display: inline-block;
   line-height: 1;
+  padding-right: 20rem;
   width: 100%;
-}
+} */
 
 .datasetOriginLink {
-  margin: -0.9375rem 0.3125rem 0rem 0rem;
-  width: 12.75rem;
   height: 1rem;
-  font-size: 1rem;
+  font-size: 1.22rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 0.88;
   letter-spacing: normal;
-  width: 50%;
+  margin: -0.2rem 0;
+  text-align: right;
+  padding-right: sideSectionPadding;
 }
 
 .link {
