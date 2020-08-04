@@ -18,7 +18,7 @@ const Alert = props => {
 
   return (
     <Accordion defaultActiveKey="0">
-      <h1>25 Alerts</h1>
+      <h1 className={styles.alertsHeader}>25 Alerts</h1>
       <div>
         <span>Filter:</span>
         <span>filtered content</span>
