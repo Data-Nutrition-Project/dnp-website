@@ -7,49 +7,43 @@
 @value borderDarkGray: #707070;
 @value lightGray: #f4f4f4;
 @value gray: #969696;
+@value backgroundGray: #F9F9F9;
 @value black: #000000;
+
 /* responsive constants */
 @value tabletMaxWidth: 991px;
 @value landscapeMaxWidth: 767px;
 @value portraitMaxWidth: 479px;
 
-.copyrights {
-  padding: 40px 0;
-  background-color: #ddd;
-  font-size: 14px;
-  line-height: 1.8;
+/* pading constants  */
+@value sideSectionPadding: 4.375rem;
+
+body {
+    font-family: 'railway', sans-serif;
 }
 
-.copyrights i.footer-icon {
-  position: relative;
-  top: 1px;
-  font-size: 14px;
-  width: 14px;
-  text-align: center;
-  margin-right: 3px;
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #444;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 2rem 0;
 }
 
-.dark .social-icon {
-  color: #ddd !important;
-  border-color: #ddd;
+h4 {
+    font-weight: 600;
+    font-size: 1.125rem;
 }
 
-.si-twitter:hover,
-.si-colored.si-twitter {
-  background-color: #00acee !important;
-}
-.si-rounded {
-  border-radius: 50%;
+a {
+    text-decoration: none !important;
+    color: darkSlateBlue;
 }
 
-.copyrights .col_half {
-  margin-bottom: 0 !important;
-}
+a:hover {
+    color: teal;
 
-.copyrights a:first-child {
-  margin-left: 0;
-}
-
-.copyrights .tright a:last-child {
-  margin-right: 0;
 }

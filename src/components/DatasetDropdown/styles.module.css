@@ -1,0 +1,30 @@
+.listSet {
+  text-decoration: none;
+  list-style-type: none;
+  float: right;
+  clear: both;
+  color: black;
+}
+
+.listSetBold {
+  font-weight: bold;
+  color: black;
+}
+.listSet:hover div {
+  font-weight: bold;
+  color: black;
+}
+
+.listSet:hover {
+  text-decoration: none;
+}
+.dropdown {
+  position: absolute;
+  margin-left: 200px;
+  z-index: 1;
+}
+
+.navbar {
+  /* position: relative; */
+  display: inline-block;
+}
