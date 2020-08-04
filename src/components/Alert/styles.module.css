@@ -7,13 +7,14 @@
 
 .card {
   padding: 0.5rem;
+  background-color: #f0f0f0;
 }
 
 .columns {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: transparent;
+  background-color: #f0f0f0;
   border: none;
   padding: 0;
 }
@@ -31,18 +32,21 @@
 
 .spacerColumn {
   flex-grow: 2;
+  height: 65px;
+  background-color: #f0f0f0;
 }
 
 .rightColumn {
   text-align: right;
 }
 
-.circle {
+.rectangle {
   display: inline-block;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  margin-right: 1rem;
+  height: 70px;
+  width: 8px;
+  background-color: red;
+  padding-left: -5px;
+  /* margin-right: 1rem; */
 }
 
 .low {
@@ -71,6 +75,7 @@
 
 .titleText {
   font-size: 1rem;
+  font-weight: bold;
 }
 
 .subtitleText {
@@ -81,9 +86,9 @@
   font-weight: 700;
 }
 
-.label {
+/* .label {
   color: gray;
-}
+} */
 
 .tagsRow {
   display: flex;
@@ -116,5 +121,89 @@
 /* Alerts Header */
 .alertsHeader {
   font-size: 1.875rem;
-  margin-bottom: -10px;
+  margin-bottom: 10px;
 }
+
+.boldHeader {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.filteredContent {
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+.accordionBody {
+  padding-left: 60px;
+}
+
+.parentDiv {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.filter {
+  flex: 0.5;
+}
+
+/* SEVERITY  */
+.severity {
+  width: 100px;
+}
+
+.box {
+  height: 0.6875rem;
+  width: 0.5rem;
+}
+
+.red {
+  background-color: #f0190c;
+}
+
+.orange {
+  background-color: #ff9403;
+}
+
+.yellow {
+  background-color: #f0e70c;
+}
+
+.green {
+  background-color: #09b702;
+}
+
+.parentColors {
+  display: flex;
+}
+
+.upperRight {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 300px;
+  padding-left: 5px;
+}
+
+.upperRight > div {
+  flex: 1 1 auto;
+  text-align: center;
+  margin-right: 25px;
+  position: relative;
+}
+.moreButton {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.caretIcon {
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+/* .parentColors.mc {
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 200px;
+} */
