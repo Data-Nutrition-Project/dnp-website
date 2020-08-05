@@ -16,4 +16,4 @@ const SecondPage = () => (
   </Provider>
 )
 
-export default SecondPage
+export default CovidTracking
