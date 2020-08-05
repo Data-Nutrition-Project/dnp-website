@@ -11,7 +11,7 @@
 @value black: #000000;
 
 /* responsive constants */
-@value tabletMaxWidth: 991px;
+@value tabletMaxWidth: 1024px;
 @value landscapeMaxWidth: 767px;
 @value portraitMaxWidth: 479px;
 
