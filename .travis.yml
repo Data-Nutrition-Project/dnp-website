@@ -20,7 +20,6 @@ deploy:
   provider: script
   script: yarn install && yarn run deploy
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
   keep_history: true
   on:
     branch: master
