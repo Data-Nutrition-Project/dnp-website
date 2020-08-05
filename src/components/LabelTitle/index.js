@@ -27,7 +27,7 @@ LabelTitle.propTypes = {
 }
 
 LabelTitle.defaultProps = {
-  datasetName: "College Scoreboard Dataset 2020",
+  datasetName: "Dataset Name"
 }
 
 export default LabelTitle
