@@ -9,7 +9,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Provider } from "react-redux"
 import store from "../store/index"
-const SecondPage = () => (
+
+const CovidTracking = () => (
   <Provider store={store}>
     <Header />
     <LabelWrapper jsonFile="ctp-blob" />
