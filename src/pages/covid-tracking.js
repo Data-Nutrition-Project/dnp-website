@@ -10,11 +10,11 @@ import SEO from "../components/seo"
 import { Provider } from "react-redux"
 import store from "../store/index"
 
-const CovidTracking = () => (
+const CovidTrackingPage = () => (
   <Provider store={store}>
     <Header />
     <LabelWrapper jsonFile="ctp-blob" />
   </Provider>
 )
 
-export default CovidTracking
+export default CovidTrackingPage
