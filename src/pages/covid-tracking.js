@@ -12,7 +12,7 @@ import store from "../store/index"
 const SecondPage = () => (
   <Provider store={store}>
     <Header />
-    <LabelWrapper />
+    <LabelWrapper jsonFile="ctp-blob" />
   </Provider>
 )
 

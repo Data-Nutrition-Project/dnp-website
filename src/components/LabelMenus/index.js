@@ -1,11 +1,13 @@
-import styles from "./styles.module.css"
 import React, { Component } from "react"
-import UseCasesDropdown from "../UseCasesDropdown"
-import DatasetDropdown from "../DatasetDropdown"
 import { connect } from "react-redux"
-import { sendBaseInfo } from "../../store/bases"
 import PropTypes from "prop-types"
 import classNames from "classnames"
+
+import UseCasesDropdown from "../UseCasesDropdown"
+import DatasetDropdown from "../DatasetDropdown"
+import { sendBaseInfo } from "../../store/bases"
+
+import styles from "./styles.module.css"
 
 const menus = [
   {

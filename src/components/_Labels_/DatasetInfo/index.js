@@ -1,12 +1,12 @@
 import React from "react"
-import { connect } from "react-redux"
-import styles from "./styles.module.css"
+import { Element } from "react-scroll"
+import PropTypes from "prop-types"
+import ReactMarkdown from "react-markdown"
+
 import SectionBase from "../../SectionBase/index.js"
 import ScrollButton from "../../ScrollButton/index.js"
-import ReactMarkdown from "react-markdown"
-import PropTypes from "prop-types"
-import { Element } from "react-scroll"
-import { fetchDatasetThunk } from "../../../store/datasetStore"
+
+import styles from "./styles.module.css"
 
 class DatasetInfo extends React.Component {
   constructor(props) {
@@ -15,12 +15,11 @@ class DatasetInfo extends React.Component {
   }
 
   render() {
-    const datasetInfo = this.props.dataset
-    const descriptions = datasetInfo.description || []
-    const compositions = datasetInfo.composition || []
-    const provenances = datasetInfo.provenance || []
-    const collections = datasetInfo.collection || []
-    const managements = datasetInfo.management || []
+    const descriptions = this.props.datasetInfo.description || []
+    const compositions = this.props.datasetInfo.composition || []
+    const provenances = this.props.datasetInfo.provenance || []
+    const collections = this.props.datasetInfo.collection || []
+    const managements = this.props.datasetInfo.management || []
 
     return (
       <>
@@ -144,23 +143,18 @@ class DatasetInfo extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    dataset: state.dataset,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchDataset: dispatch(fetchDatasetThunk()),
-  }
-}
-
 DatasetInfo.propTypes = {
+  datasetInfo: PropTypes.shape({
+    description: PropTypes.object,
+    composition: PropTypes.object,
+    provenance: PropTypes.object,
+    collection: PropTypes.object,
+    management: PropTypes.object
+  }).isRequired,
   shape: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number,
-  }),
+  })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DatasetInfo)
+export default DatasetInfo
