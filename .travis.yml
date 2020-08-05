@@ -16,11 +16,9 @@ before_script:
   - "npm i -g gatsby-cli"
   - "yarn"
 
-script:
-  - gatsby build
-
 deploy:
-  provider: pages
+  provider: script
+  script: yarn install && yarn run deploy
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
