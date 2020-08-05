@@ -35,9 +35,9 @@ const Alert = props => {
                         </p>
                         <div className={styles.tagsRow}>
                             <p className={classNames(styles.subtitleText, styles.label)}>Who's impacted</p>
-                            {props.tags.map(tag => {
+                            {props.tags.map((tag, i) => {
                                 return (
-                                    <p className={classNames(styles.subtitleText, styles.tag)}>{tag}</p>
+                                    <p className={classNames(styles.subtitleText, styles.tag)} key={i}>{tag}</p>
                                 )
                             })}
                         </div>

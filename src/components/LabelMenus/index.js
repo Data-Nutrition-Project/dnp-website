@@ -47,7 +47,7 @@ class LabelMenus extends Component {
         >
           {menus.map((menu, id) => {
             return (
-              <div>
+              <div key={id}>
                 <div id="selectButton" key={id}>
                   <span className={styles.menuTitle}>
                     <span

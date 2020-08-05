@@ -7,43 +7,22 @@ exports[`LabelTitle renders correctly 1`] = `
   <h1
     className="headerTitle"
   >
-    Data Nutrition Label
+    Dataset Name
   </h1>
   <div
     className="pageSubHeaderRow"
+  />
+  <p
+    className="datasetOriginLink"
   >
-    <h2
-      className="datasetLabelHeader"
-    >
-      College Scoreboard Dataset 2020
-    </h2>
-    <a
-      className="iconLink"
-      href="#"
-    >
-      <img
-        alt="icon for link"
-        className="iconLinkImg"
-        id="datasetLink"
-        src="linkimg.png"
-      />
-    </a>
-  </div>
-  <div
-    className="link"
-  >
-    <p
-      className="datasetOriginLink"
-    >
-      US Department of Education
-    </p>
-  </div>
+    Dataset Nutrition Label
+  </p>
   <div
     className="link"
   >
     <a
       className="datasetLink"
-      href="#"
+      href=""
     >
       <img
         alt=""
@@ -52,10 +31,5 @@ exports[`LabelTitle renders correctly 1`] = `
       />
     </a>
   </div>
-  <span
-    className="weightedLine"
-  >
-     
-  </span>
 </div>
 `;

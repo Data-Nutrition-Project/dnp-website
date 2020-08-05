@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test second page render renders correctly 1`] = `<LabelWrapper />`;
+exports[`Test second page render renders correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Header />
+  <Memo(Connect(LabelWrapper)) />
+</Provider>
+`;
