@@ -145,12 +145,12 @@
 }
 
 .filter {
-  flex: 0.5;
+  flex: 1;
 }
 
 /* SEVERITY  */
 .severity {
-  width: 100px;
+  width: 300px;
 }
 
 .box {
@@ -184,12 +184,14 @@
   flex-direction: row;
   width: 300px;
   padding-left: 5px;
+  margin-top: 5px;
 }
 
 .upperRight > div {
   flex: 1 1 auto;
   text-align: center;
-  margin-right: 25px;
+  margin-right: 55px;
+
   position: relative;
 }
 .moreButton {

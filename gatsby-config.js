@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/dnp-website",
   siteMetadata: {
     title: `The Data Nutrition Project`,
     description: `Empowering data scientists and policymakers with practical tools to improve AI outcomes`,
@@ -27,7 +28,7 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
-    },
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

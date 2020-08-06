@@ -9,11 +9,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Provider } from "react-redux"
 import store from "../store/index"
-const SecondPage = () => (
+
+const CovidTrackingPage = () => (
   <Provider store={store}>
     <Header />
-    <LabelWrapper />
+    <LabelWrapper jsonFile="ctp-blob" />
   </Provider>
 )
 
-export default SecondPage
+export default CovidTrackingPage

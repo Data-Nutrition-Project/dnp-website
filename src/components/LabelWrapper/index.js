@@ -1,26 +1,30 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import styles from "./styles.module.css"
+import PropTypes from "prop-types"
+
 import LabelMenus from "../LabelMenus/index"
 import LabelTitle from "../LabelTitle/index"
 import ShareButton from "../ShareButton/index"
 import DatasetInfo from "../_Labels_/DatasetInfo/index"
 import Overview from "../_Labels_/Overview/index"
 import UseCases from "../_Labels_/UseCases/index"
-import PropTypes from "prop-types"
+import { fetchLabelThunk } from "../../store/labelStore"
+
+import styles from "./styles.module.css"
 
 class LabelWrapper extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {}
   }
 
   render() {
+    
     return (
       <div key={0} className={styles.labelWrapper}>
         <div key={1} className={styles.flexComponents}>
           <div key={2} className={styles.flexTitleMenus}>
-            <LabelTitle />
+            <LabelTitle datasetOrgLink={'/'} />
             <ShareButton />
             <LabelMenus />
           </div>
@@ -29,7 +33,9 @@ class LabelWrapper extends Component {
           ) : this.props.base === "USE CASES/ALERTS" ? (
             <UseCases />
           ) : this.props.base === "DATASET INFO" ? (
-            <DatasetInfo />
+            <DatasetInfo
+              datasetInfo={this.props.label['dataset-info']}
+            />
           ) : (
             <Overview />
           )}
@@ -41,18 +47,26 @@ class LabelWrapper extends Component {
 
 LabelWrapper.propTypes = {
   base: PropTypes.string.isRequired,
+  jsonFile: PropTypes.string.isRequired
 }
 
 LabelWrapper.defaultProps = {
   base: "Overview",
 }
 
-const mapState = state => {
+const mapStateToProps = state => {
   return {
+    label: state.label,
     data: state.data,
     base: state.base,
-    overview: state.overview,
+    overview: state.overview
   }
 }
 
-export default connect(mapState, null)(LabelWrapper)
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    fetchLabel: dispatch(fetchLabelThunk(ownProps.jsonFile)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LabelWrapper)

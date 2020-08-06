@@ -1,0 +1,1103 @@
+{
+    "overview": {
+        "summary": {
+            "dataCollectionRange": "January 22, 2020 - Present",
+            "datasetPublishDate": "",
+            "datasetUpdateFrequency": "Daily, at 4-5pm EST",
+            "createdBy": "COVID Tracking Project",
+            "summaryText": ""
+        },
+        "top-use-cases": [
+            "bending-curve",
+            "point-prevalence",
+            "back-to-normal",
+            "outbreak-clusters",
+            "exceed-hospital-capacity",
+            "population-based-impact"
+        ]
+    },
+    "dataset-info": {
+        "description": [
+            {
+                "question": "Tell us about this dataset.",
+                "help": "Please provide an overview of this dataset.",
+                "type": "markdown",
+                "answer": "This Dataset is comprised of US state level data for Covid-19. All of the data is taken directly from the websites of state/territory public health authorities, and includes, by state: positive and negative cases, pending results, current and cumulative hospitalizations, cumultive and current patients in ICUs, cumulative and current patients on ventilators, total recovered, and total deaths. We compile these numbers to provide the most complete picture we can assemble of the US COVID-19 testing effort and the outbreak’s effects on the people and communities it strikes. The data is updated daily between 4-5 pm. From FAQ: \"See our data sources page or flip to the \"States\" tab of our public spreadsheet, which includes constantly updated annotations about data-source changes.\""
+            },
+            {
+                "question": "Is there an intended purpose for the dataset? What domain was it designed for?",
+                "help": "For example, is there a service or organization that leverages this dataset? Is this dataset made available for a certain use in mind?",
+                "type": "markdown",
+                "answer": "To aggregate accurate daily data about state-level Covid cases, hospital/ICU/ventilator use at the state level, and recovery and deaths for Covid patients at the state-level. Some of the intended purposes included better transparency into state reporting, and cross-checking the data with the CDC and other groups reporting data to check for consistency/accuracy/possibly anomolies. This data is manually entered, and sourced from multiple state sources, which enables more thoroughness and nuance than datasets that are automatically generated."
+            },
+            {
+                "question": "What is the license under which the dataset is made available?",
+                "help": "If possible, please link to license description.",
+                "type": "markdown",
+                "answer": "Non-commercial. Our data is licensed CC-BY-NC with several specific commercial uses authorized. (Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International).<br>You are welcome to copy, distribute, and develop data and website content from The COVID Tracking Project at The Atlantic for all healthcare, medical, journalistic and non-commercial uses, including any personal, editorial, academic, or research purposes.<br> The COVID Tracking Project at The Atlantic data and website content is published under a Creative Commons CC BY-NC-4.0 license, which requires users to attribute the source and license type (CC BY-NC-4.0) when sharing our data or website content. The COVID Tracking Project at The Atlantic also grants permission for any derivative use of this data and website content that supports healthcare or medical research (including institutional use by public health and for-profit organizations), or journalistic usage (by nonprofit or for-profit organizations). All other commercial uses are not permitted under the Creative Commons license, and will require permission from The COVID Tracking Project at The Atlantic.<br>Read more: <https://covidtracking.com/about-data/license>."
+            },
+            {
+                "question": "Are there any additional restrictions under which the dataset is made available? Are there tasks for which the dataset cannot be used? Please provide a description or guidance.",
+                "help": "The purpose of this question is to highlight any information pertinent to data practitioners who may wish to leverage this dataset in their work. This should include any legal restrictions, usage restrictions, license restrictions.",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Are there tasks for which the dataset would be cautioned against being used? If so, please provide a description.",
+                "help": "For example, use cases that are known to be problematic, such as a generalized use case that highlights historical or systematic issues in the dataset.",
+                "type": "markdown",
+                "answer": "Yes: <https://covidtracking.com/blog>"
+            },
+            {
+                "question": "Has the dataset been used for any tasks already? If so, please provide a description and links to papers or systems using the dataset.",
+                "help": "Note that for mature datasets, this could be a long list. Feel free to identify types or categories rather than list every known implementation.",
+                "type": "markdown",
+                "answer": "Yes: State grades (CTP); CDC-CTP comparison; news articles & data vizualizations."
+            }
+        ],
+        "composition": [
+            {
+                "question": "Does the dataset have a metadata repository or data dictionary? If yes, please provide the link and if not, please explain what each field means.",
+                "help": "The purpose of this question is to enable data practitioners to understand what is contained in the dataset at a field level.",
+                "type": "markdown",
+                "answer": "See individual sections of the website for detailed data dictionary: <https://covidtracking.com/data/api>."
+            },
+            {
+                "question": "In the case of explicitly related instances, are these relationships indicated? (e.g., relating an instance about a user to instances about their posts)",
+                "help": "Explicitly related instances refers to instances that include pointers or keys to other instances. If applicable, please describe these relationships or indicate where to find more information.",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "What data does each instance consist of? For example, does it consist of raw data (e.g., unprocessed text or images) or features? In either case, please provide a description.",
+                "help": "If this information has been described elsewhere, please indicate where it can be found (e.g. data dictionary).",
+                "type": "markdown",
+                "answer": "It includes the following data by state in the form of numberical units: positive and negative, cumulative and daily; hostiptalized: current and cummulative; ICU: current and cumulative; ventilator use: current and cumulative; cumulative deaths & recovered."
+            },
+            {
+                "question": "How many instances are there in total (of each type, if appropriate)?",
+                "help": "The purpose of this question is to enable data practitioners to quickly understand the size or breadth of a dataset. If this is covered in the data dictionary or elsewhere, please indicate where this information can be found.",
+                "type": "markdown",
+                "answer": "New instances added daily at a rate of 56 instances/day"
+            },
+            {
+                "question": "Is there a label or target associated with each instance?",
+                "help": "Please indicate the use of labels / targets. 'Labels' and 'Targets' facilitate the use of the dataset in classification algorithms. You can learn more about this here: <https://en.wikipedia.org/wiki/Labeled_data>.",
+                "type": "markdown",
+                "answer": "Yes. Each instance is (state, date)."
+            },
+            {
+                "question": "Is any information missing from individual instances? If so, what is missing and why?",
+                "help": "For example, if a subset of instances have known collection or data fidelity issues due to e.g. collection timeframe gaps, geographical differences, etc.",
+                "type": "markdown",
+                "answer": "Yes. Many known quality issues: <https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRL2zG1o-qj9l2sl19d1lj1oHd6WbkJ0ukFwN04a_ms_ANUdgxTMpI7AF-gbQzwOSreJUDx6PEK7Vnq/pubhtml>"
+            },
+            {
+                "question": "Is your dataset a sample? If so, what was the sampling strategy used (e.g. deterministic, probabilistic with specific sampling probabilities), and does it accurately represents the intended output?",
+                "help": "If your dataset is a sample, please describe sampling methodology. If your sample is not representative of the population data, please describe why not (e.g. to cover a more diverse range of instances, because instances were withheld or unavailable).",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)? If so, please provide a description.",
+                "type": "markdown",
+                "answer": "Yes. Scraping when possible + manual human cleaning. more info here: <https://covidtracking.com/about-data/faq>"
+            },
+            {
+                "question": "If the data was processed, was the raw data saved in addition to the preprocessed/cleaned/labeled data? If yes, please provide a link to the raw data.",
+                "help": "Data practitioners may want to confirm your preprocessing steps to better understand the final data product.",
+                "type": "markdown",
+                "answer": "No. Note that raw data available at over 50 upstream data sources: <https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
+            },
+            {
+                "question": "Are there recommended data splits (e.g., training, development/validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them.",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Are there any errors, sources of noise, or redundancies in the dataset? If so, please provide a description.",
+                "type": "markdown",
+                "answer": "Yes. Many known quality issues: <https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRL2zG1o-qj9l2sl19d1lj1oHd6WbkJ0ukFwN04a_ms_ANUdgxTMpI7AF-gbQzwOSreJUDx6PEK7Vnq/pubhtml>"
+            },
+            {
+                "question": "Does the dataset include information from upstream sources? If so, name these sources, their stability, and any known usage limitations.",
+                "help": "Note: upstream sources can include e.g. other datasets, research papers, tweets, websites.",
+                "type": "markdown",
+                "answer": "Yes. Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.<br> See upstream data sources (over 50): <https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
+            },
+            {
+                "question": "If the datastet includes information from upstream sources, is this dataset technically dependent upon those sources?",
+                "help": "For example, if this dataset pulls data in directly from an external API it is technically dependent upon that upstream source being available.",
+                "type": "markdown",
+                "answer": "Self-Contained"
+            },
+            {
+                "question": "Is there confidential data included in this dataset?",
+                "help": "If so, please indicate the nature of the data and for what purpose this data is included.",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Does the dataset identify any subpopulations (e.g., by age, gender)? If yes, mark their distributions within the dataset.",
+                "type": "markdown",
+                "answer": "N/A"
+            }
+        ],
+        "provenance": [
+            {
+                "question": "Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution, organization)?",
+                "type": "markdown",
+                "answer": "Created by the Covid-Tracking Project, composed of volunteers and supported by the Atlantic Monthly Group."
+            },
+            {
+                "question": "Who funded the creation of the dataset?",
+                "help": "For example: publicly or privately funded; the name of the organization, individual, or group.",
+                "type": "markdown",
+                "answer": "Non-Profit Group. Supported by The Atlantic Monthly Group, the Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation."
+            }
+        ],
+        "collection": [
+            {
+                "question": "Over what timeframe was the data collected? If the data continues to be updated, please indicate.",
+                "type": "markdown",
+                "answer": "Collection on a subset of data began on 20200122, and has continued daily since, with additional states being added over time. From March 14 forward there are timestamped snapshots of the data source we used for each change available publicly. We update the full dataset each day between 4pm and 5pm EDT, with limited additional updates as new information arrives."
+            },
+            {
+                "question": "What mechanisms or procedures were used to collect the data (e.g. manual curation of data, software API, hardware apparatus or sensor)?",
+                "type": "markdown",
+                "answer": "Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.<br>APIs, web site scraping, social media monitoring, human recording. More info here: <https://covidtracking.com/about-data/sources>"
+            },
+            {
+                "question": "What is the relationship between the dataset collector and owners or managers of the dataset?",
+                "type": "markdown",
+                "answer": "Collected by same organization as development of the system"
+            },
+            {
+                "question": "If individuals' data is included in this dataset, did those individuals consent to the collection and use of their data? If so, please describe consent procedure.",
+                "type": "markdown",
+                "answer": "N/A"
+            },
+            {
+                "question": "If individuals' data is included in this dataset, was this data altered to ensure higher levels of privacy? If yes, please describe any privacy procedures followed with regards to this dataset (anonymization efforts, privacy protocols, supression techniques, etc).",
+                "help": "If sensitive, feel free to describe these procedures at a high level.",
+                "type": "markdown",
+                "answer": "N/A"
+            },
+            {
+                "question": "Has the data been reviewed for quality?",
+                "help": "If so, please provide information about the review process.",
+                "type": "markdown",
+                "answer": "Yes, data has been reviewed by internal team. To help members of the public understand how well each state is performing, we have assigned each state a data-quality grade based on our assessment of the completeness of their reporting. Our original state grades were based on the presence of the most basic categories of data, and failed to capture our current understanding of \"completeness,\" so we have updated our grading system accordingly. Our new state grading system uses 16 separate factors broken into 5 categories to calculate a letter grade for each state and territory we track. (We use “state” throughout to refer to states, territories, and the District of Columbia.)<br><https://covidtracking.com/about-data/state-grades>"
+            },
+            {
+                "question": "Were any ethical review processes conducted (e.g., by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.",
+                "help": "If so, please provide information about the review process.",
+                "type": "markdown",
+                "answer": "Yes. The dataset volunteer team has an advisory board which provides accountability. Additionally, the team has partnered with the Center for Antiracist Research in data processing: <https://covidtracking.com/about/advisory-board>."
+            }
+        ],
+        "management": [
+            {
+                "question": "How is the data being mananged at rest and in transit (especially with regards to encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software)",
+                "type": "markdown",
+                "answer": "Internally"
+            },
+            {
+                "question": "How can the data be accessed? If this is going to change over time, please indicate this.",
+                "help": "Please indicate permanent URL location or method by which data can be accessed.",
+                "type": "markdown",
+                "answer": "You can  download CSV files for everything we track, see the dataset as a spreadsheet, or use our APIs:<br><br>Download CSVs: <https://covidtracking.com/data/download><br><br>Spreadseheet Online: <https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml><br><br>API: <https://covidtracking.com/api>"
+            },
+            {
+                "question": "Will the dataset be distributed to any other individuals/third parties (e.g. companies, institutions, organizations)? If yes, when will the dataset be distributed and how will the dataset be distributed (e.g. GitHub, tarball on the website, etc)?",
+                "type": "markdown",
+                "answer": "Unknown"
+            },
+            {
+                "question": "Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)? If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?",
+                "type": "markdown",
+                "answer": "Yes. We update the full dataset each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. This will continue for the foreseeable future. If things change, information about those changes will be communicated through the website: <https://covidtracking.com/about-data>"
+            },
+            {
+                "question": "Is there a mechanism through which an individual can request their personal information be removed?",
+                "type": "markdown",
+                "answer": "N/A"
+            },
+            {
+                "question": "Can the owner/curator/manager of the dataset be contacted (e.g., email address) and how?",
+                "type": "markdown",
+                "answer": "Yes. For inquiries: <support@covidtracking.com><br><br>More information: <https://covidtracking.com/contact>"
+            }
+        ]
+    },
+    "use-cases-section": {
+        "alerts": {
+            "no-racial-breakdown": {
+                "title": "No race breakdown in data",
+                "type": "markdown",
+                "category": "completeness",
+                "tags": ["race"],
+                "content": "[Recent studies have shown](url) that there are racial disparities in who the virus impacts. While some states are starting to report racial data, not all of them have. As a consequence, this dataset does not have racial data and therefore cannot account for disparate impacts on people by race in decision making."
+            },
+            "no-gender-breakdown": {
+                "title": "No gender breakdown in data",
+                "type": "markdown",
+                "category": "completeness",
+                "tags": ["gender"],
+                "content": "While some states are starting to report gender data, not all of them have. As a consequence, this dataset does not have gender data and therefore cannot account for disparate impacts on people by gender in decision making."
+            },
+            "no-worktype-breakdown": {
+                "title": "No breakdown by type of work in data",
+                "type": "markdown",
+                "category": "completeness",
+                "tags": ["socioeconomic"],
+                "content": "There is no breakdown by type of work, and therefore we cannot tell if essential workers are being adversely impacted due to their increased exposure and/or access to PPE. This is important data when considering reopening guidelines."
+            },
+            "geographic-specificity": {
+                "title": "State-level geographic specificity only",
+                "type": "markdown",
+                "category": "completeness",
+                "tags": ["socioeconomic"],
+                "content": "State-level data is helpful for breaking down reopening guidelines from a state perspective. However, a lack of more granular information prevents seeing the impact of outbreaks based on socioecnomic and racial factors, which are more tightly correlated with zip codes due to existing racial and socioeconomic segregation in many metropolitan areas."
+            },
+            "testing-dependency": {
+                "title": "Confirmed active cases highly dependent on testing",
+                "type": "markdown",
+                "category": "provenance",
+                "tags": [],
+                "content": "Testing rates are not high enough in most states to get an accurate account of the number of confirmed active cases impact state-wide. However, one can use ratios between testing & confirmed active to mitigate this issue somewhat."
+            },
+            "shady-reporting": {
+                "title": "Reporting is inconsistent across states",
+                "type": "markdown",
+                "category": "collection",
+                "tags": [],
+                "content": "Reporting is not consistent across states; some states have health deparments for each town/city, while some only have health departments for the state, making reporting more cumbersome. Additionally, state health departments may be pressured politically to not create comprehensive reports, as those may impact economic reopening plans."
+            },
+            "reporting-date-epi-date": {
+                "title": "Reporting date is not always when infection occurred",
+                "type": "markdown",
+                "category": "provenance",
+                "tags": [],
+                "content": "COVID can incubate for up to 14 days before manifesting symptoms, meaning the tie between a reported date and an infecting event is strained. This can make it difficult to get an accurate, real time picture of what's happening."
+            },
+            "case-definition": {
+                "title": "Definition of a COVID case varies",
+                "type": "markdown",
+                "category": "provenance",
+                "tags": [],
+                "content": "Symptoms of COVID continue to evolve and grow as our understanding of COVID grows. This impacts historical data, as well as current data, in that deaths/hospitalizations/etc might be misreported as non-COVID when they were COVID cases."
+            },
+            "case-reassignment": {
+                "title": "Patient data sometimes get reassigned to another state",
+                "type": "markdown",
+                "category": "provenance",
+                "tags": [],
+                "content": "State-wide data can get artificially inflated/deflated by patient data getting moved from one plact to another, which can impact trends in cases, and how they are seen."
+            },
+            "excluded-purpose": {
+                "title": "Exluded Purpose",
+                "type": "markdown",
+                "category": "description",
+                "tags": [],
+                "content": "You can only use this dataset if you are working in specific sectors. You are welcome to copy, distribute, and develop data and website content from The COVID Tracking Project at The Atlantic for all healthcare, medical, journalistic and non-commercial uses, including any personal, editorial, academic, or research purposes."
+            },
+            "cautioned-purpose": {
+                "title": "Cautioned Purpose",
+                "type": "markdown",
+                "category": "description",
+                "tags": [],
+                "content": "There are inconsistencies in reporting across states (?), including where deaths are counted as \"probable\" covid-related deaths: NY state is one example of this"
+            },
+            "existing-use-case": {
+                "title": "Existing Use Case",
+                "type": "markdown",
+                "category": "description",
+                "tags": [],
+                "content": "This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations"
+            },
+            "publicly-funded": {
+                "title": "Dataset is Publicly Funded",
+                "type": "markdown",
+                "category": "provenance",
+                "tags": [],
+                "content": "Dataset is publicly funded by: Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation"
+            },
+            "missing-data": {
+                "title": "Some Missing Data",
+                "type": "markdown",
+                "category": "composition",
+                "tags": [],
+                "content": "Many known quality issues: (see here)[https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRL2zG1o-qj9l2sl19d1lj1oHd6WbkJ0ukFwN04a_ms_ANUdgxTMpI7AF-gbQzwOSreJUDx6PEK7Vnq/pubhtml]. Variety of reporting at state level; different metrics for atrributing deaths to Covid; disparities with other datasets including JHU, NYT due to different sources of collecting data"
+            }
+        },
+        "predictions": {
+            "current-r0": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "case-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "forecasted-r0": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "case-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "current-prevalence": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "case-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "forecasted-infections-timeseries": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "case-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "forecasted-deaths-timeseries": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "case-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "change-deaths-region": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "case-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "change-cases-region": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "case-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "tests-capita": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "icu-capita": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "ventilator-need-capita": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "forecasted-icu-capita": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "case-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "forecasted-ventilator-capita": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "hospitalizations-capita": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            },
+            "forecasted-hospitalizations-capita": {
+                "description": "",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "shady-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 2
+                    }
+                ]
+            }
+        },
+        "use-cases": {
+            "bending-curve": {
+                "description": "Are we bending the curve?",
+                "predictions": [
+                    "current-r0",
+                    "forecasted-r0",
+                    "forecasted-infections-timeseries",
+                    "change-cases-region",
+                    "change-deaths-region",
+                    "forecasted-hospitalizations-capita",
+                    "forecasted-icu-capita",
+                    "forecasted-deaths-timeseries"
+                ]
+            },
+            "point-prevalence": {
+                "description": "What is the prevalence of COVID per region?",
+                "predictions": [
+                    "change-cases-region",
+                    "current-r0",
+                    "icu-capita",
+                    "hospitalizations-capita",
+                    "icu-capita"
+                ]
+            },
+            "back-to-normal": {
+                "description": "When can we go back to normal?",
+                "predictions": [
+                    "forecasted-r0",
+                    "forecasted-deaths-timeseries",
+                    "forecasted-hospitalizations-capita",
+                    "forecasted-icu-capita",
+                    "forecasted-infections-timeseries",
+                    "forecasted-ventilator-capita"
+                ]
+            },
+            "outbreak-clusters": {
+                "description": "Where will there be hotspots?",
+                "predictions": [
+                    "change-cases-region",
+                    "change-deaths-region",
+                    "current-r0",
+                    "hospitalizations-capita",
+                    "icu-capita"
+                ]
+            },
+            "exceed-hospital-capacity": {
+                "description": "Will we exceed hospital or ICU capacity in the near future?",
+                "predictions": [
+                    "hospitalizations-capita",
+                    "forecasted-hospitalizations-capita",
+                    "icu-capita",
+                    "forecasted-icu-capita"
+                ]
+            },
+            "population-based-impact": {
+                "description": "Does the impact of COVID differ by based on age, race, type of work, socioeconomic status, etc.?",
+                "predictions": [
+                    "current-r0",
+                    "forecasted-r0",
+                    "forecasted-infections-timeseries",
+                    "change-cases-region",
+                    "change-deaths-region",
+                    "forecasted-hospitalizations-capita",
+                    "forecasted-icu-capita",
+                    "forecasted-deaths-timeseries"
+                ]
+            }
+        }
+    }
+}
