@@ -11,7 +11,6 @@
 
 .datasetTitle {
   font-size: 2.75rem;
-  height: 1.75rem;
   line-height: 0.79;
   text-align: left;
   font-weight: bold;
@@ -38,7 +37,6 @@
 
 .datasetSubHeader {
   font-size: 1.7rem;
-  height: 1.375rem;
   font-weight: normal;
   text-align: left;
   font-weight: bold;
@@ -54,8 +52,6 @@
 }
 .datasetParagraph {
   margin-top: 1.25rem;
-  width: 58rem;
-  height: 2.375rem;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: normal;

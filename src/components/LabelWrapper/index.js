@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
+import Col from 'react-bootstrap/Col'
 
 import LabelMenus from "../LabelMenus/index"
 import LabelTitle from "../LabelTitle/index"
@@ -19,15 +20,18 @@ class LabelWrapper extends Component {
   }
 
   render() {
-    
     return (
       <div key={0} className={styles.labelWrapper}>
         <div key={1} className={styles.flexComponents}>
-          <div key={2} className={styles.flexTitleMenus}>
-            <LabelTitle datasetOrgLink={'/'} />
+          <Col
+            className={styles.flexTitleMenus}
+            xl={{ span: 2 }}
+            md={{ span: 2 }}
+          >
+            <LabelTitle />
             <ShareButton />
             <LabelMenus />
-          </div>
+          </Col>
           {this.props.base === "OVERVIEW" ? (
             <Overview />
           ) : this.props.base === "USE CASES/ALERTS" ? (

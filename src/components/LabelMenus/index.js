@@ -14,7 +14,7 @@ const menus = [
     title: "OVERVIEW",
   },
   {
-    title: "USE CASES/ALERTS",
+    title: "USE CASES / ALERTS",
   },
   {
     title: "DATASET INFO",
@@ -54,16 +54,17 @@ class LabelMenus extends Component {
                   <span className={styles.menuTitle}>
                     <span
                       onClick={() => this.selectItem(menu.title)}
-                      className={classNames(styles.menuTitlem, {
-                        [styles.highlightLabel]:
-                          this.state.selectedItem === menu.title,
-                      })}
+                      className={classNames(styles.menuTitl)}
                     >
                       {menu.title}
                     </span>
+                    <div className={classNames({
+                      [styles.highlightLabel]:
+                        this.state.selectedItem === menu.title,
+                    })} />
                   </span>
-                  {this.state.open === "USE CASES/ALERTS" &&
-                  menu.title === "USE CASES/ALERTS" ? (
+                  {this.state.open === "USE CASES / ALERTS" &&
+                  menu.title === "USE CASES / ALERTS" ? (
                     <UseCasesDropdown />
                   ) : null}
                   {this.state.open === "DATASET INFO" &&

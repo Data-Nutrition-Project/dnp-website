@@ -2,6 +2,10 @@
 
 exports[`SectionBase renders correctly 1`] = `
 <div
-  className="sectionBase"
-/>
+  className="container"
+>
+  <div
+    className="sectionBase col-xl-12 col-md-9 col-sm-12 offset-xl-2 offset-md-3"
+  />
+</div>
 `;
