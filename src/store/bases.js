@@ -15,7 +15,7 @@ export const sendBaseInfo = status => {
   }
 }
 
-export default function baseReducer(state = "", action) {
+export default function baseReducer(state = "OVERVIEW", action) {
   switch (action.type) {
     case SEND_BASE_INFO:
       return action.status

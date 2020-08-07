@@ -9,6 +9,7 @@ import { VegaLite } from 'react-vega'
 import SectionBase from "../../SectionBase"
 
 import styles from "./styles.module.css"
+import colors from "../../layout.css"
 
 const SEVERITY_MAP = {
     3: 'HIGH',
@@ -18,7 +19,7 @@ const SEVERITY_MAP = {
 }
 
 // colors for severty in same order as above
-const COLOR_MAP = ['#f0190c', '#f5931e', '#fcda24', 'green']
+const COLOR_MAP = [colors.alertRed, colors.alertOrange, colors.alertYellow, colors.alertBlue]
 
 class Overview extends Component {
     renderAlertsChart = () => {
@@ -49,8 +50,8 @@ class Overview extends Component {
                     field: 'severity',
                     scale: {
                         type: 'threshold',
-                        domain: [1, 4],
-                        range: [0.2, 0.5, 1.0]
+                        domain: [1, 5, 15],
+                        range: [0.2, 0.4, 0.6, 1.0]
                     },
                     legend: {
                         title: 'Number of Alerts',
@@ -101,18 +102,51 @@ class Overview extends Component {
             <SectionBase>
                 <Container>
                     <Row className={styles.row}>
-                        <Col md={4}>
+                        <Col md={5}>
                             <h2 className={styles.sectionTitle}>Summary</h2>
                             <span className={styles.datasetUnderline} />
                             <div className={styles.summaryCreationSection}>
-                                <span><b>Creation Timeframe:</b> {this.props.summary.createdDate}</span>
-                                <br/>
-                                <span><b>Creation by:</b> {this.props.summary.createdBy}</span>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Created By:</span>
+                                    <ReactMarkdown>{this.props.summary.createdBy + ", " + this.props.summary.creatorContactInfo}</ReactMarkdown>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Data Creation Range:</span>
+                                    <ReactMarkdown>{this.props.summary.dataCollectionRange}</ReactMarkdown>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Dataset Publish Date:</span>
+                                    <ReactMarkdown>{this.props.summary.datasetPublishDate}</ReactMarkdown>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Dataset Update Frequency:</span>
+                                    <ReactMarkdown>{this.props.summary.datasetUpdateFrequency}</ReactMarkdown>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Most Recent Label Update:</span>
+                                    <ReactMarkdown>{this.props.summary.lastLabelUpdate}</ReactMarkdown>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Dataset License:</span>
+                                    <ReactMarkdown>{this.props.summary.licenseInfo}</ReactMarkdown>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Dataset Size:</span>
+                                    <ReactMarkdown>{this.props.summary.datasetSize}</ReactMarkdown>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Dataset Format:</span>
+                                    <ReactMarkdown>{this.props.summary.datasetFormat}</ReactMarkdown>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Dataset Source URL:</span>
+                                    <ReactMarkdown>{this.props.summary.sourceURL}</ReactMarkdown>
+                                </div>
                             </div>
                             <ReactMarkdown source={this.props.summary.summaryText} />
                         </Col>
-                        <Col md={{ span: 7, offset: 1 }}>
-                            <h2 className={styles.sectionTitle}>Purpose</h2>
+                        <Col md={{ span: 6, offset: 1 }}>
+                            <h2 className={styles.sectionTitle}>About</h2>
                             <span className={styles.datasetUnderline} />
                             <div className={styles.qAndA}>
                                 <span className={styles.question}>
@@ -135,21 +169,21 @@ class Overview extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={4}>
+                        <Col md={5}>
                             <h2 className={styles.sectionTitle}>Top Use Cases</h2>
                             <span className={styles.datasetUnderline} />
                             {this.props.topUseCases.map((useCaseName, i) => (
                                 <Row>
-                                    <Col md={1} className={styles.listNumber}>
+                                    <Col md={1} className={styles.useCaseListNumber}>
                                         { i + 1 }
                                     </Col>
-                                    <Col md={{ span: 10 }}>
+                                    <Col md={{ span: 10 }} className={styles.useCaseQuestion}>
                                         {this.props.useCasesSection['use-cases'][useCaseName].description}
                                     </Col>
                                 </Row>
                             ))}
                         </Col>
-                        <Col md={{ span: 7, offset: 1 }}>
+                        <Col md={{ span: 6, offset: 1 }}>
                             <h2 className={styles.sectionTitle}>Alerts</h2>
                             <span className={styles.datasetUnderline} />
                             {this.renderAlertsChart()}
@@ -163,9 +197,16 @@ class Overview extends Component {
 
 Overview.propTypes = {
     summary: PropTypes.shape({
-        createdDate: PropTypes.string,
+        dataCollectionRange: PropTypes.string,
+        datasetPublishDate: PropTypes.string,
+        datasetUpdateFrequency: PropTypes.string,
+        lastLabelUpdate: PropTypes.string,
         createdBy: PropTypes.string,
-        summaryText: PropTypes.string
+        creatorContactInfo: PropTypes.string,
+        licenseInfo: PropTypes.string,
+        datasetSize: PropTypes.string,
+        datasetFormat: PropTypes.string,
+        sourceURL: PropTypes.string
     }).isRequired,
     // the dataset info section of the blob to pull out purpose questions
     datasetInfoDescription: PropTypes.array.isRequired,
@@ -180,9 +221,16 @@ Overview.propTypes = {
 
 Overview.defaultProps = {
     summary: {
-        createdDate: "2020-07-27",
-        createdBy: "MEEEEEEE",
-        summaryText: "Check. it. OUT!!!!!"
+        dataCollectionRange: "August 1-5th, 2020",
+        datasetPublishDate: "August 5th, 2020",
+        datasetUpdateFrequency: "Neverrrrr",
+        lastLabelUpdate: "August 5th, 2020",
+        createdBy: "MEEEEEEEE",
+        creatorContactInfo: "</>",
+        licenseInfo: "Creative Commons",
+        datasetSize: "One yard",
+        datasetFormat: "Some numbers etched into cement.",
+        sourceURL: "<http://datanutrition.org/>"
     },
     datasetInfoDescription: [
         {

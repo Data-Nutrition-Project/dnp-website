@@ -1,9 +1,9 @@
 .row {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .sectionTitle {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .datasetUnderline {
@@ -16,25 +16,35 @@
 }
 
 .summaryCreationSection {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.summaryRow,
+.summaryRow p {
+  margin-bottom: .125rem;
+}
+
+.summaryLabel {
+  float: left;
+  margin-right: .375rem;
+  font-weight: 700;
 }
 
 .qAndA {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .question {
-    font-weight: 600;
+  font-weight: 600;
 }
 
-.answer {
-
+.useCaseListNumber {
+  font-size: 1.75rem;
+  font-weight: 800;
 }
 
-.listNumber {
-    font-size: 1.75rem;
-    font-weight: 800;
+.useCaseQuestion {
+  margin-top: .25rem;
 }
 
 .alertGraph {

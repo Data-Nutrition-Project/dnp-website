@@ -54,10 +54,6 @@ LabelWrapper.propTypes = {
   jsonFile: PropTypes.string.isRequired
 }
 
-LabelWrapper.defaultProps = {
-  base: "Overview",
-}
-
 const mapStateToProps = state => {
   return {
     label: state.label,
