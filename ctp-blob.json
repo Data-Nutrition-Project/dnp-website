@@ -1,18 +1,22 @@
 {
     "overview": {
         "summary": {
+            "datasetName": "COVID Tracking - US Current Data",
             "dataCollectionRange": "January 22, 2020 - Present",
-            "datasetPublishDate": "",
+            "datasetPublishDate": "Unknown",
             "datasetUpdateFrequency": "Daily, at 4-5pm EST",
-            "createdBy": "COVID Tracking Project",
-            "summaryText": ""
+            "lastLabelUpdate": "August 5, 2020",
+            "createdBy": "COVID Tracking Project, The Atlantic",
+            "creatorContactInfo": "<https://covidtracking.com/contact>",
+            "licenseInfo": "CC-BY-NC (Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International).  \n\nLicense information and restrictions: <https://covidtracking.com/about-data/license>.",
+            "datasetSize": "34 KB",
+            "datasetFormat": "Tabular (csv, JSON)",
+            "sourceURL": "<https://covidtracking.com/data/api>"
         },
         "top-use-cases": [
             "bending-curve",
-            "point-prevalence",
             "back-to-normal",
             "outbreak-clusters",
-            "exceed-hospital-capacity",
             "population-based-impact"
         ]
     },
@@ -34,7 +38,7 @@
                 "question": "What is the license under which the dataset is made available?",
                 "help": "If possible, please link to license description.",
                 "type": "markdown",
-                "answer": "Non-commercial. Our data is licensed CC-BY-NC with several specific commercial uses authorized. (Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International).<br>You are welcome to copy, distribute, and develop data and website content from The COVID Tracking Project at The Atlantic for all healthcare, medical, journalistic and non-commercial uses, including any personal, editorial, academic, or research purposes.<br> The COVID Tracking Project at The Atlantic data and website content is published under a Creative Commons CC BY-NC-4.0 license, which requires users to attribute the source and license type (CC BY-NC-4.0) when sharing our data or website content. The COVID Tracking Project at The Atlantic also grants permission for any derivative use of this data and website content that supports healthcare or medical research (including institutional use by public health and for-profit organizations), or journalistic usage (by nonprofit or for-profit organizations). All other commercial uses are not permitted under the Creative Commons license, and will require permission from The COVID Tracking Project at The Atlantic.<br>Read more: <https://covidtracking.com/about-data/license>."
+                "answer": "Non-commercial. Our data is licensed CC-BY-NC with several specific commercial uses authorized. (Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International).  \n\nYou are welcome to copy, distribute, and develop data and website content from The COVID Tracking Project at The Atlantic for all healthcare, medical, journalistic and non-commercial uses, including any personal, editorial, academic, or research purposes.  \n\nThe COVID Tracking Project at The Atlantic data and website content is published under a Creative Commons CC BY-NC-4.0 license, which requires users to attribute the source and license type (CC BY-NC-4.0) when sharing our data or website content. The COVID Tracking Project at The Atlantic also grants permission for any derivative use of this data and website content that supports healthcare or medical research (including institutional use by public health and for-profit organizations), or journalistic usage (by nonprofit or for-profit organizations). All other commercial uses are not permitted under the Creative Commons license, and will require permission from The COVID Tracking Project at The Atlantic.  \n\nRead more: <https://covidtracking.com/about-data/license>."
             },
             {
                 "question": "Are there any additional restrictions under which the dataset is made available? Are there tasks for which the dataset cannot be used? Please provide a description or guidance.",
@@ -123,7 +127,7 @@
                 "question": "Does the dataset include information from upstream sources? If so, name these sources, their stability, and any known usage limitations.",
                 "help": "Note: upstream sources can include e.g. other datasets, research papers, tweets, websites.",
                 "type": "markdown",
-                "answer": "Yes. Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.<br> See upstream data sources (over 50): <https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
+                "answer": "Yes. Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.  \n See upstream data sources (over 50): <https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
             },
             {
                 "question": "If the datastet includes information from upstream sources, is this dataset technically dependent upon those sources?",
@@ -165,7 +169,7 @@
             {
                 "question": "What mechanisms or procedures were used to collect the data (e.g. manual curation of data, software API, hardware apparatus or sensor)?",
                 "type": "markdown",
-                "answer": "Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.<br>APIs, web site scraping, social media monitoring, human recording. More info here: <https://covidtracking.com/about-data/sources>"
+                "answer": "Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.  \n\nAPIs, web site scraping, social media monitoring, human recording. More info here: <https://covidtracking.com/about-data/sources>"
             },
             {
                 "question": "What is the relationship between the dataset collector and owners or managers of the dataset?",
@@ -187,7 +191,7 @@
                 "question": "Has the data been reviewed for quality?",
                 "help": "If so, please provide information about the review process.",
                 "type": "markdown",
-                "answer": "Yes, data has been reviewed by internal team. To help members of the public understand how well each state is performing, we have assigned each state a data-quality grade based on our assessment of the completeness of their reporting. Our original state grades were based on the presence of the most basic categories of data, and failed to capture our current understanding of \"completeness,\" so we have updated our grading system accordingly. Our new state grading system uses 16 separate factors broken into 5 categories to calculate a letter grade for each state and territory we track. (We use “state” throughout to refer to states, territories, and the District of Columbia.)<br><https://covidtracking.com/about-data/state-grades>"
+                "answer": "Yes, data has been reviewed by internal team. To help members of the public understand how well each state is performing, we have assigned each state a data-quality grade based on our assessment of the completeness of their reporting. Our original state grades were based on the presence of the most basic categories of data, and failed to capture our current understanding of \"completeness,\" so we have updated our grading system accordingly. Our new state grading system uses 16 separate factors broken into 5 categories to calculate a letter grade for each state and territory we track. (We use “state” throughout to refer to states, territories, and the District of Columbia.)  \n\n<https://covidtracking.com/about-data/state-grades>"
             },
             {
                 "question": "Were any ethical review processes conducted (e.g., by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.",
@@ -206,7 +210,7 @@
                 "question": "How can the data be accessed? If this is going to change over time, please indicate this.",
                 "help": "Please indicate permanent URL location or method by which data can be accessed.",
                 "type": "markdown",
-                "answer": "You can  download CSV files for everything we track, see the dataset as a spreadsheet, or use our APIs:<br><br>Download CSVs: <https://covidtracking.com/data/download><br><br>Spreadseheet Online: <https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml><br><br>API: <https://covidtracking.com/api>"
+                "answer": "You can  download CSV files for everything we track, see the dataset as a spreadsheet, or use our APIs:  \n\nDownload CSVs: <https://covidtracking.com/data/download>  \n\nSpreadseheet Online: <https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml>  \n\nAPI: <https://covidtracking.com/api>"
             },
             {
                 "question": "Will the dataset be distributed to any other individuals/third parties (e.g. companies, institutions, organizations)? If yes, when will the dataset be distributed and how will the dataset be distributed (e.g. GitHub, tarball on the website, etc)?",
@@ -226,7 +230,7 @@
             {
                 "question": "Can the owner/curator/manager of the dataset be contacted (e.g., email address) and how?",
                 "type": "markdown",
-                "answer": "Yes. For inquiries: <support@covidtracking.com><br><br>More information: <https://covidtracking.com/contact>"
+                "answer": "Yes. For inquiries: <support@covidtracking.com>  \n\nMore information: <https://covidtracking.com/contact>"
             }
         ]
     },
