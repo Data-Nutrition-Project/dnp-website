@@ -8,7 +8,7 @@
   margin-bottom: 2rem;
 }
 
-.labelMenus {
+.labelMenu {
   padding: 1.875rem 0 0 0;
   text-align: right;
   cursor: pointer;
@@ -36,9 +36,8 @@
 }
 
 .menuTitle {
-  display: block;
-  margin-top: 1.1875rem;
-  width: 100%;
+  display: inline-block;
+  margin-top: .5rem;
   font-size: 1.375rem;
   font-weight: bold;
   font-stretch: normal;
