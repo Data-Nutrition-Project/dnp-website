@@ -174,7 +174,7 @@ class Overview extends Component {
                         {this.renderAlertsChart()}
                     </Col>
                 </Row>
-            <\/>
+            </>
         )
     }
 }
