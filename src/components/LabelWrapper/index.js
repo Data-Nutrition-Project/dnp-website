@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 import LabelMenus from "../LabelMenus/index"
-import LabelTitle from "../LabelTitle/index"
 import ShareButton from "../ShareButton/index"
 import DatasetInfo from "../_Labels_/DatasetInfo/index"
 import Overview from "../_Labels_/Overview/index"
