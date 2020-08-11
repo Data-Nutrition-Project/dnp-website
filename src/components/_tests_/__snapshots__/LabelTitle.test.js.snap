@@ -4,36 +4,13 @@ exports[`LabelTitle renders correctly 1`] = `
 <div
   className="labelTitle"
 >
-  <h1
+  <h3
     className="headerTitle"
   >
     Dataset Name
-  </h1>
+  </h3>
   <div
     className="pageSubHeaderRow"
   />
-  <div
-    className="datasetOrigin"
-  >
-    <p
-      className="datasetOriginLink"
-    >
-      Dataset Nutrition Label
-    </p>
-    <div
-      className="link"
-    >
-      <a
-        className="datasetLink"
-        href=""
-      >
-        <img
-          alt=""
-          id="datasetLink"
-          src="linkimg.png"
-        />
-      </a>
-    </div>
-  </div>
 </div>
 `;
