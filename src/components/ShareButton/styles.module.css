@@ -5,12 +5,11 @@
 @value teal: #1ABC9C;
 
 .buttonSpacing {
-  padding: 1.7rem 0 0 0;
+  padding: 1rem 0 0 0;
   text-align: right;
 }
 
 .buttonStyle {
-  width: 90px;
   height: 30px;
   background-color: darkSlateBlue;
   border: 1px;

@@ -38,13 +38,18 @@
   font-weight: 600;
 }
 
+.useCaseList {
+  margin-bottom: .5rem;
+  line-height: 1;
+}
+
 .useCaseListNumber {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 800;
 }
 
 .useCaseQuestion {
-  margin-top: .25rem;
+  font-size: 1.25rem;
 }
 
 .alertGraph {

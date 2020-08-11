@@ -6,8 +6,6 @@ import Row from 'react-bootstrap/Row'
 import ReactMarkdown from "react-markdown"
 import { VegaLite } from 'react-vega'
 
-import SectionBase from "../../SectionBase"
-
 import styles from "./styles.module.css"
 import colors from "../../layout.css"
 
@@ -99,98 +97,84 @@ class Overview extends Component {
 
     render() {
         return (
-            <SectionBase>
-                <Container>
-                    <Row className={styles.row}>
-                        <Col md={5}>
-                            <h2 className={styles.sectionTitle}>Summary</h2>
-                            <span className={styles.datasetUnderline} />
-                            <div className={styles.summaryCreationSection}>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Created By:</span>
-                                    <ReactMarkdown>{this.props.summary.createdBy + ", " + this.props.summary.creatorContactInfo}</ReactMarkdown>
-                                </div>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Data Creation Range:</span>
-                                    <ReactMarkdown>{this.props.summary.dataCollectionRange}</ReactMarkdown>
-                                </div>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Dataset Publish Date:</span>
-                                    <ReactMarkdown>{this.props.summary.datasetPublishDate}</ReactMarkdown>
-                                </div>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Dataset Update Frequency:</span>
-                                    <ReactMarkdown>{this.props.summary.datasetUpdateFrequency}</ReactMarkdown>
-                                </div>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Most Recent Label Update:</span>
-                                    <ReactMarkdown>{this.props.summary.lastLabelUpdate}</ReactMarkdown>
-                                </div>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Dataset License:</span>
-                                    <ReactMarkdown>{this.props.summary.licenseInfo}</ReactMarkdown>
-                                </div>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Dataset Size:</span>
-                                    <ReactMarkdown>{this.props.summary.datasetSize}</ReactMarkdown>
-                                </div>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Dataset Format:</span>
-                                    <ReactMarkdown>{this.props.summary.datasetFormat}</ReactMarkdown>
-                                </div>
-                                <div className={styles.summaryRow}>
-                                    <span className={styles.summaryLabel}>Dataset Source URL:</span>
-                                    <ReactMarkdown>{this.props.summary.sourceURL}</ReactMarkdown>
-                                </div>
+            <>
+                <Row className={styles.row}>
+                    <Col md={5}>
+                        <h3 className={styles.sectionTitle}>Summary</h3>
+                        <span className={styles.datasetUnderline} />
+                        <div className={styles.summaryCreationSection}>
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>Created By:</span>
+                                <ReactMarkdown>{this.props.summary.createdBy + ", " + this.props.summary.creatorContactInfo}</ReactMarkdown>
                             </div>
-                            <ReactMarkdown source={this.props.summary.summaryText} />
-                        </Col>
-                        <Col md={{ span: 6, offset: 1 }}>
-                            <h2 className={styles.sectionTitle}>About</h2>
-                            <span className={styles.datasetUnderline} />
-                            <div className={styles.qAndA}>
-                                <span className={styles.question}>
-                                    {this.props.datasetInfoDescription[0].question}
-                                </span>
-                                <ReactMarkdown
-                                    className={styles.answer}
-                                    source={this.props.datasetInfoDescription[0].answer}
-                                />
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>Data Creation Range:</span>
+                                <ReactMarkdown>{this.props.summary.dataCollectionRange}</ReactMarkdown>
                             </div>
-                            <div>
-                                <span className={styles.question}>
-                                    {this.props.datasetInfoDescription[1].question}
-                                </span>
-                                <ReactMarkdown
-                                    className={styles.answer}
-                                    source={this.props.datasetInfoDescription[1].answer}
-                                />
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>Publish Date:</span>
+                                <ReactMarkdown>{this.props.summary.datasetPublishDate}</ReactMarkdown>
                             </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={5}>
-                            <h2 className={styles.sectionTitle}>Top Use Cases</h2>
-                            <span className={styles.datasetUnderline} />
-                            {this.props.topUseCases.map((useCaseName, i) => (
-                                <Row>
-                                    <Col md={1} className={styles.useCaseListNumber}>
-                                        { i + 1 }
-                                    </Col>
-                                    <Col md={{ span: 10 }} className={styles.useCaseQuestion}>
-                                        {this.props.useCasesSection['use-cases'][useCaseName].description}
-                                    </Col>
-                                </Row>
-                            ))}
-                        </Col>
-                        <Col md={{ span: 6, offset: 1 }}>
-                            <h2 className={styles.sectionTitle}>Alerts</h2>
-                            <span className={styles.datasetUnderline} />
-                            {this.renderAlertsChart()}
-                        </Col>
-                    </Row>
-                </Container>
-            </SectionBase>
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>Update Frequency:</span>
+                                <ReactMarkdown>{this.props.summary.datasetUpdateFrequency}</ReactMarkdown>
+                            </div>
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>Most Recent Label Update:</span>
+                                <ReactMarkdown>{this.props.summary.lastLabelUpdate}</ReactMarkdown>
+                            </div>
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>License:</span>
+                                <ReactMarkdown>{this.props.summary.licenseInfo}</ReactMarkdown>
+                            </div>
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>Size:</span>
+                                <ReactMarkdown>{this.props.summary.datasetSize}</ReactMarkdown>
+                            </div>
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>Format:</span>
+                                <ReactMarkdown>{this.props.summary.datasetFormat}</ReactMarkdown>
+                            </div>
+                            <div className={styles.summaryRow}>
+                                <span className={styles.summaryLabel}>Source URL:</span>
+                                <ReactMarkdown>{this.props.summary.sourceURL}</ReactMarkdown>
+                            </div>
+                        </div>
+                        <ReactMarkdown source={this.props.summary.summaryText} />
+                    </Col>
+                    <Col md={{ span: 6, offset: 1 }}>
+                        <h3 className={styles.sectionTitle}>About</h3>
+                        <span className={styles.datasetUnderline} />
+                        <div className={styles.qAndA}>
+                            <ReactMarkdown
+                                className={styles.answer}
+                                source={this.props.datasetInfoDescription[0].answer}
+                            />
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={5}>
+                        <h3 className={styles.sectionTitle}>Top Use Cases</h3>
+                        <span className={styles.datasetUnderline} />
+                        {this.props.topUseCases.map((useCaseName, i) => (
+                            <Row className={styles.useCaseList}>
+                                <Col md={1} className={styles.useCaseListNumber}>
+                                    { i + 1 }
+                                </Col>
+                                <Col md={{ span: 10 }} className={styles.useCaseQuestion}>
+                                    {this.props.useCasesSection['use-cases'][useCaseName].description}
+                                </Col>
+                            </Row>
+                        ))}
+                    </Col>
+                    <Col md={{ span: 6, offset: 1 }}>
+                        <h3 className={styles.sectionTitle}>Alerts</h3>
+                        <span className={styles.datasetUnderline} />
+                        {this.renderAlertsChart()}
+                    </Col>
+                </Row>
+            <\/>
         )
     }
 }

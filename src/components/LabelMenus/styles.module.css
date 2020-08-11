@@ -5,11 +5,10 @@
 @value portraitMaxWidth from layout;
 
 .menuTop {
-  margin-top: 3.5rem;
+  margin-bottom: 2rem;
 }
 
 .labelMenus {
-  margin: 1.1875rem 0 0 0;
   padding: 1.875rem 0 0 0;
   text-align: right;
   cursor: pointer;
@@ -40,7 +39,6 @@
   display: block;
   margin-top: 1.1875rem;
   width: 100%;
-  height: 1.375rem;
   font-size: 1.375rem;
   font-weight: bold;
   font-stretch: normal;

@@ -5,7 +5,7 @@
 @value portraitMaxWidth from layout;
 
 .labelWrapper {
-  padding: 2.5rem;
+  padding: 1.5rem 2.5rem;
 }
 
 .flexComponents {
@@ -16,7 +16,38 @@
 .flexTitleMenus {
   position: fixed;
   display: flex;
+  margin-top: 6rem;
   flex-direction: column;
+  padding-right: 3rem;
+  padding-left: 0;
+}
+
+.sectionBase {
+  overflow: hidden;
+  border-top: 1rem solid #000;
+  border-right: solid 0.2rem #000;
+  border-left: solid 0.2rem #000;
+  border-bottom: solid 0.2rem #000;
+  margin-top: 2.1875rem;
+  padding: 2.6875rem;
+}
+
+.labelHeader {
+  border-bottom: solid .5rem black;
+  margin-bottom: 2rem;
+}
+
+.labelHeader h2,
+.labelHeader h4 {
+    margin-bottom: 0;
+}
+
+.blockDiv {
+  display: block;
+}
+
+.hiddenDiv {
+  display: none;
 }
 
 @media (max-width: landscapeMaxWidth) {

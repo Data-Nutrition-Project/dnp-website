@@ -1,14 +1,14 @@
 {
     "overview": {
         "summary": {
-            "datasetName": "COVID Tracking - US Current Data",
+            "datasetName": "The COVID Tracking Project Dataset",
             "dataCollectionRange": "January 22, 2020 - Present",
             "datasetPublishDate": "Unknown",
             "datasetUpdateFrequency": "Daily, at 4-5pm EST",
             "lastLabelUpdate": "August 5, 2020",
             "createdBy": "COVID Tracking Project, The Atlantic",
             "creatorContactInfo": "<https://covidtracking.com/contact>",
-            "licenseInfo": "CC-BY-NC (Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International).  \n\nLicense information and restrictions: <https://covidtracking.com/about-data/license>.",
+            "licenseInfo": "Creative Commons, <https://covidtracking.com/about-data/license>",
             "datasetSize": "34 KB",
             "datasetFormat": "Tabular (csv, JSON)",
             "sourceURL": "<https://covidtracking.com/data/api>"
