@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`SectionBase renders correctly 1`] = `
-<div
-  className="sectionBase"
-/>
-`;

@@ -19,12 +19,13 @@
   text-decoration: none;
 }
 .dropdown {
-  position: absolute;
-  margin-left: 200px;
+  width: 100%;
+  text-align: right;
   z-index: 1;
 }
 
 .navbar {
-  /* position: relative; */
-  display: block;
+  display: inline-block;
+  width: 100%;
+  margin-top: 1rem;
 }

@@ -7,16 +7,8 @@ import styles from "./styles.module.css"
 const LabelTitle = props => {
   return (
     <div className={styles.labelTitle}>
-      <h1 className={styles.headerTitle}>{props.datasetName}</h1>
+      <h3 className={styles.headerTitle}>{props.datasetName}</h3>
       <div className={styles.pageSubHeaderRow}></div>
-
-      <p className={styles.datasetOriginLink}>Dataset Nutrition Label</p>
-
-      <div className={styles.link}>
-        <a className={styles.datasetLink} href={props.datasetOrgLink}>
-          <img src="/linkimg.png" alt="" id="datasetLink" />
-        </a>
-      </div>
     </div>
   )
 }
