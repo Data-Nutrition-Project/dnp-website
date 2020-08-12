@@ -6,8 +6,9 @@
 @value gray from layout;
 
 .card {
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   background-color: #f0f0f0;
+  width: 95%;
 }
 
 .columns {
@@ -17,6 +18,7 @@
   background-color: #f0f0f0;
   border: none;
   padding: 0;
+  width: 75%;
 }
 
 .alertColumn {
@@ -28,6 +30,7 @@
 .alertColumn > p,
 .subtitleText {
   margin-bottom: 0;
+  /* margin-right: 140px; */
 }
 
 .spacerColumn {
@@ -37,7 +40,11 @@
 }
 
 .rightColumn {
+  flex-grow: 2;
+  height: 65px;
   text-align: right;
+  top: -65px;
+  margin-left: 810px;
 }
 
 .rectangle {
@@ -45,7 +52,7 @@
   height: 70px;
   width: 8px;
   background-color: red;
-  padding-left: -5px;
+  padding-left: 5px;
   /* margin-right: 1rem; */
 }
 
@@ -93,6 +100,13 @@
 .tagsRow {
   display: flex;
   flex-direction: row;
+}
+
+.severityRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  /* margin-right: 10px; */
 }
 
 .tag {
@@ -145,17 +159,18 @@
 }
 
 .filter {
-  flex: 1;
+  flex: 0.89;
 }
 
 /* SEVERITY  */
 .severity {
-  width: 300px;
+  /* width: 300px; */
 }
 
 .box {
   height: 0.6875rem;
   width: 0.5rem;
+  margin-block-end: 0;
 }
 
 .red {
@@ -173,7 +188,33 @@
 .green {
   background-color: #09b702;
 }
-
+.sevParagraph {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  /* right: 50px; */
+  font-size: 16px;
+  margin-bottom: 0;
+  margin-top: -5px;
+  margin-left: 5px;
+}
+.flexCol {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: nowrap !important; */
+}
+.severityLvls {
+  display: flex;
+  flex-direction: row;
+  /* margin-right: 10px; */
+  right: 50px;
+  /* margin-left: 10px; */
+  /* padding-bottom: 40px; */
+  margin-bottom: -30px;
+  top: 0;
+  /* right: 30px; */
+  /* position: absolute; */
+}
 .parentColors {
   display: flex;
 }
@@ -182,30 +223,44 @@
   display: flex;
   position: relative;
   flex-direction: row;
-  width: 300px;
+  /* width: 300px; */
   padding-left: 5px;
   margin-top: 5px;
 }
-
+.upperLeft {
+  margin-top: 5px;
+  margin-left: -15px;
+}
 .upperRight > div {
   flex: 1 1 auto;
   text-align: center;
-  margin-right: 55px;
+  margin-right: 30px;
 
   position: relative;
 }
 .moreButton {
   font-weight: bold;
   font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  /* padding-right: 368px; */
+  margin-top: 45px;
+  margin-bottom: 0px;
+  padding-left: 150px;
 }
 
 .caretIcon {
   padding-left: 5px;
   font-size: 20px;
 }
-
+/* s */
 /* .parentColors.mc {
   flex-direction: column;
   flex-wrap: wrap;
   width: 200px;
 } */
+
+div.row {
+  display: block;
+  width: 100%;
+}

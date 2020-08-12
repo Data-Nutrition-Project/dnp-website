@@ -26,5 +26,5 @@
 
 .navbar {
   /* position: relative; */
-  display: inline-block;
+  display: block;
 }

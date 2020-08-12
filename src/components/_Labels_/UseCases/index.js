@@ -1,11 +1,11 @@
 import React from "react"
 import SectionBase from "../../SectionBase/index.js"
-import Alerts from "../../Alert/index.js"
+import AlertCard from "../../AlertCard/index.js"
 class UseCases extends React.Component {
   render() {
     return (
       <SectionBase>
-        <Alerts />
+        <AlertCard />
       </SectionBase>
     )
   }

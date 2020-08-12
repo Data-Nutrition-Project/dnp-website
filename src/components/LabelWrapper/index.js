@@ -19,23 +19,21 @@ class LabelWrapper extends Component {
   }
 
   render() {
-    
     return (
       <div key={0} className={styles.labelWrapper}>
         <div key={1} className={styles.flexComponents}>
           <div key={2} className={styles.flexTitleMenus}>
-            <LabelTitle datasetOrgLink={'/'} />
+            <LabelTitle datasetOrgLink={"/"} />
             <ShareButton />
             <LabelMenus />
           </div>
           {this.props.base === "OVERVIEW" ? (
             <Overview />
           ) : this.props.base === "USE CASES/ALERTS" ? (
+            // useCases={this.props.label["use-cases-section"]
             <UseCases />
           ) : this.props.base === "DATASET INFO" ? (
-            <DatasetInfo
-              datasetInfo={this.props.label['dataset-info']}
-            />
+            <DatasetInfo datasetInfo={this.props.label["dataset-info"]} />
           ) : (
             <Overview />
           )}
@@ -47,7 +45,7 @@ class LabelWrapper extends Component {
 
 LabelWrapper.propTypes = {
   base: PropTypes.string.isRequired,
-  jsonFile: PropTypes.string.isRequired
+  jsonFile: PropTypes.string.isRequired,
 }
 
 LabelWrapper.defaultProps = {
@@ -59,7 +57,8 @@ const mapStateToProps = state => {
     label: state.label,
     data: state.data,
     base: state.base,
-    overview: state.overview
+    overview: state.overview,
+    usecases: state.usecases,
   }
 }
 
