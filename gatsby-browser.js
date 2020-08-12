@@ -9,4 +9,5 @@
 // import "./node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./src/styles/font-icons.css"
+import "typeface-raleway"
 export { default as wrapRootElement } from "./src/store/reduxwrapper"

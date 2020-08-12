@@ -4,58 +4,13 @@ exports[`LabelTitle renders correctly 1`] = `
 <div
   className="labelTitle"
 >
-  <h1
+  <h3
     className="headerTitle"
   >
-    Data Nutrition Label
-  </h1>
+    Dataset Name
+  </h3>
   <div
     className="pageSubHeaderRow"
-  >
-    <h2
-      className="datasetLabelHeader"
-    >
-      College Scoreboard Dataset 2020
-    </h2>
-    <a
-      className="iconLink"
-      href="#"
-    >
-      <img
-        alt="icon for link"
-        className="iconLinkImg"
-        id="datasetLink"
-        src="linkimg.png"
-      />
-    </a>
-  </div>
-  <div
-    className="link"
-  >
-    <p
-      className="datasetOriginLink"
-    >
-      US Department of Education
-    </p>
-  </div>
-  <div
-    className="link"
-  >
-    <a
-      className="datasetLink"
-      href="#"
-    >
-      <img
-        alt=""
-        id="datasetLink"
-        src="/linkimg.png"
-      />
-    </a>
-  </div>
-  <span
-    className="weightedLine"
-  >
-     
-  </span>
+  />
 </div>
 `;

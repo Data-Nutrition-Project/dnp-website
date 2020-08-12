@@ -4,6 +4,7 @@
 @value alertRed: #f0190c;
 @value alertOrange: #f5931e;
 @value alertYellow: #fcda24;
+@value alertBlue: #3763a8;
 @value borderDarkGray: #707070;
 @value lightGray: #f4f4f4;
 @value gray: #969696;
@@ -11,7 +12,7 @@
 @value black: #000000;
 
 /* responsive constants */
-@value tabletMaxWidth: 991px;
+@value tabletMaxWidth: 1024px;
 @value landscapeMaxWidth: 767px;
 @value portraitMaxWidth: 479px;
 
@@ -19,7 +20,7 @@
 @value sideSectionPadding: 4.375rem;
 
 body {
-    font-family: 'railway', sans-serif;
+    font-family: Raleway;
 }
 
 h1,

@@ -1,0 +1,57 @@
+.row {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  margin-bottom: 1rem;
+}
+
+.datasetUnderline {
+  display: block;
+  width: 99%;
+  height: 0.375rem;
+  border: solid 0.0625rem borderDarkGray;
+  background-color: black;
+  margin: 0 0 1.03125rem 0;
+}
+
+.summaryCreationSection {
+  margin-bottom: 1.5rem;
+}
+
+.summaryRow,
+.summaryRow p {
+  margin-bottom: .125rem;
+}
+
+.summaryLabel {
+  float: left;
+  margin-right: .375rem;
+  font-weight: 700;
+}
+
+.qAndA {
+  margin-bottom: 1.5rem;
+}
+
+.question {
+  font-weight: 600;
+}
+
+.useCaseList {
+  margin-bottom: .5rem;
+  line-height: 1;
+}
+
+.useCaseListNumber {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.useCaseQuestion {
+  font-size: 1.25rem;
+}
+
+.alertGraph {
+    width: 100%;
+}
