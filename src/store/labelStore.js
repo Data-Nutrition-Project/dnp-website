@@ -1,3 +1,5 @@
+import { ROOT_PATH } from "gatsby-env-variables"
+
 const GET_LABEL = "GET_LABEL"
 
 const getLabel = label => ({ type: GET_LABEL, label })
@@ -5,7 +7,7 @@ const getLabel = label => ({ type: GET_LABEL, label })
 export const fetchLabelThunk = (jsonFile) => async dispatch => {
   try {
     const label = await (
-      await fetch(process.env.ROOT_PATH + 'blobs/' + jsonFile + ".json", {
+      await fetch(ROOT_PATH + 'blobs/' + jsonFile + ".json", {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
