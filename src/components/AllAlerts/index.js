@@ -34,18 +34,24 @@ class AllAlerts extends Component {
       tags.push(string)
     }
     this.state = { preds, filtered: [], tags, selectedItem: "" }
-    this.handleChange = this.handleChange.bind(this)
     this.onChange = this.onChange.bind(this)
   }
 
-  handleChange(evt) {
-    evt.preventDefault()
-    this.props.filterTags(evt.target.value)
+  componentDidMount() {
+    this.setState({ filtered: [...this.state.preds] })
+  }
+  componentWillUnmount() {
+    this.setState({ filtered: [...this.state.preds] })
   }
 
   onChange(e) {
     e.preventDefault()
-    if (!e.target.value || e.target.value === " " || e.target.value === "")
+    if (
+      !e.target.value ||
+      e.target.value === " " ||
+      e.target.value === "" ||
+      e.target.value === "Filtered Content:"
+    )
       this.setState({ filtered: [...this.state.preds] })
     else {
       let filtered = []
@@ -54,12 +60,15 @@ class AllAlerts extends Component {
       )
       this.setState({ filtered })
     }
+    console.log("eee", e.target.value)
   }
 
   render() {
     const alerts = this.props.alerts
-    const alertLength = Object.keys(alerts).length
     const predictions = this.props.predictions
+    const filteredLength = this.state.filtered.length
+    console.log("filt", filteredLength)
+    const alertLength = Object.keys(predictions).length
 
     let high = 0
     let mid = 0
@@ -73,7 +82,7 @@ class AllAlerts extends Component {
           sev = "high"
           high++
         } else if (alert.severity === 2) {
-          // sev = "medium"
+          sev = "medium"
           mid++
         } else if (alert.severity === 1) {
           sev = "low"
@@ -87,16 +96,24 @@ class AllAlerts extends Component {
       })
     }
 
+    // var onChangeListener = document.getElementById("select")
+    // onChangeListener.addEventListener("click", () => {
+    //   console.log("click")
+    // })
     Object.keys(alerts).map(alert => alert)
     let sliced = this.state.tags.slice(0, 3)
     return (
       <Accordion className={styles.accordionBody}>
-        <h1 className={styles.alertsHeader}>{alertLength} Alerts</h1>
+        <h1 className={styles.alertsHeader}>{filteredLength} Alerts</h1>
         <div className={styles.parentDiv}>
           <div className={styles.filter}>
             <span className={styles.boldHeader}>Filter:</span>
-            <select value={this.state.selectedItem} onChange={this.onChange}>
-              <FontAwesomeIcon
+            <select
+              className={styles.selct}
+              id="select"
+              onChange={this.onChange}
+            >
+              {/* <FontAwesomeIcon
                 className={styles.caretIcon}
                 icon={faCaretDown}
                 // size="1x"
@@ -105,10 +122,8 @@ class AllAlerts extends Component {
                   minHeight: "150vh",
                   paddingLeft: "5vh",
                 }}
-              />
-              <option className={styles.filteredContent} default>
-                Filtered Content:
-              </option>
+              /> */}
+              <option default>Filtered Content:</option>
 
               {sliced.map((tag, i) => {
                 return (

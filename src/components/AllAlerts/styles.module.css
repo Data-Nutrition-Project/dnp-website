@@ -25,6 +25,13 @@
   /* flex-wrap: nowrap !important; */
 }
 
+.selct:focus {
+  outline: none;
+}
+.selct {
+  outline: none !important;
+}
+
 .upperRight {
   position: relative;
   flex-direction: row;
