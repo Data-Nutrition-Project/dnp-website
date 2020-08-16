@@ -151,3 +151,19 @@ div.row {
   display: block;
   width: 100%;
 }
+
+.Fyi {
+  background-color: #09b702;
+}
+
+.Low {
+  background-color: #f0e70c;
+}
+
+.Moderate {
+  background-color: #ff9403;
+}
+
+.High {
+  background-color: #f0190c;
+}

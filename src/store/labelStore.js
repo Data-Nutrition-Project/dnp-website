@@ -2,7 +2,7 @@ const GET_LABEL = "GET_LABEL"
 
 const getLabel = label => ({ type: GET_LABEL, label })
 
-export const fetchLabelThunk = (jsonFile) => async dispatch => {
+export const fetchLabelThunk = jsonFile => async dispatch => {
   try {
     const label = await (
       await fetch("/" + jsonFile + ".json", {

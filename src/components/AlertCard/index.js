@@ -14,22 +14,23 @@ import styles from "./styles.module.css"
 
 const AlertCard = props => {
   const severityMap = {
-    fyi: "",
-    low: "Severity: Low",
-    medium: "Severity: Medium",
-    high: "Severity: High",
+    0: "Fyi Severity",
+    1: "Low Severity",
+    2: "Moderate Severity",
+    3: "High Severity",
   }
-
+  const sevsme = props.severity
+  const sevClassName = severityMap[props.severity].split(" ")[0]
   // const alerts = props.alerts.filter(item => item)
   // const alertLength = alerts.length
   // const highSeverity = props.predictions.alerts.severity === 3
   // const midSeverity = props.predictions.alerts.severity === 2
   // const lowSeverity = props.predictions.alerts.severity === 1
   // const fyi = props.predictions.alerts.severity === 0
-  const alertLength = 25
+
   // console.log("props", props.content)
   return (
-    <Accordion className={styles.accordionBody}>
+    <Accordion>
       {/* end */}
       <Card className={styles.card}>
         <Card.Header className={styles.columns}>
@@ -39,7 +40,7 @@ const AlertCard = props => {
                 className={classNames(
                   styles.alertColumn,
                   styles.rectangle,
-                  styles[props.severity]
+                  styles[sevClassName]
                 )}
               ></div>
               <div className={classNames(styles.alertColumn)}></div>
@@ -49,7 +50,7 @@ const AlertCard = props => {
                 className={classNames(styles.alertColumn, styles.spacerColumn)}
               >
                 <p className={styles.titleText}>{props.title}</p>
-                <p className={styles.subtitleText}>{props.type}</p>
+                <p className={styles.subtitleText}>{props.category}</p>
               </Col>
               {/* Second Col */}
               <Col xs={4} md={4}>
@@ -103,7 +104,7 @@ AlertCard.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   contentType: PropTypes.oneOf(["text", "markdown", "vega-lite"]).isRequired,
-  severity: PropTypes.oneOf(["fyi", "low", "medium", "high"]).isRequired,
+  severity: PropTypes.oneOf([0, 1, 2, 3]).isRequired,
   type: PropTypes.oneOf([
     "completeness",
     "accuracy",
@@ -118,7 +119,7 @@ AlertCard.defaultProps = {
   title: "OH NOESSSS!!!!",
   content: "### Info ###\n\nAHHHHHHHHH!!!!",
   contentType: "markdown",
-  severity: "high",
+  severity: 0,
   type: "completeness",
   tags: ["age"],
 }
