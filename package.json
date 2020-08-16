@@ -54,9 +54,9 @@
         "prettier": "^1.19.1",
         "react-test-renderer": "^16.13.1",
         "react-vega": "7.4.1",
+        "typeface-raleway": "0.0.75",
         "vega": "5.13.0",
-        "vega-lite": "4.14.1",
-        "typeface-raleway": "0.0.75"
+        "vega-lite": "4.14.1"
     },
     "keywords": [
         "gatsby"
