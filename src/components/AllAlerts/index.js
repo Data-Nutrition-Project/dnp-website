@@ -75,31 +75,27 @@ class AllAlerts extends Component {
     let low = 0
     let fyi = 0
     let items = []
+    // const [prediction, info] of Object.entries(predictions)
+    for (let i = 0; i < this.state.filtered.length; i++) {
+      let alert = this.state.filtered[i]
 
-    for (const [prediction, info] of Object.entries(predictions)) {
-      info.alerts.map(alert => {
-        if (alert.severity == 3) {
-          sev = "high"
-          high++
-        } else if (alert.severity === 2) {
-          sev = "medium"
-          mid++
-        } else if (alert.severity === 1) {
-          sev = "low"
-          low++
-        } else if (alert.severity === 0) {
-          sev = "fyi"
-          fyi++
-        } else {
-          sev = ""
-        }
-      })
+      if (alert.severity == 3) {
+        sev = "high"
+        high++
+      } else if (alert.severity === 2) {
+        sev = "medium"
+        mid++
+      } else if (alert.severity === 1) {
+        sev = "low"
+        low++
+      } else if (alert.severity === 0) {
+        sev = "fyi"
+        fyi++
+      } else {
+        sev = ""
+      }
     }
 
-    // var onChangeListener = document.getElementById("select")
-    // onChangeListener.addEventListener("click", () => {
-    //   console.log("click")
-    // })
     Object.keys(alerts).map(alert => alert)
     let sliced = this.state.tags.slice(0, 3)
     return (
