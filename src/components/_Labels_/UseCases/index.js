@@ -3,7 +3,9 @@ import React from "react"
 import { connect } from "react-redux"
 import AlertCard from "../../AlertCard/index.js"
 import AllAlerts from "../../AllAlerts/index.js"
+import Selector from "../../Selector/index.js"
 import { fetchLabelThunk } from "../../../store/labelStore"
+import styles from "./styles.module.css"
 
 class UseCases extends React.Component {
   constructor(props) {
@@ -15,7 +17,14 @@ class UseCases extends React.Component {
 
     return (
       // <SectionBase>
+
       <div>
+        <p className={styles.useCaseInfo}>
+          Relevant alerts for data practitioners who intend to use this dataset
+          for specific use cases (types of analyses).
+        </p>
+        <span className={styles.datasetUnderlineBold}></span>
+        <Selector predictions={useCases["use-cases-section"]["use-cases"]} />
         <AllAlerts
           predictions={useCases["use-cases-section"].predictions}
           alerts={useCases["use-cases-section"].alerts}

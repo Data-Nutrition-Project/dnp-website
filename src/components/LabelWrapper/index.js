@@ -55,7 +55,10 @@ class LabelWrapper extends Component {
                   useCasesSection={this.props.label["use-cases-section"]}
                 />
               ) : this.props.base === "USE CASES/ALERTS" ? (
-                <UseCases useCasesStuff={this.props.label} />
+                <UseCases
+                  useCasesStuff={this.props.label}
+                  useCasePredictions={this.props.label["use-cases-section"]}
+                />
               ) : this.props.base === "DATASET INFO" ? (
                 <DatasetInfo datasetInfo={this.props.label["dataset-info"]} />
               ) : (
