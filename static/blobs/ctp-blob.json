@@ -337,7 +337,7 @@
         },
         "predictions": {
             "current-r0": {
-                "description": "",
+                "description": "Current r0 Value",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -394,7 +394,7 @@
                 ]
             },
             "forecasted-r0": {
-                "description": "",
+                "description": "Project Future r0 Value",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -451,7 +451,7 @@
                 ]
             },
             "current-prevalence": {
-                "description": "",
+                "description": "Current COVID Prevalence",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -508,7 +508,7 @@
                 ]
             },
             "forecasted-infections-timeseries": {
-                "description": "",
+                "description": "Timeseries of Forecasted Infections",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -565,7 +565,7 @@
                 ]
             },
             "forecasted-deaths-timeseries": {
-                "description": "",
+                "description": "Timeseries of Forecasted Deaths",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -614,7 +614,7 @@
                 ]
             },
             "change-deaths-region": {
-                "description": "",
+                "description": "Change in Deaths by Region",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -663,7 +663,7 @@
                 ]
             },
             "change-cases-region": {
-                "description": "",
+                "description": "Change in Cases by Region",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -720,7 +720,7 @@
                 ]
             },
             "tests-capita": {
-                "description": "",
+                "description": "Tests per Capita",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -769,7 +769,7 @@
                 ]
             },
             "icu-capita": {
-                "description": "",
+                "description": "ICU Cases per Capita",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -814,7 +814,7 @@
                 ]
             },
             "ventilator-need-capita": {
-                "description": "",
+                "description": "Ventilator Need per Capita",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -855,7 +855,7 @@
                 ]
             },
             "forecasted-icu-capita": {
-                "description": "",
+                "description": "Forecasted ICU Cases per Capita",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -904,7 +904,7 @@
                 ]
             },
             "forecasted-ventilator-capita": {
-                "description": "",
+                "description": "Forecasted Ventilator Need per Capita",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -953,7 +953,7 @@
                 ]
             },
             "hospitalizations-capita": {
-                "description": "",
+                "description": "Hospitalizations per Capita",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
@@ -994,7 +994,7 @@
                 ]
             },
             "forecasted-hospitalizations-capita": {
-                "description": "",
+                "description": "Forecasted Hospitalizations per Capita",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
