@@ -241,6 +241,7 @@
                 "type": "markdown",
                 "category": "completeness",
                 "tags": ["race"],
+                "severity": 3,
                 "content": "[Recent studies have shown](url) that there are racial disparities in who the virus impacts. While some states are starting to report racial data, not all of them have. As a consequence, this dataset does not have racial data and therefore cannot account for disparate impacts on people by race in decision making."
             },
             "no-gender-breakdown": {
@@ -248,6 +249,7 @@
                 "type": "markdown",
                 "category": "completeness",
                 "tags": ["gender"],
+                "severity": 3,
                 "content": "While some states are starting to report gender data, not all of them have. As a consequence, this dataset does not have gender data and therefore cannot account for disparate impacts on people by gender in decision making."
             },
             "no-worktype-breakdown": {
@@ -255,6 +257,7 @@
                 "type": "markdown",
                 "category": "completeness",
                 "tags": ["socioeconomic"],
+                "severity": 3,
                 "content": "There is no breakdown by type of work, and therefore we cannot tell if essential workers are being adversely impacted due to their increased exposure and/or access to PPE. This is important data when considering reopening guidelines."
             },
             "geographic-specificity": {
@@ -262,6 +265,7 @@
                 "type": "markdown",
                 "category": "completeness",
                 "tags": ["socioeconomic"],
+                "severity": 3,
                 "content": "State-level data is helpful for breaking down reopening guidelines from a state perspective. However, a lack of more granular information prevents seeing the impact of outbreaks based on socioecnomic and racial factors, which are more tightly correlated with zip codes due to existing racial and socioeconomic segregation in many metropolitan areas."
             },
             "testing-dependency": {
@@ -269,6 +273,7 @@
                 "type": "markdown",
                 "category": "provenance",
                 "tags": [],
+                "severity": 3,
                 "content": "Testing rates are not high enough in most states to get an accurate account of the number of confirmed active cases impact state-wide. However, one can use ratios between testing & confirmed active to mitigate this issue somewhat."
             },
             "shady-reporting": {
@@ -276,6 +281,7 @@
                 "type": "markdown",
                 "category": "collection",
                 "tags": [],
+                "severity": 3,
                 "content": "Reporting is not consistent across states; some states have health deparments for each town/city, while some only have health departments for the state, making reporting more cumbersome. Additionally, state health departments may be pressured politically to not create comprehensive reports, as those may impact economic reopening plans."
             },
             "reporting-date-epi-date": {
@@ -283,6 +289,7 @@
                 "type": "markdown",
                 "category": "provenance",
                 "tags": [],
+                "severity": 2,
                 "content": "COVID can incubate for up to 14 days before manifesting symptoms, meaning the tie between a reported date and an infecting event is strained. This can make it difficult to get an accurate, real time picture of what's happening."
             },
             "case-definition": {
@@ -290,6 +297,7 @@
                 "type": "markdown",
                 "category": "provenance",
                 "tags": [],
+                "severity": 3,
                 "content": "Symptoms of COVID continue to evolve and grow as our understanding of COVID grows. This impacts historical data, as well as current data, in that deaths/hospitalizations/etc might be misreported as non-COVID when they were COVID cases."
             },
             "case-reassignment": {
@@ -297,6 +305,7 @@
                 "type": "markdown",
                 "category": "provenance",
                 "tags": [],
+                "severity": 2,
                 "content": "State-wide data can get artificially inflated/deflated by patient data getting moved from one plact to another, which can impact trends in cases, and how they are seen."
             },
             "excluded-purpose": {
@@ -304,6 +313,7 @@
                 "type": "markdown",
                 "category": "description",
                 "tags": [],
+                "severity": 0,
                 "content": "You can only use this dataset if you are working in specific sectors. You are welcome to copy, distribute, and develop data and website content from The COVID Tracking Project at The Atlantic for all healthcare, medical, journalistic and non-commercial uses, including any personal, editorial, academic, or research purposes."
             },
             "cautioned-purpose": {
@@ -311,6 +321,7 @@
                 "type": "markdown",
                 "category": "description",
                 "tags": [],
+                "severity": 2,
                 "content": "There are inconsistencies in reporting across states (?), including where deaths are counted as \"probable\" covid-related deaths: NY state is one example of this"
             },
             "existing-use-case": {
@@ -318,6 +329,7 @@
                 "type": "markdown",
                 "category": "description",
                 "tags": [],
+                "severity": 0,
                 "content": "This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations"
             },
             "publicly-funded": {
@@ -325,6 +337,7 @@
                 "type": "markdown",
                 "category": "provenance",
                 "tags": [],
+                "severity": 0,
                 "content": "Dataset is publicly funded by: Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation"
             },
             "missing-data": {
@@ -332,6 +345,7 @@
                 "type": "markdown",
                 "category": "composition",
                 "tags": [],
+                "severity": 3,
                 "content": "Many known quality issues: (see here)[https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRL2zG1o-qj9l2sl19d1lj1oHd6WbkJ0ukFwN04a_ms_ANUdgxTMpI7AF-gbQzwOSreJUDx6PEK7Vnq/pubhtml]. Variety of reporting at state level; different metrics for atrributing deaths to Covid; disparities with other datasets including JHU, NYT due to different sources of collecting data"
             }
         },

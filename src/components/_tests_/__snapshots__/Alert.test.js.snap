@@ -11,74 +11,82 @@ exports[`Alert renders correctly 1`] = `
       className="columns card-header"
     >
       <div
-        className="alertColumn circle high"
-      />
-      <div
-        className="alertColumn"
+        className="container"
       >
-        <p
-          className="label titleText"
-        >
-          Title
-        </p>
-        <p
-          className="label subtitleText"
-        >
-          Type
-        </p>
-      </div>
-      <div
-        className="alertColumn spacerColumn"
-      >
-        <p
-          className="titleText"
-        >
-          OH NOESSSS!!!!
-        </p>
-        <p
-          className="subtitleText"
-        >
-          completeness
-        </p>
-      </div>
-      <div
-        className="alertColumn rightColumn"
-      >
-        <p
-          className="bold subtitleText high"
-        >
-          High Severity
-        </p>
         <div
-          className="tagsRow"
+          className="showGrid row"
+          style={
+            Object {
+              "height": 68,
+            }
+          }
         >
-          <p
-            className="subtitleText label"
+          <div
+            className="alertColumn rectangle Fyi"
+          />
+          <div
+            className="alertColumn"
+          />
+          <div
+            className="alertColumn spacerColumn col-md-4 col-1"
           >
-            Who's impacted
-          </p>
-          <p
-            className="subtitleText tag"
+            <p
+              className="titleText"
+            >
+              OH NOESSSS!!!!
+            </p>
+            <p
+              className="subtitleText"
+            />
+          </div>
+          <div
+            className="col-md-4 col-4"
           >
-            age
-          </p>
+            <button
+              className="caret"
+              onClick={[Function]}
+              type="button"
+            >
+              <p
+                className="moreButton"
+              >
+                MORE
+              </p>
+            </button>
+          </div>
+          <div
+            className="alertColumn rightColumn col-md-4 col-1"
+          >
+            <div
+              className="severityRow"
+            >
+              <p
+                className="subtitleText tag"
+              >
+                Fyi Severity
+              </p>
+            </div>
+            <div
+              className="tagsRow"
+            >
+              <p
+                className="subtitleText tag"
+              >
+                Affected:
+              </p>
+              <p
+                className="subtitleText tag"
+              >
+                age
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <button
-        className="caret"
-        onClick={[Function]}
-        type="button"
-      >
-        <img
-          alt="dropdown toggle"
-          className="caretImg"
-          src="caret.png"
-        />
-      </button>
     </div>
     <div
       aria-expanded={null}
-      className="collapse show"
+      className="collapse"
     >
       <div
         className="content"

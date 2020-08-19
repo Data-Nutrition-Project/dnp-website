@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import Col from "react-bootstrap/Col"
+import Row from "react-bootstrap/Row"
 
 import LabelMenus from "../LabelMenus/index"
 import ShareButton from "../ShareButton/index"
@@ -22,7 +22,9 @@ class LabelWrapper extends Component {
   render() {
     return (
       <div key={0} className={styles.labelWrapper}>
-        {this.props.label.overview === undefined ? [] : (
+        {this.props.label.overview === undefined ? (
+          []
+        ) : (
           <div key={1} className={styles.flexComponents}>
             <Col
               className={styles.flexTitleMenus}
@@ -40,27 +42,27 @@ class LabelWrapper extends Component {
               sm={{ span: 12 }}
             >
               <div className={styles.labelHeader}>
-                <h2>
-                  Dataset Nutrition Label
-                </h2>
-                <h4>
-                  {this.props.label.overview.summary.datasetName}
-                </h4>
+                <h2>Dataset Nutrition Label</h2>
+                <h4>{this.props.label.overview.summary.datasetName}</h4>
               </div>
               {this.props.base === "OVERVIEW" ? (
                 <Overview
                   summary={this.props.label.overview.summary}
-                  datasetInfoDescription={this.props.label['dataset-info'].description}
-                  topUseCases={this.props.label.overview['top-use-cases']}
-                  useCasesSection={this.props.label['use-cases-section']}
+                  datasetInfoDescription={
+                    this.props.label["dataset-info"].description
+                  }
+                  topUseCases={this.props.label.overview["top-use-cases"]}
+                  useCasesSection={this.props.label["use-cases-section"]}
                 />
               ) : this.props.base === "USE CASES/ALERTS" ? (
-                <UseCases />
-              ) : this.props.base === "DATASET INFO" ? (
-                <DatasetInfo
-                  datasetInfo={this.props.label['dataset-info']}
+                <UseCases
+                  useCasesStuff={this.props.label["use-cases-section"]}
                 />
-              ) : []}
+              ) : this.props.base === "DATASET INFO" ? (
+                <DatasetInfo datasetInfo={this.props.label["dataset-info"]} />
+              ) : (
+                []
+              )}
             </Col>
           </div>
         )}
@@ -71,7 +73,7 @@ class LabelWrapper extends Component {
 
 LabelWrapper.propTypes = {
   base: PropTypes.string.isRequired,
-  jsonFile: PropTypes.string.isRequired
+  jsonFile: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = state => {
@@ -79,7 +81,8 @@ const mapStateToProps = state => {
     label: state.label,
     data: state.data,
     base: state.base,
-    overview: state.overview
+    overview: state.overview,
+    usecases: state.usecases,
   }
 }
 

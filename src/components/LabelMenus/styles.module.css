@@ -37,7 +37,7 @@
 
 .menuTitle {
   display: inline-block;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   font-size: 1.375rem;
   font-weight: bold;
   font-stretch: normal;
@@ -55,13 +55,13 @@
 }
 
 @media (max-width: tabletMaxWidth) {
-    .menuTitle {
-        font-size: 1rem;
-    }
+  .menuTitle {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: landscapeMaxWidth) {
-    .menuTitle {
-        font-size: .8rem;
-    }
+  .menuTitle {
+    font-size: 0.8rem;
+  }
 }
