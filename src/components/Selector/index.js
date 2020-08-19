@@ -5,11 +5,8 @@ class Selector extends Component {
   constructor(props) {
     super(props)
     const preds = []
-    const predictions = this.props.predictions
+    const useCases = this.props.useCases
 
-    for (const [prediction, info] of Object.entries(predictions)) {
-      preds.push(info.predictions)
-    }
     this.state = {
       filteredPreds: [],
       preds,
@@ -18,30 +15,20 @@ class Selector extends Component {
     }
     this.onChange = this.onChange.bind(this)
   }
-  // componentDidMount() {
-  //   this.setState({ filteredPreds: [...this.state.preds] })
-  // }
 
   onChange(e) {
-    e.preventDefault()
+    e.stopPropagation()
     console.log("e", e.target.value)
 
     if (!e.target.value || e.target.value === " " || e.target.value === "") {
       this.setState({ filteredPreds: [...this.state.preds] })
     } else {
       let filteredPreds = []
-
-      filteredPreds = this.state.preds.filter(item =>
-        item[0].includes(e.target.value)
-      )
-
+      filteredPreds = this.props.useCases[e.target.value].predictions
       this.setState({ filteredPreds, currentUseCase: e.target.value })
     }
   }
 
-  // componentDidMount() {
-  //   this.setState({ filteredPreds: [...this.state.preds] })
-  // }
   render() {
     return (
       <div className={styles.selectorBody}>
@@ -54,42 +41,59 @@ class Selector extends Component {
             </p>
             <span className={styles.datasetUnderlineBold}></span>
             <div onChange={this.onChange} className={styles.useCaseList}>
-              <label for="current-r0">
+              <label for="bending-curve">
                 <input
                   className={styles.please}
                   type="radio"
-                  value="current-r0"
-                  checked={this.state.currentUseCase == "current-r0"}
+                  value="bending-curve"
+                  checked={this.state.currentUseCase == "bending-curve"}
                 />
-                Are we bending the curve?
+                {this.props.useCases["bending-curve"].description}
               </label>
 
               <label>
                 <input
                   type="radio"
-                  value="icu-capita"
-                  checked={this.state.currentUseCase == "icu-capita"}
+                  value="point-prevalence"
+                  checked={this.state.currentUseCase == "point-prevalence"}
                 />
-                What is the prevalence of COVID-19 / region?
+                {this.props.useCases["point-prevalence"].description}
               </label>
 
               <label>
                 <input
                   type="radio"
-                  value="forecasted-r0"
-                  checked={this.state.currentUseCase == "forecasted-r0"}
+                  value="back-to-normal"
+                  checked={this.state.currentUseCase == "back-to-normal"}
                 />
-                When can we go back to no government interventions or mobility
-                restrictions?
+                {this.props.useCases["back-to-normal"].description}
               </label>
 
               <label>
                 <input
                   type="radio"
-                  value="change-cases-region"
-                  checked={this.state.currentUseCase == "change-cases-region"}
+                  value="outbreak-clusters"
+                  checked={this.state.currentUseCase == "outbreak-clusters"}
                 />
-                Where are clusters of outbreaks?
+                {this.props.useCases["outbreak-clusters"].description}
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="exceed-hospital-capacity"
+                  checked={this.state.currentUseCase == "exceed-hospital-capacity"}
+                />
+                {this.props.useCases["exceed-hospital-capacity"].description}
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="population-based-impact"
+                  checked={this.state.currentUseCase == "population-based-impact"}
+                />
+                {this.props.useCases["population-based-impact"].description}
               </label>
             </div>
           </div>
@@ -101,21 +105,18 @@ class Selector extends Component {
               onChange={this.props.handleChange}
               className={styles.ulPredictions}
             >
-              {this.state.filteredPreds.map(fi => {
-                return fi.map((f, j) => {
-                  const status = f
-                  return (
-                    <label for={f} key={j}>
-                      {/* name={j + 1} */}
-                      <input
-                        type="radio"
-                        value={f}
-                        checked={this.props.currentPrediction === f}
-                      />
-                      {f}
-                    </label>
-                  )
-                })
+              {this.state.filteredPreds.map((f, j) => {
+                const status = f
+                return (
+                  <label htmlFor={f} key={j}>
+                    <input
+                      type="radio"
+                      value={f}
+                      checked={this.props.currentPrediction === f}
+                    />
+                    {this.props.predictions[f].description}
+                  </label>
+                )
               })}
             </div>
           </div>

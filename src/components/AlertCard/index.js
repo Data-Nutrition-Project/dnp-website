@@ -80,6 +80,7 @@ const AlertCard = props => {
                     return (
                       <p
                         className={classNames(styles.subtitleText, styles.tag)}
+                        key={tag}
                       >
                         {tag}
                       </p>
