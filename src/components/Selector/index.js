@@ -6,7 +6,7 @@ class Selector extends Component {
     super(props)
     const preds = []
     const predictions = this.props.predictions
-    console.log("predictions", [predictions])
+
     for (const [prediction, info] of Object.entries(predictions)) {
       preds.push(info.predictions)
     }
@@ -14,15 +14,16 @@ class Selector extends Component {
       filteredPreds: [],
       preds,
       currentUseCase: "",
+      addedPreds: [],
     }
     this.onChange = this.onChange.bind(this)
-    console.log("prrrr", this.state.preds)
   }
   // componentDidMount() {
   //   this.setState({ filteredPreds: [...this.state.preds] })
   // }
 
   onChange(e) {
+    e.preventDefault()
     console.log("e", e.target.value)
 
     if (!e.target.value || e.target.value === " " || e.target.value === "") {
@@ -42,8 +43,6 @@ class Selector extends Component {
   //   this.setState({ filteredPreds: [...this.state.preds] })
   // }
   render() {
-    console.log("state", this.state.filteredPreds)
-    console.log("cusecase", this.state.currentUseCase)
     return (
       <div className={styles.selectorBody}>
         <h1 className={styles.selectHeader}>Selector</h1>
@@ -98,12 +97,21 @@ class Selector extends Component {
             <h1 className={styles.boldHeader}>Predictions:</h1>
             <p className={styles.datasetParagraph}>What is being predicted?</p>
             <span className={styles.predictionsUnderlineBold}></span>
-            <div className={styles.ulPredictions}>
+            <div
+              onChange={this.props.handleChange}
+              className={styles.ulPredictions}
+            >
               {this.state.filteredPreds.map(fi => {
                 return fi.map((f, j) => {
+                  const status = f
                   return (
-                    <label key={j}>
-                      <input type="checkbox" />
+                    <label for={f} key={j}>
+                      {/* name={j + 1} */}
+                      <input
+                        type="radio"
+                        value={f}
+                        checked={this.props.currentPrediction === f}
+                      />
                       {f}
                     </label>
                   )
