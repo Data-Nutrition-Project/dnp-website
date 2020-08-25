@@ -54,10 +54,10 @@ class LabelMenus extends Component {
                   <span className={styles.menuTitle}>
                     <span
                       onClick={() => this.selectItem(menu.title)}
-                      className={classNames(
-                        styles.menuTitle,
-                        {[styles.highlightLabel]: this.state.selectedItem === menu.title}
-                      )}
+                      className={classNames(styles.menuTitle, {
+                        [styles.highlightLabel]:
+                          this.state.selectedItem === menu.title,
+                      })}
                     >
                       {menu.title}
                     </span>

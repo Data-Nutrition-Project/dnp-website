@@ -1,0 +1,15 @@
+/* .useCaseInfo {
+
+} */
+/* .useCasesBody {
+  padding: 2.6875rem;
+} */
+
+.datasetUnderlineBold {
+  display: block;
+  width: 100%;
+  height: 0.4rem;
+  border: solid 0.4rem borderDarkGray;
+  background-color: black;
+  font-weight: bold;
+}

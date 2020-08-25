@@ -1,0 +1,170 @@
+@value layout: "../layout.css";
+
+@value alertRed from layout;
+@value alertOrange from layout;
+@value alertYellow from layout;
+@value gray from layout;
+
+.card {
+  /* padding: 0.5rem; */
+  background-color: #f0f0f0;
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.columns {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 0;
+  width: 75%;
+}
+
+.alertColumn {
+  display: flex;
+  flex-direction: column;
+  margin-right: 0.5rem;
+}
+
+.alertColumn > p,
+.subtitleText {
+  margin-bottom: 0;
+}
+
+.spacerColumn {
+  flex-grow: 2;
+  height: 65px;
+  background-color: #f0f0f0;
+}
+
+.rightColumn {
+  flex-grow: 2;
+  height: 65px;
+  text-align: right;
+  top: -65px;
+  margin-left: 850px;
+  padding-left: 150px;
+}
+
+.rectangle {
+  display: inline-block;
+  height: 70px;
+  width: 8px;
+  background-color: red;
+  padding-left: 5px;
+}
+
+.low {
+  color: alertYellow;
+}
+
+.medium {
+  color: alertOrange;
+}
+
+.high {
+  color: alertRed;
+}
+
+.circle.low {
+  background-color: alertYellow;
+}
+
+.circle.medium {
+  background-color: alertOrange;
+}
+
+.circle.high {
+  background-color: alertRed;
+}
+
+.titleText {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.subtitleText {
+  font-size: 0.875rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.tagsRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.tag {
+  margin-left: 0.5rem;
+}
+
+.caret,
+.caret:focus {
+  border: none !important;
+  outline: none;
+  background-color: transparent;
+  border-color: transparent;
+  margin-left: 0.5rem;
+}
+
+.caretImg {
+  width: 1rem;
+}
+
+.content {
+  margin-top: 1rem;
+  padding-left: 3rem;
+  padding-right: 2.5rem;
+}
+
+/* Alerts Header */
+.alertsHeader {
+  font-size: 1.875rem;
+  margin-bottom: 10px;
+}
+
+.boldHeader {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.accordionBody {
+  padding-left: 60px;
+}
+
+.moreButton {
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  /* padding-right: 368px; */
+  margin-top: 45px;
+  margin-bottom: 0px;
+  padding-left: 215px;
+}
+
+div.row {
+  display: block;
+  width: 100%;
+}
+
+.Fyi {
+  background-color: #09b702;
+}
+
+.Low {
+  background-color: #f0e70c;
+}
+
+.Moderate {
+  background-color: #ff9403;
+}
+
+.High {
+  background-color: #f0190c;
+}
