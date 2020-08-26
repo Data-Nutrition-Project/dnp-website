@@ -9,7 +9,7 @@
   /* padding: 0.5rem; */
   background-color: #f0f0f0;
   width: 100%;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .columns {
@@ -56,6 +56,13 @@
   padding-left: 5px;
 }
 
+.collapseRectangle {
+  display: inline-block;
+  width: 8px;
+  height: 40px;
+  padding-left: 5px;
+  vertical-align: middle;
+}
 .low {
   color: alertYellow;
 }
@@ -115,10 +122,22 @@
   width: 1rem;
 }
 
-.content {
+.content p {
+  display: table-cell;
+  width: 100%;
   margin-top: 1rem;
   padding-left: 3rem;
-  padding-right: 2.5rem;
+  /* padding-right: 2.5rem; */
+  vertical-align: middle;
+}
+
+.textContent p {
+  /* display: table-cell; */
+  /* vertical-align: middle; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80px;
 }
 
 /* Alerts Header */

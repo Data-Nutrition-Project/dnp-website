@@ -63,7 +63,11 @@ const AlertCard = props => {
               <Col
                 xs={1}
                 md={4}
-                className={classNames(styles.alertColumn, styles.rightColumn)}
+                className={classNames(
+                  styles.alertColumn,
+
+                  styles.rightColumn
+                )}
               >
                 <div className={styles.severityRow}>
                   {/* <p className={classNames(styles.subtitleText)}> */}
@@ -91,9 +95,23 @@ const AlertCard = props => {
             </Row>
           </Container>
         </Card.Header>
+
         <Accordion.Collapse eventKey="0">
-          <div className={styles.content}>
-            <ReactMarkdown source={props.content} />
+          <div>
+            <span
+              className={classNames(
+                styles.content,
+                styles.alertColumn,
+                styles.collapseRectangle,
+                styles[sevClassName]
+              )}
+            ></span>
+            <div>
+              <ReactMarkdown
+                source={props.content}
+                // className={styles.textContent}
+              />
+            </div>
           </div>
         </Accordion.Collapse>
       </Card>
