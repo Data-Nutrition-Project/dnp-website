@@ -25,25 +25,28 @@ class LabelWrapper extends Component {
         {this.props.label.overview === undefined ? (
           []
         ) : (
-          <div key={1} className={styles.flexComponents}>
+          <div key={1}>
             <Col
               className={styles.flexTitleMenus}
-              xl={{ span: 2 }}
-              md={{ span: 2 }}
+              xl={{ span: 2, offset: 1 }}
+              md={{ span: 2, offset: 1 }}
               sm={{ span: 12 }}
             >
-              <LabelMenus />
-              <ShareButton />
+              <LabelMenus />     
             </Col>
             <Col
               className={styles.sectionBase}
-              xl={{ span: 10, offset: 2 }}
-              md={{ span: 10, offset: 2 }}
+              xl={{ span: 8, offset: 3 }}
+              md={{ span: 8, offset: 3 }}
               sm={{ span: 12 }}
             >
               <div className={styles.labelHeader}>
-                <h2>Dataset Nutrition Label</h2>
-                <h4>{this.props.label.overview.summary.datasetName}</h4>
+                <h1>Dataset Nutrition Label</h1>
+                <div>
+                  <h4>{this.props.label.overview.summary.datasetName}</h4>
+                  <p>{this.props.label.overview.summary.createdBy}</p>
+                </div>
+                <ShareButton />
               </div>
               {this.props.base === "OVERVIEW" ? (
                 <Overview
