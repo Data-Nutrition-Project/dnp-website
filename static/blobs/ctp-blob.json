@@ -7,8 +7,8 @@
             "datasetUpdateFrequency": "Daily, at 4-5pm EST",
             "lastLabelUpdate": "August 5, 2020",
             "createdBy": "COVID Tracking Project, The Atlantic",
-            "creatorContactInfo": "<https://covidtracking.com/contact>",
-            "licenseInfo": "Creative Commons, <https://covidtracking.com/about-data/license>",
+            "creatorContactInfo": "([Contact](https://covidtracking.com/contact))",
+            "licenseInfo": "Creative Commons, ([more information here](https://covidtracking.com/about-data/license))",
             "datasetSize": "34 KB",
             "datasetFormat": "Tabular (csv, JSON)",
             "sourceURL": "<https://covidtracking.com/data/api>"
@@ -17,7 +17,9 @@
             "bending-curve",
             "back-to-normal",
             "outbreak-clusters",
-            "population-based-impact"
+            "population-based-impact",
+            "exceed-hospital-capacity",
+            "point-prevalence"
         ]
     },
     "dataset-info": {
@@ -26,7 +28,7 @@
                 "question": "Tell us about this dataset.",
                 "help": "Please provide an overview of this dataset.",
                 "type": "markdown",
-                "answer": "This Dataset is comprised of US state level data for Covid-19. All of the data is taken directly from the websites of state/territory public health authorities, and includes, by state: positive and negative cases, pending results, current and cumulative hospitalizations, cumultive and current patients in ICUs, cumulative and current patients on ventilators, total recovered, and total deaths. We compile these numbers to provide the most complete picture we can assemble of the US COVID-19 testing effort and the outbreak’s effects on the people and communities it strikes. The data is updated daily between 4-5 pm. From FAQ: \"See our data sources page or flip to the \"States\" tab of our public spreadsheet, which includes constantly updated annotations about data-source changes.\""
+                "answer": "This Dataset is comprised of US state level data for Covid-19. All of the data is taken directly from the websites of state/territory public health authorities, and includes, by state: positive and negative cases, pending results, current and cumulative hospitalizations, cumultive and current patients in ICUs, cumulative and current patients on ventilators, total recovered, and total deaths. The Covid Tracking Project compiles these numbers to provide the most complete picture they can assemble of the US COVID-19 testing effort and the outbreak’s effects on the people and communities it strikes. The data is updated daily between 4-5 pm. From FAQ: \"See our data sources page or flip to the \"States\" tab of our public spreadsheet, which includes constantly updated annotations about data-source changes.\""
             },
             {
                 "question": "Is there an intended purpose for the dataset? What domain was it designed for?",
