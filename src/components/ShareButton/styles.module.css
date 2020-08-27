@@ -1,16 +1,17 @@
 @value layout: "../layout.css";
 
+@value landscapeMaxWidth from layout;
+
 @value sideSectionPadding from layout;
 @value darkSlateBlue from layout;
 @value teal: #1ABC9C;
 
 .buttonSpacing {
-  padding: 1rem 0 0 0;
+  padding: 0;
   text-align: right;
 }
 
 .buttonStyle {
-  height: 30px;
   background-color: darkSlateBlue;
   border: 1px;
   border-radius: 1px;
@@ -20,7 +21,7 @@
   padding: 0;
   position: relative;
   bottom: 4px;
-  font-size: 0.94rem;
+  font-size: 1rem;
   text-align: center;
   vertical-align: middle;
 }
@@ -32,4 +33,10 @@
 .buttonStyle:active,
 .buttonStyle:visited {
   background-color: darkSlateBlue !important;
+}
+
+@media (max-width: landscapeMaxWidth) {
+    .buttonSpacing {
+        display: none;
+    }
 }
