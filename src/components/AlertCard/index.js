@@ -14,13 +14,14 @@ import styles from "./styles.module.css"
 
 const AlertCard = props => {
   const severityMap = {
-    0: "Fyi Severity",
-    1: "Low Severity",
-    2: "Moderate Severity",
-    3: "High Severity",
+    0: "Severity: Fyi",
+    1: "Severity: Low",
+    2: "Severity: Moderate",
+    3: "Severity: High",
   }
-  const sevsme = props.severity
-  const sevClassName = severityMap[props.severity].split(" ")[0]
+
+  const sevClassName = severityMap[props.severity].split(": ")[1]
+  console.log("sev", sevClassName)
   // const alerts = props.alerts.filter(item => item)
   // const alertLength = alerts.length
   // const highSeverity = props.predictions.alerts.severity === 3
@@ -50,7 +51,6 @@ const AlertCard = props => {
                 className={classNames(styles.alertColumn, styles.spacerColumn)}
               >
                 <p className={styles.titleText}>{props.title}</p>
-                <p className={styles.subtitleText}>{props.category}</p>
               </Col>
               {/* Second Col */}
               <Col xs={4} md={4}>
@@ -71,25 +71,8 @@ const AlertCard = props => {
               >
                 <div className={styles.severityRow}>
                   {/* <p className={classNames(styles.subtitleText)}> */}
-                  <p className={classNames(styles.subtitleText, styles.tag)}>
-                    {severityMap[props.severity]}
-                  </p>
+
                   {/* </p> */}
-                </div>
-                <div className={styles.tagsRow}>
-                  <p className={classNames(styles.subtitleText, styles.tag)}>
-                    Affected:
-                  </p>
-                  {props.tags.map(tag => {
-                    return (
-                      <p
-                        className={classNames(styles.subtitleText, styles.tag)}
-                        key={tag}
-                      >
-                        {tag}
-                      </p>
-                    )
-                  })}
                 </div>
               </Col>
             </Row>
@@ -97,7 +80,7 @@ const AlertCard = props => {
         </Card.Header>
 
         <Accordion.Collapse eventKey="0">
-          <div>
+          <div className={styles.flexCollapse}>
             <span
               className={classNames(
                 styles.content,
@@ -106,7 +89,42 @@ const AlertCard = props => {
                 styles[sevClassName]
               )}
             ></span>
-            <div>
+
+            <div className={styles.childCollapse}>
+              <Container>
+                <Row className={styles.alertRow}>
+                  <Col md={9}>
+                    <p className={classNames(styles.subtitleText)}>
+                      <b>Severity</b>
+                      <b>:</b> {sevClassName}
+                    </p>
+                  </Col>
+                  <Col md={3}>
+                    <p className={styles.subtitleText}>
+                      <b>Alert Category</b>
+                      <b>:</b> {props.category}
+                    </p>
+                    <div className={classNames(styles.subtitleText)}>
+                      <b>Populations Affected</b>
+                      <b>:</b>{" "}
+                      {props.tags.map(tag => {
+                        return (
+                          // <p
+                          //   className={classNames(
+                          //     styles.subtitleText,
+                          //     styles.tag
+                          //   )}
+                          //   key={tag}
+                          // >
+                          tag
+                          // </p>
+                        )
+                      })}
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+
               <ReactMarkdown
                 source={props.content}
                 // className={styles.textContent}

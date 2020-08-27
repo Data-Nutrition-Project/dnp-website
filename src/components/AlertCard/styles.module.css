@@ -56,11 +56,17 @@
   padding-left: 5px;
 }
 
+.flexCollapse {
+  display: flex;
+}
+
+.childCollapse {
+  margin-right: 15px;
+}
 .collapseRectangle {
   display: inline-block;
   width: 8px;
-  height: 40px;
-  padding-left: 5px;
+  padding-left: 7px;
   vertical-align: middle;
 }
 .low {
@@ -94,6 +100,7 @@
 
 .subtitleText {
   font-size: 0.875rem;
+  margin-right: 5px;
 }
 
 .bold {
@@ -105,10 +112,13 @@
   flex-direction: row;
 }
 
-.tag {
+/* .tag {
   margin-left: 0.5rem;
-}
+} */
 
+/* .alertRow {
+  margin: 20px;
+} */
 .caret,
 .caret:focus {
   border: none !important;
