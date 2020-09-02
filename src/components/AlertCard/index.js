@@ -35,48 +35,20 @@ const AlertCard = props => {
       {/* end */}
       <Card className={styles.card}>
         <Card.Header className={styles.columns}>
-          <Container>
-            <Row className="showGrid" style={{ height: 68 }}>
-              <div
-                className={classNames(
-                  styles.alertColumn,
-                  styles.rectangle,
-                  styles[sevClassName]
-                )}
-              ></div>
-              <div className={classNames(styles.alertColumn)}></div>
-              <Col
-                xs={1}
-                md={4}
-                className={classNames(styles.alertColumn, styles.spacerColumn)}
-              >
-                <p className={styles.titleText}>{props.title}</p>
-              </Col>
-              {/* Second Col */}
-              <Col xs={4} md={4}>
-                <Accordion.Toggle className={styles.caret} eventKey="0">
-                  <p className={styles.moreButton}>MORE</p>
-                </Accordion.Toggle>
-              </Col>
-              {/* Third Col */}
+          <div
+            className={classNames(
+              styles.alertColumn,
+              styles.rectangle,
+              styles[sevClassName]
+            )}
+          ></div>
 
-              <Col
-                xs={1}
-                md={4}
-                className={classNames(
-                  styles.alertColumn,
-
-                  styles.rightColumn
-                )}
-              >
-                <div className={styles.severityRow}>
-                  {/* <p className={classNames(styles.subtitleText)}> */}
-
-                  {/* </p> */}
-                </div>
-              </Col>
-            </Row>
-          </Container>
+          <div className={styles.flexGrow}>
+            <p className={styles.titleText}>{props.title}</p>
+            <Accordion.Toggle className={styles.caret} eventKey="0">
+              <span className={styles.moreButton}>MORE</span>
+            </Accordion.Toggle>
+          </div>
         </Card.Header>
 
         <Accordion.Collapse eventKey="0">
@@ -93,42 +65,40 @@ const AlertCard = props => {
             <div className={styles.childCollapse}>
               <Container>
                 <Row className={styles.alertRow}>
-                  <Col md={9}>
-                    <p className={classNames(styles.subtitleText)}>
-                      <b>Severity</b>
-                      <b>:</b> {sevClassName}
-                    </p>
-                  </Col>
-                  <Col md={3}>
-                    <p className={styles.subtitleText}>
-                      <b>Alert Category</b>
-                      <b>:</b> {props.category}
-                    </p>
-                    <div className={classNames(styles.subtitleText)}>
-                      <b>Populations Affected</b>
-                      <b>:</b>{" "}
-                      {props.tags.map(tag => {
-                        return (
-                          // <p
-                          //   className={classNames(
-                          //     styles.subtitleText,
-                          //     styles.tag
-                          //   )}
-                          //   key={tag}
-                          // >
-                          tag
-                          // </p>
-                        )
-                      })}
-                    </div>
-                  </Col>
+                  <p className={classNames(styles.subtitleText)}>
+                    <b>Severity</b>
+                    <b>:</b> {sevClassName}
+                  </p>
+                  <p className={styles.subtitleText}>
+                    <b>Alert Category</b>
+                    <b>:</b> {props.category}
+                  </p>
+                  <div className={classNames(styles.subtitleText)}>
+                    <b>Populations Affected</b>
+                    <b>:</b>{" "}
+                    {props.tags.map(tag => {
+                      return (
+                        // <p
+                        //   className={classNames(
+                        //     styles.subtitleText,
+                        //     styles.tag
+                        //   )}
+                        //   key={tag}
+                        // >
+                        tag
+                        // </p>
+                      )
+                    })}
+                  </div>
+                </Row>
+
+                <Row>
+                  <ReactMarkdown
+                    source={props.content}
+                    // className={styles.textContent}
+                  />
                 </Row>
               </Container>
-
-              <ReactMarkdown
-                source={props.content}
-                // className={styles.textContent}
-              />
             </div>
           </div>
         </Accordion.Collapse>

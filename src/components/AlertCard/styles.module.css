@@ -19,7 +19,7 @@
   background-color: #f0f0f0;
   border: none;
   padding: 0;
-  width: 75%;
+  width: 100%;
 }
 
 .alertColumn {
@@ -28,6 +28,9 @@
   margin-right: 0.5rem;
 }
 
+.flexGrow {
+  flex-grow: 2;
+}
 .alertColumn > p,
 .subtitleText {
   margin-bottom: 0;
@@ -96,6 +99,7 @@
 .titleText {
   font-size: 1rem;
   font-weight: bold;
+  /* width: 300%; */
 }
 
 .subtitleText {
@@ -121,11 +125,12 @@
 } */
 .caret,
 .caret:focus {
+  display: block;
   border: none !important;
   outline: none;
   background-color: transparent;
   border-color: transparent;
-  margin-left: 0.5rem;
+  margin: auto;
 }
 
 .caretImg {
@@ -169,12 +174,8 @@
 .moreButton {
   font-weight: bold;
   font-size: 14px;
-  display: inline-block;
+  display: block;
   text-align: center;
-  /* padding-right: 368px; */
-  margin-top: 45px;
-  margin-bottom: 0px;
-  padding-left: 215px;
 }
 
 div.row {

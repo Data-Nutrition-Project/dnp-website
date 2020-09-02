@@ -1,9 +1,9 @@
 import React from "react"
-import { connect } from "react-redux"
-import AlertCard from "../../AlertCard/index.js"
+
+import { Element } from "react-scroll"
 import AllAlerts from "../../AllAlerts/index.js"
 import Selector from "../../Selector/index.js"
-import { fetchLabelThunk } from "../../../store/labelStore"
+
 import styles from "./styles.module.css"
 
 class UseCases extends React.Component {
@@ -16,7 +16,7 @@ class UseCases extends React.Component {
       thePreds,
       selectedAlerts: [],
       currentPrediction: "",
-      newPreds: []
+      newPreds: [],
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -41,6 +41,7 @@ class UseCases extends React.Component {
           for specific use cases (types of analyses).
         </p>
         <span className={styles.datasetUnderlineBold}></span>
+        <Element id={"Selector-title"}> </Element>
         <Selector
           handleChange={this.handleChange}
           useCases={useCases["use-cases"]}
@@ -48,6 +49,7 @@ class UseCases extends React.Component {
           thePreds={this.state.thePreds}
           currentPrediction={this.state.currentPrediction}
         />
+        <Element id={"Alerts-title"}> </Element>
         <AllAlerts
           predictions={useCases.predictions}
           alerts={useCases.alerts}

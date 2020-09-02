@@ -29,7 +29,7 @@ class AllAlerts extends Component {
       3: 0,
       2: 0,
       1: 0,
-      0: 0
+      0: 0,
     }
 
     for (const [prediction, info] of Object.entries(alerts)) {
@@ -48,7 +48,7 @@ class AllAlerts extends Component {
       })
     } else {
       this.props.selectedAlerts.map((alert, i) => {
-        let alertObj = {...this.props.alerts[alert]}
+        let alertObj = { ...this.props.alerts[alert] }
         alertObj.severity = alert.severity
         sevCount[alert.severity]++
         selectedAlerts.push(alertObj)
@@ -77,7 +77,7 @@ class AllAlerts extends Component {
       3: 0,
       2: 0,
       1: 0,
-      0: 0
+      0: 0,
     }
 
     if (
@@ -86,7 +86,10 @@ class AllAlerts extends Component {
       e.target.value === "" ||
       e.target.value === "All"
     )
-      this.setState({ filtered: [...this.state.selectedAlerts] })
+      this.setState({
+        filtered: [...this.state.selectedAlerts],
+        filterValue: e.target.value,
+      })
     else {
       let filtered = []
 
@@ -104,18 +107,21 @@ class AllAlerts extends Component {
         highCount: sevCount[3],
         midCount: sevCount[2],
         lowCount: sevCount[1],
-        fyiCount: sevCount[0]
+        fyiCount: sevCount[0],
       })
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (JSON.stringify(this.props.selectedAlerts) !== JSON.stringify(prevProps.selectedAlerts)) {
+    if (
+      JSON.stringify(this.props.selectedAlerts) !==
+      JSON.stringify(prevProps.selectedAlerts)
+    ) {
       let sevCount = {
         3: 0,
         2: 0,
         1: 0,
-        0: 0
+        0: 0,
       }
 
       let selectedAlerts = []
@@ -123,7 +129,7 @@ class AllAlerts extends Component {
         selectedAlerts = [...this.state.alerting]
       } else {
         this.props.selectedAlerts.map((alert, i) => {
-          let alertObj = {...this.props.alerts[alert.alert]}
+          let alertObj = { ...this.props.alerts[alert.alert] }
           alertObj.severity = alert.severity
           selectedAlerts.push(alertObj)
         })
@@ -137,8 +143,7 @@ class AllAlerts extends Component {
         this.state.filterValue === "All"
       ) {
         filtered = [...selectedAlerts]
-      }
-      else {
+      } else {
         filtered = selectedAlerts.filter(p =>
           p.tags.includes(this.state.filterValue)
         )
@@ -154,7 +159,7 @@ class AllAlerts extends Component {
         highCount: sevCount[3],
         midCount: sevCount[2],
         lowCount: sevCount[1],
-        fyiCount: sevCount[0]
+        fyiCount: sevCount[0],
       })
     }
   }
@@ -243,21 +248,27 @@ class AllAlerts extends Component {
                           <div
                             className={classNames(styles.box, styles.red)}
                           ></div>
-                          <p className={styles.sevParagraph}>{this.state.highCount} High</p>
+                          <p className={styles.sevParagraph}>
+                            {this.state.highCount} High
+                          </p>
                         </Col>
 
                         <Col sm={4} className={styles.flexCol}>
                           <div
                             className={classNames(styles.box, styles.orange)}
                           ></div>
-                          <p className={styles.sevParagraph}>{this.state.midCount} Mid</p>
+                          <p className={styles.sevParagraph}>
+                            {this.state.midCount} Mid
+                          </p>
                         </Col>
 
                         <Col sm={4} className={styles.flexCol}>
                           <div
                             className={classNames(styles.box, styles.yellow)}
                           ></div>
-                          <p className={styles.sevParagraph}>{this.state.lowCount} Low</p>
+                          <p className={styles.sevParagraph}>
+                            {this.state.lowCount} Low
+                          </p>
                         </Col>
                       </Row>
                     </Col>
@@ -267,7 +278,9 @@ class AllAlerts extends Component {
                           <div
                             className={classNames(styles.box, styles.green)}
                           ></div>
-                          <p className={styles.sevParagraph}>{this.state.fyiCount} Fyi</p>
+                          <p className={styles.sevParagraph}>
+                            {this.state.fyiCount} Fyi
+                          </p>
                         </Col>
                       </Row>
                     </Col>
