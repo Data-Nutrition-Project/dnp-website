@@ -9,7 +9,13 @@
   text-transform: capitalize;
   font-size: 16px;
 }
-
+.please {
+  font-weight: normal;
+}
+.pleaseBold {
+  font-weight: bold;
+  color: black;
+}
 .datasetUnderlineBold {
   display: block;
   width: 90%;
