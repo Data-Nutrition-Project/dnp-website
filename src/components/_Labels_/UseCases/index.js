@@ -36,11 +36,6 @@ class UseCases extends React.Component {
     let predictions = useCases.predictions
     return (
       <div>
-        <p className={styles.useCaseInfo}>
-          Relevant alerts for data practitioners who intend to use this dataset
-          for specific use cases (types of analyses).
-        </p>
-        <span className={styles.datasetUnderlineBold}></span>
         <Element id={"Selector-title"}> </Element>
         <Selector
           handleChange={this.handleChange}
