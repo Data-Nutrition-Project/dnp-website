@@ -1,8 +1,10 @@
 @value layout: "../layout.css";
 
 .alertsHeader {
-  font-size: 1.875rem;
+  font-size: 2.5rem;
+  font-weight: bold;
   margin-bottom: 10px;
+  text-align: right;
 }
 
 .parentDiv {

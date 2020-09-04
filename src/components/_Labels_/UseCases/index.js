@@ -4,8 +4,6 @@ import { Element } from "react-scroll"
 import AllAlerts from "../../AllAlerts/index.js"
 import Selector from "../../Selector/index.js"
 
-import styles from "./styles.module.css"
-
 class UseCases extends React.Component {
   constructor(props) {
     super(props)
@@ -16,12 +14,15 @@ class UseCases extends React.Component {
       thePreds,
       selectedAlerts: [],
       currentPrediction: "",
+      currentUseCase: "",
+      filteredPreds: [],
       newPreds: [],
     }
-    this.handleChange = this.handleChange.bind(this)
+    this.handlePredictionChange = this.handlePredictionChange.bind(this)
+    this.handleUseCaseChange = this.handleUseCaseChange.bind(this)
   }
 
-  handleChange(e) {
+  handlePredictionChange(e) {
     let useCases = this.props.useCasesStuff
     let predictions = useCases.predictions
 
@@ -30,19 +31,32 @@ class UseCases extends React.Component {
       currentPrediction: e.target.value,
     })
   }
-
+  handleUseCaseChange(e) {
+    e.stopPropagation()
+    if (!e.target.value || e.target.value === " " || e.target.value === "") {
+      this.setState({ filteredPreds: [] })
+    } else {
+      let filteredPreds = []
+      filteredPreds = this.props.useCasesStuff["use-cases"][e.target.value]
+        .predictions
+      this.setState({ filteredPreds, currentUseCase: e.target.value })
+    }
+  }
   render() {
     let useCases = this.props.useCasesStuff
-    let predictions = useCases.predictions
+
     return (
       <div>
         <Element id={"Selector-title"}> </Element>
         <Selector
-          handleChange={this.handleChange}
+          handleUseCaseChange={this.handleUseCaseChange}
+          handlePredictionChange={this.handlePredictionChange}
           useCases={useCases["use-cases"]}
           predictions={useCases["predictions"]}
           thePreds={this.state.thePreds}
+          filteredPreds={this.state.filteredPreds}
           currentPrediction={this.state.currentPrediction}
+          currentUseCase={this.state.currentUseCase}
         />
         <Element id={"Alerts-title"}> </Element>
         <AllAlerts

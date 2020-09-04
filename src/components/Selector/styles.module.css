@@ -1,18 +1,24 @@
 .useCasesHeader {
   font-weight: bolder;
-  font-size: 40px;
+  font-size: 80px;
 }
 
+.aboutHeader {
+  text-align: right;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  margin-top: -9.2px;
+}
 .selectHeader {
-  font-size: 1.875rem;
+  font-size: 2.5rem;
   font-weight: bolder;
   margin-bottom: 10px;
-  margin-top: 50px;
+  margin-top: 20px;
+  text-align: right;
 }
 
 .selectParagraph {
   text-align: right;
-  padding-right: 35px;
 }
 .boldHeader {
   font-weight: bold;
@@ -55,7 +61,7 @@
 .flexContainer {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 35px;
 }
 
 .childOne {
