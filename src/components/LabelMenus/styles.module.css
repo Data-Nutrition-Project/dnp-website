@@ -64,4 +64,14 @@
   .menuTitle {
     font-size: 0.8rem;
   }
+
+  .menuTop {
+    margin-bottom: 1rem;
+  }
+
+  .labelMenu {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+  }
 }

@@ -19,9 +19,28 @@
   margin-bottom: 1.5rem;
 }
 
+.summaryRow {
+  display: flex;
+}
+
+.summaryLabel {
+  text-align: right;
+}
+
 .summaryRow,
 .summaryRow p {
   margin-bottom: .125rem;
+}
+
+.primarySummary {
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.secondarySummary {
+  font-size: .85rem;
+  line-height: 1;
 }
 
 .summaryLabel {
@@ -52,6 +71,11 @@
   font-size: 1.25rem;
 }
 
+.alertSection {
+  display: flex;
+  justify-content: center;
+}
+
 .alertGraph {
-    width: 100%;
+  width: 23.5rem;
 }
