@@ -1,16 +1,16 @@
 .useCasesHeader {
   font-weight: bolder;
-  font-size: 80px;
+  font-size: 48px;
 }
 
 .aboutHeader {
   text-align: right;
-  font-size: 2.5rem;
+  font-size: 30px;
   font-weight: bolder;
   margin-top: -9.2px;
 }
 .selectHeader {
-  font-size: 2.5rem;
+  font-size: 30px;
   font-weight: bolder;
   margin-bottom: 10px;
   margin-top: 20px;
@@ -66,11 +66,11 @@
 
 .childOne {
   display: block;
-  width: 60%;
+  width: 50%;
 }
 .childTwo {
   display: block;
-  width: 30%;
+  width: 50%;
 }
 
 .ulPredictions {
@@ -87,4 +87,38 @@
 
 /* .selectorBody {
   padding-left: 60px;
+} */
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+input:checked {
+  background-color: #000000 !important;
+  border: 2px solid white;
+}
+
+/* button,
+legend {
+  color: white;
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 0;
+  border: 0;
+  font-size: 14px;
+} */
+
+/* button:active {
+  background-color: #000000 !important;
 } */

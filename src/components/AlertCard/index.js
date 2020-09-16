@@ -38,7 +38,7 @@ const AlertCard = props => {
           <div
             className={classNames(
               styles.alertColumn,
-              styles.rectangle,
+              // styles.rectangle,
               styles[sevClassName]
             )}
           ></div>
@@ -46,21 +46,14 @@ const AlertCard = props => {
           <div className={styles.flexGrow}>
             <p className={styles.titleText}>{props.title}</p>
             <Accordion.Toggle className={styles.caret} eventKey="0">
-              <span className={styles.moreButton}>MORE</span>
+              <span className={styles.moreButton}>{">"}</span>
             </Accordion.Toggle>
           </div>
         </Card.Header>
 
         <Accordion.Collapse eventKey="0">
           <div className={styles.flexCollapse}>
-            <span
-              className={classNames(
-                styles.content,
-                styles.alertColumn,
-                styles.collapseRectangle,
-                styles[sevClassName]
-              )}
-            ></span>
+            <span className={classNames(styles.content)}></span>
 
             <div className={styles.childCollapse}>
               <Container>
@@ -94,6 +87,7 @@ const AlertCard = props => {
 
                 <Row>
                   <ReactMarkdown
+                    className={styles.contentParagraph}
                     source={props.content}
                     // className={styles.textContent}
                   />

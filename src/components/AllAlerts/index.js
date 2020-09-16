@@ -204,8 +204,7 @@ class AllAlerts extends Component {
 
     return (
       <>
-        {/* <Accordion className={styles.accordionBody}> */}
-        <Row>
+        <Row className={styles.alertsMargin}>
           <Col md={2}>
             <h1 className={styles.alertsHeader}>{filteredLength} Alerts</h1>
           </Col>
@@ -220,44 +219,43 @@ class AllAlerts extends Component {
                     <div className={styles.flexCol}>
                       <Col md={11} className={styles.upperRight}>
                         <Row>
-                          <Col sm={4} className={styles.flexCol}>
-                            <div
-                              className={classNames(styles.box, styles.red)}
-                            ></div>
-                            <p className={styles.sevParagraph}>
+                          {/* <Col sm={8} className={styles.flexCol}> */}
+                          <div className={styles.parentAlerts}>
+                            <div className={styles.red}></div>
+                            <div className={styles.sevParagraph}>
                               {this.state.highCount} High
-                            </p>
-                          </Col>
+                            </div>
+                          </div>
+                          {/* </Col> */}
 
-                          <Col sm={4} className={styles.flexCol}>
-                            <div
-                              className={classNames(styles.box, styles.orange)}
-                            ></div>
-                            <p className={styles.sevParagraph}>
+                          {/* <Col sm={4} className={styles.flexCol}> */}
+                          <div className={styles.parentAlerts}>
+                            <div className={styles.orange}></div>
+                            <div className={styles.sevParagraph}>
                               {this.state.midCount} Mid
-                            </p>
-                          </Col>
+                            </div>
+                          </div>
+                          {/* </Col> */}
 
-                          <Col sm={4} className={styles.flexCol}>
-                            <div
-                              className={classNames(styles.box, styles.yellow)}
-                            ></div>
-                            <p className={styles.sevParagraph}>
-                              {this.state.lowCount} Low
-                            </p>
-                          </Col>
-                        </Row>
-                      </Col>
-                      <Col md={12} className={styles.upperLeft}>
-                        <Row>
-                          <Col sm={12} className={styles.flexCol}>
-                            <div
-                              className={classNames(styles.box, styles.green)}
-                            ></div>
+                          {/* <Col sm={4} className={styles.flexCol}> */}
+
+                          <div className={styles.yellow}></div>
+                          <div className={styles.sevParagraph}>
+                            {this.state.lowCount} Low
+                          </div>
+                          {/* </Col> */}
+                          {/* </Row> */}
+                          {/* </Col> */}
+                          {/* <Col md={12} className={styles.upperLeft}> */}
+                          {/* <Row> */}
+                          {/* <Col sm={12} className={styles.flexCol}> */}
+                          <div className={styles.parentAlerts}>
+                            <div className={styles.green}></div>
                             <p className={styles.sevParagraph}>
                               {this.state.fyiCount} Fyi
                             </p>
-                          </Col>
+                          </div>
+                          {/* </Col> */}
                         </Row>
                       </Col>
                     </div>
@@ -265,6 +263,7 @@ class AllAlerts extends Component {
                 </Container>
               </div>
             </div>
+            <span className={styles.alertUnderlineBold}></span>
             <div className={styles.parentDiv}>
               <div className={styles.filter}>
                 <span className={styles.boldHeader}>Filter:</span>

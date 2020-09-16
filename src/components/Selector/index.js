@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Container from "react-bootstrap/Container"
 import styles from "./styles.module.css"
 import classNames from "classnames"
 
@@ -48,6 +47,7 @@ class Selector extends Component {
             <div className={styles.selectorBody}>
               <div className={styles.flexContainer}>
                 <div className={styles.childOne}>
+                  {/* USE CASE */}
                   <h1 className={styles.boldHeader}>Use Case:</h1>
                   <p className={styles.datasetParagraph}>
                     How is the dataset being applied?
@@ -79,6 +79,7 @@ class Selector extends Component {
                   </div>
                 </div>
                 <div className={styles.childTwo}>
+                  {/* PREDICTIONS */}
                   <h1 className={styles.boldHeader}>Predictions:</h1>
                   <p className={styles.datasetParagraph}>
                     What is being predicted?
