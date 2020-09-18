@@ -15,15 +15,14 @@
         },
         "top-use-cases": [
             "bending-curve",
-            "back-to-normal",
-            "outbreak-clusters",
-            "population-based-impact",
-            "exceed-hospital-capacity",
-            "point-prevalence"
+            "covid-impact",
+            "safe-office",
+            "next-peak",
+            "lockdown-measures"
         ]
     },
     "dataset-info": {
-        "Description": [
+        "description": [
             {
                 "question": "Tell us about this dataset. ",
                 "help": "Please provide an overview of this dataset.",
@@ -61,7 +60,7 @@
                 "answer": "Yes. This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations. "
             }
         ],
-        "Provenance": [
+        "provenance": [
             {
                 "question": "Who created the dataset and on behalf of which entity?",
                 "help": "e.g. which team or research group on behalf of which company, institution, organization?",
@@ -75,7 +74,7 @@
                 "answer": "Non-Profit Group, Private Corporation, or Organization. This dataset is supported by The Atlantic Monthly Group, the Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation. "
             }
         ],
-        "Collection": [
+        "collection": [
             {
                 "question": "Over what timeframe was the data collected? If the data continues to be updated, please indicate. ",
                 "help": "",
@@ -119,7 +118,7 @@
                 "answer": "Yes. The dataset volunteer team has an advisory board which provides accountability. Additionally, the team has partnered with the Center for Antiracist Research in data processing: https://covidtracking.com/about/advisory-board"
             }
         ],
-        "Management": [
+        "management": [
             {
                 "question": "How is the data being mananged at rest and in transit?",
                 "help": "Particularly with regards to encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software. ",
@@ -151,7 +150,7 @@
                 "answer": "N/A. There is no individual-level data in the dataset, and thus no process for individual level data removal. "
             }
         ],
-        "Composition": [
+        "composition": [
             {
                 "question": "Does the dataset have a metadata repository or data dictionary? If yes, please provide the link and if not, please explain what each field means.",
                 "help": "The purpose of this question is to enable data practitioners to understand what is contained in the dataset at a field level. ",
@@ -250,7 +249,9 @@
                 "title": "Case data not split out by race",
                 "type": "markdown",
                 "category": "Completeness",
-                "tags": "Racial Bias",
+                "tags": [
+                    "Racial Bias"
+                ],
                 "mitigation": "No current mitigation known. This would require additional reported data, or combination with another dataset that has this data. No known external dataset could be used, however. ",
                 "severity": 3.0,
                 "content": "[Recent studies have shown](https://www.nytimes.com/interactive/2020/07/05/us/coronavirus-latinos-african-americans-cdc-data.html) that there are racial disparities in who the virus impacts. While some states are starting to report racial data, not all of them have. As a consequence, this dataset does not have racial data and therefore cannot account for disparate impacts on people by race in decision making."
@@ -259,7 +260,9 @@
                 "title": "Case data not split out by gender",
                 "type": "markdown",
                 "category": "Completeness",
-                "tags": "Gender Bias",
+                "tags": [
+                    "Gender Bias"
+                ],
                 "mitigation": "No current mitigation known. This would require additional reported data, or combination with another dataset that has this data. No known external dataset could be used, however. ",
                 "severity": 3.0,
                 "content": "While some states are starting to report gender data, not all of them have. As a consequence, this dataset does not have gender data and therefore cannot account for disparate impacts on people by gender in decision making."
@@ -268,7 +271,9 @@
                 "title": "Case data not split out by type of employment",
                 "type": "markdown",
                 "category": "Completeness",
-                "tags": "Socioeconomic Bias",
+                "tags": [
+                    "Socioeconomic Bias"
+                ],
                 "mitigation": "No current mitigation known. This would require additional reported data, or combination with another dataset that has this data. No known external dataset could be used, however. ",
                 "severity": 3.0,
                 "content": "There is no breakdown by employment type, and therefore we cannot tell if essential workers are being adversely impacted due to their increased exposure and/or access to PPE. This is important data when considering reopening guidelines."
@@ -277,7 +282,9 @@
                 "title": "Reports by state only, no reports by county or zip code",
                 "type": "markdown",
                 "category": "Completeness",
-                "tags": "Socioeconomic Bias",
+                "tags": [
+                    "Socioeconomic Bias"
+                ],
                 "mitigation": "No current mitigation known. This would require additional reported data, such as zip code-level information, or county-level information",
                 "severity": 3.0,
                 "content": "State-level data is helpful for breaking down reopening guidelines from a state perspective. However, a lack of more granular information prevents seeing the impact of outbreaks based on socioecnomic and racial factors, which are more tightly correlated with zip codes due to existing racial and socioeconomic segregation in many metropolitan areas. In this dataset, the data is not compiled at the county or zip-code level because the high-resolution data hasn\u2019t been available in any consistent way at levels below that of the state/territory: <https://covidtracking.com/blog>."
@@ -286,7 +293,9 @@
                 "title": "Confirmed Active Cases Highly Dependent on Testing",
                 "type": "markdown",
                 "category": "Provenance",
-                "tags": "Non-representative Sample Size",
+                "tags": [
+                    "Non-representative Sample Size"
+                ],
                 "mitigation": "No current mitigation known.",
                 "severity": 3.0,
                 "content": "Testing rates are not high enough in most states to get an accurate account of the number of confirmed active cases impact state-wide. However, one can use ratios between testing & confirmed active to mitigate this issue somewhat. [See here](https://www.propublica.org/article/how-to-understand-covid-19-numbers) for more information."
@@ -295,7 +304,9 @@
                 "title": "Reporting is Inconsistent Across States",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": "Non-representative Sample Size",
+                "tags": [
+                    "Non-representative Sample Size"
+                ],
                 "mitigation": "No current mitigation known.",
                 "severity": 3.0,
                 "content": "Reporting is not consistent across states; some states have health deparments for each town/city, while some only have health departments for the state, making reporting more cumbersome. Additionally, state health departments may be pressured politically to not create comprehensive reports, as those may impact economic reopening plans."
@@ -304,7 +315,9 @@
                 "title": "Reporting Date is Not Always When Infection Occurred",
                 "type": "markdown",
                 "category": "Provenance",
-                "tags": "Out of Date Data",
+                "tags": [
+                    "Out of Date Data"
+                ],
                 "mitigation": "Using 7-day and 14-day rolling averages when projecting timeseries data can mitigate issues of unknown incubation period to some extent.",
                 "severity": 1.0,
                 "content": "COVID can incubate for up to 14 days before manifesting symptoms, meaning the tie between a reported date and an infecting event is strained. This can make it difficult to get an accurate, real time picture of what's happening."
@@ -313,7 +326,9 @@
                 "title": "Definition of Total Tests Varies",
                 "type": "markdown",
                 "category": "Provenance",
-                "tags": "Non-representative Data",
+                "tags": [
+                    "Non-representative Data"
+                ],
                 "mitigation": "Going to the origin point of CTP's data, individual state reporting systems, and deducing from their documentation how they tally \"total tests\" would be a way to account for different states reporting this value differently. This information may or may not be available for all states.",
                 "severity": 2.0,
                 "content": "[As noted](https://covidtracking.com/blog/counting-covid-19-tests) by the CTP, different states tally \"total tests\" in different ways \u2013 some by total unique people, some by total specimens, etc. This can make it difficult to model testing capacity by state, since it is not uniform."
@@ -322,7 +337,9 @@
                 "title": "Patient Data Sometimes Get Reassigned to Another State",
                 "type": "markdown",
                 "category": "Provenance",
-                "tags": "Non-representative Sample Size",
+                "tags": [
+                    "Non-representative Sample Size"
+                ],
                 "mitigation": "No current mitigation known.",
                 "severity": 3.0,
                 "content": "State-wide data can get artificially inflated/deflated by patient data getting moved from one plact to another, which can impact trends in cases, and how they are seen."
@@ -331,7 +348,9 @@
                 "title": "Excluded Purpose: Usage Restrictions",
                 "type": "markdown",
                 "category": "Description",
-                "tags": "Purpose Definition",
+                "tags": [
+                    "Purpose Definition"
+                ],
                 "mitigation": "Follow license restrictions when using this dataset or learn more about usage if unclear. ",
                 "severity": 1.0,
                 "content": "The COVID Tracking Project at The Atlantic data and website content is published under a Creative Commons CC BY-NC-4.0 license, which requires users to attribute the source and license type (CC BY-NC-4.0) when sharing the data. Derivative use of this data and website content that supports healthcare or medical research (including institutional use by public health and for-profit organizations), or journalistic usage (by nonprofit or for-profit organizations) is also allowed. All other commercial uses are not permitted under the Creative Commons license, and will require permission from The COVID Tracking Project at The Atlantic.\n\nRead more: <https://covidtracking.com/about-data/license>"
@@ -340,7 +359,9 @@
                 "title": "Cautioned Purpose: Use caution on specific use of dataset",
                 "type": "markdown",
                 "category": "Description",
-                "tags": "Purpose Definition",
+                "tags": [
+                    "Purpose Definition"
+                ],
                 "mitigation": "No current mitigation known.",
                 "severity": 3.0,
                 "content": "The data sources leveraged at the local level are of varying quality, which has been documented through the States Grades initiative: <https://covidtracking.com/about-data/state-grades>"
@@ -349,7 +370,9 @@
                 "title": "Existing Use Cases",
                 "type": "markdown",
                 "category": "Description",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations. "
@@ -358,7 +381,9 @@
                 "title": "Dataset is Publicly Funded",
                 "type": "markdown",
                 "category": "Provenance",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "This dataset is supported by The Atlantic Monthly Group, the Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation. "
@@ -367,7 +392,9 @@
                 "title": "Varying levels of quality of local data ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "Non-representative Data",
+                "tags": [
+                    "Non-representative Data"
+                ],
                 "mitigation": "No current mitigation known",
                 "severity": 3.0,
                 "content": "The data sources leveraged at the local level are of varying quality, which has been documented through the States Grades initiative: <https://covidtracking.com/about-data/state-grades>"
@@ -376,7 +403,9 @@
                 "title": "Field Relationships",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green ",
                 "severity": 0.0,
                 "content": "Instances are a time series; the same state appears many times and indicates the same geographical territory.  "
@@ -385,7 +414,9 @@
                 "title": "Dataset is not a Sample",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "This dataset is not a sample. "
@@ -394,7 +425,9 @@
                 "title": "Data was Preprocessing, Cleaned, or Labeled ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "Dataset was scraped when possible and leveraged manual human cleaning where applicable by the Covid Tracking Project team. The team has oversight and training by epidemiologists and anti-racism experts, suggesting that human cleaning is applied with strong ethical consideration. More info here: <https://covidtracking.com/about-data/faq>"
@@ -403,7 +436,9 @@
                 "title": "Raw Data",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "Raw data is not available within the dataset but is available at over 50 upstream data sources:\n<https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
@@ -412,7 +447,9 @@
                 "title": "Dataset Dependent upon Upstream Data Sources",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\n\nSee upstream data sources (over 50):\n<https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
@@ -421,7 +458,9 @@
                 "title": "No Confidential Data ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "There is no confidential data included in this dataset. "
@@ -430,7 +469,9 @@
                 "title": "Dataset Populations",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "There are no subpopulations identified in this dataset (e.g., by age, gender). "
@@ -439,7 +480,9 @@
                 "title": "Collection Timeframe",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "Collection on a subset of data began on 20200122, and has continued daily since, with additional states being added over time. From March 14 forward there are timestamped snapshots of the data source we used for each change available publicly. We update the full dataset each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. "
@@ -448,7 +491,9 @@
                 "title": "Collection Organization",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "The original data was collected, cleaned, and distributed by individual states or jurisdictions. The data has been preprocessed and cleaned by the Covid Tracking Project after collected and organized from the original sources. "
@@ -457,7 +502,9 @@
                 "title": "User Consent",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "There is no individual-level data in the dataset, and thus no consent collected. "
@@ -466,7 +513,9 @@
                 "title": "Anonymization Processes",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "There is no individual-level data in the dataset, and thus no anonymization process. "
@@ -475,7 +524,9 @@
                 "title": "Quality Review",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "Data has been reviewed by internal team. To help members of the public understand how well each state is performing, The Covid Tracking Project has assigned each state a data-quality grade based on an assessment of the completeness of their reporting. See the State Grades and learn more about the quality metrics here: <https://covidtracking.com/about-data/state-grades>"
@@ -484,7 +535,9 @@
                 "title": "Ethical Review",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "The dataset volunteer team has an advisory board which provides accountability. Additionally, the team has partnered with the Center for Antiracist Research in data processing: <https://covidtracking.com/about/advisory-board>"
@@ -493,7 +546,9 @@
                 "title": "Data Mangaement - Unknown",
                 "type": "markdown",
                 "category": "Description",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": " The data is managed by the internal team at the organization. "
@@ -502,7 +557,9 @@
                 "title": "Updates",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "The full dataset is updated each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. This will continue for the foreseeable future. If things change, information about those changes will be communicated through the website: <https://covidtracking.com/about-data>"
@@ -511,7 +568,9 @@
                 "title": "Right to be Forgotten",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": "N/A",
+                "tags": [
+                    "N/A"
+                ],
                 "mitigation": "FYI - Green",
                 "severity": 0.0,
                 "content": "There is no individual-level data in the dataset, and thus no process for individual level data removal. "
@@ -1958,6 +2017,107 @@
                         "severity": 0
                     }
                 ]
+            },
+            "hospitalizations-forecasted": {
+                "description": "Forecasted Hospitalizations per Capita",
+                "alerts": [
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "existing-use-case",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "publicly-funded",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "field-relationship",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "dataset-not-a-sample",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "data-preprocessed",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "raw-data",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "upstream-dependence",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "no-confidential-data",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "dataset-populations",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "collection-timeframe",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "collection-organization",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "user-consent",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "anonymization",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "quality-review",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "ethical-review",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "data-management-unknown",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "updates",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "right-forgotten",
+                        "severity": 0
+                    }
+                ]
             }
         },
         "use-cases": {
@@ -2029,6 +2189,14 @@
                     "infections-forecasted",
                     "icu-forecasted",
                     "ventilator-forecasted"
+                ]
+            },
+            "lockdown-measures": {
+                "description": "Do the lockdown measures actually change behaviour?",
+                "predictions": [
+                    "current-r0",
+                    "ventilator-capita",
+                    "hospitalizations-capita"
                 ]
             }
         }
