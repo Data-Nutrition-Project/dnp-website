@@ -54,46 +54,64 @@ class Selector extends Component {
               <label>
                 <input
                   type="radio"
-                  value="point-prevalence"
-                  checked={this.state.currentUseCase == "point-prevalence"}
+                  value="prevalence-region"
+                  checked={this.state.currentUseCase == "prevalence-region"}
                 />
-                {this.props.useCases["point-prevalence"].description}
+                {this.props.useCases["prevalence-region"].description}
               </label>
 
               <label>
                 <input
                   type="radio"
-                  value="back-to-normal"
-                  checked={this.state.currentUseCase == "back-to-normal"}
+                  value="hotspots"
+                  checked={this.state.currentUseCase == "hotspots"}
                 />
-                {this.props.useCases["back-to-normal"].description}
+                {this.props.useCases["hotspots"].description}
               </label>
 
               <label>
                 <input
                   type="radio"
-                  value="outbreak-clusters"
-                  checked={this.state.currentUseCase == "outbreak-clusters"}
+                  value="exceed-capacity"
+                  checked={this.state.currentUseCase == "exceed-capacity"}
                 />
-                {this.props.useCases["outbreak-clusters"].description}
+                {this.props.useCases["exceed-capacity"].description}
               </label>
 
               <label>
                 <input
                   type="radio"
-                  value="exceed-hospital-capacity"
-                  checked={this.state.currentUseCase == "exceed-hospital-capacity"}
+                  value="covid-impact"
+                  checked={this.state.currentUseCase == "covid-impact"}
                 />
-                {this.props.useCases["exceed-hospital-capacity"].description}
+                {this.props.useCases["covid-impact"].description}
               </label>
 
               <label>
                 <input
                   type="radio"
-                  value="population-based-impact"
-                  checked={this.state.currentUseCase == "population-based-impact"}
+                  value="safe-office"
+                  checked={this.state.currentUseCase == "safe-office"}
                 />
-                {this.props.useCases["population-based-impact"].description}
+                {this.props.useCases["safe-office"].description}
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="next-peak"
+                  checked={this.state.currentUseCase == "next-peak"}
+                />
+                {this.props.useCases["next-peak"].description}
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="lockdown-measures"
+                  checked={this.state.currentUseCase == "lockdown-measures"}
+                />
+                {this.props.useCases["lockdown-measures"].description}
               </label>
             </div>
           </div>
