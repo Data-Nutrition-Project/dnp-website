@@ -22,35 +22,7 @@
   display: flex;
   margin-bottom: 15px;
 }
-/* SEVERITY */
-/* .box {
-  position: relative;
-  padding-left: 1.25em;
-  /* height: 0.6875rem;
-  width: 0.5rem;
-  margin-block-end: 0; */
-/* } */
-/* .box:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.21em;
-  bottom: 0.21em;
-  width: 1em;
-  background: linear-gradient(
-    to bottom,
-    black,
-    black 20%,
-    white 20%,
-    white 40%,
-    black 40%,
-    black 60%,
-    white 60%,
-    white 80%,
-    black 80%,
-    black 100%
-  );
-} */
+
 .parentColors {
   display: flex;
 }
@@ -58,13 +30,13 @@
   display: flex;
   flex-direction: row;
   width: 90%;
-  /* flex-wrap: nowrap !important; */
 }
 
 .selct:focus {
   outline: none;
 }
 .selct {
+  border: none !important;
   outline: none !important;
 }
 
@@ -82,14 +54,11 @@
   margin-left: -24px;
 }
 .sevParagraph {
-  /* display: inline-flex; */
-  /* flex: 1; */
   flex-wrap: nowrap;
   flex-direction: row;
   font-size: 16px;
   margin-bottom: 0;
   margin-top: -5px;
-  /* margin-left: 5px; */
 }
 .red {
   text-indent: -9999px;
@@ -139,10 +108,6 @@
   top: 0;
 }
 
-/* .accordionBody {
-  padding: 2.6875rem;
-} */
-/* FILTER */
 .boldHeader {
   font-weight: bold;
   text-transform: uppercase;

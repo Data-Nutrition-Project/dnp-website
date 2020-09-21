@@ -7,13 +7,13 @@
   text-align: right;
   font-size: 30px;
   font-weight: bolder;
-  margin-top: -9.2px;
+  margin-top: -7px;
 }
 .selectHeader {
   font-size: 30px;
   font-weight: bolder;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 28px;
   text-align: right;
 }
 
@@ -85,10 +85,6 @@
   margin-top: -35px;
 }
 
-/* .selectorBody {
-  padding-left: 60px;
-} */
-
 input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -106,19 +102,10 @@ input {
 }
 input:checked {
   background-color: #000000 !important;
-  border: 2px solid white;
+  border: 2px solid black;
 }
 
-/* button,
-legend {
-  color: white;
-  background-color: black;
-  padding: 5px 10px;
-  border-radius: 0;
-  border: 0;
-  font-size: 14px;
-} */
-
-/* button:active {
-  background-color: #000000 !important;
-} */
+input:focus,
+textarea {
+  outline: none !important;
+}

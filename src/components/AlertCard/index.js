@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Accordion from "react-bootstrap/Accordion"
 import Row from "react-bootstrap/Row"
@@ -20,33 +20,27 @@ const AlertCard = props => {
     3: "Severity: High",
   }
 
+  const [toggle, setToggle] = useState(false)
+  const toggleCaret = () => setToggle(!toggle)
   const sevClassName = severityMap[props.severity].split(": ")[1]
-  console.log("sev", sevClassName)
-  // const alerts = props.alerts.filter(item => item)
-  // const alertLength = alerts.length
-  // const highSeverity = props.predictions.alerts.severity === 3
-  // const midSeverity = props.predictions.alerts.severity === 2
-  // const lowSeverity = props.predictions.alerts.severity === 1
-  // const fyi = props.predictions.alerts.severity === 0
-
-  // console.log("props", props.content)
   return (
     <Accordion>
-      {/* end */}
       <Card className={styles.card}>
         <Card.Header className={styles.columns}>
           <div
-            className={classNames(
-              styles.alertColumn,
-              // styles.rectangle,
-              styles[sevClassName]
-            )}
+            className={classNames(styles.alertColumn, styles[sevClassName])}
           ></div>
 
           <div className={styles.flexGrow}>
-            <p className={styles.titleText}>{props.title}</p>
-            <Accordion.Toggle className={styles.caret} eventKey="0">
-              <span className={styles.moreButton}>{">"}</span>
+            <p className={toggle ? styles.titleBold : styles.titleText}>
+              {props.title}
+            </p>
+            <Accordion.Toggle
+              onClick={toggleCaret}
+              className={styles.caret}
+              eventKey="0"
+            >
+              <span className={styles.moreButton}>{toggle ? "<" : ">"}</span>
             </Accordion.Toggle>
           </div>
         </Card.Header>
@@ -57,40 +51,33 @@ const AlertCard = props => {
 
             <div className={styles.childCollapse}>
               <Container>
-                <Row className={styles.alertRow}>
-                  <p className={classNames(styles.subtitleText)}>
-                    <b>Severity</b>
-                    <b>:</b> {sevClassName}
-                  </p>
-                  <p className={styles.subtitleText}>
-                    <b>Alert Category</b>
-                    <b>:</b> {props.category}
-                  </p>
-                  <div className={classNames(styles.subtitleText)}>
-                    <b>Populations Affected</b>
-                    <b>:</b>{" "}
-                    {props.tags.map(tag => {
-                      return (
-                        // <p
-                        //   className={classNames(
-                        //     styles.subtitleText,
-                        //     styles.tag
-                        //   )}
-                        //   key={tag}
-                        // >
-                        tag
-                        // </p>
-                      )
-                    })}
-                  </div>
+                <Row>
+                  <Col>
+                    <p className={classNames(styles.subtitleText)}>
+                      Severity:{" "}
+                      <b className={styles.propertyValue}>{sevClassName}</b>
+                    </p>
+                    <p className={styles.subtitleText}>
+                      Category:{" "}
+                      <b className={styles.propertyValue}>{props.category}</b>
+                    </p>
+                    <div className={classNames(styles.subtitleText)}>
+                      Potential for Harm:{" "}
+                      {props.tags.map(tag => {
+                        return <b className={styles.propertyValue}>{tag}</b>
+                      })}
+                    </div>
+                  </Col>
+                  <span className={styles.lineBreakOne}></span>
                 </Row>
+                {/* </Row> */}
 
                 <Row>
                   <ReactMarkdown
                     className={styles.contentParagraph}
                     source={props.content}
-                    // className={styles.textContent}
                   />
+                  <span className={styles.lineBreakTwo}></span>
                 </Row>
               </Container>
             </div>

@@ -3,7 +3,6 @@ import React from "react"
 import { Element } from "react-scroll"
 import AllAlerts from "../../AllAlerts/index.js"
 import Selector from "../../Selector/index.js"
-import styles from "./styles.module.css"
 
 class UseCases extends React.Component {
   constructor(props) {
@@ -61,7 +60,6 @@ class UseCases extends React.Component {
         />
         <Element id={"Alerts-title"}> </Element>
         <AllAlerts
-          // className={styles.alertsMargin}
           predictions={useCases.predictions}
           alerts={useCases.alerts}
           selectedAlerts={this.state.selectedAlerts}
