@@ -1,14 +1,14 @@
 @value layout: "../layout.css";
 
 .alertsHeader {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   text-align: right;
 }
 
 .alertsMargin {
-  margin-top: 50px;
+  margin-top: 3.125rem;
 }
 .alertUnderlineBold {
   display: block;
@@ -20,7 +20,7 @@
 }
 .parentDiv {
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
 }
 
 .parentColors {
@@ -46,84 +46,84 @@
 .upperRight {
   position: relative;
   flex-direction: row;
-  padding-left: 5px;
-  margin-top: 5px;
+  padding-left: 0.3125rem;
+  margin-top: 0.3125rem;
 }
 .upperLeft {
-  margin-top: 5px;
-  margin-left: -24px;
+  margin-top: 0.3125rem;
+  margin-left: -1.5rem;
 }
 .sevParagraph {
   flex-wrap: nowrap;
   flex-direction: row;
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 0;
-  margin-top: -5px;
+  margin-top: -0.3125rem;
 }
 .red {
-  text-indent: -9999px;
-  width: 35px;
-  height: 25px;
-  background: url(../../../public/static/high.svg);
-  background-size: 45px 50px;
+  text-indent: -624.9375rem;
+  width: 2.1875rem;
+  height: 1.5625rem;
+  background: url(/static/high.svg);
+  background-size: 2.8125rem 3.125rem;
   position: relative;
-  bottom: 11px;
+  bottom: 0.6875rem;
 }
 
 .orange {
   background-color: #ff9403;
-  width: 32px;
-  height: 25px;
-  background: url(../../../public/static/moderate.svg);
-  background-size: 45px 50px;
+  width: 2rem;
+  height: 1.5625rem;
+  background: url(/static/moderate.svg);
+  background-size: 2.8125rem 3.125rem;
   position: relative;
-  bottom: 11px;
+  bottom: 0.6875rem;
 }
 
 .yellow {
   background-color: #f0e70c;
-  width: 32px;
-  height: 25px;
-  background: url(../../../public/static/medium.svg);
-  background-size: 45px 50px;
+  width: 2rem;
+  height: 1.5625rem;
+  background: url(/static/medium.svg);
+  background-size: 2.8125rem 3.125rem;
   position: relative;
-  bottom: 11px;
+  bottom: 0.6875rem;
 }
 
 .green {
   background-color: #09b702;
-  width: 32px;
-  height: 25px;
-  background: url(../../../public/static/low.svg);
-  background-size: 45px 35px;
+  width: 2rem;
+  height: 1.5625rem;
+  background: url(/static/low.svg);
+  background-size: 2.8125rem 2.1875rem;
   position: relative;
-  bottom: 11px;
+  bottom: 0.6875rem;
 }
 
 .severityLvls {
   display: flex;
   flex-direction: row;
-  right: 50px;
-  margin-bottom: -30px;
+  right: 3.125rem;
+  margin-bottom: -1.875rem;
   top: 0;
 }
 
 .boldHeader {
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .filteredContent {
-  padding-left: 5px;
-  font-size: 16px;
+  padding-left: 0.3125rem;
+  font-size: 1rem;
 }
 .filter {
   flex: 0.89;
 }
 
 .caretIcon {
-  padding-left: 5px;
-  font-size: 20px;
+  padding-left: 0.3125rem;
+  font-size: 1.25rem;
 }
 
 .fyi {

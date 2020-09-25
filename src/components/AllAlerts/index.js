@@ -8,8 +8,9 @@ import styles from "./styles.module.css"
 import AlertCard from "../AlertCard/index.js"
 
 import { config } from "@fortawesome/fontawesome-svg-core"
-let sev
+
 config.autoAddCss = false
+let sev
 
 class AllAlerts extends Component {
   constructor(props) {

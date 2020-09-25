@@ -13,14 +13,14 @@
 
 .buttonStyle {
   background-color: darkSlateBlue;
-  border: 1px;
-  border-radius: 1px;
+  border: 0.0625rem;
+  border-radius: 0.0625rem;
 }
 
 .buttonText {
   padding: 0;
   position: relative;
-  bottom: 4px;
+  bottom: 0.25rem;
   font-size: 1rem;
   text-align: center;
   vertical-align: middle;
@@ -36,7 +36,7 @@
 }
 
 @media (max-width: landscapeMaxWidth) {
-    .buttonSpacing {
-        display: none;
-    }
+  .buttonSpacing {
+    display: none;
+  }
 }

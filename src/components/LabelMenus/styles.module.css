@@ -17,9 +17,9 @@
 }
 
 .highlightLabel {
-  border-bottom: 4px solid black;
+  border-bottom: 0.25rem solid black;
   cursor: pointer;
-  padding-bottom: 5px;
+  padding-bottom: 0.3125rem;
 }
 
 .span {

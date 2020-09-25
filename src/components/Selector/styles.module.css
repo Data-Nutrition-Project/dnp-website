@@ -1,19 +1,19 @@
 .useCasesHeader {
   font-weight: bolder;
-  font-size: 48px;
+  font-size: 3rem;
 }
 
 .aboutHeader {
   text-align: right;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: bolder;
-  margin-top: -7px;
+  margin-top: -0.4375rem;
 }
 .selectHeader {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: bolder;
-  margin-bottom: 10px;
-  margin-top: 28px;
+  margin-bottom: 0.625rem;
+  margin-top: 1.75rem;
   text-align: right;
 }
 
@@ -23,7 +23,7 @@
 .boldHeader {
   font-weight: bold;
   text-transform: capitalize;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .please {
   font-weight: normal;
@@ -51,7 +51,7 @@
 }
 
 .useCaseList {
-  margin-top: 25px;
+  margin-top: 1.5625rem;
   list-style-type: none;
   padding-left: 0;
   display: flex;
@@ -61,7 +61,7 @@
 .flexContainer {
   display: flex;
   justify-content: space-between;
-  margin-top: 35px;
+  margin-top: 2.1875rem;
 }
 
 .childOne {
@@ -74,7 +74,7 @@
 }
 
 .ulPredictions {
-  margin-top: 25px;
+  margin-top: 1.5625rem;
   padding-left: 0;
   width: 100%;
   display: flex;
@@ -82,7 +82,7 @@
 }
 
 .datasetParagraph {
-  margin-top: -35px;
+  margin-top: -2.1875rem;
 }
 
 input {
@@ -90,19 +90,19 @@ input {
   -moz-appearance: none;
   appearance: none;
   border-radius: 50%;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
 
-  border: 2px solid #999;
+  border: 0.125rem solid #999;
   transition: 0.2s all linear;
-  margin-right: 5px;
+  margin-right: 0.3125rem;
 
   position: relative;
-  top: 4px;
+  top: 0.25rem;
 }
 input:checked {
   background-color: #000000 !important;
-  border: 2px solid black;
+  border: 0.125rem solid black;
 }
 
 input:focus,
