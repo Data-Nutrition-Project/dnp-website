@@ -3,7 +3,7 @@
 .alertsHeader {
   font-size: 1.875rem;
   font-weight: bold;
-  margin-bottom: 0.625rem;
+  margin-top: 0.625rem;
   text-align: right;
 }
 
@@ -74,7 +74,7 @@
   background-color: #ff9403;
   width: 2rem;
   height: 1.5625rem;
-  background: url(/static/moderate.svg);
+  background: url("/static/moderate.svg");
   background-size: 2.8125rem 3.125rem;
   position: relative;
   bottom: 0.6875rem;
@@ -84,7 +84,7 @@
   background-color: #f0e70c;
   width: 2rem;
   height: 1.5625rem;
-  background: url(/static/medium.svg);
+  background: url("/static/medium.svg");
   background-size: 2.8125rem 3.125rem;
   position: relative;
   bottom: 0.6875rem;
@@ -94,7 +94,7 @@
   background-color: #09b702;
   width: 2rem;
   height: 1.5625rem;
-  background: url(/static/low.svg);
+  background: url("/static/low.svg");
   background-size: 2.8125rem 2.1875rem;
   position: relative;
   bottom: 0.6875rem;
