@@ -10,6 +10,9 @@ import classNames from "classnames"
 import PropTypes from "prop-types"
 import ReactMarkdown from "react-markdown"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faAngleDown, faAngleRight } from "@fortawesome/free-solid-svg-icons"
+
 import styles from "./styles.module.css"
 
 const AlertCard = props => {
@@ -40,7 +43,13 @@ const AlertCard = props => {
               className={styles.caret}
               eventKey="0"
             >
-              <span className={styles.moreButton}>{toggle ? "<" : ">"}</span>
+              <span className={styles.moreButton}>
+                {toggle ? (
+                  <FontAwesomeIcon icon={faAngleDown} size="1.9x" />
+                ) : (
+                  <FontAwesomeIcon icon={faAngleRight} size="1.9x" />
+                )}
+              </span>
             </Accordion.Toggle>
           </div>
         </Card.Header>
