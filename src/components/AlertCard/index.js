@@ -76,6 +76,10 @@ const AlertCard = props => {
                         return <b className={styles.propertyValue}>{tag}</b>
                       })}
                     </div>
+                    <p className={classNames(styles.subtitleText)}>
+                      Possible Mitigation:{" "}
+                      <b className={styles.propertyValue}>{props.mitigation}</b>
+                    </p>
                   </Col>
                   <span className={styles.lineBreakOne}></span>
                 </Row>
@@ -119,6 +123,7 @@ AlertCard.defaultProps = {
   severity: 0,
   type: "completeness",
   tags: ["age"],
+  mitigation: "No current mitigation known",
 }
 
 export default AlertCard
