@@ -197,7 +197,11 @@ class AllAlerts extends Component {
         <Row className={styles.alertsMargin}>
           <Col md={2}>
             <h1 className={styles.alertsHeader}>{filteredLength} Alerts</h1>
+            <p className={styles.alertsParagraph}>
+              Click on the arrow next to an alert to see more information.
+            </p>
           </Col>
+
           <Col md={10}>
             <div className={styles.severity}>
               <div className={styles.parentColors}>
@@ -219,19 +223,21 @@ class AllAlerts extends Component {
                           <div className={styles.parentAlerts}>
                             <div className={styles.orange}></div>
                             <div className={styles.sevParagraph}>
-                              {this.state.midCount} Mid
+                              {this.state.midCount} Mod
                             </div>
                           </div>
 
-                          <div className={styles.yellow}></div>
-                          <div className={styles.sevParagraph}>
-                            {this.state.lowCount} Low
+                          <div className={styles.parentAlerts}>
+                            <div className={styles.yellow}></div>
+                            <div className={styles.sevParagraph}>
+                              {this.state.lowCount} Mid
+                            </div>
                           </div>
 
                           <div className={styles.parentAlerts}>
                             <div className={styles.green}></div>
                             <p className={styles.sevParagraph}>
-                              {this.state.fyiCount} Fyi
+                              {this.state.fyiCount} Low
                             </p>
                           </div>
                         </Row>

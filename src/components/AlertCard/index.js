@@ -17,10 +17,10 @@ import styles from "./styles.module.css"
 
 const AlertCard = props => {
   const severityMap = {
-    0: "Severity: Fyi",
-    1: "Severity: Low",
-    2: "Severity: Moderate",
-    3: "Severity: High",
+    0: "Severity: low",
+    1: "Severity: mid",
+    2: "Severity: moderate",
+    3: "Severity: high",
   }
 
   const [toggle, setToggle] = useState(false)
@@ -76,10 +76,6 @@ const AlertCard = props => {
                         return <b className={styles.propertyValue}>{tag}</b>
                       })}
                     </div>
-                    <p className={classNames(styles.subtitleText)}>
-                      Possible Mitigation:{" "}
-                      <b className={styles.propertyValue}>{props.mitigation}</b>
-                    </p>
                   </Col>
                   <span className={styles.lineBreakOne}></span>
                 </Row>
@@ -90,6 +86,22 @@ const AlertCard = props => {
                     className={styles.contentParagraph}
                     source={props.content}
                   />
+                  <div
+                    className={classNames(
+                      styles.subtitleText,
+                      styles.mitigationDiv
+                    )}
+                  >
+                    <b>Possible Mitigations: </b>
+                    <p
+                      className={classNames(
+                        styles.propertyValue,
+                        styles.mitigationText
+                      )}
+                    >
+                      {props.mitigation}
+                    </p>
+                  </div>
                   <span className={styles.lineBreakTwo}></span>
                 </Row>
               </Container>

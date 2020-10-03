@@ -15,7 +15,6 @@
 .accordion > .card > .card-header {
   background-color: white !important;
 }
-
 .columns {
   display: flex;
   justify-content: flex-start;
@@ -34,16 +33,10 @@
 
 .flexGrow {
   flex-grow: 2;
-  background-color: white;
 }
 .alertColumn > p,
 .subtitleText {
   margin-bottom: 0;
-}
-
-.spacerColumn {
-  flex-grow: 2;
-  height: 4.0625rem;
 }
 
 .rightColumn {
@@ -120,8 +113,14 @@
   margin-left: 0.4375rem;
 }
 
+.mitigationDiv {
+  margin-left: 1.375rem;
+}
 .propertyValue {
   text-transform: capitalize;
+}
+.mitigationText {
+  font-style: italic;
 }
 .contentParagraph {
   margin-left: 1.375rem;
@@ -153,7 +152,6 @@
   border: solid 0.4rem borderDarkGray;
   background-color: black;
   margin-left: 1.375rem;
-  margin-top: 0.625rem;
   margin-bottom: 0.625rem;
 }
 
@@ -241,7 +239,7 @@ div.row {
   width: 100%;
 }
 
-.Fyi {
+.low {
   width: 2rem;
   height: 1.5625rem;
   background: url(./low.svg);
@@ -253,7 +251,7 @@ div.row {
   margin-right: 0;
 }
 
-.Low {
+.mid {
   width: 2rem;
   height: 1.5625rem;
   background: url(./medium.svg);
@@ -265,7 +263,7 @@ div.row {
   margin-right: 0;
 }
 
-.Moderate {
+.moderate {
   width: 2rem;
   height: 1.5625rem;
   background: url(./moderate.svg);
@@ -277,7 +275,7 @@ div.row {
   margin-right: 0;
 }
 
-.High {
+.high {
   width: 2.1875rem;
   height: 1.5625rem;
   background: url(./high.svg);

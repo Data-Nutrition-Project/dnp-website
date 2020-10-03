@@ -4,9 +4,13 @@
   font-size: 1.875rem;
   font-weight: bold;
   margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
   text-align: right;
 }
 
+.alertsParagraph {
+  text-align: right;
+}
 .alertsMargin {
   margin-top: 3.125rem;
 }
@@ -61,40 +65,36 @@
   margin-top: -0.3125rem;
 }
 .red {
-  text-indent: -624.9375rem;
   width: 2.1875rem;
   height: 1.5625rem;
-  background: url(./high.svg);
+  background: url(../AlertCard/high.svg);
   background-size: 2.8125rem 3.125rem;
   position: relative;
   bottom: 0.6875rem;
 }
 
 .orange {
-  background-color: #ff9403;
   width: 2rem;
   height: 1.5625rem;
-  background: url(./moderate.svg);
+  background: url(../AlertCard/moderate.svg);
   background-size: 2.8125rem 3.125rem;
   position: relative;
   bottom: 0.6875rem;
 }
 
 .yellow {
-  background-color: #f0e70c;
   width: 2rem;
   height: 1.5625rem;
-  background: url(./moderate.svg);
+  background: url(../AlertCard/medium.svg);
   background-size: 2.8125rem 3.125rem;
   position: relative;
   bottom: 0.6875rem;
 }
 
 .green {
-  background-color: #09b702;
   width: 2rem;
   height: 1.5625rem;
-  background: url(./low.svg);
+  background: url(../AlertCard/low.svg);
   background-size: 2.8125rem 2.1875rem;
   position: relative;
   bottom: 0.6875rem;
@@ -124,8 +124,4 @@
 .caretIcon {
   padding-left: 0.3125rem;
   font-size: 1.25rem;
-}
-
-.fyi {
-  background-color: green;
 }
