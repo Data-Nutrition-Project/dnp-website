@@ -63,8 +63,8 @@ class Overview extends Component {
           },
           legend: {
             title: "Number of Alerts",
-            titleFontSize: 16,
-            labelFontSize: 16,
+            titleFontSize: 12,
+            labelFontSize: 12,
           },
         },
         color: {
@@ -83,12 +83,12 @@ class Overview extends Component {
         axis: {
           grid: true,
           tickBand: "extent",
-          labelFontSize: "14",
+          labelFontSize: "10",
           titleFontSize: 0,
         },
         legend: {
           titleFontSize: 0,
-          padding: 16,
+          padding: 12,
         },
       },
       data: { name: "alerts" },
