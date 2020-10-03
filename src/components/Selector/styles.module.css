@@ -90,15 +90,15 @@ input {
   -moz-appearance: none;
   appearance: none;
   border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
+  width: 0.625rem;
+  height: 0.625rem;
 
   border: 0.125rem solid #999;
   transition: 0.2s all linear;
   margin-right: 0.3125rem;
 
   position: relative;
-  top: 0.25rem;
+  top: 0.03125rem;
 }
 input:checked {
   background-color: #000000 !important;
