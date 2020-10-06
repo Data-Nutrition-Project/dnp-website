@@ -17,9 +17,12 @@
 }
 
 .highlightLabel {
-  border-bottom: 0.25rem solid black;
+  background-color: black;
+  color: white;
+  /* border-bottom: 0.25rem solid black; */
   cursor: pointer;
-  padding-bottom: 0.3125rem;
+  padding: 0.3125rem 0rem 0.3125rem 0rem;
+  width: 10px;
 }
 
 .span {
