@@ -6,7 +6,7 @@ const ShareButton = () => {
   return (
     <div className={styles.buttonSpacing}>
       <Button variant="primary" size="lg" className={styles.buttonStyle}>
-        <p className={styles.buttonText}>Download PDF</p>
+        <span className={styles.buttonText}>Download PDF</span>
       </Button>
     </div>
   )

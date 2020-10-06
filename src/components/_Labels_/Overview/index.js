@@ -17,10 +17,10 @@ const SEVERITY_MAP = {
 
 // colors for severty in same order as above
 const COLOR_MAP = [
-  colors.alertRed,
-  colors.alertOrange,
-  colors.alertYellow,
-  colors.alertBlue,
+  colors.teal,
+  colors.teal,
+  colors.teal,
+  colors.teal,
 ]
 
 class Overview extends Component {
@@ -47,24 +47,24 @@ class Overview extends Component {
       mark: "rect",
       width: "container",
       encoding: {
-        y: {
+        x: {
           field: "severity",
           type: "nominal",
-          sort: ["HIGH", "MED", "LOW", "FYI"],
+          sort: ["FYI", "LOW", "MED", "HIGH",],
         },
-        x: { field: "type", type: "nominal" },
+        y: { field: "type", type: "nominal" },
         opacity: {
           aggregate: "count",
           field: "severity",
           scale: {
             type: "threshold",
             domain: [1, 5, 15],
-            range: [0.2, 0.4, 0.6, 1.0],
+            range: [0.05, 0.2, 0.5, 1.0],
           },
           legend: {
             title: "Number of Alerts",
-            titleFontSize: 14,
-            labelFontSize: 14,
+            titleFontSize: 12,
+            labelFontSize: 12,
           },
         },
         color: {
@@ -83,12 +83,12 @@ class Overview extends Component {
         axis: {
           grid: true,
           tickBand: "extent",
-          labelFontSize: "12",
+          labelFontSize: "10",
           titleFontSize: 0,
         },
         legend: {
           titleFontSize: 0,
-          padding: 16,
+          padding: 12,
         },
       },
       data: { name: "alerts" },
@@ -109,69 +109,8 @@ class Overview extends Component {
   render() {
     return (
       <>
-        <Row className={styles.row}>
-          <Col md={5}>
-            <h3 className={styles.sectionTitle}>Summary</h3>
-            <span className={styles.datasetUnderline} />
-            <div className={styles.summaryCreationSection}>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>Created By:</span>
-                <ReactMarkdown>
-                  {this.props.summary.createdBy +
-                    ", " +
-                    this.props.summary.creatorContactInfo}
-                </ReactMarkdown>
-              </div>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>
-                  Data Creation Range:
-                </span>
-                <ReactMarkdown>
-                  {this.props.summary.dataCollectionRange}
-                </ReactMarkdown>
-              </div>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>Publish Date:</span>
-                <ReactMarkdown>
-                  {this.props.summary.datasetPublishDate}
-                </ReactMarkdown>
-              </div>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>Update Frequency:</span>
-                <ReactMarkdown>
-                  {this.props.summary.datasetUpdateFrequency}
-                </ReactMarkdown>
-              </div>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>
-                  Most Recent Label Update:
-                </span>
-                <ReactMarkdown>
-                  {this.props.summary.lastLabelUpdate}
-                </ReactMarkdown>
-              </div>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>License:</span>
-                <ReactMarkdown>{this.props.summary.licenseInfo}</ReactMarkdown>
-              </div>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>Size:</span>
-                <ReactMarkdown>{this.props.summary.datasetSize}</ReactMarkdown>
-              </div>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>Format:</span>
-                <ReactMarkdown>
-                  {this.props.summary.datasetFormat}
-                </ReactMarkdown>
-              </div>
-              <div className={styles.summaryRow}>
-                <span className={styles.summaryLabel}>Source URL:</span>
-                <ReactMarkdown>{this.props.summary.sourceURL}</ReactMarkdown>
-              </div>
-            </div>
-            <ReactMarkdown source={this.props.summary.summaryText} />
-          </Col>
-          <Col md={{ span: 6, offset: 1 }}>
+        <Row className={styles.row}>     
+          <Col md={{ span: 6 }}>
             <h3 className={styles.sectionTitle}>About</h3>
             <span className={styles.datasetUnderline} />
             <div className={styles.qAndA}>
@@ -181,9 +120,7 @@ class Overview extends Component {
               />
             </div>
           </Col>
-        </Row>
-        <Row>
-          <Col md={5}>
+          <Col md={{ span: 5, offset: 1 }}>
             <h3 className={styles.sectionTitle}>Top Use Cases</h3>
             <span className={styles.datasetUnderline} />
             {this.props.topUseCases.map((useCaseName, i) => (
@@ -200,10 +137,97 @@ class Overview extends Component {
               </Row>
             ))}
           </Col>
-          <Col md={{ span: 6, offset: 1 }}>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <h3 className={styles.sectionTitle}>Summary</h3>
+            <span className={styles.datasetUnderline} />
+            <div className={styles.summaryCreationSection}>
+              <div className={styles.primarySummary}>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>Created By:</Col>
+                  <Col md={6}>
+                    <ReactMarkdown>
+                      {this.props.summary.createdBy +
+                        ", " +
+                        this.props.summary.creatorContactInfo}
+                    </ReactMarkdown>
+                  </Col>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>
+                    Data Creation Range:
+                  </Col>
+                  <Col md={6}>
+                    <ReactMarkdown>
+                      {this.props.summary.dataCollectionRange}
+                    </ReactMarkdown>
+                  </Col>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>Publish Date:</Col>
+                  <Col md={6}>
+                    <ReactMarkdown>
+                      {this.props.summary.datasetPublishDate}
+                    </ReactMarkdown>
+                  </Col>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>Update Frequency:</Col>
+                  <Col md={6}>
+                    <ReactMarkdown>
+                      {this.props.summary.datasetUpdateFrequency}
+                    </ReactMarkdown>
+                  </Col>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>
+                    Most Recent Label Update:
+                  </Col>
+                  <Col md={6}>
+                    <ReactMarkdown>
+                      {this.props.summary.lastLabelUpdate}
+                    </ReactMarkdown>
+                  </Col>
+                </div>
+              </div>
+              <div className={styles.secondarySummary}>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>License:</Col>
+                  <Col md={6}>
+                    <ReactMarkdown>{this.props.summary.licenseInfo}</ReactMarkdown>
+                  </Col>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>Size:</Col>
+                  <Col md={6}>
+                    <ReactMarkdown>{this.props.summary.datasetSize}</ReactMarkdown>
+                  </Col>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>Format:</Col>
+                  <Col md={6}>
+                    <ReactMarkdown>
+                      {this.props.summary.datasetFormat}
+                    </ReactMarkdown>
+                  </Col>
+                </div>
+                <div className={styles.summaryRow}>
+                  <Col md={6} className={styles.summaryLabel}>Source URL:</Col>
+                  <Col md={6}>
+                    <ReactMarkdown>{this.props.summary.sourceURL}</ReactMarkdown>
+                  </Col>
+                </div>
+              </div>
+            </div>
+            <ReactMarkdown source={this.props.summary.summaryText} />
+          </Col>    
+          <Col md={{ span: 5, offset: 1 }}>
             <h3 className={styles.sectionTitle}>Alerts</h3>
             <span className={styles.datasetUnderline} />
-            {this.renderAlertsChart()}
+            <div className={styles.alertSection}>
+              {this.renderAlertsChart()} 
+            </div>
           </Col>
         </Row>
       </>
