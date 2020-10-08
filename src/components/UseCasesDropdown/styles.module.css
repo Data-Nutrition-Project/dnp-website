@@ -13,7 +13,6 @@
 .navbar {
   display: inline-block;
   width: 100%;
-  margin-top: 1rem;
 }
 .listSet {
   text-decoration: none;
@@ -34,4 +33,8 @@
 
 .listSet:hover {
   text-decoration: none;
+}
+
+.selectorArrow {
+  margin-right: 0.4375rem;
 }

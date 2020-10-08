@@ -24,8 +24,13 @@
   z-index: 1;
 }
 
+.dropdownArrow {
+  margin-right: 7px;
+}
 .navbar {
   display: inline-block;
   width: 100%;
-  margin-top: 1rem;
+}
+ul {
+  margin-top: 1rem !important;
 }

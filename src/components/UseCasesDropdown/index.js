@@ -3,6 +3,9 @@ import { Link } from "gatsby"
 import styles from "./styles.module.css"
 import classNames from "classnames"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+
 class UseCasesDropdown extends Component {
   constructor(props) {
     super(props)
@@ -13,14 +16,12 @@ class UseCasesDropdown extends Component {
     this.boldButton = this.boldButton.bind(this)
   }
   boldButton = e => {
-    console.log("target", e.target)
     this.setState({
       bold: e,
       selectedLink: true,
     })
   }
   render() {
-    console.log("bold", this.state.bold)
     return (
       // create a dropdown component and then add it to an onClick listener
 
@@ -38,7 +39,17 @@ class UseCasesDropdown extends Component {
                 [styles.listSetBold]: this.state.bold === "Selector",
               })}
             >
-              <div>Selector </div>
+              <div>
+                {this.state.bold === "Selector" ? (
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className={styles.selectorArrow}
+                  />
+                ) : (
+                  ""
+                )}
+                Selector
+              </div>
             </Link>
 
             <Link
@@ -52,7 +63,17 @@ class UseCasesDropdown extends Component {
                 [styles.listSetBold]: this.state.bold === "Alerts",
               })}
             >
-              <div>Alerts</div>
+              <div>
+                {this.state.bold === "Alerts" ? (
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className={styles.selectorArrow}
+                  />
+                ) : (
+                  ""
+                )}
+                Alerts
+              </div>
             </Link>
           </ul>
         </div>

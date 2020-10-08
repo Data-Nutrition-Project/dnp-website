@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 import styles from "./styles.module.css"
 import classNames from "classnames"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 const dropdowns = [
   "Description",
@@ -45,7 +47,17 @@ class DatasetDropdown extends Component {
                     [styles.listSetBold]: this.state.bold === dropdown,
                   })}
                 >
-                  <div>{dropdown}</div>
+                  <div>
+                    {this.state.selectedLink && this.state.bold === dropdown ? (
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        className={styles.dropdownArrow}
+                      />
+                    ) : (
+                      ""
+                    )}
+                    {dropdown}
+                  </div>
                 </Link>
               )
             })}
