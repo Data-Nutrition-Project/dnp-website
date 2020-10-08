@@ -16,15 +16,40 @@
   position: relative;
 }
 
-.highlightLabel {
+.highlightLabelUseCases {
   background-color: black;
+  display: inline-block;
+  text-align: center !important;
+  font-weight: bold;
   color: white;
   /* border-bottom: 0.25rem solid black; */
   cursor: pointer;
   padding: 0.3125rem 0rem 0.3125rem 0rem;
-  width: 10px;
+  width: 123%;
 }
 
+.highlightLabelDataset {
+  background-color: black;
+  display: inline-block;
+  text-align: center !important;
+  font-weight: bold;
+  color: white;
+  /* border-bottom: 0.25rem solid black; */
+  cursor: pointer;
+  padding: 0.3125rem 0rem 0.3125rem 0rem;
+  width: 136%;
+}
+.highlightLabelOverview {
+  background-color: black;
+  display: inline-block;
+  text-align: center !important;
+  font-weight: bold;
+  color: white;
+  /* border-bottom: 0.25rem solid black; */
+  cursor: pointer;
+  padding: 0.3125rem 0rem 0.3125rem 0rem;
+  width: 147%;
+}
 .span {
   display: block;
   width: 100%;
@@ -42,7 +67,6 @@
   display: inline-block;
   margin-top: 0.5rem;
   font-size: 1.375rem;
-  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1;

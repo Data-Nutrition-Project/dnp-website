@@ -55,8 +55,15 @@ class LabelMenus extends Component {
                     <span
                       onClick={() => this.selectItem(menu.title)}
                       className={classNames(styles.menuTitle, {
-                        [styles.highlightLabel]:
-                          this.state.selectedItem === menu.title,
+                        [styles.highlightLabelUseCases]:
+                          this.state.selectedItem === menu.title &&
+                          menu.title === "USE CASES/ALERTS",
+                        [styles.highlightLabelDataset]:
+                          this.state.selectedItem === menu.title &&
+                          menu.title === "DATASET INFO",
+                        [styles.highlightLabelOverview]:
+                          this.state.selectedItem === menu.title &&
+                          menu.title === "OVERVIEW",
                       })}
                     >
                       {menu.title}
