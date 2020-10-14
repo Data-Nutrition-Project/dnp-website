@@ -26,7 +26,7 @@ const AlertCard = props => {
   const [toggle, setToggle] = useState(false)
   const toggleCaret = () => setToggle(!toggle)
   const sevClassName = severityMap[props.severity].split(": ")[1]
-  console.log("props", props)
+
   return (
     <Accordion>
       <Card className={styles.card}>
@@ -46,9 +46,9 @@ const AlertCard = props => {
             >
               <span className={styles.moreButton}>
                 {toggle ? (
-                  <FontAwesomeIcon icon={faAngleDown} size="1.9x" />
+                  <FontAwesomeIcon icon={faAngleDown} />
                 ) : (
-                  <FontAwesomeIcon icon={faAngleRight} size="1.9x" />
+                  <FontAwesomeIcon icon={faAngleRight} />
                 )}
               </span>
             </Accordion.Toggle>
@@ -73,8 +73,12 @@ const AlertCard = props => {
                     </p>
                     <div className={classNames(styles.subtitleText)}>
                       Potential for Harm:{" "}
-                      {props.tags.map(tag => {
-                        return <b className={styles.propertyValue}>{tag}</b>
+                      {props.tags.map((tag, i) => {
+                        return (
+                          <b key={i} className={styles.propertyValue}>
+                            {tag}
+                          </b>
+                        )
                       })}
                     </div>
                   </Col>

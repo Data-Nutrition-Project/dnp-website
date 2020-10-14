@@ -104,6 +104,10 @@
   margin-left: 0.4375rem;
 }
 
+.fontAwesomeButton {
+  font-size: small;
+}
+
 .propertyValue {
   text-transform: capitalize;
   font-style: italic;

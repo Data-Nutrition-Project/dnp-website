@@ -20,7 +20,6 @@ class UseCasesDropdown extends Component {
     })
   }
   render() {
-    console.log("bold", this.state.bold)
     return (
       // create a dropdown component and then add it to an onClick listener
 
