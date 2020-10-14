@@ -281,6 +281,7 @@ class AllAlerts extends Component {
                       content={alert.content}
                       tags={alert.tags}
                       severity={alert.severity}
+                      mitigation={alert.mitigation}
                     />
                   )
                 })}

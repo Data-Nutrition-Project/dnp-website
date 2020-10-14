@@ -26,6 +26,7 @@ const AlertCard = props => {
   const [toggle, setToggle] = useState(false)
   const toggleCaret = () => setToggle(!toggle)
   const sevClassName = severityMap[props.severity].split(": ")[1]
+  console.log("props", props)
   return (
     <Accordion>
       <Card className={styles.card}>
@@ -81,29 +82,18 @@ const AlertCard = props => {
                 </Row>
                 {/* </Row> */}
 
-                <Row>
-                  <ReactMarkdown
-                    className={styles.contentParagraph}
-                    source={props.content}
-                  />
-                  <div
-                    className={classNames(
-                      styles.subtitleText,
-                      styles.mitigationDiv
-                    )}
-                  >
-                    <b>Possible Mitigations: </b>
-                    <p
-                      className={classNames(
-                        styles.propertyValue,
-                        styles.mitigationText
-                      )}
-                    >
-                      {props.mitigation}
-                    </p>
-                  </div>
-                  <span className={styles.lineBreakTwo}></span>
-                </Row>
+                {/* <Row> */}
+
+                <ReactMarkdown
+                  className={styles.contentParagraph}
+                  source={props.content}
+                />
+                <div className={styles.subtitleText}>
+                  <b>Possible Mitigations: </b>
+                  <p className={styles.propertyValue}>{props.mitigation}</p>
+                </div>
+                <span className={styles.lineBreakTwo}></span>
+                {/* </Row> */}
               </Container>
             </div>
           </div>
@@ -126,6 +116,7 @@ AlertCard.propTypes = {
     "accessibility",
   ]).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
+  mitigation: PropTypes.string.isRequired,
 }
 
 AlertCard.defaultProps = {

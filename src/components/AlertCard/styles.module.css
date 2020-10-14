@@ -39,15 +39,6 @@
   margin-bottom: 0;
 }
 
-.rightColumn {
-  flex-grow: 2;
-  height: 4.0625rem;
-  text-align: right;
-  top: -4.0625rem;
-  margin-left: 53.125rem;
-  padding-left: 9.375rem;
-}
-
 .rectangle {
   display: inline-block;
   height: 4.375rem;
@@ -113,17 +104,15 @@
   margin-left: 0.4375rem;
 }
 
-.mitigationDiv {
-  margin-left: 1.375rem;
-}
 .propertyValue {
   text-transform: capitalize;
+  font-style: italic;
 }
 .mitigationText {
   font-style: italic;
 }
 .contentParagraph {
-  margin-left: 1.375rem;
+  margin-left: 0.4rem;
   margin-right: 1.875rem;
 }
 .bold {
@@ -148,11 +137,11 @@
 
 .lineBreakTwo {
   display: block;
-  width: 100%;
+  width: 102%;
   height: 0.4rem;
   border: solid 0.4rem borderDarkGray;
   background-color: black;
-  margin-left: 1.375rem;
+  margin-left: 0.4rem;
   margin-bottom: 0.625rem;
 }
 
