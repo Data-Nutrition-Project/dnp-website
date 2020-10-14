@@ -57,13 +57,13 @@ const AlertCard = props => {
 
         <Accordion.Collapse eventKey="0">
           <div className={styles.flexCollapse}>
-            <span className={classNames(styles.content)}></span>
+            <span className={styles.content}></span>
 
             <div className={styles.childCollapse}>
               <Container>
                 <Row>
                   <Col>
-                    <p className={classNames(styles.subtitleText)}>
+                    <p className={styles.subtitleText}>
                       Severity:{" "}
                       <b className={styles.propertyValue}>{sevClassName}</b>
                     </p>
@@ -71,7 +71,7 @@ const AlertCard = props => {
                       Category:{" "}
                       <b className={styles.propertyValue}>{props.category}</b>
                     </p>
-                    <div className={classNames(styles.subtitleText)}>
+                    <div className={styles.subtitleText}>
                       Potential for Harm:{" "}
                       {props.tags.map((tag, i) => {
                         return (

@@ -27,14 +27,6 @@
   width: 100%;
 }
 
-.weightedLine {
-  flex: 80% 0 0;
-  border-bottom: 0.1875rem solid currentColor;
-  display: inline;
-  line-height: 0.85;
-  margin: 0.46875rem 0rem 0rem 1.46875rem;
-}
-
 .menuTitle {
   display: inline-block;
   margin-top: 0.5rem;

@@ -252,7 +252,7 @@ class AllAlerts extends Component {
               <div className={styles.filter}>
                 <span className={styles.boldHeader}>Filter: </span>{" "}
                 <select
-                  className={styles.selct}
+                  className={styles.select}
                   id="select"
                   onChange={e => this.onChange(e)}
                 >

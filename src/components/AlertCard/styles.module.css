@@ -39,53 +39,12 @@
   margin-bottom: 0;
 }
 
-.rectangle {
-  display: inline-block;
-  height: 4.375rem;
-  width: 0.5rem;
-  padding-left: 0.3125rem;
-}
-
 .flexCollapse {
   display: flex;
 }
 
 .childCollapse {
   margin-right: 0.9375rem;
-}
-
-.low {
-  width: 2rem;
-  height: 1.5625rem;
-  background: url("/static/medium.svg");
-  background-size: 2.8125rem 3.125rem;
-  position: relative;
-  bottom: 0.8rem;
-}
-
-.medium {
-  width: 2rem;
-  height: 1.5625rem;
-  background: url("/static/moderate.svg");
-  background-size: 2.8125rem 3.125rem;
-  position: relative;
-  bottom: 0.8rem;
-}
-
-.high {
-  color: alertRed;
-}
-
-.circle.low {
-  background-color: alertYellow;
-}
-
-.circle.medium {
-  background-color: alertOrange;
-}
-
-.circle.high {
-  background-color: alertRed;
 }
 
 .titleText {
@@ -104,23 +63,14 @@
   margin-left: 0.4375rem;
 }
 
-.fontAwesomeButton {
-  font-size: small;
-}
-
 .propertyValue {
   text-transform: capitalize;
   font-style: italic;
 }
-.mitigationText {
-  font-style: italic;
-}
+
 .contentParagraph {
   margin-left: 0.4rem;
   margin-right: 1.875rem;
-}
-.bold {
-  font-weight: 700;
 }
 
 .tagsRow {
@@ -147,20 +97,6 @@
   background-color: black;
   margin-left: 0.4rem;
   margin-bottom: 0.625rem;
-}
-
-.caretRotate {
-  display: inline-block;
-  transform: rotate(90deg);
-  background-color: white !important;
-  border: none !important;
-  outline: none !important;
-  margin-right: 0.625rem;
-}
-
-.caretRotate:after {
-  content: "";
-  opacity: 0;
 }
 
 .caret,
@@ -194,38 +130,11 @@
   width: 5rem;
 }
 
-/* Alerts Header */
-.alertsHeader {
-  font-size: 1.875rem;
-  margin-bottom: 0.625rem;
-}
-
-.boldHeader {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1rem;
-}
-
-.accordionBody {
-  padding-left: 3.75rem;
-}
-
 .moreButton {
   font-size: 0.9rem;
   text-align: center;
   text-transform: none;
   text-transform: lowercase;
-}
-
-.caretDown {
-  width: 0;
-  height: 0;
-  border-left: 0.3125rem solid transparent;
-  border-right: 0.3125rem solid transparent;
-  border-top: 0.3125rem solid white;
-  position: relative;
-  top: -0.625rem;
-  left: -0.3125rem;
 }
 
 div.row {

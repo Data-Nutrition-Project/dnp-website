@@ -13,7 +13,6 @@ class UseCasesDropdown extends Component {
     this.boldButton = this.boldButton.bind(this)
   }
   boldButton = e => {
-    console.log("target", e.target)
     this.setState({
       bold: e,
       selectedLink: true,
