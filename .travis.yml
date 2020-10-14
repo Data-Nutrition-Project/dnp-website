@@ -1,5 +1,8 @@
 language: node_js
-
+os:
+  - linux
+  - osx
+dist: xenial
 node_js:
   - "stable"
   - "lts/*"
@@ -19,8 +22,6 @@ before_script:
 deploy:
   provider: script
   script: yarn install && yarn run deploy
-  skip_cleanup: true
   cleanup: false
-  keep_history: true
   on:
     branch: master
