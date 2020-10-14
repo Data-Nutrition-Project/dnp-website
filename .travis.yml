@@ -20,6 +20,7 @@ deploy:
   provider: script
   script: yarn install && yarn run deploy
   skip_cleanup: true
+  cleanup: false
   keep_history: true
   on:
     branch: master
