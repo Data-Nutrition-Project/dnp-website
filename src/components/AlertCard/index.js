@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Accordion from "react-bootstrap/Accordion"
 import Row from "react-bootstrap/Row"
@@ -10,90 +10,96 @@ import classNames from "classnames"
 import PropTypes from "prop-types"
 import ReactMarkdown from "react-markdown"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faAngleDown, faAngleRight } from "@fortawesome/free-solid-svg-icons"
+
 import styles from "./styles.module.css"
 
 const AlertCard = props => {
   const severityMap = {
-    0: "Fyi Severity",
-    1: "Low Severity",
-    2: "Moderate Severity",
-    3: "High Severity",
+    0: "Severity: low",
+    1: "Severity: mid",
+    2: "Severity: moderate",
+    3: "Severity: high",
   }
-  const sevsme = props.severity
-  const sevClassName = severityMap[props.severity].split(" ")[0]
-  // const alerts = props.alerts.filter(item => item)
-  // const alertLength = alerts.length
-  // const highSeverity = props.predictions.alerts.severity === 3
-  // const midSeverity = props.predictions.alerts.severity === 2
-  // const lowSeverity = props.predictions.alerts.severity === 1
-  // const fyi = props.predictions.alerts.severity === 0
 
-  // console.log("props", props.content)
+  const [toggle, setToggle] = useState(false)
+  const toggleCaret = () => setToggle(!toggle)
+  const sevClassName = severityMap[props.severity].split(": ")[1]
+
   return (
     <Accordion>
-      {/* end */}
       <Card className={styles.card}>
         <Card.Header className={styles.columns}>
-          <Container>
-            <Row className="showGrid" style={{ height: 68 }}>
-              <div
-                className={classNames(
-                  styles.alertColumn,
-                  styles.rectangle,
-                  styles[sevClassName]
-                )}
-              ></div>
-              <div className={classNames(styles.alertColumn)}></div>
-              <Col
-                xs={1}
-                md={4}
-                className={classNames(styles.alertColumn, styles.spacerColumn)}
-              >
-                <p className={styles.titleText}>{props.title}</p>
-                <p className={styles.subtitleText}>{props.category}</p>
-              </Col>
-              {/* Second Col */}
-              <Col xs={4} md={4}>
-                <Accordion.Toggle className={styles.caret} eventKey="0">
-                  <p className={styles.moreButton}>MORE</p>
-                </Accordion.Toggle>
-              </Col>
-              {/* Third Col */}
+          <div
+            className={classNames(styles.alertColumn, styles[sevClassName])}
+          ></div>
 
-              <Col
-                xs={1}
-                md={4}
-                className={classNames(styles.alertColumn, styles.rightColumn)}
-              >
-                <div className={styles.severityRow}>
-                  {/* <p className={classNames(styles.subtitleText)}> */}
-                  <p className={classNames(styles.subtitleText, styles.tag)}>
-                    {severityMap[props.severity]}
-                  </p>
-                  {/* </p> */}
-                </div>
-                <div className={styles.tagsRow}>
-                  <p className={classNames(styles.subtitleText, styles.tag)}>
-                    Affected:
-                  </p>
-                  {props.tags.map(tag => {
-                    return (
-                      <p
-                        className={classNames(styles.subtitleText, styles.tag)}
-                        key={tag}
-                      >
-                        {tag}
-                      </p>
-                    )
-                  })}
-                </div>
-              </Col>
-            </Row>
-          </Container>
+          <div className={styles.flexGrow}>
+            <p className={toggle ? styles.titleBold : styles.titleText}>
+              {props.title}
+            </p>
+            <Accordion.Toggle
+              onClick={toggleCaret}
+              className={styles.caret}
+              eventKey="0"
+            >
+              <span className={styles.moreButton}>
+                {toggle ? (
+                  <FontAwesomeIcon icon={faAngleDown} />
+                ) : (
+                  <FontAwesomeIcon icon={faAngleRight} />
+                )}
+              </span>
+            </Accordion.Toggle>
+          </div>
         </Card.Header>
+
         <Accordion.Collapse eventKey="0">
-          <div className={styles.content}>
-            <ReactMarkdown source={props.content} />
+          <div className={styles.flexCollapse}>
+            <span className={styles.content}></span>
+
+            <div className={styles.childCollapse}>
+              <Container>
+                <Row>
+                  <Col>
+                    <p className={styles.subtitleText}>
+                      Severity:{" "}
+                      <b className={styles.propertyValue}>{sevClassName}</b>
+                    </p>
+                    <p className={styles.subtitleText}>
+                      Category:{" "}
+                      <b className={styles.propertyValue}>{props.category}</b>
+                    </p>
+                    <div className={styles.subtitleText}>
+                      Potential for Harm:{" "}
+                      {props.tags.map((tag, i) => {
+                        return (
+                          <b key={i} className={styles.propertyValue}>
+                            {tag}
+                          </b>
+                        )
+                      })}
+                    </div>
+                  </Col>
+                  <span className={styles.lineBreakOne}></span>
+                </Row>
+                {/* </Row> */}
+
+                {/* <Row> */}
+
+                <ReactMarkdown
+                  className={styles.contentParagraph}
+                  source={props.content}
+                />
+                <div className={styles.subtitleText}>
+                  <b>Possible Mitigations: </b>
+                  <p className={styles.propertyValue}>{props.mitigation}</p>
+                </div>
+                <span className={styles.lineBreakTwo}></span>
+                {/* </Row> */}
+              </Container>
+            </div>
           </div>
         </Accordion.Collapse>
       </Card>
@@ -114,6 +120,7 @@ AlertCard.propTypes = {
     "accessibility",
   ]).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
+  mitigation: PropTypes.string.isRequired,
 }
 
 AlertCard.defaultProps = {
@@ -123,6 +130,7 @@ AlertCard.defaultProps = {
   severity: 0,
   type: "completeness",
   tags: ["age"],
+  mitigation: "No current mitigation known",
 }
 
 export default AlertCard

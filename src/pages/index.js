@@ -37,7 +37,7 @@ const IndexPage = props => (
             </span>
           </div>
           <div className={styles.centerText}>
-            <Link to="/covid-tracking" className={styles.tealButtonLink}>
+            <Link to="/labels/covid-tracking" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
