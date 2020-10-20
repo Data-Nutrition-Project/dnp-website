@@ -11,77 +11,43 @@ exports[`Alert renders correctly 1`] = `
       className="columns card-header"
     >
       <div
-        className="container"
+        className="alertColumn low"
+      />
+      <div
+        className="flexGrow"
       >
-        <div
-          className="showGrid row"
-          style={
-            Object {
-              "height": 68,
-            }
-          }
+        <p
+          className="titleText"
         >
-          <div
-            className="alertColumn rectangle Fyi"
-          />
-          <div
-            className="alertColumn"
-          />
-          <div
-            className="alertColumn spacerColumn col-md-4 col-1"
+          OH NOESSSS!!!!
+        </p>
+        <button
+          className="caret"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="moreButton"
           >
-            <p
-              className="titleText"
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-angle-right fa-w-8 "
+              data-icon="angle-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 256 512"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              OH NOESSSS!!!!
-            </p>
-            <p
-              className="subtitleText"
-            />
-          </div>
-          <div
-            className="col-md-4 col-4"
-          >
-            <button
-              className="caret"
-              onClick={[Function]}
-              type="button"
-            >
-              <p
-                className="moreButton"
-              >
-                MORE
-              </p>
-            </button>
-          </div>
-          <div
-            className="alertColumn rightColumn col-md-4 col-1"
-          >
-            <div
-              className="severityRow"
-            >
-              <p
-                className="subtitleText tag"
-              >
-                Fyi Severity
-              </p>
-            </div>
-            <div
-              className="tagsRow"
-            >
-              <p
-                className="subtitleText tag"
-              >
-                Affected:
-              </p>
-              <p
-                className="subtitleText tag"
-              >
-                age
-              </p>
-            </div>
-          </div>
-        </div>
+              <path
+                d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
     <div
@@ -89,14 +55,86 @@ exports[`Alert renders correctly 1`] = `
       className="collapse"
     >
       <div
-        className="content"
+        className="flexCollapse"
       >
-        <h3>
-          Info
-        </h3>
-        <p>
-          AHHHHHHHHH!!!!
-        </p>
+        <span
+          className="content"
+        />
+        <div
+          className="childCollapse"
+        >
+          <div
+            className="container"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col"
+              >
+                <p
+                  className="subtitleText"
+                >
+                  Severity:
+                   
+                  <b
+                    className="propertyValue"
+                  >
+                    low
+                  </b>
+                </p>
+                <p
+                  className="subtitleText"
+                >
+                  Category:
+                   
+                  <b
+                    className="propertyValue"
+                  />
+                </p>
+                <div
+                  className="subtitleText"
+                >
+                  Potential for Harm:
+                   
+                  <b
+                    className="propertyValue"
+                  >
+                    age
+                  </b>
+                </div>
+              </div>
+              <span
+                className="lineBreakOne"
+              />
+            </div>
+            <div
+              className="contentParagraph"
+            >
+              <h3>
+                Info
+              </h3>
+              <p>
+                AHHHHHHHHH!!!!
+              </p>
+            </div>
+            <div
+              className="subtitleText"
+            >
+              <b>
+                Possible Mitigations: 
+              </b>
+              <p
+                className="propertyValue"
+              >
+                No current mitigation known
+              </p>
+            </div>
+            <span
+              className="lineBreakTwo"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>

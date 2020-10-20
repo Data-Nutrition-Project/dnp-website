@@ -2,10 +2,6 @@ import React, { Component } from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
-import Accordion from "react-bootstrap/Accordion"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
-import classNames from "classnames"
 import PropTypes from "prop-types"
 import styles from "./styles.module.css"
 
@@ -14,8 +10,7 @@ import AlertCard from "../AlertCard/index.js"
 import { config } from "@fortawesome/fontawesome-svg-core"
 
 config.autoAddCss = false
-
-var sev
+let sev
 
 class AllAlerts extends Component {
   constructor(props) {
@@ -29,7 +24,7 @@ class AllAlerts extends Component {
       3: 0,
       2: 0,
       1: 0,
-      0: 0
+      0: 0,
     }
 
     for (const [prediction, info] of Object.entries(alerts)) {
@@ -48,7 +43,7 @@ class AllAlerts extends Component {
       })
     } else {
       this.props.selectedAlerts.map((alert, i) => {
-        let alertObj = {...this.props.alerts[alert]}
+        let alertObj = { ...this.props.alerts[alert] }
         alertObj.severity = alert.severity
         sevCount[alert.severity]++
         selectedAlerts.push(alertObj)
@@ -77,7 +72,7 @@ class AllAlerts extends Component {
       3: 0,
       2: 0,
       1: 0,
-      0: 0
+      0: 0,
     }
 
     if (
@@ -86,7 +81,10 @@ class AllAlerts extends Component {
       e.target.value === "" ||
       e.target.value === "All"
     )
-      this.setState({ filtered: [...this.state.selectedAlerts] })
+      this.setState({
+        filtered: [...this.state.selectedAlerts],
+        filterValue: e.target.value,
+      })
     else {
       let filtered = []
 
@@ -96,7 +94,6 @@ class AllAlerts extends Component {
       filtered.map(alert => {
         sevCount[alert.severity]++
       })
-      console.log("filting", filtered)
 
       this.setState({
         filtered,
@@ -104,18 +101,21 @@ class AllAlerts extends Component {
         highCount: sevCount[3],
         midCount: sevCount[2],
         lowCount: sevCount[1],
-        fyiCount: sevCount[0]
+        fyiCount: sevCount[0],
       })
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (JSON.stringify(this.props.selectedAlerts) !== JSON.stringify(prevProps.selectedAlerts)) {
+    if (
+      JSON.stringify(this.props.selectedAlerts) !==
+      JSON.stringify(prevProps.selectedAlerts)
+    ) {
       let sevCount = {
         3: 0,
         2: 0,
         1: 0,
-        0: 0
+        0: 0,
       }
 
       let selectedAlerts = []
@@ -123,7 +123,7 @@ class AllAlerts extends Component {
         selectedAlerts = [...this.state.alerting]
       } else {
         this.props.selectedAlerts.map((alert, i) => {
-          let alertObj = {...this.props.alerts[alert.alert]}
+          let alertObj = { ...this.props.alerts[alert.alert] }
           alertObj.severity = alert.severity
           selectedAlerts.push(alertObj)
         })
@@ -137,8 +137,7 @@ class AllAlerts extends Component {
         this.state.filterValue === "All"
       ) {
         filtered = [...selectedAlerts]
-      }
-      else {
+      } else {
         filtered = selectedAlerts.filter(p =>
           p.tags.includes(this.state.filterValue)
         )
@@ -154,24 +153,20 @@ class AllAlerts extends Component {
         highCount: sevCount[3],
         midCount: sevCount[2],
         lowCount: sevCount[1],
-        fyiCount: sevCount[0]
+        fyiCount: sevCount[0],
       })
     }
   }
 
   render() {
     const alerts = this.props.alerts
-    const predictions = this.props.predictions
-    let pred
-    var length = 0
+
     const filteredLength = this.state.filtered.length
     let high = 0
     let mid = 0
     let low = 0
     let fyi = 0
-    let items = []
 
-    // const [prediction, info] of Object.entries(predictions)
     if (this.state.filtered < 5 && this.state.length > 0) {
       for (let i = 0; i < this.state.filtered.length; i++) {
         let alert = this.state.filtered[i]
@@ -198,104 +193,103 @@ class AllAlerts extends Component {
     let sliced = this.state.tags.slice(0, 3)
 
     return (
-      <Accordion className={styles.accordionBody}>
-        <h1 className={styles.alertsHeader}>{filteredLength} Alerts</h1>
-        <div className={styles.parentDiv}>
-          <div className={styles.filter}>
-            <span className={styles.boldHeader}>Filter:</span>
-            <select
-              className={styles.selct}
-              id="select"
-              onChange={e => this.onChange(e)}
-            >
-              {/* <FontAwesomeIcon
-                className={styles.caretIcon}
-                icon={faCaretDown}
-                // size="1x"
-                sx={{
-                  position: "relative",
-                  minHeight: "150vh",
-                  paddingLeft: "5vh",
-                }}
-              /> */}
-              <option default>All</option>
+      <>
+        <Row className={styles.alertsMargin}>
+          <Col md={2}>
+            <h1 className={styles.alertsHeader}>{filteredLength} Alerts</h1>
+            <p className={styles.alertsParagraph}>
+              Click on the arrow next to an alert to see more information.
+            </p>
+          </Col>
 
-              {sliced.map((tag, i) => {
-                return (
-                  <option value={tag} key={i}>
-                    {tag}
-                  </option>
-                )
-              })}
-            </select>
-          </div>
-          <div className={styles.severity}>
-            <div className={styles.parentColors}>
-              <Container>
-                <Row>
-                  <Col sm={2.5} className={styles.boldHeader}>
-                    Severity:
-                  </Col>
-                  <div className={styles.flexCol}>
-                    <Col md={11} className={styles.upperRight}>
-                      <Row>
-                        <Col sm={4} className={styles.flexCol}>
-                          <div
-                            className={classNames(styles.box, styles.red)}
-                          ></div>
-                          <p className={styles.sevParagraph}>{this.state.highCount} High</p>
-                        </Col>
-
-                        <Col sm={4} className={styles.flexCol}>
-                          <div
-                            className={classNames(styles.box, styles.orange)}
-                          ></div>
-                          <p className={styles.sevParagraph}>{this.state.midCount} Mid</p>
-                        </Col>
-
-                        <Col sm={4} className={styles.flexCol}>
-                          <div
-                            className={classNames(styles.box, styles.yellow)}
-                          ></div>
-                          <p className={styles.sevParagraph}>{this.state.lowCount} Low</p>
-                        </Col>
-                      </Row>
+          <Col md={10}>
+            <div className={styles.severity}>
+              <div className={styles.parentColors}>
+                <Container>
+                  <Row>
+                    <Col sm={2.5} className={styles.boldHeader}>
+                      Severity:
                     </Col>
-                    <Col md={12} className={styles.upperLeft}>
-                      <Row>
-                        <Col sm={12} className={styles.flexCol}>
-                          <div
-                            className={classNames(styles.box, styles.green)}
-                          ></div>
-                          <p className={styles.sevParagraph}>{this.state.fyiCount} Fyi</p>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </div>
-                </Row>
-              </Container>
+                    <div className={styles.flexCol}>
+                      <Col md={11} className={styles.upperRight}>
+                        <Row>
+                          <div className={styles.parentAlerts}>
+                            <div className={styles.red}></div>
+                            <div className={styles.sevParagraph}>
+                              {this.state.highCount} High
+                            </div>
+                          </div>
+
+                          <div className={styles.parentAlerts}>
+                            <div className={styles.orange}></div>
+                            <div className={styles.sevParagraph}>
+                              {this.state.midCount} Mod
+                            </div>
+                          </div>
+
+                          <div className={styles.parentAlerts}>
+                            <div className={styles.yellow}></div>
+                            <div className={styles.sevParagraph}>
+                              {this.state.lowCount} Mid
+                            </div>
+                          </div>
+
+                          <div className={styles.parentAlerts}>
+                            <div className={styles.green}></div>
+                            <p className={styles.sevParagraph}>
+                              {this.state.fyiCount} Low
+                            </p>
+                          </div>
+                        </Row>
+                      </Col>
+                    </div>
+                  </Row>
+                </Container>
+              </div>
             </div>
-          </div>
-        </div>
-        {!filteredLength ? (
-          <h1>LOADING...</h1>
-        ) : (
-          <div>
-            {this.state.filtered.map((alert, i) => {
-              return (
-                <AlertCard
-                  key={i}
-                  title={alert.title}
-                  category={alert.category}
-                  content={alert.content}
-                  tags={alert.tags}
-                  severity={alert.severity}
-                />
-              )
-            })}
-          </div>
-        )}
-      </Accordion>
+            <span className={styles.alertUnderlineBold}></span>
+            <div className={styles.parentDiv}>
+              <div className={styles.filter}>
+                <span className={styles.boldHeader}>Filter: </span>{" "}
+                <select
+                  className={styles.select}
+                  id="select"
+                  onChange={e => this.onChange(e)}
+                >
+                  <option default>All</option>
+
+                  {sliced.map((tag, i) => {
+                    return (
+                      <option value={tag} key={i}>
+                        {tag}
+                      </option>
+                    )
+                  })}
+                </select>
+              </div>
+            </div>
+            {!filteredLength ? (
+              <h1>LOADING...</h1>
+            ) : (
+              <div>
+                {this.state.filtered.map((alert, i) => {
+                  return (
+                    <AlertCard
+                      key={i}
+                      title={alert.title}
+                      category={alert.category}
+                      content={alert.content}
+                      tags={alert.tags}
+                      severity={alert.severity}
+                      mitigation={alert.mitigation}
+                    />
+                  )
+                })}
+              </div>
+            )}
+          </Col>
+        </Row>
+      </>
     )
   }
 }

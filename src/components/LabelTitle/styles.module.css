@@ -37,24 +37,3 @@
   width: 0.875rem;
   height: 0.875rem;
 }
-
-.datasetOrigin {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.datasetOriginLink {
-  font-size: 1.22rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.88;
-  letter-spacing: normal;
-  margin: 0;
-  text-align: right;
-}
-
-.link {
-  margin-left: .5rem;
-}

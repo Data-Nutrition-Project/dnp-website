@@ -17,22 +17,14 @@
 }
 
 .highlightLabel {
-  border-bottom: 4px solid black;
+  border-bottom: 0.25rem solid black;
   cursor: pointer;
-  padding-bottom: 5px;
+  padding-bottom: 0.3125rem;
 }
 
 .span {
   display: block;
   width: 100%;
-}
-
-.weightedLine {
-  flex: 80% 0 0;
-  border-bottom: 0.1875rem solid currentColor;
-  display: inline;
-  line-height: 0.85;
-  margin: 0.46875rem 0rem 0rem 1.46875rem;
 }
 
 .menuTitle {

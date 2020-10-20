@@ -11,6 +11,27 @@
 }
 
 .navbar {
+  display: inline-block;
   width: 100%;
   margin-top: 1rem;
+}
+.listSet {
+  text-decoration: none;
+  list-style-type: none;
+  float: right;
+  clear: both;
+  color: black;
+}
+
+.listSetBold {
+  font-weight: bold;
+  color: black;
+}
+.listSet:hover div {
+  font-weight: bold;
+  color: black;
+}
+
+.listSet:hover {
+  text-decoration: none;
 }
