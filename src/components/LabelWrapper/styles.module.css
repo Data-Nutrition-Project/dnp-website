@@ -40,29 +40,21 @@
 
 .labelHeader h1,
 .labelHeader h4 {
-    margin-bottom: 0;
-}
-
-.blockDiv {
-  display: block;
-}
-
-.hiddenDiv {
-  display: none;
+  margin-bottom: 0;
 }
 
 @media (max-width: landscapeMaxWidth) {
-    .labelWrapper {
-        padding: 1rem 0;
-    }
+  .labelWrapper {
+    padding: 1rem 0;
+  }
 
-    .sectionBase {
-        margin-top: .5rem;
-    }
+  .sectionBase {
+    margin-top: 0.5rem;
+  }
 
-    .flexTitleMenus {
-        position: relative;
-        margin-top: 0;
-        padding-right: 0;
-    }
+  .flexTitleMenus {
+    position: relative;
+    margin-top: 0;
+    padding-right: 0;
+  }
 }

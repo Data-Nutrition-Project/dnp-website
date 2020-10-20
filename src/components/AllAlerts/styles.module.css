@@ -36,10 +36,10 @@
   width: 90%;
 }
 
-.selct:focus {
+.select:focus {
   outline: none;
 }
-.selct {
+.select {
   border: none !important;
   outline: none !important;
 }
@@ -53,10 +53,7 @@
   padding-left: 0.3125rem;
   margin-top: 0.3125rem;
 }
-.upperLeft {
-  margin-top: 0.3125rem;
-  margin-left: -1.5rem;
-}
+
 .sevParagraph {
   flex-wrap: nowrap;
   flex-direction: row;
@@ -100,23 +97,12 @@
   bottom: 0.6875rem;
 }
 
-.severityLvls {
-  display: flex;
-  flex-direction: row;
-  right: 3.125rem;
-  margin-bottom: -1.875rem;
-  top: 0;
-}
-
 .boldHeader {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1rem;
 }
-.filteredContent {
-  padding-left: 0.3125rem;
-  font-size: 1rem;
-}
+
 .filter {
   flex: 0.89;
 }

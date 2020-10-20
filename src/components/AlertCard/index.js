@@ -26,6 +26,7 @@ const AlertCard = props => {
   const [toggle, setToggle] = useState(false)
   const toggleCaret = () => setToggle(!toggle)
   const sevClassName = severityMap[props.severity].split(": ")[1]
+
   return (
     <Accordion>
       <Card className={styles.card}>
@@ -45,9 +46,9 @@ const AlertCard = props => {
             >
               <span className={styles.moreButton}>
                 {toggle ? (
-                  <FontAwesomeIcon icon={faAngleDown} size="1.9x" />
+                  <FontAwesomeIcon icon={faAngleDown} />
                 ) : (
-                  <FontAwesomeIcon icon={faAngleRight} size="1.9x" />
+                  <FontAwesomeIcon icon={faAngleRight} />
                 )}
               </span>
             </Accordion.Toggle>
@@ -56,13 +57,13 @@ const AlertCard = props => {
 
         <Accordion.Collapse eventKey="0">
           <div className={styles.flexCollapse}>
-            <span className={classNames(styles.content)}></span>
+            <span className={styles.content}></span>
 
             <div className={styles.childCollapse}>
               <Container>
                 <Row>
                   <Col>
-                    <p className={classNames(styles.subtitleText)}>
+                    <p className={styles.subtitleText}>
                       Severity:{" "}
                       <b className={styles.propertyValue}>{sevClassName}</b>
                     </p>
@@ -70,10 +71,14 @@ const AlertCard = props => {
                       Category:{" "}
                       <b className={styles.propertyValue}>{props.category}</b>
                     </p>
-                    <div className={classNames(styles.subtitleText)}>
+                    <div className={styles.subtitleText}>
                       Potential for Harm:{" "}
-                      {props.tags.map(tag => {
-                        return <b className={styles.propertyValue}>{tag}</b>
+                      {props.tags.map((tag, i) => {
+                        return (
+                          <b key={i} className={styles.propertyValue}>
+                            {tag}
+                          </b>
+                        )
                       })}
                     </div>
                   </Col>
@@ -81,29 +86,18 @@ const AlertCard = props => {
                 </Row>
                 {/* </Row> */}
 
-                <Row>
-                  <ReactMarkdown
-                    className={styles.contentParagraph}
-                    source={props.content}
-                  />
-                  <div
-                    className={classNames(
-                      styles.subtitleText,
-                      styles.mitigationDiv
-                    )}
-                  >
-                    <b>Possible Mitigations: </b>
-                    <p
-                      className={classNames(
-                        styles.propertyValue,
-                        styles.mitigationText
-                      )}
-                    >
-                      {props.mitigation}
-                    </p>
-                  </div>
-                  <span className={styles.lineBreakTwo}></span>
-                </Row>
+                {/* <Row> */}
+
+                <ReactMarkdown
+                  className={styles.contentParagraph}
+                  source={props.content}
+                />
+                <div className={styles.subtitleText}>
+                  <b>Possible Mitigations: </b>
+                  <p className={styles.propertyValue}>{props.mitigation}</p>
+                </div>
+                <span className={styles.lineBreakTwo}></span>
+                {/* </Row> */}
               </Container>
             </div>
           </div>
@@ -126,6 +120,7 @@ AlertCard.propTypes = {
     "accessibility",
   ]).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
+  mitigation: PropTypes.string.isRequired,
 }
 
 AlertCard.defaultProps = {
