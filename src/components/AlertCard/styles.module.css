@@ -142,7 +142,7 @@ div.row {
   width: 100%;
 }
 
-.low {
+.fyi {
   width: 2rem;
   height: 1.5625rem;
   background: url(./low.svg);
@@ -154,7 +154,7 @@ div.row {
   margin-right: 0;
 }
 
-.mid {
+.yes {
   width: 2rem;
   height: 1.5625rem;
   background: url(./medium.svg);
@@ -166,7 +166,7 @@ div.row {
   margin-right: 0;
 }
 
-.moderate {
+.maybe {
   width: 2rem;
   height: 1.5625rem;
   background: url(./moderate.svg);
@@ -178,7 +178,7 @@ div.row {
   margin-right: 0;
 }
 
-.high {
+.no {
   width: 2.1875rem;
   height: 1.5625rem;
   background: url(./high.svg);

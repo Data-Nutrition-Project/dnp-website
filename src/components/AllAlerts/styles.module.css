@@ -1,5 +1,7 @@
 @value layout: "../layout.css";
 
+@value black from layout;
+
 .alertsHeader {
   font-size: 1.875rem;
   font-weight: bold;
@@ -30,10 +32,24 @@
 .parentColors {
   display: flex;
 }
-.flexCol {
-  display: flex;
-  flex-direction: row;
-  width: 90%;
+
+.alertPillsActive {
+  background-color: black !important;
+}
+
+.tabContent {
+  margin-top: .5rem;
+}
+
+.mitigationRow {
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.filter {
+  flex: 0.89;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
 }
 
 .select:focus {
@@ -47,64 +63,19 @@
 .parentAlerts {
   display: flex;
 }
-.upperRight {
-  position: relative;
-  flex-direction: row;
-  padding-left: 0.3125rem;
-  margin-top: 0.3125rem;
-}
 
-.sevParagraph {
-  flex-wrap: nowrap;
-  flex-direction: row;
-  font-size: 1rem;
-  margin-bottom: 0;
-  margin-top: -0.3125rem;
-}
-.red {
+.mitigationRefImg {
+  position: relative;
   width: 2.1875rem;
   height: 1.5625rem;
-  background: url(../AlertCard/high.svg);
-  background-size: 2.8125rem 3.125rem;
-  position: relative;
-  bottom: 0.6875rem;
-}
-
-.orange {
-  width: 2rem;
-  height: 1.5625rem;
-  background: url(../AlertCard/moderate.svg);
-  background-size: 2.8125rem 3.125rem;
-  position: relative;
-  bottom: 0.6875rem;
-}
-
-.yellow {
-  width: 2rem;
-  height: 1.5625rem;
-  background: url(../AlertCard/medium.svg);
-  background-size: 2.8125rem 3.125rem;
-  position: relative;
-  bottom: 0.6875rem;
-}
-
-.green {
-  width: 2rem;
-  height: 1.5625rem;
-  background: url(../AlertCard/low.svg);
-  background-size: 2.8125rem 2.1875rem;
-  position: relative;
-  bottom: 0.6875rem;
+  margin-left: .5rem;
+  margin-right: -.5rem;
 }
 
 .boldHeader {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1rem;
-}
-
-.filter {
-  flex: 0.89;
 }
 
 .caretIcon {

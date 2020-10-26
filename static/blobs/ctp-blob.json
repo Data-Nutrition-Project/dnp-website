@@ -398,7 +398,9 @@
                 "mitigation": "No current mitigation known",
                 "severity": 3.0,
                 "content": "The data sources leveraged at the local level are of varying quality, which has been documented through the States Grades initiative: <https://covidtracking.com/about-data/state-grades>"
-            },
+            }
+        },
+        "fyis": {
             "field-relationship": {
                 "title": "Field Relationships",
                 "type": "markdown",
@@ -406,8 +408,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green ",
-                "severity": 0.0,
                 "content": "Instances are a time series; the same state appears many times and indicates the same geographical territory.  "
             },
             "dataset-not-a-sample": {
@@ -417,8 +417,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "This dataset is not a sample. "
             },
             "data-preprocessed": {
@@ -428,8 +426,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "Dataset was scraped when possible and leveraged manual human cleaning where applicable by the Covid Tracking Project team. The team has oversight and training by epidemiologists and anti-racism experts, suggesting that human cleaning is applied with strong ethical consideration. More info here: <https://covidtracking.com/about-data/faq>"
             },
             "raw-data": {
@@ -439,8 +435,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "Raw data is not available within the dataset but is available at over 50 upstream data sources:\n<https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
             },
             "upstream-dependence": {
@@ -450,8 +444,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\n\nSee upstream data sources (over 50):\n<https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
             },
             "no-confidential-data": {
@@ -461,8 +453,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "There is no confidential data included in this dataset. "
             },
             "dataset-populations": {
@@ -472,8 +462,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "There are no subpopulations identified in this dataset (e.g., by age, gender). "
             },
             "collection-timeframe": {
@@ -483,8 +471,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "Collection on a subset of data began on 20200122, and has continued daily since, with additional states being added over time. From March 14 forward there are timestamped snapshots of the data source we used for each change available publicly. We update the full dataset each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. "
             },
             "collection-organization": {
@@ -494,8 +480,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "The original data was collected, cleaned, and distributed by individual states or jurisdictions. The data has been preprocessed and cleaned by the Covid Tracking Project after collected and organized from the original sources. "
             },
             "user-consent": {
@@ -505,8 +489,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "There is no individual-level data in the dataset, and thus no consent collected. "
             },
             "anonymization": {
@@ -516,8 +498,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "There is no individual-level data in the dataset, and thus no anonymization process. "
             },
             "quality-review": {
@@ -527,8 +507,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "Data has been reviewed by internal team. To help members of the public understand how well each state is performing, The Covid Tracking Project has assigned each state a data-quality grade based on an assessment of the completeness of their reporting. See the State Grades and learn more about the quality metrics here: <https://covidtracking.com/about-data/state-grades>"
             },
             "ethical-review": {
@@ -538,8 +516,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "The dataset volunteer team has an advisory board which provides accountability. Additionally, the team has partnered with the Center for Antiracist Research in data processing: <https://covidtracking.com/about/advisory-board>"
             },
             "data-management-unknown": {
@@ -549,8 +525,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": " The data is managed by the internal team at the organization. "
             },
             "updates": {
@@ -560,8 +534,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "The full dataset is updated each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. This will continue for the foreseeable future. If things change, information about those changes will be communicated through the website: <https://covidtracking.com/about-data>"
             },
             "right-forgotten": {
@@ -571,8 +543,6 @@
                 "tags": [
                     "N/A"
                 ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
                 "content": "There is no individual-level data in the dataset, and thus no process for individual level data removal. "
             }
         },
@@ -619,83 +589,29 @@
                     {
                         "alert": "cautioned-purpose",
                         "severity": 3
-                    },
-                    {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
+                    }, 
                     {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "future-r0": {
@@ -742,81 +658,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "current-prevalence": {
@@ -863,81 +725,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "infections-forecasted": {
@@ -984,81 +792,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "deaths-forecasted": {
@@ -1093,81 +847,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "deaths-region": {
@@ -1202,81 +902,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "infections-region": {
@@ -1323,81 +969,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "tests-capita": {
@@ -1436,81 +1028,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "icu-capita": {
@@ -1537,81 +1075,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "ventilator-capita": {
@@ -1638,81 +1122,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "icu-forecasted": {
@@ -1739,81 +1169,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "ventilator-forecasted": {
@@ -1840,81 +1216,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "hospitalizations-capita": {
@@ -1941,81 +1263,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             },
             "hospitalizations-forecasted": {
@@ -2042,81 +1310,27 @@
                         "severity": 3
                     },
                     {
-                        "alert": "existing-use-case",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "publicly-funded",
-                        "severity": 0
-                    },
-                    {
                         "alert": "missing-data",
                         "severity": 3
-                    },
-                    {
-                        "alert": "field-relationship",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-not-a-sample",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-preprocessed",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "raw-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "upstream-dependence",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "no-confidential-data",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "dataset-populations",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-timeframe",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "collection-organization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "user-consent",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "anonymization",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "quality-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "ethical-review",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "data-management-unknown",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "updates",
-                        "severity": 0
-                    },
-                    {
-                        "alert": "right-forgotten",
-                        "severity": 0
                     }
+                ],
+                "fyis": [
+                    "field-relationship",
+                    "dataset-not-a-sample",
+                    "data-preprocessed",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "data-management-unknown",
+                    "updates",
+                    "right-forgotten"
                 ]
             }
         },
