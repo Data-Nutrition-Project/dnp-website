@@ -37,7 +37,6 @@ class LabelMenus extends Component {
       open: item,
     })
     this.props.sendBaseInfo(item)
-    console.log("showHighlight")
   }
 
   render() {
@@ -51,24 +50,17 @@ class LabelMenus extends Component {
             return (
               <div key={id}>
                 <div id="selectButton" key={id}>
-                  <span className={styles.menuTitle}>
-                    <span
-                      onClick={() => this.selectItem(menu.title)}
-                      className={classNames(styles.menuTitle, {
-                        [styles.highlightLabelUseCases]:
-                          this.state.selectedItem === menu.title &&
-                          menu.title === "USE CASES/ALERTS",
-                        [styles.highlightLabelDataset]:
-                          this.state.selectedItem === menu.title &&
-                          menu.title === "DATASET INFO",
-                        [styles.highlightLabelOverview]:
-                          this.state.selectedItem === menu.title &&
-                          menu.title === "OVERVIEW",
-                      })}
-                    >
+                  <span
+                    className={classNames(styles.menuTitle, {
+                      [styles.highlightMenuTitle]:
+                        this.state.selectedItem === menu.title,
+                    })}
+                  >
+                    <span onClick={() => this.selectItem(menu.title)}>
                       {menu.title}
                     </span>
                   </span>
+
                   {this.state.open === "USE CASES/ALERTS" &&
                   menu.title === "USE CASES/ALERTS" ? (
                     <UseCasesDropdown />

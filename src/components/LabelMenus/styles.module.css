@@ -16,40 +16,13 @@
   position: relative;
 }
 
-.highlightLabelUseCases {
+.highlightMenuTitle {
   background-color: black;
-  display: inline-block;
-  text-align: center !important;
   font-weight: bold;
   color: white;
-  /* border-bottom: 0.25rem solid black; */
   cursor: pointer;
-  padding: 0.3125rem 0rem 0.3125rem 0rem;
-  width: 123%;
 }
 
-.highlightLabelDataset {
-  background-color: black;
-  display: inline-block;
-  text-align: center !important;
-  font-weight: bold;
-  color: white;
-  /* border-bottom: 0.25rem solid black; */
-  cursor: pointer;
-  padding: 0.3125rem 0rem 0.3125rem 0rem;
-  width: 136%;
-}
-.highlightLabelOverview {
-  background-color: black;
-  display: inline-block;
-  text-align: center !important;
-  font-weight: bold;
-  color: white;
-  /* border-bottom: 0.25rem solid black; */
-  cursor: pointer;
-  padding: 0.3125rem 0rem 0.3125rem 0rem;
-  width: 147%;
-}
 .span {
   display: block;
   width: 100%;
@@ -64,6 +37,10 @@
   line-height: 1;
   letter-spacing: normal;
   text-align: right;
+  padding: 0.5rem 2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .menuTitle:hover {
