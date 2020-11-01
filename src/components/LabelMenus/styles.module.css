@@ -14,6 +14,7 @@
   cursor: pointer;
   display: inline-block;
   position: relative;
+  width: 100%;
 }
 
 .highlightMenuTitle {
@@ -38,9 +39,6 @@
   letter-spacing: normal;
   text-align: right;
   padding: 0.5rem 2rem;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 .menuTitle:hover {
