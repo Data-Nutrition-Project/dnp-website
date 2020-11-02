@@ -295,9 +295,13 @@ class AllAlerts extends Component {
                       </select>
                     </div>
                   </div>
-                  {!this.state.filtered.length ? (
-                    <h1>LOADING...</h1>
-                  ) : (
+                  {this.state.alerting.length === 0 && 
+                    <b>LOADING...</b>
+                  }
+                  {(this.state.alerting.length > 0 && this.state.filtered.length === 0) &&
+                    <b>No alerts to show</b>
+                  }
+                  {this.state.filtered.length > 0 &&
                     <div>
                       {this.state.filtered.filter(
                         alert => alert.severity != 0
@@ -315,7 +319,7 @@ class AllAlerts extends Component {
                         )
                       })}
                     </div>
-                  )}
+                  }
                 </div>
               </Tab>
               <Tab
@@ -346,9 +350,13 @@ class AllAlerts extends Component {
                       </select>
                     </div>
                   </div>
-                  {!this.state.filteredFYIs.length ? (
-                    <h1>LOADING...</h1>
-                  ) : (
+                  {this.state.alerting.length === 0 && 
+                    <b>LOADING...</b>
+                  }
+                  {(this.state.alerting.length > 0 && this.state.filteredFYIs.length === 0) &&
+                    <b>No fyis to show</b>
+                  }
+                  {this.state.filteredFYIs.length > 0 &&
                     <div>
                       {this.state.filteredFYIs.map((fyi, i) => {
                         return (
@@ -363,7 +371,7 @@ class AllAlerts extends Component {
                         )
                       })}
                     </div>
-                  )}
+                  }
                 </div>  
               </Tab>
             </Tabs>
