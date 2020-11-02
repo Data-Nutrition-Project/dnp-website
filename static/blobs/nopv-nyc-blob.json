@@ -1,0 +1,1038 @@
+{
+    "overview": {
+        "summary": {
+            "datasetName": "Notice of Property Value Dataset",
+            "dataCollectionRange": "January 2008 - Present",
+            "datasetPublishDate": "Unknown",
+            "datasetUpdateFrequency": "Yearly",
+            "lastLabelUpdate": "February 7, 2020",
+            "createdBy": "NYC Department of Finance",
+            "creatorContactInfo": "<https://www1.nyc.gov/site/finance/index.page>",
+            "licenseInfo": "Public Domain",
+            "datasetSize": "Unknown",
+            "datasetFormat": "Individual PDFs",
+            "sourceURL": "<https://a836-pts-access.nyc.gov/care/forms/htmlframe.aspx?mode=content/home.htm>"
+        },
+        "top-use-cases": [
+            "units-building",
+            "units-building-lost",
+            "deregulation-building",
+            "deregulation-landlord",
+            "gentrification"
+        ]
+    },
+    "dataset-info": {
+        "description": [
+            {
+                "question": "Tell us about this dataset. ",
+                "help": "Please provide an overview of this dataset.",
+                "type": "markdown",
+                "answer": "This dataset is a set of tax bills that are required by the city to be submitted for tax purposes each year. They are mandated by the city. "
+            },
+            {
+                "question": "Is there an intended purpose for the dataset? What domain was it designed for? ",
+                "help": "For example, is there a service or organization that leverages this dataset? Is this dataset made available for a certain use in mind?",
+                "type": "markdown",
+                "answer": "The purpose of this dataset is to assess property taxes for New York City"
+            },
+            {
+                "question": "What is the license under which the dataset is made available? ",
+                "help": "If possible, please link to license description. ",
+                "type": "markdown",
+                "answer": "Public Domain"
+            },
+            {
+                "question": "Are there any additional restrictions under which the dataset is made available? Are there any legislation, codes of practice or guidance from the jurisdiction or domain in which the data was collected about the use of this data? Are there tasks for which the dataset cannot be used? Please provide a description or guidance. ",
+                "help": "The purpose of this question is to highlight any information pertinent to data practitioners who may wish to leverage this dataset in their work. This should include any legal restrictions, usage restrictions, license restrictions.",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Are there tasks for which the dataset would be cautioned against being used? If so, please provide a description. ",
+                "help": "For example, use cases that are known to be problematic, such as a generalized use case that highlights historical or systematic issues in the dataset. ",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Has the dataset been used for any tasks already? If so, please provide a description and links to papers or systems using the dataset",
+                "help": "Note that for mature datasets, this could be a long list. Feel free to identify types or categories rather than list every known implementation. ",
+                "type": "markdown",
+                "answer": "No"
+            }
+        ],
+        "provenance": [
+            {
+                "question": "Who created the dataset and on behalf of which entity?",
+                "help": "e.g. which team or research group on behalf of which company, institution, organization?",
+                "type": "markdown",
+                "answer": "The NYC department of finance created the dataset on behalf of New York City's municipal government."
+            },
+            {
+                "question": "How is / was the collection and management of this dataset funded? ",
+                "help": "",
+                "type": "markdown",
+                "answer": "Publicly-funded"
+            }
+        ],
+        "collection": [
+            {
+                "question": "Over what timeframe was the data collected? If the data continues to be updated, please indicate. ",
+                "help": "",
+                "type": "markdown",
+                "answer": "The dataset collects yearly information, and is therefore updated yearly."
+            },
+            {
+                "question": "What mechanisms or procedures were used to collect the data?",
+                "help": "e.g. Manual curation of data, software API, hardware apparatus or sensor",
+                "type": "markdown",
+                "answer": "This data is collected via tax forms filled out on the municipal level."
+            },
+            {
+                "question": "What is the relationship between the dataset collector and owners or managers of the dataset?",
+                "help": "",
+                "type": "markdown",
+                "answer": "The original dataset is a set of tax documents published by a government agency."
+            },
+            {
+                "question": "If individuals' data is included in this dataset, did those individuals consent to the collection and use of their data? If so, please describe consent procedure.",
+                "help": "",
+                "type": "markdown",
+                "answer": "N/A"
+            },
+            {
+                "question": "If individuals' data is included in this dataset, was this data altered to ensure higher levels of privacy? If yes, please describe any privacy procedures followed with regards to this dataset (anonymization efforts, privacy protocols, supression techniques, etc). ",
+                "help": "If sensitive, feel free to describe these procedures at a high level. ",
+                "type": "markdown",
+                "answer": "N/A"
+            },
+            {
+                "question": "Has the data been reviewed for quality?",
+                "help": "If so, please provide information about the review process. ",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Were any ethical review processes conducted (e.g., by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.",
+                "help": "If so, please provide information about the review process. ",
+                "type": "markdown",
+                "answer": "No"
+            }
+        ],
+        "management": [
+            {
+                "question": "How is the data being mananged at rest and in transit?",
+                "help": "Particularly with regards to encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software. ",
+                "type": "markdown",
+                "answer": "Internally"
+            },
+            {
+                "question": "How can the data be accessed? If this is going to change over time, please indicate this. ",
+                "help": "Please indicte permanent URL location or method by which data can be accessed. ",
+                "type": "markdown",
+                "answer": ""
+            },
+            {
+                "question": "Will the dataset be distributed to any other individuals/third parties (e.g. companies, institutions, organizations)? If yes, when will the dataset be distributed and how will the dataset be distributed (e.g. GitHub, tarball on the website, etc)?",
+                "help": "",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)? If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?",
+                "help": "",
+                "type": "markdown",
+                "answer": "Data is updated yearly. Date of update is unknown."
+            },
+            {
+                "question": "Is there a mechanism through which an individual can request their personal information be removed?",
+                "help": "",
+                "type": "markdown",
+                "answer": "N/A"
+            }
+        ],
+        "composition": [
+            {
+                "question": "Does the dataset have a metadata repository or data dictionary? If yes, please provide the link and if not, please explain what each field means.",
+                "help": "The purpose of this question is to enable data practitioners to understand what is contained in the dataset at a field level. ",
+                "type": "markdown",
+                "answer": "No data dictionary exists for this dataset."
+            },
+            {
+                "question": "In the case of explicitly related instances, are these relationships indicated? \n(e.g., relating an instance about a user to instances about their posts)",
+                "help": "Explicitly related instances refers to instances that include pointers or keys to other instances. If applicable, please describe these relationships or indicate where to find more information. ",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "What data does each instance consist of? For example, does it consist of raw data (e.g., unprocessed text or images) or features? In either case, please provide a description.",
+                "help": "If this information has been described elsewhere, please indicate where it can be found (e.g. data dictionary). ",
+                "type": "markdown",
+                "answer": "This data contains raw, unprocessed file images of tax documents for properties in NYC."
+            },
+            {
+                "question": "How many instances are there in total (of each type, if appropriate)?",
+                "help": "The purpose of this question is to enable data practitioners to quickly understand the size or breadth of a dataset. If this is covered in the data dictionary or elsewhere, please indicate where this information can be found. ",
+                "type": "markdown",
+                "answer": "Unknown how many instances are in this dataset."
+            },
+            {
+                "question": "Is there a label or target associated with each instance?",
+                "help": "Please indicate the use of labels / targets. 'Labels' and 'Targets' facilitate the use of the dataset in classification algorithms. You can learn more about this here: https://en.wikipedia.org/wiki/Labeled_data",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Is any information missing from individual instances? If so, what is missing and why?",
+                "help": "For example, if a subset of instances have known collection or data fidelity issues due to e.g. collection timeframe gaps, geographical differences, etc.",
+                "type": "markdown",
+                "answer": "Landlords are not required to register stabilized apartments as part of their tax bills reporting, so some of this data is missing. Additionally, not all properties have files for every year."
+            },
+            {
+                "question": "Is your dataset a sample? If so, what was the sampling strategy used (e.g. deterministic, probabilistic with specific sampling probabilities), and does it accurately represents the intended output?",
+                "help": "If your dataset is a sample, please describe sampling methodology. If your sample is not representative of the population data, please describe why not (e.g. to cover a more diverse range of instances, because instances were withheld or unavailable).",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Was any preprocessing/cleaning/labeling of the data done? If so, please provide a description. ",
+                "help": "e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "If the data was processed, was the raw data saved in addition to the preprocessed/cleaned/labeled data? If yes, please provide a link to the raw data.",
+                "help": "Data practitioners may want to confirm your preprocessing steps to better understand the final data product. ",
+                "type": "markdown",
+                "answer": "N/A"
+            },
+            {
+                "question": "Are there recommended data splits? If so, please provide a description of these splits, explaining the rationale behind them.",
+                "help": "Common splits include training, development/validation, testing data.",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Are there any errors, sources of noise, or redundancies in the dataset? If so, please provide a description",
+                "help": "",
+                "type": "markdown",
+                "answer": "Landlords are not required to register stabilized apartments as part of their tax bills reporting, so in some cases this data is missing."
+            },
+            {
+                "question": "Does the dataset include information from upstream sources? If so, name these sources, their stability, and any known usage limitations. ",
+                "help": "Upstream sources can include e.g. other datasets, research papers, tweets, websites.",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "If the datastet includes information from upstream sources, is this dataset technically dependent upon those sources? ",
+                "help": "For example, if this dataset pulls data in directly from an external API it is technically dependent upon that upstream source being available. ",
+                "type": "markdown",
+                "answer": "N/A"
+            },
+            {
+                "question": "Is there confidential data included in this dataset?",
+                "help": "If so, please indicate the nature of the data and for what purpose this data is included. ",
+                "type": "markdown",
+                "answer": "No"
+            },
+            {
+                "question": "Does the dataset identify any subpopulations (e.g., by age, gender)? If yes, please indicate their distributions within the dataset where possible / available.  ",
+                "help": "",
+                "type": "markdown",
+                "answer": "No"
+            }
+        ]
+    },
+    "use-cases-section": {
+        "alerts": {
+            "count-estimates": {
+                "title": "Missing stabilized unit counts for some years",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        "Socioeconmic Bias",
+                        " Inaccurate Prediction"
+                    ]
+                ],
+                "mitigation": "Using <https://github.com/talos/nyc-stabilization-unit-counts#caveats> instead provides some mitigation in the form of estimated unit counts.",
+                "severity": 3.0,
+                "content": "Tax bills require self-reporting stabilization counts, which are sometimes not present. Also, some tax bills for buildings are missing for certain years."
+            },
+            "true-owner": {
+                "title": "Owner listed is not always the true person/company that owns the lot",
+                "type": "markdown",
+                "category": "Provenance",
+                "tags": [
+                    [
+                        "Misrepresentation"
+                    ]
+                ],
+                "mitigation": "One would need to do some serious digging into public records to identify \"true ownership\", which itself is a subjective definition that is not easily defined from public records without human intervention. However, company ownership is a matter of public record, so this information can be identified.",
+                "severity": 2.0,
+                "content": "Owners listed are often LLCs, which may or may not be the true owning company, since operating LLCs are at times set up externally in order to reduce owner liability directly."
+            },
+            "zipcode-redlining": {
+                "title": "Zipcode is highly correlated with racial demographics in the US",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        "Racial bias"
+                    ]
+                ],
+                "mitigation": "Do not use zipcode as a main feature in prediction algorithms, unless specifically looking to address racial bias.",
+                "severity": 2.0,
+                "content": "Due to existing [segregation in the US](https://files.consumerfinance.gov/f/201409_cfpb_report_proxy-methodology.pdf), zip code information is correlated with racial demographics, and can unintentionally perpetuate [redlining](https://www.investopedia.com/terms/r/redlining.asp) if not taken into account."
+            },
+            "unit-size": {
+                "title": "Unit count does not cover size of units that are stabilized",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        "Socioeconomic Bias"
+                    ]
+                ],
+                "mitigation": "None",
+                "severity": 3.0,
+                "content": "In the US, there is a gap between the number of affordable rental units that families can live in, and the number of families that are cost burdened that need them ([reference](https://www.jchs.harvard.edu/sites/default/files/harvard_jchs_family_sized_rental_housing_2019.pdf)). When assessing rent stabilization patterns, this dataset cannot be used to determine the specific impact on families and family units."
+            }
+        },
+        "fyis": {
+            "existing-use-case": {
+                "title": "Existing Use Cases",
+                "type": "markdown",
+                "category": "Description",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "No existing use cases provided."
+            },
+            "government-funded": {
+                "title": "Government Funded",
+                "type": "markdown",
+                "category": "Provenance",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "This dataset is created by the city of NYC."
+            },
+            "dataset-not-a-sample": {
+                "title": "Dataset is not a Sample",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "This dataset is not a sample."
+            },
+            "raw-data": {
+                "title": "Raw Data",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "The dataset here is in its raw form."
+            },
+            "upstream-dependence": {
+                "title": "Dataset Dependent upon Upstream Data Sources",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "This data is parsed from NoPVs published by New York City. The original data is stored as individual .pdf files per each tax record. Usage limitations for the original data are that it is not in list-format anywhere - it is only in individual .pdf files per building, and therefore hard to look at. Per year they are stable, once uploaded."
+            },
+            "no-confidential-data": {
+                "title": "No Confidential Data",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "There is no confidential data included in this dataset. "
+            },
+            "dataset-populations": {
+                "title": "Dataset Populations",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "There are no subpopulations identified in this dataset (e.g., by age, gender). "
+            },
+            "collection-timeframe": {
+                "title": "Collection Timeframe",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "The dataset collects yearly information, and is therefore updated yearly. It has recorde for each instance dating back to 2008."
+            },
+            "collection-organization": {
+                "title": "Collection Organization",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "The original dataset is a set of tax documents published by a government agency. That data has been preprocessed and cleaned by the volunteers who have made this dataset."
+            },
+            "user-consent": {
+                "title": "User Consent",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "There is no individual-level data in the dataset, and thus no consent collected. "
+            },
+            "anonymization": {
+                "title": "Anonymization Process",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "There is no individual-level data in the dataset, and thus no anonymization process. "
+            },
+            "quality-review": {
+                "title": "Quality Review",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "The data has been reviewed by the team of volunteers who maintain the dataset."
+            },
+            "ethical-review": {
+                "title": "Ethical Review",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "No institutional review of this dataset has occurred."
+            },
+            "updates": {
+                "title": "Updates",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "Data is updated yearly. Date of update is unknown."
+            }
+        },
+        "predictions": {
+            "per-building": {
+                "description": "% of stabilized units over time for a building",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "per-community": {
+                "description": "% of stabilized units over time for a community district",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "per-zip": {
+                "description": "% of stabilized units over time for a zipcode",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "per-owner": {
+                "description": "% of stabilized units over time for an owner (name)",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "true-owner",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "per-building-est": {
+                "description": "Estimated % of stabilized units next year for a building",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "per-community-est": {
+                "description": "Estimated % of stabilized units next year for a community district",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "per-zip-est": {
+                "description": "Estimated % of stabilized units next year for a zipcode",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "per-owner-est": {
+                "description": "Estimated % of stabilized units next year for an owner (name)",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "true-owner",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "num-building": {
+                "description": "# of stabilized units over time for a building",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "num-community": {
+                "description": "# of stabilized units over time for a community district",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "num-zip": {
+                "description": "# of stabilized units over time for a zipcode",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "num-owner": {
+                "description": "# of stabilized units over time for an owner (name)",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "true-owner",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "num-building-est": {
+                "description": "Estimated # of stabilized units next year for a building",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "num-community-est": {
+                "description": "Estimated # of stabilized units next year for a community district",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "num-zip-est": {
+                "description": "Estimated # of stabilized units next year for a zipcode",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            },
+            "num-owner-est": {
+                "description": "Estimated # of stabilized units next year for an owner (name)",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "true-owner",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "unit-size",
+                        "severity": 3
+                    }
+                ],
+                "fyis": [
+                    "existing-use-case",
+                    "volunteer-funded",
+                    "dataset-not-a-sample",
+                    "raw-data",
+                    "upstream-dependence",
+                    "no-confidential-data",
+                    "dataset-populations",
+                    "collection-timeframe",
+                    "collection-organization",
+                    "user-consent",
+                    "anonymization",
+                    "quality-review",
+                    "ethical-review",
+                    "updates"
+                ]
+            }
+        },
+        "use-cases": {
+            "units-building": {
+                "description": "How many rent stabilized units are in a particular building? ",
+                "predictions": []
+            },
+            "units-building-lost": {
+                "description": "Has a building lost rent stabilized units? ",
+                "predictions": []
+            },
+            "deregulation-building": {
+                "description": "Is there a pattern of deregulation in a building?",
+                "predictions": []
+            },
+            "deregulation-landlord": {
+                "description": "Is there a pattern of deregulation for a specific landlord?",
+                "predictions": []
+            },
+            "abatement-abuse": {
+                "description": "Where might there be abuse of tax abatements? Is the landlord breaking the rules of the abatements? ",
+                "predictions": []
+            },
+            "gentrification": {
+                "description": "Where is gentrification happening?",
+                "predictions": [
+                    "per-community",
+                    "per-zip",
+                    "per-community-est",
+                    "per-zip-est",
+                    "num-community-est",
+                    "num-zip-est"
+                ]
+            }
+        }
+    }
+}
