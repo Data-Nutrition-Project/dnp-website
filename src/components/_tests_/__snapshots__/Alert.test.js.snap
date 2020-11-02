@@ -11,7 +11,7 @@ exports[`Alert renders correctly 1`] = `
       className="columns card-header"
     >
       <div
-        className="alertColumn low"
+        className="alertColumn fyi"
       />
       <div
         className="flexGrow"
@@ -75,34 +75,12 @@ exports[`Alert renders correctly 1`] = `
                 <p
                   className="subtitleText"
                 >
-                  Severity:
-                   
-                  <b
-                    className="propertyValue"
-                  >
-                    low
-                  </b>
-                </p>
-                <p
-                  className="subtitleText"
-                >
                   Category:
                    
                   <b
                     className="propertyValue"
                   />
                 </p>
-                <div
-                  className="subtitleText"
-                >
-                  Potential for Harm:
-                   
-                  <b
-                    className="propertyValue"
-                  >
-                    age
-                  </b>
-                </div>
               </div>
               <span
                 className="lineBreakOne"
@@ -116,18 +94,6 @@ exports[`Alert renders correctly 1`] = `
               </h3>
               <p>
                 AHHHHHHHHH!!!!
-              </p>
-            </div>
-            <div
-              className="subtitleText"
-            >
-              <b>
-                Possible Mitigations: 
-              </b>
-              <p
-                className="propertyValue"
-              >
-                No current mitigation known
               </p>
             </div>
             <span

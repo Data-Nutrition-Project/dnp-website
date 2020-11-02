@@ -13,6 +13,7 @@ class UseCases extends React.Component {
     this.state = {
       thePreds,
       selectedAlerts: [],
+      selectedFYIs: [],
       currentPrediction: "",
       currentUseCase: "",
       filteredPreds: [],
@@ -28,6 +29,7 @@ class UseCases extends React.Component {
 
     this.setState({
       selectedAlerts: [...predictions[e.target.value].alerts],
+      selectedFYIs: [...predictions[e.target.value].fyis],
       currentPrediction: e.target.value,
     })
   }
@@ -62,7 +64,9 @@ class UseCases extends React.Component {
         <AllAlerts
           predictions={useCases.predictions}
           alerts={useCases.alerts}
+          fyis={useCases.fyis}
           selectedAlerts={this.state.selectedAlerts}
+          selectedFYIs={this.state.selectedFYIs}
           currentPrediction={this.state.currentPrediction}
         />
       </div>

@@ -7,11 +7,9 @@ import classNames from "classnames"
 class Selector extends Component {
   constructor(props) {
     super(props)
-    const preds = []
-    const useCases = this.props.useCases
 
     this.state = {
-      preds,
+      preds: [],
       addedPreds: [],
     }
   }
@@ -90,7 +88,6 @@ class Selector extends Component {
                     className={styles.ulPredictions}
                   >
                     {this.props.filteredPreds.map((f, j) => {
-                      const status = f
                       return (
                         <label
                           htmlFor={f}
