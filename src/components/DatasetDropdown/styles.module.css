@@ -18,14 +18,13 @@
 .listSet:hover {
   text-decoration: none;
 }
-.dropdown {
-  width: 100%;
-  text-align: right;
-  z-index: 1;
-}
 
+.dropdownArrow {
+  margin-right: 0.4375rem;
+}
 .navbar {
-  display: inline-block;
-  width: 100%;
-  margin-top: 1rem;
+  margin-right: 2.1875rem;
+}
+ul {
+  margin-top: 0.75rem !important;
 }

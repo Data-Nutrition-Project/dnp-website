@@ -3,6 +3,11 @@ import { Link } from "gatsby"
 import styles from "./styles.module.css"
 import classNames from "classnames"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+
+const usecases = ["Selector", "Alerts"]
+
 class UseCasesDropdown extends Component {
   constructor(props) {
     super(props)
@@ -20,40 +25,36 @@ class UseCasesDropdown extends Component {
   }
   render() {
     return (
-      // create a dropdown component and then add it to an onClick listener
-
       <nav className={styles.navbar}>
-        <div>
-          <ul className={styles.dropdownContent}>
-            <Link
-              spy={true}
-              smooth={true}
-              to={"#Selector-title"}
-              onClick={() => {
-                this.boldButton("Selector")
-              }}
-              className={classNames(styles.listSet, {
-                [styles.listSetBold]: this.state.bold === "Selector",
-              })}
-            >
-              <div>Selector </div>
-            </Link>
-
-            <Link
-              spy={true}
-              smooth={true}
-              to={"#Alerts-title"}
-              onClick={() => {
-                this.boldButton("Alerts")
-              }}
-              className={classNames(styles.listSet, {
-                [styles.listSetBold]: this.state.bold === "Alerts",
-              })}
-            >
-              <div>Alerts</div>
-            </Link>
-          </ul>
-        </div>
+        <ul className={styles.dropdownContent}>
+          {usecases.map(usecase => {
+            return (
+              <Link
+                spy={true}
+                smooth={true}
+                to={`#${usecase}-title`}
+                onClick={() => {
+                  this.boldButton(usecase)
+                }}
+                className={classNames(styles.listSet, {
+                  [styles.listSetBold]: this.state.bold === usecase,
+                })}
+              >
+                <div>
+                  {this.state.bold === usecase ? (
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className={styles.selectorArrow}
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {usecase}
+                </div>
+              </Link>
+            )
+          })}
+        </ul>
       </nav>
     )
   }

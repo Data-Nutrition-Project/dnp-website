@@ -16,8 +16,7 @@
   display: flex;
   margin-top: 6rem;
   flex-direction: column;
-  padding-right: 3rem;
-  padding-left: 0;
+  width: 25%;
 }
 
 .sectionBase {
@@ -56,5 +55,6 @@
     position: relative;
     margin-top: 0;
     padding-right: 0;
+    width: 100%;
   }
 }

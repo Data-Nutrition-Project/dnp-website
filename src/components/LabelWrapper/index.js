@@ -26,14 +26,9 @@ class LabelWrapper extends Component {
           []
         ) : (
           <div key={1}>
-            <Col
-              className={styles.flexTitleMenus}
-              xl={{ span: 2, offset: 1 }}
-              md={{ span: 2, offset: 1 }}
-              sm={{ span: 12 }}
-            >
-              <LabelMenus />     
-            </Col>
+            <div className={styles.flexTitleMenus}>
+              <LabelMenus />
+            </div>
             <Col
               className={styles.sectionBase}
               xl={{ span: 8, offset: 3 }}
