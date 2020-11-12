@@ -1,0 +1,796 @@
+{
+    "overview": {
+        "summary": {
+            "datasetName": "2020 SIIM-ISIC Melanoma Classification Challenge Dataset",
+            "dataCollectionRange": "1998 - 2019",
+            "datasetPublishDate": "Unknown",
+            "datasetUpdateFrequency": "Unknown",
+            "lastLabelUpdate": "Unknown",
+            "createdBy": "International Skin Imaging Collaboration (ISIC)",
+            "creatorContactInfo": "TBA",
+            "licenseInfo": "CC-BY-NC",
+            "datasetSize": "(Trillions of bytes)",
+            "datasetFormat": "Big. Rul big.",
+            "sourceURL": "?"
+        },
+        "top-use-cases": [
+            "identify-melanoma",
+            "predict-incidence"
+        ]
+    },
+    "dataset-info": {
+        "description": [
+            {
+                "question": "Tell us about this dataset. ",
+                "help": "Please provide an overview of this dataset.",
+                "type": "markdown",
+                "answer": "The 2020 SIIM-ISIC Melanoma Classification challenge dataset was created for the purpose of conducting a machine learning competition to identify melanoma in lesion images. As the leading healthcare organization for informatics in medical imaging, the Society for Imaging Informatics in Medicine (SIIM)'s mission is to advance medical imaging informatics through education, research, and innovation in a multi-disciplinary community. SIIM is joined by the International Skin Imaging Collaboration (ISIC), an international effort to improve melanoma diagnosis. The ISIC Archive contains the largest publicly available collection of quality-controlled dermoscopic images of skin lesions."
+            },
+            {
+                "question": "Is there an intended purpose for the dataset? What domain was it designed for? ",
+                "help": "For example, is there a service or organization that leverages this dataset? Is this dataset made available for a certain use in mind?",
+                "type": "markdown",
+                "answer": "Prior skin image datasets have not addressed patient-level information obtained from multiple skin lesions from the same patient. Though artificial intelligence classification algorithms have achieved expert-level performance in controlled studies examining single images, in practice dermatologists base their judgment holistically from multiple lesions on the same patient. This dataset was constructed to address this discrepancy, providing for each image in the dataset an identifier allowing lesions from the same patient to be mapped to one another. The competition was launched on [DATE] on the Kaggle platform and ran through [DATE]. You can learn more about the competition and results here: [LINK] "
+            },
+            {
+                "question": "What is the license under which the dataset is made available? ",
+                "help": "If possible, please link to license description. ",
+                "type": "markdown",
+                "answer": "Non-Commercial. The dataset is licensed under CC-BY-NC, which allows non-commercial use with attribution."
+            },
+            {
+                "question": "Are there any additional restrictions under which the dataset is made available? Are there any legislation, codes of practice or guidance from the jurisdiction or domain in which the data was collected about the use of this data? Are there tasks for which the dataset cannot be used? Please provide a description or guidance. ",
+                "help": "The purpose of this question is to highlight any information pertinent to data practitioners who may wish to leverage this dataset in their work. This should include any legal restrictions, usage restrictions, license restrictions.",
+                "type": "markdown",
+                "answer": "Yes. In addition to the CC-BY-NC license, the dataset is governed by the ISIC Terms of Use. Learn more about the terms of use here: [LINK TO ISIC TOU]"
+            },
+            {
+                "question": "Are there tasks for which the dataset would be cautioned against being used? If so, please provide a description. ",
+                "help": "For example, use cases that are known to be problematic, such as a generalized use case that highlights historical or systematic issues in the dataset. ",
+                "type": "markdown",
+                "answer": "Yes. Due to low population prevalence and challenges with access to care in different populations, the images gathered for large datasets such as this for AI classification have a strong tendency to under-represent darker skin types. This may lead to either overdiagnosis or underdiagnosis of melanomas in darker skin types, both of which would have significant clinical implications and will require prospective study. The ISIC Archive is actively pursuing methods by which to increase the diversity of images obtained, but at this point caution should be used when attempting to generalize algorithms trained on images from specialized referral centers (such as the dataset described herein) to the global population at large. The dataset is also enriched for melanoma in general and does not represent true incidence of melanoma."
+            },
+            {
+                "question": "Has the dataset been used for any tasks already? If so, please provide a description and links to papers or systems using the dataset",
+                "help": "Note that for mature datasets, this could be a long list. Feel free to identify types or categories rather than list every known implementation. ",
+                "type": "markdown",
+                "answer": "Yes. The 2020 SIIM-ISIC Melanoma Classification challenge dataset was created for the purpose of conducting a machine learning competition to identify melanoma in lesion images. The competition was launched on [DATE] on the Kaggle platform and ran through [DATE]. You can learn more about the competition and results here: [LINK] "
+            }
+        ],
+        "provenance": [
+            {
+                "question": "Who created the dataset and on behalf of which entity?",
+                "help": "e.g. which team or research group on behalf of which company, institution, organization?",
+                "type": "markdown",
+                "answer": "The dataset was generated by the International Skin Imaging Collaboration (ISIC) and images are from the following sources: Hospital Cl\u00ednic de Barcelona, Medical University of Vienna, Memorial Sloan Kettering Cancer Center, Melanoma Institute Australia, University of Queensland, and the University of Athens Medical School.\n\nDOI: https://doi.org/10.34970/2020-ds01"
+            },
+            {
+                "question": "How is / was the collection and management of this dataset funded? ",
+                "help": "",
+                "type": "markdown",
+                "answer": "Many Funding Sources. The dataset provided by The University of Queensland in Brisbane was funded by the National Health and Medical Research Council (NHMRC) \u2013 Centre of Research Excellence Scheme (APP 1099021). HPS holds an NHMRC MRFF Next Generation Clinical Researchers Program Practitioner Fellowship (APP1137127). Other funding sources include the Melanoma Research Alliance Young Investigator Award 614197 and NIH Core Grant (P30 CA008748). HPS is a shareholder of MoleMap NZ Limited and e-derm consult GmbH, and undertakes regular teledermatological reporting for both companies. HPS is a Medical Consultant for Canfield Scientific Inc., Revenio Research Oy and also a Medical Advisor for First Derm. AH serves as a consultant to Canfield Scientific Inc., and is on the SciBase advisory panel."
+            }
+        ],
+        "collection": [
+            {
+                "question": "Over what timeframe was the data collected? If the data continues to be updated, please indicate. ",
+                "help": "",
+                "type": "markdown",
+                "answer": "Images were originally collected by imaging centers during 1998 - 2019; this dataset was curated from those image databases in 2019 - 2020. "
+            },
+            {
+                "question": "What mechanisms or procedures were used to collect the data?",
+                "help": "e.g. Manual curation of data, software API, hardware apparatus or sensor",
+                "type": "markdown",
+                "answer": "We queried clinical imaging databases across the six centers to generate a multicenter imaging dataset. Images consisted of 12,743,090 pixels on average but ranged from 307,200 to 24,000,000. Among patients with dermoscopy imaging from 1998 to 2019, those with multiple skin lesions were identified. \n\nMemorial Sloan Kettering: Images were acquired using a dermoscopic attachment to either a digital single reflex lens (SLR) camera or to a smartphone. Each lesion was imaged with polarized and/or nonpolarized dermoscopy. For each lesion, 3- 5 images are collected during each patient visit and stored in a specialized image database called VectraTM (Canfield Scientific Inc., Parsippany, NJ, USA).\n\nHospital Clinic Barcelona: The dermatology department is equipped with the digital dermatoscopy system MoleMaxTM HD (Derma Medical Systems, Vienna, Austria) and corresponding image database to store the collected images. Each lesion was photographed using polarized dermoscopy.\n\nUniversity of Queensland: All images used for the studies were extracted from the VectraTM image database (Canfield Scientific Inc., Parsippany, NJ, USA).\n\nMedical University Vienna: We extracted polarized dermoscopic images from 2015-2019 which were stored in the MoleMax HD System (Derma Medical Systems, Vienna, Austria). \n\nMelanoma Institute Australia and the Sydney Melanoma Diagnosis Centre: Images are acquired using a dermoscopic attachment to either a digital single reflex lens (SLR) camera or to a smartphone and stored in DermEngineTM (Metaoptima, Vancouver, British Columbia, Canada).\n\nOnce the images had been collected from all the various centers, a software annotation tool, called \u2018Tagger,\u2019 was developed internally to review diagnostic labeling of grouped images. \n\nAdditional metadata including demographics of the patients was collected at each imaging center at the time the images were taken, method unclear. \n\n"
+            },
+            {
+                "question": "What is the relationship between the dataset collector and owners or managers of the dataset?",
+                "help": "",
+                "type": "markdown",
+                "answer": "? What is ISIC's relationship to these imaging centers, if any? "
+            },
+            {
+                "question": "If individuals' data is included in this dataset, did those individuals consent to the collection and use of their data? If so, please describe consent procedure.",
+                "help": "",
+                "type": "markdown",
+                "answer": "Yes, collected with consent???  What was the procedure? "
+            },
+            {
+                "question": "If individuals' data is included in this dataset, was this data altered to ensure higher levels of privacy? If yes, please describe any privacy procedures followed with regards to this dataset (anonymization efforts, privacy protocols, supression techniques, etc). ",
+                "help": "If sensitive, feel free to describe these procedures at a high level. ",
+                "type": "markdown",
+                "answer": "??"
+            },
+            {
+                "question": "Has the data been reviewed for quality?",
+                "help": "If so, please provide information about the review process. ",
+                "type": "markdown",
+                "answer": "Yes. \n\nA software annotation tool, called \u2018Tagger,\u2019 was developed internally to review diagnostic labeling of grouped images [13]. Using this tool, dermoscopy expert reviewers (EC, OR) were presented sets of 30 images with a shared diagnosis in order to identify the ones with erroneous labeling. Reviewers invested 22 hours over three weeks of quality assurance in \u2018Tagger\u2019 and spent an average of 4 seconds per set when flagging a single image, and 11 seconds per set when flagging several images. Out of all images reviewed in Tagger, 2.7% were removed, out of concern for erroneous labels.\n\nThe ground truth labels for all malignant lesions in the dataset were confirmed via retrospective review of histopathology reports, and diagnosis plausibility was visually confirmed by visual confirmation of a dermoscopy expert. Histopathology reports were double checked if the label was suspicious. Melanoma in situ and invasive melanoma were both coded as melanoma. All other qualifying images were coded as benign, including those diagnosed as severely dysplastic nevi [23, 24].\n\nNon-biopsied lesions with expert consensus agreement and lesions followed for six months or more without malignant changes were labelled benign without a more specific diagnosis by most contributors. Dermatofibromas, seborrheic keratosis, or vascular lesions were not monitored, as that would not reflect clinical practice, but labels were verified visually by an expert in dermoscopy. Images of lesions were attributed to patients based on the clinical imaging database identification codes which are stored at the time of capture during each clinical photography session."
+            },
+            {
+                "question": "Were any ethical review processes conducted (e.g., by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.",
+                "help": "If so, please provide information about the review process. ",
+                "type": "markdown",
+                "answer": "?"
+            }
+        ],
+        "management": [
+            {
+                "question": "How is the data being mananged at rest and in transit?",
+                "help": "Particularly with regards to encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software. ",
+                "type": "markdown",
+                "answer": "?"
+            },
+            {
+                "question": "How can the data be accessed? If this is going to change over time, please indicate this. ",
+                "help": "Please indicte permanent URL location or method by which data can be accessed. ",
+                "type": "markdown",
+                "answer": "The data will permanently be accessible to the public through the ISIC Archive at this DOI: https://doi.org/10.34970/2020-ds01"
+            },
+            {
+                "question": "Will the dataset be distributed to any other individuals/third parties (e.g. companies, institutions, organizations)? If yes, when will the dataset be distributed and how will the dataset be distributed (e.g. GitHub, tarball on the website, etc)?",
+                "help": "",
+                "type": "markdown",
+                "answer": "?"
+            },
+            {
+                "question": "Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)? If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?",
+                "help": "",
+                "type": "markdown",
+                "answer": "Unknown? Currently no modifications have been made to the dataset; however, any metadata or image modifications will be noted at the DOI landing page: https://doi.org/10.34970/2020-ds01"
+            },
+            {
+                "question": "Is there a mechanism through which an individual can request their personal information be removed?",
+                "help": "",
+                "type": "markdown",
+                "answer": "?"
+            }
+        ],
+        "composition": [
+            {
+                "question": "Does the dataset have a metadata repository or data dictionary? If yes, please provide the link and if not, please explain what each field means.",
+                "help": "The purpose of this question is to enable data practitioners to understand what is contained in the dataset at a field level. ",
+                "type": "markdown",
+                "answer": "Metadata for each image included approximate patient age at time of image capture, biological sex, general anatomic site of the lesion, anonymized patient identification number, benign/malignant category, and the specific diagnosis if one was available based on an acceptable ground truth confirmation method. "
+            },
+            {
+                "question": "In the case of explicitly related instances, are these relationships indicated? \n(e.g., relating an instance about a user to instances about their posts)",
+                "help": "Explicitly related instances refers to instances that include pointers or keys to other instances. If applicable, please describe these relationships or indicate where to find more information. ",
+                "type": "markdown",
+                "answer": "Yes. Images from the same patient are indicated through a unique patient identifier (field name patient_id) "
+            },
+            {
+                "question": "What data does each instance consist of? For example, does it consist of raw data (e.g., unprocessed text or images) or features? In either case, please provide a description.",
+                "help": "If this information has been described elsewhere, please indicate where it can be found (e.g. data dictionary). ",
+                "type": "markdown",
+                "answer": "A summary of the characteristics of the dataset at patient- and lesion-level is shown in the Table. "
+            },
+            {
+                "question": "How many instances are there in total (of each type, if appropriate)?",
+                "help": "The purpose of this question is to enable data practitioners to quickly understand the size or breadth of a dataset. If this is covered in the data dictionary or elsewhere, please indicate where this information can be found. ",
+                "type": "markdown",
+                "answer": "The dataset represents 2,056 patients from three continents with an average of 16 lesions per patient, consisting of 33,126 dermoscopic images and 584 histopathologically confirmed melanomas compared with benign melanoma mimickers."
+            },
+            {
+                "question": "Is there a label or target associated with each instance?",
+                "help": "Please indicate the use of labels / targets. 'Labels' and 'Targets' facilitate the use of the dataset in classification algorithms. You can learn more about this here: https://en.wikipedia.org/wiki/Labeled_data",
+                "type": "markdown",
+                "answer": "Yes. In the training set, each instance has two fields (benign_malignant and target) with indicators of whether the image instance is of a benign (target = 0) or malignant (target = 1) skin lesion. "
+            },
+            {
+                "question": "Is any information missing from individual instances? If so, what is missing and why?",
+                "help": "For example, if a subset of instances have known collection or data fidelity issues due to e.g. collection timeframe gaps, geographical differences, etc.",
+                "type": "markdown",
+                "answer": "No. "
+            },
+            {
+                "question": "Is your dataset a sample? If so, what was the sampling strategy used (e.g. deterministic, probabilistic with specific sampling probabilities), and does it accurately represents the intended output?",
+                "help": "If your dataset is a sample, please describe sampling methodology. If your sample is not representative of the population data, please describe why not (e.g. to cover a more diverse range of instances, because instances were withheld or unavailable).",
+                "type": "markdown",
+                "answer": "Yes, sample dataset used accurately reflects the intent or desired outcome and has been evaluated to ensure that it is fit for purpose. We queried clinical imaging databases containing images from 1998 to 2019 across the six centers to generate a multicenter imaging dataset. Images that met the selection criteria were added to the imaging dataset and underwent a quality assurance review to validate their inclusion in the dataset. The selection criteria varies per imaging center and is detailed in the following Figure. "
+            },
+            {
+                "question": "Was any preprocessing/cleaning/labeling of the data done? If so, please provide a description. ",
+                "help": "e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values",
+                "type": "markdown",
+                "answer": "Yes. \n- Images containing any potentially identifying features, such as jewelry or tattoos, or from patients without at least three qualifying images were excluded during quality assurance review.\n- When multiple image types were available, the selected image was either the one of highest resolution or if multiple images at the same resolution were available, one was chosen randomly.\n- A software annotation tool, called \u2018Tagger,\u2019 was developed internally to review diagnostic labeling of grouped images. Using this tool, dermoscopy expert reviewers (EC, OR) were presented sets of 30 images with a shared diagnosis in order to identify the ones with erroneous labeling. Reviewers invested 22 hours over three weeks of quality assurance in \u2018Tagger\u2019 and spent an average of 4 seconds per set when flagging a single image, and 11 seconds per set when flagging several images. Out of all images reviewed in Tagger, 2.7% were removed, out of concern for erroneous labels.\n- There were selection criteria followed at each image source Center; see information in corresponding paper for details: [link to paper] \n-  Due to the retrospective nature of image acquisition and potential surveillance bias in different patient populations, the number of lesions per patient was not distributed identically between the class of patients with a melanoma image and the class without a melanoma image. Lesions in both classes were subsampled through patient matching, which led to a loss of 4.1% of images."
+            },
+            {
+                "question": "If the data was processed, was the raw data saved in addition to the preprocessed/cleaned/labeled data? If yes, please provide a link to the raw data.",
+                "help": "Data practitioners may want to confirm your preprocessing steps to better understand the final data product. ",
+                "type": "markdown",
+                "answer": "No. The raw data is maintained by the original imaging databases, but cannot be accessed by the public. "
+            },
+            {
+                "question": "Are there recommended data splits? If so, please provide a description of these splits, explaining the rationale behind them.",
+                "help": "Common splits include training, development/validation, testing data.",
+                "type": "markdown",
+                "answer": "Yes. In order to test algorithm generalizability, a subset of images from six sites (five geographic locations) were allocated for the training dataset of the 2020 ISIC Grand Challenge. There is a separate test dataset available without target information. "
+            },
+            {
+                "question": "Are there any errors, sources of noise, or redundancies in the dataset? If so, please provide a description",
+                "help": "",
+                "type": "markdown",
+                "answer": "Yes. Duplicates: Due to a clerical error during the data ingestion process to the ISIC Archive, 425 pixelwise identical duplicate images were ingested and included in the dataset. The 2020 SIIM-ISIC Melanoma Classification competition page on Kaggle lists the redundant cases and deidentified patient labels (https://www.kaggle.com/c/siim- isic-melanoma- classification/discussion/161943)."
+            },
+            {
+                "question": "Does the dataset include information from upstream sources? If so, name these sources, their stability, and any known usage limitations. ",
+                "help": "Upstream sources can include e.g. other datasets, research papers, tweets, websites.",
+                "type": "markdown",
+                "answer": "Yes;  Memorial Sloan Kettering Cancer Center, New York; the Melanoma Institute Australia and the Melanoma Diagnosis Centre, Sydney; the University of Queensland, Brisbane; the Medical University of Vienna, Vienna; and Hospital Cl\u00ednic de Barcelona, Barcelona. "
+            },
+            {
+                "question": "If the datastet includes information from upstream sources, is this dataset technically dependent upon those sources? ",
+                "help": "For example, if this dataset pulls data in directly from an external API it is technically dependent upon that upstream source being available. ",
+                "type": "markdown",
+                "answer": "Self-Contained"
+            },
+            {
+                "question": "Is there confidential data included in this dataset?",
+                "help": "If so, please indicate the nature of the data and for what purpose this data is included. ",
+                "type": "markdown",
+                "answer": "No "
+            },
+            {
+                "question": "Does the dataset identify any subpopulations (e.g., by age, gender)? If yes, please indicate their distributions within the dataset where possible / available.  ",
+                "help": "",
+                "type": "markdown",
+                "answer": "Physical attributes\nAge (approximate) \nBiological Sex \n"
+            }
+        ]
+    },
+    "use-cases-section": {
+        "alerts": {
+            "skin-representation": {
+                "title": "Dataset is not representative with respect to darker skin types",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        "Racial Bias"
+                    ]
+                ],
+                "mitigation": "None known. ",
+                "severity": 3.0,
+                "content": "Due to low population prevalence and challenges with access to care in different populations, the images gathered for large datasets such as this for AI classification have a strong tendency to under-represent darker skin types. This may lead to either overdiagnosis or underdiagnosis of melanomas in darker skin types, both of which would have significant clinical implications and will require prospective study. The ISIC Archive is actively pursuing methods by which to increase the diversity of images obtained, but at this point caution should be used when attempting to generalize algorithms trained on images from specialized referral centers (such as the dataset described herein) to the global population at large."
+            },
+            "convience-sample": {
+                "title": "Dataset is a convenience sample and is not representative of general incidence of melanoma ",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        "Racial Bias",
+                        " Socioeconomic Bias",
+                        " Gender Bias"
+                    ]
+                ],
+                "mitigation": "None known; caution against using this dataset to do general epidemiological modeling. ",
+                "severity": 2.0,
+                "content": "The dataset is enriched for melanoma in general and does not represent true incidence of melanoma in the broader population. Dataset should not be used to do general epidemiological modeling due to convenience sampling. "
+            },
+            "usage-restrictions": {
+                "title": "Usage Restrictions",
+                "type": "markdown",
+                "category": "Description",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "mitigation": "Do not use this dataset for commercial purposes. Follow the ISIC terms of service. ",
+                "severity": 1.0,
+                "content": "In addition to the CC-BY-NC license, the dataset is governed by the ISIC Terms of Use. Learn more about the terms of use here: [LINK TO ISIC TOU]"
+            },
+            "lighting": {
+                "title": "Inconsistent lighting in images may alter skin type ",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        "Racial Bias "
+                    ]
+                ],
+                "mitigation": "Do not attempt to manually label skin types in dataset. ",
+                "severity": 2.0,
+                "content": "Because lighting in inconsistent in the images, strong caution against manually adding labels to dataset to capture skin type"
+            },
+            "duplicates": {
+                "title": "Duplicates in Dataset ",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "mitigation": "The 2020 SIIM-ISIC Melanoma Classification competition page on Kaggle lists the redundant cases and deidentified patient labels (https://www.kaggle.com/c/siim- isic-melanoma- classification/discussion/161943).",
+                "severity": 1.0,
+                "content": "Due to a clerical error during the data ingestion process to the ISIC Archive, 425 pixelwise identical duplicate images were ingested and included in the dataset. The 2020 SIIM-ISIC Melanoma Classification competition page on Kaggle lists the redundant cases and deidentified patient labels (https://www.kaggle.com/c/siim- isic-melanoma- classification/discussion/161943)."
+            }
+        },
+        "fyis": {
+            "license ": {
+                "title": "Data License is Non-Commercial",
+                "type": "markdown",
+                "category": "Description",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "The dataset is licensed under CC-BY-NC, which allows non-commercial use with attribution."
+            },
+            "existing-use": {
+                "title": "Existing Use Cases",
+                "type": "markdown",
+                "category": "Description",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "The 2020 SIIM-ISIC Melanoma Classification challenge dataset was created for the purpose of conducting a machine learning competition to identify melanoma in lesion images. The competition was launched on [DATE] on the Kaggle platform and ran through [DATE]. You can learn more about the competition and results here: [LINK] "
+            },
+            "same-patient": {
+                "title": "Dataset clearly represents which images are from the same patient ",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "Images from the same patient are indicated through a unique patient identifier (field name patient_id) "
+            },
+            "funding": {
+                "title": "Funding Sources",
+                "type": "markdown",
+                "category": "Provenance",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "There are multiple sources of funding for this dataset. \n\n- The dataset provided by The University of Queensland in Brisbane was funded by the National Health and Medical Research Council (NHMRC) \u2013 Centre of Research Excellence Scheme (APP 1099021). \n- Other funding sources include the Melanoma Research Alliance Young Investigator Award 614197 and NIH Core Grant (P30 CA008748). "
+            },
+            "define-benign": {
+                "title": "Methodology: Definition of Benign ",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "Non-biopsied lesions that were monitored for at least six months were considered benign without further granularity "
+            },
+            "funding-declarations": {
+                "title": "Funding Declarations",
+                "type": "markdown",
+                "category": "Provenance",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "- HPS holds an NHMRC MRFF Next Generation Clinical Researchers Program Practitioner Fellowship (APP1137127). \n- HPS is a shareholder of MoleMap NZ Limited and e-derm consult GmbH, and undertakes regular teledermatological reporting for both companies. \n- HPS is a Medical Consultant for Canfield Scientific Inc., Revenio Research Oy and also a Medical Advisor for First Derm. \n- AH serves as a consultant to Canfield Scientific Inc., and is on the SciBase advisory panel."
+            },
+            "instance-labels": {
+                "title": "Instance Labels",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "In the training set, each instance has two fields (benign_malignant and target) with indicators of whether the image instance is of a benign (target = 0) or malignant (target = 1) skin lesion. "
+            },
+            "photo-choice": {
+                "title": "Preprocessing - Choice of photo when there were several ",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "When multiple image types were available, the selected image was either the one of highest resolution or if multiple images at the same resolution were available, one was chosen randomly. "
+            },
+            "methodology-tool ": {
+                "title": "Preprocessing - Methodology and Tool ",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "A software annotation tool, called \u2018Tagger,\u2019 was developed internally to review diagnostic labeling of grouped images. Using this tool, dermoscopy expert reviewers (EC, OR) were presented sets of 30 images with a shared diagnosis in order to identify the ones with erroneous labeling. Reviewers invested 22 hours over three weeks of quality assurance in \u2018Tagger\u2019 and spent an average of 4 seconds per set when flagging a single image, and 11 seconds per set when flagging several images. Out of all images reviewed in Tagger, 2.7% were removed, out of concern for erroneous labels."
+            },
+            "raw-data": {
+                "title": "Raw Data Not Accessible",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "The raw data is maintained by the original imaging databases, but cannot be accessed by the public. "
+            },
+            "subpopulations": {
+                "title": "Subpopulations Identified",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        "Age Bias",
+                        " Sex Bias "
+                    ]
+                ],
+                "content": "This dataset identifies people based on: Physical attributes, Age (approximate, at time image was taken), Biological Sex"
+            },
+            "consent": {
+                "title": "Consent Gathered",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "Consent gathered at each data source (medical center) according to local law and policy ?? "
+            },
+            "anonymized": {
+                "title": "Data Anonymized",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "Images with identifiable marks (jewelry, tattoos, etc) were removed from the dataset during preprocessing. "
+            },
+            "preprocess-location": {
+                "title": "Preprocessing - Different Methodology per Location ",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "There were selection criteria followed at each image source Center; see information in corresponding paper for details: [link to paper] "
+            },
+            "preprocess-excluded": {
+                "title": "Preprocessing - Images Excluded ",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        ""
+                    ]
+                ],
+                "content": "Images containing any potentially identifying features, such as jewelry or tattoos, or from patients without at least three qualifying images were excluded during quality assurance review."
+            }
+        },
+        "predictions": {
+            "performance-site": {
+                "description": "Calculate Accuracy: Performance vs. Anatomical Site ",
+                "alerts": [
+                    {
+                        "alert": "skin-representation",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "convience-sample",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "usage-restrictions",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "lighting",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "duplicates",
+                        "severity": 2
+                    }
+                ],
+                "fyis": [
+                    "license ",
+                    "existing-use",
+                    "same-patient",
+                    "funding",
+                    "define-benign",
+                    "funding-declarations",
+                    "instance-labels",
+                    "photo-choice",
+                    "methodology-tool ",
+                    "raw-data",
+                    "subpopulations",
+                    "consent",
+                    "anonymized",
+                    "preprocess-location",
+                    "preprocess-excluded"
+                ]
+            },
+            "performance-age": {
+                "description": "Calculate Accuracy: Performance vs. Age",
+                "alerts": [
+                    {
+                        "alert": "skin-representation",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "convience-sample",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "usage-restrictions",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "lighting",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "duplicates",
+                        "severity": 2
+                    }
+                ],
+                "fyis": [
+                    "license ",
+                    "existing-use",
+                    "same-patient",
+                    "funding",
+                    "define-benign",
+                    "funding-declarations",
+                    "instance-labels",
+                    "photo-choice",
+                    "methodology-tool ",
+                    "raw-data",
+                    "subpopulations",
+                    "consent",
+                    "anonymized",
+                    "preprocess-location",
+                    "preprocess-excluded"
+                ]
+            },
+            "performance-sex": {
+                "description": "Calculate Accuracy: Performance vs. Sex ",
+                "alerts": [
+                    {
+                        "alert": "skin-representation",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "convience-sample",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "usage-restrictions",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "lighting",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "duplicates",
+                        "severity": 2
+                    }
+                ],
+                "fyis": [
+                    "license ",
+                    "existing-use",
+                    "same-patient",
+                    "funding",
+                    "define-benign",
+                    "funding-declarations",
+                    "instance-labels",
+                    "photo-choice",
+                    "methodology-tool ",
+                    "raw-data",
+                    "subpopulations",
+                    "consent",
+                    "anonymized",
+                    "preprocess-location",
+                    "preprocess-excluded"
+                ]
+            },
+            "auc": {
+                "description": "Calculate Sensitivy / Specificity (AUC)",
+                "alerts": [
+                    {
+                        "alert": "skin-representation",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "convience-sample",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "usage-restrictions",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "lighting",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "duplicates",
+                        "severity": 2
+                    }
+                ],
+                "fyis": [
+                    "license ",
+                    "existing-use",
+                    "same-patient",
+                    "funding",
+                    "define-benign",
+                    "funding-declarations",
+                    "instance-labels",
+                    "photo-choice",
+                    "methodology-tool ",
+                    "raw-data",
+                    "subpopulations",
+                    "consent",
+                    "anonymized",
+                    "preprocess-location",
+                    "preprocess-excluded"
+                ]
+            },
+            "multiple-images": {
+                "description": "Leverage multiple point-level contextual images to improve specificity ",
+                "alerts": [
+                    {
+                        "alert": "skin-representation",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "convience-sample",
+                        "severity": 0
+                    },
+                    {
+                        "alert": "usage-restrictions",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "lighting",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "duplicates",
+                        "severity": 2
+                    }
+                ],
+                "fyis": [
+                    "license ",
+                    "existing-use",
+                    "same-patient",
+                    "funding",
+                    "define-benign",
+                    "funding-declarations",
+                    "instance-labels",
+                    "photo-choice",
+                    "methodology-tool ",
+                    "raw-data",
+                    "subpopulations",
+                    "consent",
+                    "anonymized",
+                    "preprocess-location",
+                    "preprocess-excluded"
+                ]
+            },
+            "incidence-age": {
+                "description": "Incidence of melanoma by age",
+                "alerts": [
+                    {
+                        "alert": "skin-representation",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "convience-sample",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "usage-restrictions",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "lighting",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "duplicates",
+                        "severity": 2
+                    }
+                ],
+                "fyis": [
+                    "license ",
+                    "existing-use",
+                    "same-patient",
+                    "funding",
+                    "define-benign",
+                    "funding-declarations",
+                    "instance-labels",
+                    "photo-choice",
+                    "methodology-tool ",
+                    "raw-data",
+                    "subpopulations",
+                    "consent",
+                    "anonymized",
+                    "preprocess-location",
+                    "preprocess-excluded"
+                ]
+            },
+            "incidence-sex": {
+                "description": "Incidence of melanoma by sex ",
+                "alerts": [
+                    {
+                        "alert": "skin-representation",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "convience-sample",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "usage-restrictions",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "lighting",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "duplicates",
+                        "severity": 2
+                    }
+                ],
+                "fyis": [
+                    "license ",
+                    "existing-use",
+                    "same-patient",
+                    "funding",
+                    "define-benign",
+                    "funding-declarations",
+                    "instance-labels",
+                    "photo-choice",
+                    "methodology-tool ",
+                    "raw-data",
+                    "subpopulations",
+                    "consent",
+                    "anonymized",
+                    "preprocess-location",
+                    "preprocess-excluded"
+                ]
+            }
+        },
+        "use-cases": {
+            "identify-melanoma": {
+                "description": "Identify melanoma in lesion images",
+                "predictions": [
+                    "performance-site",
+                    "performance-age",
+                    "performance-sex",
+                    "auc",
+                    "multiple-images"
+                ]
+            },
+            "predict-incidence": {
+                "description": "Predict incidence of melanoma in a population",
+                "predictions": [
+                    "incidence-age"
+                ]
+            }
+        }
+    }
+}
