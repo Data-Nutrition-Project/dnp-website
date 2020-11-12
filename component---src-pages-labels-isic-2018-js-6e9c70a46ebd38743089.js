@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{fCUR:function(e,n,a){"use strict";a.r(n);var t=a("q1tI"),r=a.n(t),c=a("/MKj"),i=a("80L9"),o=a("ihrq"),l=a("Q2AE");n.default=function(){return r.a.createElement(c.a,{store:l.a},r.a.createElement(o.a,null),r.a.createElement(i.a,{jsonFile:"isic-2018-blob"}))}}}]);
+//# sourceMappingURL=component---src-pages-labels-isic-2018-js-6e9c70a46ebd38743089.js.map
