@@ -17,6 +17,7 @@
 
 .summaryCreationSection {
   margin-bottom: 1.5rem;
+  overflow-wrap: break-word;
 }
 
 .summaryRow {
