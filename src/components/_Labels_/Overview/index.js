@@ -9,81 +9,71 @@ import styles from "./styles.module.css"
 import colors from "../../layout.css"
 
 const SEVERITY_MAP = {
-  3: "HIGH",
-  2: "MED",
-  1: "LOW",
-  0: "FYI",
+  3: "NOT KNOWN",
+  2: "POSSIBLE",
+  1: "KNOWN",
 }
 
-// colors for severty in same order as above
-const COLOR_MAP = [
-  colors.teal,
-  colors.teal,
-  colors.teal,
-  colors.teal,
-]
-
 class Overview extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      useCaseSelected: this.props.topUseCases[0],
+    }
+  }
+
+  handleUseCaseChange(e) {
+    e.stopPropagation()
+    this.setState({
+      useCaseSelected: e.target.value
+    })
+  }
+
   renderAlertsChart = () => {
     const data = []
-    for (const [prediction, info] of Object.entries(
-      this.props.useCasesSection.predictions
-    )) {
-      info.alerts.map(alert => {
-        data.push({
-          type: this.props.useCasesSection.alerts[alert.alert].category,
-          severity: SEVERITY_MAP[alert.severity],
-        })
+    this.props.useCasesSection['use-cases'][this.state.useCaseSelected].predictions.map((pred, i) => {
+      this.props.useCasesSection.predictions[pred].alerts.map(alert => {
         this.props.useCasesSection.alerts[alert.alert].tags.map(tag => {
           data.push({
+            category: this.props.useCasesSection.alerts[alert.alert].category,
             type: tag,
             severity: SEVERITY_MAP[alert.severity],
           })
         })
       })
-    }
+    })
 
     const spec = {
-      mark: "rect",
+      mark: "point",
       width: "container",
       encoding: {
-        x: {
-          field: "severity",
-          type: "nominal",
-          sort: ["FYI", "LOW", "MED", "HIGH",],
+        y: {
+          field: "type",
+          type: "nominal"
         },
-        y: { field: "type", type: "nominal" },
-        opacity: {
+        x: {
+          field: "category",
+          type: "nominal",
+          sort: ["Description", "Composition", "Collection", "Provenance", "Completeness"],
+          axis: {
+            labelAngle: -45
+          }
+        },
+        size: {
           aggregate: "count",
           field: "severity",
-          scale: {
-            type: "threshold",
-            domain: [1, 5, 15],
-            range: [0.05, 0.2, 0.5, 1.0],
-          },
           legend: {
             title: "Number of Alerts",
             titleFontSize: 12,
             labelFontSize: 12,
-          },
-        },
-        color: {
-          type: "nominal",
-          field: "severity",
-          scale: {
-            domain: ["HIGH", "MED", "LOW", "FYI"],
-            range: COLOR_MAP,
-          },
-          legend: {
-            disable: true,
-          },
+          }
         },
       },
       config: {
         axis: {
           grid: true,
           tickBand: "extent",
-          labelFontSize: "10",
+          labelFontSize: "12",
           titleFontSize: 0,
         },
         legend: {
@@ -120,7 +110,7 @@ class Overview extends Component {
               />
             </div>
           </Col>
-          <Col md={{ span: 5, offset: 1 }}>
+          <Col md={{ span: 6 }}>
             <h3 className={styles.sectionTitle}>Top Use Cases</h3>
             <span className={styles.datasetUnderline} />
             {this.props.topUseCases.map((useCaseName, i) => (
@@ -222,9 +212,25 @@ class Overview extends Component {
             </div>
             <ReactMarkdown source={this.props.summary.summaryText} />
           </Col>    
-          <Col md={{ span: 5, offset: 1 }}>
+          <Col md={{ span: 6 }}>
             <h3 className={styles.sectionTitle}>Alerts</h3>
             <span className={styles.datasetUnderline} />
+            <div className={styles.useCaseSelector}>
+              <span><b>Use Case:</b></span>
+              <select
+                className={styles.useCasesSelectorDropdown}
+                id="use-case-selector"
+                onChange={e => this.handleUseCaseChange(e)}
+              >
+                {this.props.topUseCases.map((useCase, i) => {
+                  return (
+                    <option value={useCase} key={i}>
+                      {this.props.useCasesSection['use-cases'][useCase].description}
+                    </option>
+                  )
+                })}
+              </select>
+            </div>
             <div className={styles.alertSection}>
               {this.renderAlertsChart()} 
             </div>
@@ -332,6 +338,11 @@ Overview.defaultProps = {
             severity: 3,
           },
         ],
+        fyis: [
+          "fyi-1",
+          "fyi-2",
+          "fyi-3"
+        ]
       },
       "prediction-2": {
         alerts: [
@@ -348,6 +359,11 @@ Overview.defaultProps = {
             severity: 0,
           },
         ],
+        fyis: [
+          "fyi-1",
+          "fyi-2",
+          "fyi-3"
+        ]
       },
       "prediction-3": {
         alerts: [
@@ -360,6 +376,11 @@ Overview.defaultProps = {
             severity: 3,
           },
         ],
+        fyis: [
+          "fyi-1",
+          "fyi-2",
+          "fyi-3"
+        ]
       },
     },
     "use-cases": {

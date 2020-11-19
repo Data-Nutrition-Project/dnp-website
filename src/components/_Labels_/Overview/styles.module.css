@@ -17,6 +17,7 @@
 
 .summaryCreationSection {
   margin-bottom: 1.5rem;
+  overflow-wrap: break-word;
 }
 
 .summaryRow {
@@ -71,11 +72,25 @@
   font-size: 1.25rem;
 }
 
+.useCaseSelector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: .5rem;
+}
+
+.useCasesSelectorDropdown {
+  width: 18rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: .25rem;
+}
+
 .alertSection {
   display: flex;
   justify-content: center;
 }
 
 .alertGraph {
-  width: 23.5rem;
+  width: 28rem;
 }
