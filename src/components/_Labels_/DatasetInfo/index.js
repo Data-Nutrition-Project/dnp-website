@@ -2,6 +2,8 @@ import React from "react"
 import { Element } from "react-scroll"
 import PropTypes from "prop-types"
 import ReactMarkdown from "react-markdown"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 
 import ScrollButton from "../../ScrollButton/index.js"
 
@@ -33,11 +35,29 @@ class DatasetInfo extends React.Component {
           the data will be maintained, updated, and the best contact for
           further inquiries.
         </p>
+        <p className={styles.datasetParagraph}>
+          The categories and questions that comprise this section are drawn from 
+          the terrific work of many teams; we have drawn heavily on the work of{' '}
+          <a href="https://arxiv.org/abs/1803.09010" target="_blank" rel="noreferrer">
+            Datasheets for Datasets <FontAwesomeIcon icon={faExternalLinkAlt} />
+          </a>, 
+          and supplemented that with work by{' '}
+          <a href="https://ai-global.org/" target="_blank" rel="noreferrer">
+            AI Global <FontAwesomeIcon icon={faExternalLinkAlt} />
+          </a>,{' '}
+          <a href="http://data.world/" target="_blank" rel="noreferrer">
+            data.world <FontAwesomeIcon icon={faExternalLinkAlt} />
+          </a>, and{' '}
+          <a href="https://deon.drivendata.org/" target="_blank" rel="noreferrer">
+            DrivenData <FontAwesomeIcon icon={faExternalLinkAlt} />
+          </a>. 
+          We further refined this section based on feedback from colleagues at the 
+          Department of Education, AI Global, and Memorial Sloan Kettering.
+        </p>
 
         <span className={styles.datasetUnderlineBold}></span>
 
         <h3 className={styles.datasetSubHeader}>Description</h3>
-
         <ol className={styles.datasetOl}>
           {descriptions.map(description => (
             <li className={styles.datasetLi}>
