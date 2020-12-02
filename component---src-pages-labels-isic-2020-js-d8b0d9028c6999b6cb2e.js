@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{ZaZ6:function(e,a,n){"use strict";n.r(a);var t=n("q1tI"),r=n.n(t),c=n("/MKj"),i=n("80L9"),o=n("ihrq"),l=n("Q2AE");a.default=function(){return r.a.createElement(c.a,{store:l.a},r.a.createElement(o.a,null),r.a.createElement(i.a,{jsonFile:"isic-2020-blob"}))}}}]);
-//# sourceMappingURL=component---src-pages-labels-isic-2020-js-d8b0d9028c6999b6cb2e.js.map
