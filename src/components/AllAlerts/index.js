@@ -213,8 +213,16 @@ class AllAlerts extends Component {
     }
 
     Object.keys(alerts).map(alert => alert)
-
+    let uniqueSlice = []
     let sliced = this.state.tags.slice(0, alert.length - 1)
+    sliced.forEach((tags, i) => {
+      if (!uniqueSlice.includes(tags[i])) {
+        uniqueSlice.push(tags[i])
+      }
+    })
+    let stringify = sliced.map(JSON.stringify)
+    let uniqueStringify = new Set(stringify)
+    let uniqueArray = Array.from(uniqueStringify, JSON.parse)
 
     return (
       <>
@@ -288,8 +296,8 @@ class AllAlerts extends Component {
                       >
                         <option default>All</option>
 
-                        {sliced
-                          .filter(tag => {
+                        {uniqueArray
+                          .filter((tag, i) => {
                             return tag != "N/A"
                           })
                           .map((tag, i) => {
