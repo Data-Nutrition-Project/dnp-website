@@ -19,6 +19,7 @@
 
 .selectParagraph {
   text-align: right;
+  word-wrap: break-word;
 }
 .boldHeader {
   font-weight: bold;

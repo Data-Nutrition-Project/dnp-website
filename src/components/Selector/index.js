@@ -20,7 +20,7 @@ class Selector extends Component {
         <Row>
           <Col md={2}></Col>
           <Col md={10}>
-            <h1 className={styles.useCasesHeader}>Use Cases & Alerts</h1>
+            <h1 className={styles.useCasesHeader}>Objectives & Alerts</h1>
           </Col>
         </Row>
         <Row>
@@ -38,7 +38,7 @@ class Selector extends Component {
           <Col md={2}>
             <h1 className={styles.selectHeader}>Selector</h1>
             <p className={styles.selectParagraph}>
-              Click on a use case and predictor to filter relevant alerts.
+              Click on a modeling objective to filter relevant alerts.
             </p>
           </Col>
           <Col md={10}>
@@ -78,7 +78,7 @@ class Selector extends Component {
                 </div>
                 <div className={styles.childTwo}>
                   {/* PREDICTIONS */}
-                  <h1 className={styles.boldHeader}>Predictions:</h1>
+                  <h1 className={styles.boldHeader}>Modeling Objectives:</h1>
                   <p className={styles.datasetParagraph}>
                     What is being predicted?
                   </p>

@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import Col from "react-bootstrap/Col"
-import Row from "react-bootstrap/Row"
 
 import LabelMenus from "../LabelMenus/index"
 import ShareButton from "../ShareButton/index"
@@ -52,7 +51,7 @@ class LabelWrapper extends Component {
                   topUseCases={this.props.label.overview["top-use-cases"]}
                   useCasesSection={this.props.label["use-cases-section"]}
                 />
-              ) : this.props.base === "USE CASES/ALERTS" ? (
+              ) : this.props.base === "OBJECTIVES/ALERTS" ? (
                 <UseCases
                   useCasesStuff={this.props.label["use-cases-section"]}
                 />
