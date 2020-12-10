@@ -220,9 +220,8 @@ class AllAlerts extends Component {
         uniqueSlice.push(tags[i])
       }
     })
-    let stringify = sliced.map(JSON.stringify)
-    let uniqueStringify = new Set(stringify)
-    let uniqueArray = Array.from(uniqueStringify, JSON.parse)
+    let flattenedArray = sliced.flat()
+    let uniqueArray = [...new Set(flattenedArray.flat())]
 
     return (
       <>
