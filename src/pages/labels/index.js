@@ -22,19 +22,23 @@ const FAQ_QUESTIONS = [
   },
   {
     'q': 'What is the purpose of the Dataset Nutrition Label? ',
-    'a': 'We believe that algorithm developers want to build responsible and smart statistical models, but that there is a key step missing in the standard way these models are built. This step is to interrogate the dataset for a variety of imbalances or problems it could have and ascertain if it is the right dataset for the model.\n\nSimilar to the FDA’s nutrition label for food, the Dataset Nutrition Label aims to highlight the key ingredients in a dataset in addition to qualitative information that describes the dataset and its composition, collection, and management. The Dataset Nutrition Label also includes Alerts about the dataset that are relevant for particular intended use cases. Data scientists can leverage the Dataset Nutrition Label to make better, informed decisions about which datasets to use for their specific use cases, thus driving better statistical models and artificial intelligence.'
+    'a': 'We believe that algorithm developers want to build responsible and smart statistical models, but that there is a key step missing in the standard way these models are built. This step is to interrogate the dataset for a variety of imbalances or problems it could have and ascertain if it is the right dataset for the model.\n\nSimilar to the FDA’s nutrition label for food, the Dataset Nutrition Label aims to highlight the key ingredients in a dataset in addition to qualitative information that describes the dataset and its composition, collection, and management. The Dataset Nutrition Label also includes Alerts about the dataset that are relevant for particular intended modeling objectives. Data scientists can leverage the Dataset Nutrition Label to make better, informed decisions about which datasets to use for their specific use cases, thus driving better statistical models and artificial intelligence.'
   },
   {
     'q': 'What are Use Cases and how do you determine these?',
     'a': 'The Dataset Nutrition Label highlights business and research questions, or Use Cases, for which the dataset may be relevant. The Use Cases included in our current prototypes were identified by the Data Nutrition Project alongside subject matter experts and the original dataset owners.'
   },
   {
-    'q': 'If I want to investigate a Use Case not included in the list on the Dataset Nutrition Label, what does this mean?',
-    'a': 'The Data Nutrition Project team worked closely with subject matter experts and dataset owners to identify the most relevant or common Use Cases for each dataset. The Use Cases are not meant to be exhaustive, but rather indicative of the most common known or intended Use Cases for the data. If a Use Case is not included, this may indicate that using the dataset to answer that particular business question is akin to "off-label" usage.'
+    'q': 'On the Overview page, what do the badges stand for and how are they determined?',
+    'a': 'The overview badges highlight a standard set of critical information about every dataset in a way that is immediately relevant and comprehensible. These icons indicate a short-hand way of highlighting binary and non-binary answers covered more deeply in the Dataset Info pane.\n\nThe badges include:\n\n1. Quality Review (Yes, No)\n2. Individual Level Data (Yes, No)\n3. Ethical Review (Yes, No)\n4. Information about People (Yes, No)\n5. Information about Subpopulations (Yes, No)\n6. License (Commercial, Non-Commercial, Conditional Non-Commercial)\n7. Funding Source (Single-source not for profit, Single-source for profit, Government, Multi-Source)\n8. Update Frequency (Static, frequency)\n9. Data Source (Single Source, Multi Source)\n'
   },
   {
-    'q': 'What is a Prediction?',
-    'a': 'On the Dataset Nutrition Label, a Prediction indicates the statistical approach taken to address the Use Case. For example, if a COVID dataset could be leveraged to train a statistical model to answer the Use Case, ‘What is the prevalence of COVID in a specific geography?’, there are a number of possible Predictions on which to optimize the model including: "Current Prevalence", "Current R0", "Infections in the region", among others.'
+    'q': 'What is a Modeling Objective?',
+    'a': 'On the Dataset Nutrition Label, a Modeling Objective indicates statistical approach that the data can be leveraged to address. For example, the [ISIC 2018 dataset](/labels/isic-2018) could be leveraged to train a statistical model to answer the Modeling Objective, ‘Identify diagnosis in lesion images’.'
+  },
+  {
+    'q': 'If I want to investigate a Use Case or Modeling Objective not included in the list on the Dataset Nutrition Label, what does this mean?',
+    'a': 'The Data Nutrition Project team worked closely with subject matter experts and dataset owners to identify the most relevant or common Use Cases and Modeling Objectives for each dataset. These are not meant to be exhaustive, but rather indicative of the most common known or intended uses for the data. We recommend that data practitioners consult with subject matter experts to investigate the best way to approach Use Cases and Objectives not included on the Label.'
   },
   {
     'q': 'What is an Alert?',
@@ -46,7 +50,7 @@ const FAQ_QUESTIONS = [
   },
   {
     'q': 'Who created the Alerts and how were they created?',
-    'a': 'There are two types of Alerts: FYI-only, which are generally auto-generated from answers to questions in the Dataset Info section, and Alerts with various mitigation strategies that are tied to specific Predictions. The creator of the Dataset Nutrition Label is responsible for identifying and documenting Alerts, Predictions, and Use Cases. For the prototype Labels, the Data Nutrition Project worked with the dataset owners to create this information.'
+    'a': 'There are two types of Alerts: FYI-only, which are generally auto-generated from answers to questions in the Dataset Info section, and Alerts with various mitigation strategies that are tied to specific Predictions. The creator of the Dataset Nutrition Label is responsible for identifying and documenting Alerts, Modeling Objectives, and Use Cases. For the prototype Labels, the Data Nutrition Project worked with the dataset owners to create this information.'
   },
   {
     'q': 'If there are Alerts on a Dataset Nutrition Label, does that mean I should not use the dataset?',
@@ -72,6 +76,7 @@ const FAQ_QUESTIONS = [
 
 const LabelIndexPage = props => {
   const [toggleStatus, setToggleStatus] = useState([
+    false,
     false,
     false,
     false,
