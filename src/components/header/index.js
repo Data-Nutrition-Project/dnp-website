@@ -1,9 +1,10 @@
-import { Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import classNames from "classnames"
 import React, { useState } from "react"
 
-import Nav from 'react-bootstrap/Nav';
+import NavDropdown from "react-bootstrap/NavDropdown"
+import Nav from 'react-bootstrap/Nav'
 
 import styles from "./styles.module.css"
 
@@ -25,13 +26,13 @@ const Header = () => {
                         <i className="icon-reorder"></i>
                     </div>
                     <div className={styles.logo}>
-                        <Link to="/" className={styles.standardLogo}>
+                        <AnchorLink to="/" className={styles.standardLogo}>
                             <img
                                 className={styles.logoImg}
                                 src={require("../../images/logo-s.png")}
                                 alt="logo"
                             />
-                        </Link>
+                        </AnchorLink>
                     </div>
                     <nav className={styles.primaryMenu}>
                         <Nav
@@ -41,34 +42,46 @@ const Header = () => {
                             activeKey="/#section-mission"
                         >
                             <Nav.Item>
-                                <Link to="/#section-mission" className={styles.navLink}>
+                                <AnchorLink to="/#section-mission" className={styles.navLink}>
                                     <div>Mission</div>
-                                </Link>
+                                </AnchorLink>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to="/#section-problem" className={styles.navLink}>
+                                <AnchorLink to="/#section-problem" className={styles.navLink}>
                                     <div>Problem</div>
-                                </Link>
+                                </AnchorLink>
                             </Nav.Item>
+                            <NavDropdown title="Solutions" id="solutions" className={styles.navDropdown}>
+                                <NavDropdown.Item>
+                                    <AnchorLink to="/#section-solution-tool" className={styles.navLink}>
+                                        Tool
+                                    </AnchorLink>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
+                                    <AnchorLink to="/#section-solution-research" className={styles.navLink}>
+                                        Research
+                                    </AnchorLink>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
+                                    <AnchorLink to="/#section-solution-workshops" className={styles.navLink}>
+                                        Workshops
+                                    </AnchorLink>
+                                </NavDropdown.Item>
+                            </NavDropdown>
                             <Nav.Item>
-                                <Link to="/#section-solution" className={styles.navLink}>
-                                    <div>Solutions</div>
-                                </Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Link to="/#section-team" className={styles.navLink}>
+                                <AnchorLink to="/#section-team" className={styles.navLink}>
                                     <div>Team</div>
-                                </Link>
+                                </AnchorLink>
                             </Nav.Item>
                             <Nav.Item>
-                                <Link to="/#section-faq" className={styles.navLink}>
+                                <AnchorLink to="/#section-faq" className={styles.navLink}>
                                     <div>Faq</div>
-                                </Link>
+                                </AnchorLink>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link href="/#section-contact" className={styles.navLink}>
+                                <AnchorLink to="/#section-contact" className={styles.navLink}>
                                     <div>Contact</div>
-                                </Nav.Link>
+                                </AnchorLink>
                             </Nav.Item>
                         </Nav>
                     </nav>

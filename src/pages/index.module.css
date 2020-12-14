@@ -103,6 +103,10 @@
     line-height: 3.5rem;
 }
 
+.modButtonParagraph {
+    margin: .5rem 0;
+}
+
 .photoCredit {
     width: 100%;
     padding: .875rem;
@@ -146,6 +150,12 @@
     max-width: 43.75rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+.darkBackground {
+    padding: 3rem;
+    background-color: black;
+    border-radius: 0;
 }
 
 

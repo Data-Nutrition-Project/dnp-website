@@ -7,11 +7,11 @@ import PropTypes from "prop-types"
 import styles from "./styles.module.css"
 
 const Bio = props => (
-    <Col md={{ span: 6 }} className={styles.bottomMargin}>
+    <Col md={{ span: 6 }} className={classNames(styles.bottomMargin)}>
         <div className={classNames(styles.team, styles.teamList, styles.clearfix, { [styles.modAlum]: props.alum })}>
             <div className={styles.teamImage}>
                 <img
-                    className={styles.teamImageImg}
+                    className={classNames(styles.teamImageImg, props.imgClassName)}
                     src={props.imgPath}
                     alt={props.imgAlt}
                 />
@@ -41,6 +41,7 @@ Bio.propTypes = {
     alum: PropTypes.bool,
     imgPath: PropTypes.string.isRequired,
     imgAlt: PropTypes.string.isRequired,
+    imgClassName: PropTypes.string,
     name: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
     bio: PropTypes.string,
