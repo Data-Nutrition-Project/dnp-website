@@ -11,14 +11,13 @@ import Tab from "react-bootstrap/Tab"
 
 import styles from "./styles.module.css"
 
-
 import { config } from "@fortawesome/fontawesome-svg-core"
 
 config.autoAddCss = false
 
 const TAB_NAMES = {
   alerts: "alerts",
-  fyis: "fyis"
+  fyis: "fyis",
 }
 
 class AllAlerts extends Component {
@@ -88,7 +87,7 @@ class AllAlerts extends Component {
       selectedTab: TAB_NAMES.alerts,
       highCount: sevCount[3],
       midCount: sevCount[2],
-      lowCount: sevCount[1]
+      lowCount: sevCount[1],
     }
 
     this.onChange = this.onChange.bind(this)
@@ -206,15 +205,15 @@ class AllAlerts extends Component {
   }
 
   render() {
-    const alerts = this.props.alerts
-
     let countText = `${this.state.filtered.length} Alerts`
     if (this.state.selectedTab === TAB_NAMES.fyis) {
       countText = `${this.state.filteredFYIs.length} FYIs`
     }
 
-    Object.keys(alerts).map(alert => alert)
-    let sliced = this.state.tags.slice(0, 3)
+    let sliced = this.state.tags.slice(0, alert.length - 1)
+
+    let flattenedArray = sliced.flat()
+    let uniqueArray = [...new Set(flattenedArray.flat())]
 
     return (
       <>
@@ -232,17 +231,20 @@ class AllAlerts extends Component {
               transition={false}
               id="alertTabs"
               variant="pills"
-              onSelect={(tab) => this.setState({ selectedTab: tab })}
+              onSelect={tab => this.setState({ selectedTab: tab })}
             >
               <Tab
                 eventKey={TAB_NAMES.alerts}
                 title="Alerts"
-                tabClassName={classNames({[styles.alertPillsActive]: this.state.selectedTab === TAB_NAMES.alerts})}
+                tabClassName={classNames({
+                  [styles.alertPillsActive]:
+                    this.state.selectedTab === TAB_NAMES.alerts,
+                })}
               >
                 <div className={styles.tabContent}>
                   <div className={styles.severity}>
                     <div className={styles.parentColors}>
-                      <Container> 
+                      <Container>
                         <Row className={styles.mitigationRow}>
                           <div className={styles.boldHeader}>
                             Mitigation Possible:
@@ -285,47 +287,53 @@ class AllAlerts extends Component {
                       >
                         <option default>All</option>
 
-                        {sliced.map((tag, i) => {
-                          return (
-                            <option value={tag} key={i}>
-                              {tag}
-                            </option>
-                          )
-                        })}
+                        {uniqueArray
+                          .filter((tag, i) => {
+                            return tag != "N/A"
+                          })
+                          .map((tag, i) => {
+                            return (
+                              <option value={tag} key={i}>
+                                {tag}
+                              </option>
+                            )
+                          })}
                       </select>
                     </div>
                   </div>
-                  {this.state.alerting.length === 0 && 
-                    <b>LOADING...</b>
-                  }
-                  {(this.state.alerting.length > 0 && this.state.filtered.length === 0) &&
-                    <b>No alerts to show</b>
-                  }
-                  {this.state.filtered.length > 0 &&
+                  {this.state.alerting.length === 0 && <b>LOADING...</b>}
+                  {this.state.alerting.length > 0 &&
+                    this.state.filtered.length === 0 && (
+                      <b>No alerts to show</b>
+                    )}
+                  {this.state.filtered.length > 0 && (
                     <div>
-                      {this.state.filtered.filter(
-                        alert => alert.severity != 0
-                      ).map((alert, i) => {
-                        return (
-                          <AlertCard
-                            key={i}
-                            title={alert.title}
-                            category={alert.category}
-                            content={alert.content}
-                            tags={alert.tags}
-                            severity={alert.severity}
-                            mitigation={alert.mitigation}
-                          />
-                        )
-                      })}
+                      {this.state.filtered
+                        .filter(alert => alert.severity != 0)
+                        .map((alert, i) => {
+                          return (
+                            <AlertCard
+                              key={i}
+                              title={alert.title}
+                              category={alert.category}
+                              content={alert.content}
+                              tags={alert.tags}
+                              severity={alert.severity}
+                              mitigation={alert.mitigation}
+                            />
+                          )
+                        })}
                     </div>
-                  }
+                  )}
                 </div>
               </Tab>
               <Tab
                 eventKey={TAB_NAMES.fyis}
                 title="FYIs"
-                tabClassName={classNames({[styles.alertPillsActive]: this.state.selectedTab === TAB_NAMES.fyis})}
+                tabClassName={classNames({
+                  [styles.alertPillsActive]:
+                    this.state.selectedTab === TAB_NAMES.fyis,
+                })}
               >
                 <div className={styles.tabContent}>
                   <div className={styles.severity} />
@@ -350,13 +358,12 @@ class AllAlerts extends Component {
                       </select>
                     </div>
                   </div>
-                  {this.state.alerting.length === 0 && 
-                    <b>LOADING...</b>
-                  }
-                  {(this.state.alerting.length > 0 && this.state.filteredFYIs.length === 0) &&
-                    <b>No fyis to show</b>
-                  }
-                  {this.state.filteredFYIs.length > 0 &&
+                  {this.state.alerting.length === 0 && <b>LOADING...</b>}
+                  {this.state.alerting.length > 0 &&
+                    this.state.filteredFYIs.length === 0 && (
+                      <b>No fyis to show</b>
+                    )}
+                  {this.state.filteredFYIs.length > 0 && (
                     <div>
                       {this.state.filteredFYIs.map((fyi, i) => {
                         return (
@@ -371,8 +378,8 @@ class AllAlerts extends Component {
                         )
                       })}
                     </div>
-                  }
-                </div>  
+                  )}
+                </div>
               </Tab>
             </Tabs>
           </Col>
