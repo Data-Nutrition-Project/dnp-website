@@ -9,8 +9,8 @@ class Selector extends Component {
     super(props)
 
     this.state = {
-      preds: [],
-      addedPreds: [],
+      objs: [],
+      addedObjs: [],
     }
   }
 
@@ -80,29 +80,29 @@ class Selector extends Component {
                   {/* PREDICTIONS */}
                   <h1 className={styles.boldHeader}>Modeling Objectives:</h1>
                   <p className={styles.datasetParagraph}>
-                    What is being predicted?
+                    What is the objective?
                   </p>
-                  <span className={styles.predictionsUnderlineBold}></span>
+                  <span className={styles.objectivesUnderlineBold}></span>
                   <div
-                    onChange={this.props.handlePredictionChange}
+                    onChange={this.props.handleObjectiveChange}
                     className={styles.ulPredictions}
                   >
-                    {this.props.filteredPreds.map((f, j) => {
+                    {this.props.filteredObjs.map((f, j) => {
                       return (
                         <label
                           htmlFor={f}
                           key={j}
                           className={classNames(styles.please, {
                             [styles.pleaseBold]:
-                              this.props.currentPrediction === f,
+                              this.props.currentObjective === f,
                           })}
                         >
                           <input
                             type="radio"
                             value={f}
-                            checked={this.props.currentPrediction === f}
+                            checked={this.props.currentObjective === f}
                           />
-                          {this.props.predictions[f].description}
+                          {this.props.objectives[f].description}
                         </label>
                       )
                     })}
