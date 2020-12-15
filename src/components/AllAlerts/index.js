@@ -205,21 +205,13 @@ class AllAlerts extends Component {
   }
 
   render() {
-    const alerts = this.props.alerts
-
     let countText = `${this.state.filtered.length} Alerts`
     if (this.state.selectedTab === TAB_NAMES.fyis) {
       countText = `${this.state.filteredFYIs.length} FYIs`
     }
 
-    Object.keys(alerts).map(alert => alert)
-    let uniqueSlice = []
     let sliced = this.state.tags.slice(0, alert.length - 1)
-    sliced.forEach((tags, i) => {
-      if (!uniqueSlice.includes(tags[i])) {
-        uniqueSlice.push(tags[i])
-      }
-    })
+
     let flattenedArray = sliced.flat()
     let uniqueArray = [...new Set(flattenedArray.flat())]
 
