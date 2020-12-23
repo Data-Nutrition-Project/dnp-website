@@ -14,7 +14,7 @@ const menus = [
     title: "OVERVIEW",
   },
   {
-    title: "USE CASES/ALERTS",
+    title: "OBJECTIVES/ALERTS",
   },
   {
     title: "DATASET INFO",
@@ -61,8 +61,8 @@ class LabelMenus extends Component {
                     </span>
                   </span>
 
-                  {this.state.open === "USE CASES/ALERTS" &&
-                  menu.title === "USE CASES/ALERTS" ? (
+                  {this.state.open === "OBJECTIVES/ALERTS" &&
+                  menu.title === "OBJECTIVES/ALERTS" ? (
                     <UseCasesDropdown />
                   ) : null}
                   {this.state.open === "DATASET INFO" &&

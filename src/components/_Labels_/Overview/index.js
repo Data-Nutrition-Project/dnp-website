@@ -25,23 +25,25 @@ class Overview extends Component {
   handleUseCaseChange(e) {
     e.stopPropagation()
     this.setState({
-      useCaseSelected: e.target.value
+      useCaseSelected: e.target.value,
     })
   }
 
   renderAlertsChart = () => {
     const data = []
-    this.props.useCasesSection['use-cases'][this.state.useCaseSelected].predictions.map((pred, i) => {
-      this.props.useCasesSection.predictions[pred].alerts.map(alert => {
-        this.props.useCasesSection.alerts[alert.alert].tags.map(tag => {
-          data.push({
-            category: this.props.useCasesSection.alerts[alert.alert].category,
-            type: tag,
-            severity: SEVERITY_MAP[alert.severity],
-          })
-        })
-      })
-    })
+    // this.props.useCasesSection["use-cases"][
+    //   this.state.useCaseSelected
+    // ].predictions.map((pred, i) => {
+    //   this.props.useCasesSection.predictions[pred].alerts.map(alert => {
+    //     this.props.useCasesSection.alerts[alert.alert].tags.map(tag => {
+    //       data.push({
+    //         category: this.props.useCasesSection.alerts[alert.alert].category,
+    //         type: tag,
+    //         severity: SEVERITY_MAP[alert.severity],
+    //       })
+    //     })
+    //   })
+    // })
 
     const spec = {
       mark: "point",
@@ -49,15 +51,21 @@ class Overview extends Component {
       encoding: {
         y: {
           field: "type",
-          type: "nominal"
+          type: "nominal",
         },
         x: {
           field: "category",
           type: "nominal",
-          sort: ["Description", "Composition", "Collection", "Provenance", "Completeness"],
+          sort: [
+            "Description",
+            "Composition",
+            "Collection",
+            "Provenance",
+            "Completeness",
+          ],
           axis: {
-            labelAngle: -45
-          }
+            labelAngle: -45,
+          },
         },
         size: {
           aggregate: "count",
@@ -66,7 +74,7 @@ class Overview extends Component {
             title: "Number of Alerts",
             titleFontSize: 12,
             labelFontSize: 12,
-          }
+          },
         },
       },
       config: {
@@ -97,9 +105,15 @@ class Overview extends Component {
   }
 
   render() {
+    // console.log(
+    //   "use",
+    //   Object.keys(this.props.useCasesSection["objectives"]).map(obj => {
+    //     return obj.description
+    //   })
+    // )
     return (
       <>
-        <Row className={styles.row}>     
+        <Row className={styles.row}>
           <Col md={{ span: 6 }}>
             <h3 className={styles.sectionTitle}>About</h3>
             <span className={styles.datasetUnderline} />
@@ -112,7 +126,7 @@ class Overview extends Component {
           </Col>
           <Col md={{ span: 6 }}>
             <h3 className={styles.sectionTitle}>Top Use Cases</h3>
-            <span className={styles.datasetUnderline} />
+            {/* <span className={styles.datasetUnderline} />
             {this.props.topUseCases.map((useCaseName, i) => (
               <Row className={styles.useCaseList}>
                 <Col md={1} className={styles.useCaseListNumber}>
@@ -120,7 +134,7 @@ class Overview extends Component {
                 </Col>
                 <Col md={{ span: 10 }} className={styles.useCaseQuestion}>
                   {
-                    this.props.useCasesSection["use-cases"][useCaseName]
+                    this.props.useCasesSection["objectives"][useCaseName]
                       .description
                   }
                 </Col>
@@ -131,11 +145,13 @@ class Overview extends Component {
         <Row>
           <Col md={6}>
             <h3 className={styles.sectionTitle}>Summary</h3>
-            <span className={styles.datasetUnderline} />
+            <span className={styles.datasetUnderline} /> */}
             <div className={styles.summaryCreationSection}>
               <div className={styles.primarySummary}>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Created By:</Col>
+                  <Col md={6} className={styles.summaryLabel}>
+                    Created By:
+                  </Col>
                   <Col md={6}>
                     <ReactMarkdown>
                       {this.props.summary.createdBy +
@@ -155,7 +171,9 @@ class Overview extends Component {
                   </Col>
                 </div>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Publish Date:</Col>
+                  <Col md={6} className={styles.summaryLabel}>
+                    Publish Date:
+                  </Col>
                   <Col md={6}>
                     <ReactMarkdown>
                       {this.props.summary.datasetPublishDate}
@@ -163,7 +181,9 @@ class Overview extends Component {
                   </Col>
                 </div>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Update Frequency:</Col>
+                  <Col md={6} className={styles.summaryLabel}>
+                    Update Frequency:
+                  </Col>
                   <Col md={6}>
                     <ReactMarkdown>
                       {this.props.summary.datasetUpdateFrequency}
@@ -183,19 +203,29 @@ class Overview extends Component {
               </div>
               <div className={styles.secondarySummary}>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>License:</Col>
+                  <Col md={6} className={styles.summaryLabel}>
+                    License:
+                  </Col>
                   <Col md={6}>
-                    <ReactMarkdown>{this.props.summary.licenseInfo}</ReactMarkdown>
+                    <ReactMarkdown>
+                      {this.props.summary.licenseInfo}
+                    </ReactMarkdown>
                   </Col>
                 </div>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Size:</Col>
+                  <Col md={6} className={styles.summaryLabel}>
+                    Size:
+                  </Col>
                   <Col md={6}>
-                    <ReactMarkdown>{this.props.summary.datasetSize}</ReactMarkdown>
+                    <ReactMarkdown>
+                      {this.props.summary.datasetSize}
+                    </ReactMarkdown>
                   </Col>
                 </div>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Format:</Col>
+                  <Col md={6} className={styles.summaryLabel}>
+                    Format:
+                  </Col>
                   <Col md={6}>
                     <ReactMarkdown>
                       {this.props.summary.datasetFormat}
@@ -203,21 +233,27 @@ class Overview extends Component {
                   </Col>
                 </div>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Source URL:</Col>
+                  <Col md={6} className={styles.summaryLabel}>
+                    Source URL:
+                  </Col>
                   <Col md={6}>
-                    <ReactMarkdown>{this.props.summary.sourceURL}</ReactMarkdown>
+                    <ReactMarkdown>
+                      {this.props.summary.sourceURL}
+                    </ReactMarkdown>
                   </Col>
                 </div>
               </div>
             </div>
             <ReactMarkdown source={this.props.summary.summaryText} />
-          </Col>    
+          </Col>
           <Col md={{ span: 6 }}>
             <h3 className={styles.sectionTitle}>Alerts</h3>
             <span className={styles.datasetUnderline} />
             <div className={styles.useCaseSelector}>
-              <span><b>Use Case:</b></span>
-              <select
+              <span>
+                <b>Use Case:</b>
+              </span>
+              {/* <select
                 className={styles.useCasesSelectorDropdown}
                 id="use-case-selector"
                 onChange={e => this.handleUseCaseChange(e)}
@@ -225,14 +261,17 @@ class Overview extends Component {
                 {this.props.topUseCases.map((useCase, i) => {
                   return (
                     <option value={useCase} key={i}>
-                      {this.props.useCasesSection['use-cases'][useCase].description}
+                      {
+                        this.props.useCasesSection["use-cases"][useCase]
+                          .description
+                      }
                     </option>
                   )
-                })}
-              </select>
+                })} */}
+              {/* </select> */}
             </div>
             <div className={styles.alertSection}>
-              {this.renderAlertsChart()} 
+              {this.renderAlertsChart()}
             </div>
           </Col>
         </Row>
@@ -338,11 +377,7 @@ Overview.defaultProps = {
             severity: 3,
           },
         ],
-        fyis: [
-          "fyi-1",
-          "fyi-2",
-          "fyi-3"
-        ]
+        fyis: ["fyi-1", "fyi-2", "fyi-3"],
       },
       "prediction-2": {
         alerts: [
@@ -359,11 +394,7 @@ Overview.defaultProps = {
             severity: 0,
           },
         ],
-        fyis: [
-          "fyi-1",
-          "fyi-2",
-          "fyi-3"
-        ]
+        fyis: ["fyi-1", "fyi-2", "fyi-3"],
       },
       "prediction-3": {
         alerts: [
@@ -376,11 +407,7 @@ Overview.defaultProps = {
             severity: 3,
           },
         ],
-        fyis: [
-          "fyi-1",
-          "fyi-2",
-          "fyi-3"
-        ]
+        fyis: ["fyi-1", "fyi-2", "fyi-3"],
       },
     },
     "use-cases": {

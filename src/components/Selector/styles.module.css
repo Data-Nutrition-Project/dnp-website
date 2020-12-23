@@ -19,6 +19,7 @@
 
 .selectParagraph {
   text-align: right;
+  word-wrap: break-word;
 }
 .boldHeader {
   font-weight: bold;
@@ -41,9 +42,9 @@
   font-weight: bold;
 }
 
-.predictionsUnderlineBold {
+.objectivesUnderlineBold {
   display: block;
-  width: 80%;
+  width: 100%;
   height: 0.4rem;
   border: solid 0.4rem borderDarkGray;
   background-color: black;
@@ -64,13 +65,9 @@
   margin-top: 2.1875rem;
 }
 
-.childOne {
+.onlyChild {
   display: block;
-  width: 50%;
-}
-.childTwo {
-  display: block;
-  width: 50%;
+  width: 100%;
 }
 
 .ulPredictions {

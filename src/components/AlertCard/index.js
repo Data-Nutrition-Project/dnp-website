@@ -63,17 +63,17 @@ const AlertCard = props => {
               <Container>
                 <Row>
                   <Col>
-                    {props.severity != 0 &&
+                    {props.severity != 0 && (
                       <p className={styles.subtitleText}>
                         Mitigation Possible:{" "}
                         <b className={styles.propertyValue}>{sevClassName}</b>
                       </p>
-                    }
+                    )}
                     <p className={styles.subtitleText}>
                       Category:{" "}
                       <b className={styles.propertyValue}>{props.category}</b>
                     </p>
-                    {props.severity != 0 &&
+                    {props.severity != 0 && (
                       <div className={styles.subtitleText}>
                         Potential for Harm:{" "}
                         {props.tags.map((tag, i) => {
@@ -84,27 +84,23 @@ const AlertCard = props => {
                           )
                         })}
                       </div>
-                    }
+                    )}
                   </Col>
                   <span className={styles.lineBreakOne}></span>
                 </Row>
-                {/* </Row> */}
-
-                {/* <Row> */}
 
                 <ReactMarkdown
                   className={styles.contentParagraph}
                   source={props.content}
                 />
-                {props.mitigation !== undefined &&
+                {props.mitigation !== undefined && (
                   <div className={styles.subtitleText}>
                     <b>Possible Mitigations: </b>
                     <p className={styles.propertyValue}>{props.mitigation}</p>
                   </div>
-                }
-                
+                )}
+
                 <span className={styles.lineBreakTwo}></span>
-                {/* </Row> */}
               </Container>
             </div>
           </div>
