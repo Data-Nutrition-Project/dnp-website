@@ -8,37 +8,14 @@ class Objectives extends React.Component {
   constructor(props) {
     super(props)
     const objectives = this.props.objectives
-    const objectiveKeys = Object.keys(Object.values(objectives)[2])
-
-    const objectivesObject = Object.values(objectives)[2]
-    const description = Object.values(Object.values(objectives)[2]).map(
-      object => object.description
-    )
-    const alerts = objectives.alerts
 
     console.log("alertsYou", alerts)
-    console.log("keyss", objectiveKeys)
-    console.log("theObjectives", objectivesObject["pred-icu"])
 
-    const fyis = Object.values(Object.values(Object.values(objectives)[1]))
-    // console.log(
-    //   "theArr",
-    //   Object.values(Object.values(objectives)[2]).map(
-    //     object => object.description
-    //   )
-    // )
     this.state = {
-      objectivesObject,
-      objectiveKeys,
-      description,
-      alerts,
-      fyis,
       selectedAlerts: [],
       selectedFYIs: [],
-      // currentPrediction: "",
       currentOverview: "",
       filteredObjs: [],
-      // newPreds: [],
     }
 
     this.handleObjectiveChange = this.handleObjectiveChange.bind(this)
@@ -61,32 +38,32 @@ class Objectives extends React.Component {
       this.setState({ filteredObjs: [] })
     } else {
       let filteredObjs = []
+      let objectives = objectives.objectives
       // filteredObjs = this.props.overviewStuff["objectives"][e.target.value][
       //   "class-state"
       // ]
-      filteredObjs = this.state.objectivesObject[e.target.value]
+      filteredObjs = this.props.objectives.objectives[e.target.value]
       this.setState({
         filteredObjs,
         currentObjective: e.target.value,
         // selectedFYIs: [...this.state.objectivesObject[e.target.value].alerts],
-        selectedAlerts: [...this.state.objectivesObject[e.target.value].alerts],
+        selectedAlerts: [...objectives.objectives[e.target.value]],
       })
     }
   }
   render() {
     console.log("FILTSTATE", this.state.filteredObjs)
-
+    console.log("propsObject", this.props.objectives.objectives["class-state"])
     // console.log("fyiprops", this.state.fyis)
+
+    let objectives = this.props.objectives
     return (
       <div>
         <Element id={"Selector-title"}> </Element>
         <Selector
           handleObjectiveChange={this.handleObjectiveChange}
           // handlePredictionChange={this.handlePredictionChange}
-          objectives={this.props.objectives["objectives"]}
-          objectiveKeys={this.state.objectiveKeys}
-          objectivesObject={this.state.objectivesObject}
-          description={this.state.description}
+          objectives={this.props.objectives.objectives}
           // predictions={useCases["predictions"]}
           // thePreds={this.state.thePreds}
           filteredObjs={this.state.filteredObjs}
@@ -97,11 +74,10 @@ class Objectives extends React.Component {
         <AllAlerts
           // predictions={useCases.predictions}
           objectives={this.props.objectives.objectives}
-          alerts={this.state.alerts}
-          fyis={this.state.fyis}
+          alerts={objectives.alerts}
+          fyis={objectives.fyis}
           selectedAlerts={this.state.selectedAlerts}
           selectedFYIs={this.state.selectedFYIs}
-          currentPrediction={this.state.currentPrediction}
         />
       </div>
     )

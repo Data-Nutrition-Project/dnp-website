@@ -91,7 +91,7 @@ class Selector extends Component {
                   >
                     {/* {this.props.filteredObjs.map((f, j) => { */}
                     {/* return ( */}
-                    {this.props.objectiveKeys.map((f, j) => {
+                    {this.props.filteredObjs.map((f, j) => {
                       return (
                         <label
                           htmlFor={f}
@@ -106,7 +106,7 @@ class Selector extends Component {
                             value={f}
                             checked={this.props.currentObjective === f}
                           />
-                          {this.props.objectivesObject[f].description}
+                          {this.props.objectives[f].description}
                         </label>
                       )
                     })}
