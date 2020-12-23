@@ -36,22 +36,20 @@ class AllAlerts extends Component {
     }
 
     for (const [key, info] of Object.entries(this.props.alerts)) {
-      console.log("alertEntries", info)
       alerting.push(info)
     }
     for (const [key, info] of Object.entries(this.props.fyis)) {
       fyis.push(info)
-      console.log("fyisArr", fyis)
     }
 
     for (const [alert, info] of Object.entries(this.props.alerts)) {
       let string = info.tags
       tags.push(string)
     }
-    // for (const [fyi, info] of Object.entries(this.props.fyis)) {
-    //   let string = info.tags
-    //   tags.push(string)
-    // }
+    for (const [fyi, info] of Object.entries(this.props.fyis)) {
+      let string = info.tags
+      tags.push(string)
+    }
 
     let selectedAlerts = []
     if (this.props.selectedAlerts.length === 0) {
@@ -128,7 +126,11 @@ class AllAlerts extends Component {
       let filtered = []
       let filteredFYIs = []
 
-      filtered = filtered.map(alert => {
+      filtered = this.state.selectedAlerts.filter(p =>
+        p.tags.includes(e.target.value)
+      )
+
+      filtered.map(alert => {
         sevCount[alert.severity]++
       })
 
@@ -195,9 +197,9 @@ class AllAlerts extends Component {
         filtered = selectedAlerts.filter(p =>
           p.tags.includes(this.state.filterValue)
         )
-        // filteredFYIs = selectedFYIs.filter(p =>
-        //   p.tags.includes(this.state.filterValue)
-        // )
+        filteredFYIs = selectedFYIs.filter(p =>
+          p.tags.includes(this.state.filterValue)
+        )
       }
 
       filtered.map(alert => {

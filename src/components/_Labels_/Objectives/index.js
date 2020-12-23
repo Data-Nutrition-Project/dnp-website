@@ -9,8 +9,6 @@ class Objectives extends React.Component {
     super(props)
     const objectives = this.props.objectives
 
-    console.log("alertsYou", alerts)
-
     this.state = {
       selectedAlerts: [],
       selectedFYIs: [],
@@ -32,22 +30,29 @@ class Objectives extends React.Component {
   //   })
   // }
   handleObjectiveChange(e) {
-    e.stopPropagation()
     console.log("value", e.target.value)
+    let objectives = this.props.objectives.objectives
+    console.log("OBJJJJ", objectives)
+    this.setState({
+      selectedAlerts: [...objectives[e.target.value].alerts],
+      selectedFYIs: [...objectives[e.target.value].fyis],
+      currentDescription: e.target.value,
+    })
+    e.stopPropagation()
     if (!e.target.value || e.target.value === " " || e.target.value === "") {
-      this.setState({ filteredObjs: [] })
+      this.setState({
+        filteredObjs: [],
+      })
     } else {
       let filteredObjs = []
-      let objectives = objectives.objectives
       // filteredObjs = this.props.overviewStuff["objectives"][e.target.value][
       //   "class-state"
       // ]
       filteredObjs = this.props.objectives.objectives[e.target.value]
+        .description
       this.setState({
         filteredObjs,
         currentObjective: e.target.value,
-        // selectedFYIs: [...this.state.objectivesObject[e.target.value].alerts],
-        selectedAlerts: [...objectives.objectives[e.target.value]],
       })
     }
   }
@@ -69,6 +74,7 @@ class Objectives extends React.Component {
           filteredObjs={this.state.filteredObjs}
           // currentPrediction={this.state.currentPrediction}
           currentObjective={this.state.currentObjective}
+          currentDescription={this.state.currentDescription}
         />
         <Element id={"Alerts-title"}> </Element>
         <AllAlerts
@@ -78,6 +84,7 @@ class Objectives extends React.Component {
           fyis={objectives.fyis}
           selectedAlerts={this.state.selectedAlerts}
           selectedFYIs={this.state.selectedFYIs}
+          currentDescription={this.state.currentDescription}
         />
       </div>
     )

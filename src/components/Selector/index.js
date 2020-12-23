@@ -16,6 +16,8 @@ class Selector extends Component {
 
   render() {
     console.log("filtObjs", this.props.filteredObjs)
+    console.log("propopOBJJJJ", this.props.objectives)
+    console.log("currentOBj", this.props.currentObjective)
 
     return (
       <>
