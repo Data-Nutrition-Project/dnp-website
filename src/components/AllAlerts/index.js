@@ -70,23 +70,12 @@ class AllAlerts extends Component {
       })
     }
 
-    let selectedFYIs = []
-    if (this.props.selectedFYIs.length === 0) {
-      selectedFYIs = fyis
-    } else {
-      this.props.selectedFYIs.map((fyi, i) => {
-        selectedFYIs.push({ ...this.props.fyis[fyi] })
-      })
-    }
-
     this.state = {
       // preds,
       objectives,
       filtered: selectedAlerts,
-      filteredFYIs: selectedFYIs,
       filterValue: "",
       selectedAlerts,
-      selectedFYIs,
       tags,
       alerting,
       fyis,
@@ -114,33 +103,22 @@ class AllAlerts extends Component {
     )
       this.setState({
         filtered: [...this.state.selectedAlerts],
-        filteredFYIs: [...this.state.selectedFYIs],
         filterValue: e.target.value,
       })
     else {
       console.log("eval", e.target.value)
-      console.log(
-        "sAlerts",
-        this.state.selectedAlerts.filter(q => q.tags.includes(e.target.value))
-      )
-      let filtered = []
-      let filteredFYIs = []
+      console.log("sAlerts", this.state.selectedAlerts)
 
-      filtered = this.state.selectedAlerts.filter(p =>
-        p.tags.includes(e.target.value)
+      let filtered = this.state.selectedAlerts.filter(p =>
+        p.tags[0].includes(e.target.value)
       )
-
+      console.log("filteredArr", filtered)
       filtered.map(alert => {
         sevCount[alert.severity]++
       })
 
-      // filteredFYIs = this.state.selectedFYIs.filter(p =>
-      //   p.tags.includes(e.target.value)
-      // )
-
       this.setState({
         filtered,
-        filteredFYIs,
         filterValue: e.target.value,
         highCount: sevCount[3],
         midCount: sevCount[2],
@@ -161,7 +139,6 @@ class AllAlerts extends Component {
       }
 
       let selectedAlerts = []
-      let selectedFYIs = []
 
       if (this.props.selectedAlerts.length === 0) {
         selectedAlerts = [...this.state.alerting]
@@ -175,16 +152,7 @@ class AllAlerts extends Component {
         })
       }
 
-      if (this.props.selectedFYIs.length === 0) {
-        selectedFYIs = [...this.state.fyis]
-      } else {
-        this.props.selectedFYIs.map((fyi, i) => {
-          selectedFYIs.push({ ...this.props.fyis[fyi] })
-        })
-      }
-
       let filtered = []
-      let filteredFYIs = []
 
       if (
         this.state.filterValue === " " ||
@@ -192,13 +160,9 @@ class AllAlerts extends Component {
         this.state.filterValue === "All"
       ) {
         filtered = [...selectedAlerts]
-        filteredFYIs = [...selectedFYIs]
       } else {
         filtered = selectedAlerts.filter(p =>
-          p.tags.includes(this.state.filterValue)
-        )
-        filteredFYIs = selectedFYIs.filter(p =>
-          p.tags.includes(this.state.filterValue)
+          p.tags[0].includes(this.state.filterValue)
         )
       }
 
@@ -208,9 +172,9 @@ class AllAlerts extends Component {
 
       this.setState({
         selectedAlerts: selectedAlerts,
-        selectedFYIs: selectedFYIs,
+
         filtered: filtered,
-        filteredFYIs: filteredFYIs,
+
         highCount: sevCount[3],
         midCount: sevCount[2],
         lowCount: sevCount[1],
@@ -219,13 +183,6 @@ class AllAlerts extends Component {
   }
 
   render() {
-    // console.log("selectedFYIs", this.state)
-    // console.log(
-    //   "STATEFILT",
-    //   this.state.filtered.map((alert, i) => {
-    //     return alert.tags
-    //   })
-    // )
     console.log("propAlerts", this.props.alerts)
     console.log("PPPPP", this.state.filtered)
 
@@ -246,7 +203,7 @@ class AllAlerts extends Component {
 
     let countText = `${this.state.filtered.length} Alerts`
     if (this.state.selectedTab === TAB_NAMES.fyis) {
-      countText = `${this.state.filteredFYIs.length} FYIs`
+      countText = `${Object.keys(this.props.fyis).length} FYIs`
     }
 
     let sliced = this.state.tags.slice(0, alert.length - 1)
@@ -398,13 +355,10 @@ class AllAlerts extends Component {
                     </div>
                   </div>
                   {this.state.alerting.length === 0 && <b>LOADING...</b>}
-                  {this.state.alerting.length > 0 &&
-                    this.state.filteredFYIs.length === 0 && (
-                      <b>No fyis to show</b>
-                    )}
-                  {this.state.filteredFYIs.length > 0 && (
+
+                  {Object.entries(this.props.fyis).length > 0 && (
                     <div>
-                      {this.state.filteredFYIs.map((fyi, i) => {
+                      {Object.entries(this.props.fyis).map(([key, fyi], i) => {
                         return (
                           <AlertCard
                             key={i}

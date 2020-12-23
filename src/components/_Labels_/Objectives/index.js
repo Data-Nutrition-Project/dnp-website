@@ -8,8 +8,10 @@ class Objectives extends React.Component {
   constructor(props) {
     super(props)
     const objectives = this.props.objectives
+    const theObjs = Object.keys(objectives.objectives)
 
     this.state = {
+      theObjs,
       selectedAlerts: [],
       selectedFYIs: [],
       currentOverview: "",
@@ -35,26 +37,13 @@ class Objectives extends React.Component {
     console.log("OBJJJJ", objectives)
     this.setState({
       selectedAlerts: [...objectives[e.target.value].alerts],
-      selectedFYIs: [...objectives[e.target.value].fyis],
-      currentDescription: e.target.value,
+      currentObjective: e.target.value,
     })
     e.stopPropagation()
-    if (!e.target.value || e.target.value === " " || e.target.value === "") {
-      this.setState({
-        filteredObjs: [],
-      })
-    } else {
-      let filteredObjs = []
-      // filteredObjs = this.props.overviewStuff["objectives"][e.target.value][
-      //   "class-state"
-      // ]
-      filteredObjs = this.props.objectives.objectives[e.target.value]
-        .description
-      this.setState({
-        filteredObjs,
-        currentObjective: e.target.value,
-      })
-    }
+
+    // filteredObjs = this.props.overviewStuff["objectives"][e.target.value][
+    //   "class-state"
+    // ]
   }
   render() {
     console.log("FILTSTATE", this.state.filteredObjs)
@@ -69,12 +58,11 @@ class Objectives extends React.Component {
           handleObjectiveChange={this.handleObjectiveChange}
           // handlePredictionChange={this.handlePredictionChange}
           objectives={this.props.objectives.objectives}
+          theObjs={this.state.theObjs}
           // predictions={useCases["predictions"]}
           // thePreds={this.state.thePreds}
-          filteredObjs={this.state.filteredObjs}
           // currentPrediction={this.state.currentPrediction}
           currentObjective={this.state.currentObjective}
-          currentDescription={this.state.currentDescription}
         />
         <Element id={"Alerts-title"}> </Element>
         <AllAlerts
@@ -83,8 +71,6 @@ class Objectives extends React.Component {
           alerts={objectives.alerts}
           fyis={objectives.fyis}
           selectedAlerts={this.state.selectedAlerts}
-          selectedFYIs={this.state.selectedFYIs}
-          currentDescription={this.state.currentDescription}
         />
       </div>
     )

@@ -93,25 +93,27 @@ class Selector extends Component {
                   >
                     {/* {this.props.filteredObjs.map((f, j) => { */}
                     {/* return ( */}
-                    {this.props.filteredObjs.map((f, j) => {
-                      return (
-                        <label
-                          htmlFor={f}
-                          key={j}
-                          className={classNames(styles.please, {
-                            [styles.pleaseBold]:
-                              this.props.currentObjective === f,
-                          })}
-                        >
-                          <input
-                            type="radio"
-                            value={f}
-                            checked={this.props.currentObjective === f}
-                          />
-                          {this.props.objectives[f].description}
-                        </label>
-                      )
-                    })}
+                    {Object.entries(this.props.objectives).map(
+                      ([key, value], j) => {
+                        return (
+                          <label
+                            htmlFor={key}
+                            key={j}
+                            className={classNames(styles.please, {
+                              [styles.pleaseBold]:
+                                this.props.currentObjective === key,
+                            })}
+                          >
+                            <input
+                              type="radio"
+                              value={key}
+                              checked={this.props.currentObjective === key}
+                            />
+                            {value.description}
+                          </label>
+                        )
+                      }
+                    )}
                     {/* ) */}
                     {/* })} */}
                   </div>
