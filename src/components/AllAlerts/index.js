@@ -128,16 +128,13 @@ class AllAlerts extends Component {
       let filtered = []
       let filteredFYIs = []
 
-      filtered = this.state.selectedAlerts
-        .map(p => p.tags.toString())
-        .filter(q => q.includes(eval))
-      filtered.map(alert => {
+      filtered = filtered.map(alert => {
         sevCount[alert.severity]++
       })
 
-      filteredFYIs = this.state.selectedFYIs.filter(p =>
-        p.category.includes(e.target.value)
-      )
+      // filteredFYIs = this.state.selectedFYIs.filter(p =>
+      //   p.tags.includes(e.target.value)
+      // )
 
       this.setState({
         filtered,
@@ -192,15 +189,15 @@ class AllAlerts extends Component {
         this.state.filterValue === "" ||
         this.state.filterValue === "All"
       ) {
-        filtered = [...this.state.selectedAlerts]
-        filteredFYIs = [...this.state.selectedFYIs]
+        filtered = [...selectedAlerts]
+        filteredFYIs = [...selectedFYIs]
       } else {
         filtered = selectedAlerts.filter(p =>
-          p.category.includes(this.state.filterValue)
+          p.tags.includes(this.state.filterValue)
         )
-        filteredFYIs = selectedFYIs.filter(p =>
-          p.category.includes(this.state.filterValue)
-        )
+        // filteredFYIs = selectedFYIs.filter(p =>
+        //   p.tags.includes(this.state.filterValue)
+        // )
       }
 
       filtered.map(alert => {
@@ -228,12 +225,7 @@ class AllAlerts extends Component {
     //   })
     // )
     console.log("propAlerts", this.props.alerts)
-    console.log(
-      "PPPPP",
-      this.state.filtered.filter(p => {
-        return p.tags
-      })
-    )
+    console.log("PPPPP", this.state.filtered)
 
     console.log(
       "FILTERED",
@@ -437,10 +429,8 @@ class AllAlerts extends Component {
 AllAlerts.propTypes = {
   alertsCase: PropTypes.shape({
     alerts: PropTypes.object,
-    // predictions: PropTypes.object,
     objectives: PropTypes.object,
     fyis: PropTypes.object,
-    "use-cases": PropTypes.object,
   }).isRequired,
   shape: PropTypes.shape({
     color: PropTypes.string,
