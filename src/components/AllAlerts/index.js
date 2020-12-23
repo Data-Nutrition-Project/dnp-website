@@ -23,7 +23,6 @@ const TAB_NAMES = {
 class AllAlerts extends Component {
   constructor(props) {
     super(props)
-    // const preds = this.props.predictions
     const objectives = this.props.objectives
     const tags = []
     const alerting = []
@@ -59,19 +58,14 @@ class AllAlerts extends Component {
       })
     } else {
       this.props.selectedAlerts.map((alert, i) => {
-        console.log("whatAlerts", this.props.alerts)
-        console.log("alertsInTheHouse", alert)
         let alertObj = { ...this.props.alerts[alert] }
-        console.log("aObj", alertObj)
         alertObj.severity = alert.severity
         sevCount[alert.severity]++
         selectedAlerts.push(alertObj)
-        console.log("selecting", selectedAlerts)
       })
     }
 
     this.state = {
-      // preds,
       objectives,
       filtered: selectedAlerts,
       filterValue: "",
@@ -106,17 +100,12 @@ class AllAlerts extends Component {
         filterValue: e.target.value,
       })
     else {
-      console.log("eval", e.target.value)
-      console.log("sAlerts", this.state.selectedAlerts)
-
       let filtered = this.state.selectedAlerts.filter(p =>
         p.tags[0].includes(e.target.value)
       )
-      console.log("filteredArr", filtered)
       filtered.map(alert => {
         sevCount[alert.severity]++
       })
-
       this.setState({
         filtered,
         filterValue: e.target.value,
@@ -142,7 +131,6 @@ class AllAlerts extends Component {
 
       if (this.props.selectedAlerts.length === 0) {
         selectedAlerts = [...this.state.alerting]
-        console.log("alertObjj", this.state.alerting)
       } else {
         this.props.selectedAlerts.map((alert, i) => {
           let alertObj = { ...this.props.alerts[alert.alert] }
@@ -183,34 +171,18 @@ class AllAlerts extends Component {
   }
 
   render() {
-    console.log("propAlerts", this.props.alerts)
-    console.log("PPPPP", this.state.filtered)
+    let countText
+    this.state.filtered.length === 1
+      ? (countText = `${this.state.filtered.length} Alert`)
+      : (countText = `${this.state.filtered.length} Alerts`)
 
-    console.log(
-      "FILTERED",
-      this.state.filtered.filter((p, i) => {
-        return p.tags
-      })
-    )
-    console.log("slerting", this.state.alerting)
-    console.log(
-      "selectedAlerts",
-      this.props.selectedAlerts.map((alert, i) => {
-        return alert.alert
-      })
-    )
-    // console.log("STATETAGS", this.state.tags)
-
-    let countText = `${this.state.filtered.length} Alerts`
     if (this.state.selectedTab === TAB_NAMES.fyis) {
       countText = `${Object.keys(this.props.fyis).length} FYIs`
     }
 
     let sliced = this.state.tags.slice(0, alert.length - 1)
-    console.log("SLICED", sliced)
     let flattenedArray = sliced.flat()
     let uniqueArray = [...new Set(flattenedArray.flat())]
-    console.log("unique", uniqueArray)
     return (
       <>
         <Row className={styles.alertsMargin}>
