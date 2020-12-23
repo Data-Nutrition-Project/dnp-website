@@ -37,7 +37,7 @@ exports[`LabelMenus renders correctly 1`] = `
           <span
             onClick={[Function]}
           >
-            USE CASES/ALERTS
+            OBJECTIVES/ALERTS
           </span>
         </span>
       </div>
