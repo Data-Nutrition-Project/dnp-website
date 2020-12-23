@@ -15,6 +15,8 @@ class Selector extends Component {
   }
 
   render() {
+    console.log("filtObjs", this.props.filteredObjs)
+
     return (
       <>
         <Row>
@@ -44,15 +46,15 @@ class Selector extends Component {
           <Col md={10}>
             <div className={styles.selectorBody}>
               <div className={styles.flexContainer}>
-                <div className={styles.childOne}>
-                  {/* USE CASE */}
+                {/* <div className={styles.childOne}>
+               
                   <h1 className={styles.boldHeader}>Use Case:</h1>
                   <p className={styles.datasetParagraph}>
                     How is the dataset being applied?
                   </p>
                   <span className={styles.datasetUnderlineBold}></span>
                   <div
-                    onChange={this.props.handleUseCaseChange}
+                    onChange={this.props.handleObjectiveChange}
                     className={styles.useCaseList}
                   >
                     {Object.keys(this.props.useCases).map((f, j) => {
@@ -75,7 +77,7 @@ class Selector extends Component {
                       )
                     })}
                   </div>
-                </div>
+                </div> */}
                 <div className={styles.childTwo}>
                   {/* PREDICTIONS */}
                   <h1 className={styles.boldHeader}>Modeling Objectives:</h1>
@@ -87,7 +89,9 @@ class Selector extends Component {
                     onChange={this.props.handleObjectiveChange}
                     className={styles.ulPredictions}
                   >
-                    {this.props.filteredObjs.map((f, j) => {
+                    {/* {this.props.filteredObjs.map((f, j) => { */}
+                    {/* return ( */}
+                    {this.props.objectiveKeys.map((f, j) => {
                       return (
                         <label
                           htmlFor={f}
@@ -102,10 +106,12 @@ class Selector extends Component {
                             value={f}
                             checked={this.props.currentObjective === f}
                           />
-                          {this.props.objectives[f].description}
+                          {this.props.objectivesObject[f].description}
                         </label>
                       )
                     })}
+                    {/* ) */}
+                    {/* })} */}
                   </div>
                 </div>
               </div>

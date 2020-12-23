@@ -7,7 +7,7 @@ import LabelMenus from "../LabelMenus/index"
 import ShareButton from "../ShareButton/index"
 import DatasetInfo from "../_Labels_/DatasetInfo/index"
 import Overview from "../_Labels_/Overview/index"
-import UseCases from "../_Labels_/UseCases/index"
+import Objectives from "../_Labels_/Objectives/index"
 import { fetchLabelThunk } from "../../store/labelStore"
 
 import styles from "./styles.module.css"
@@ -19,6 +19,7 @@ class LabelWrapper extends Component {
   }
 
   render() {
+    console.log("label", this.props.label)
     return (
       <div key={0} className={styles.labelWrapper}>
         {this.props.label.overview === undefined ? (
@@ -48,12 +49,12 @@ class LabelWrapper extends Component {
                   datasetInfoDescription={
                     this.props.label["dataset-info"].description
                   }
-                  topUseCases={this.props.label.overview["top-use-cases"]}
-                  useCasesSection={this.props.label["use-cases-section"]}
+                  topUseCases={this.props.label.overview["use-cases"]}
+                  useCasesSection={this.props.label["objectives-section"]}
                 />
               ) : this.props.base === "OBJECTIVES/ALERTS" ? (
-                <UseCases
-                  useCasesStuff={this.props.label["use-cases-section"]}
+                <Objectives
+                  objectives={this.props.label["objectives-section"]}
                 />
               ) : this.props.base === "DATASET INFO" ? (
                 <DatasetInfo datasetInfo={this.props.label["dataset-info"]} />

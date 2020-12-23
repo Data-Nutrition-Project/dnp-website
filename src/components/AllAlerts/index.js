@@ -23,7 +23,8 @@ const TAB_NAMES = {
 class AllAlerts extends Component {
   constructor(props) {
     super(props)
-    const preds = this.props.predictions
+    // const preds = this.props.predictions
+    const objectives = this.props.objectives
     const tags = []
     const alerting = []
     const fyis = []
@@ -34,21 +35,23 @@ class AllAlerts extends Component {
       1: 0,
     }
 
-    for (const [prediction, info] of Object.entries(this.props.alerts)) {
+    for (const [key, info] of Object.entries(this.props.alerts)) {
+      console.log("alertEntries", info)
       alerting.push(info)
     }
     for (const [key, info] of Object.entries(this.props.fyis)) {
       fyis.push(info)
+      console.log("fyisArr", fyis)
     }
 
     for (const [alert, info] of Object.entries(this.props.alerts)) {
       let string = info.tags
       tags.push(string)
     }
-    for (const [fyi, info] of Object.entries(this.props.fyis)) {
-      let string = info.tags
-      tags.push(string)
-    }
+    // for (const [fyi, info] of Object.entries(this.props.fyis)) {
+    //   let string = info.tags
+    //   tags.push(string)
+    // }
 
     let selectedAlerts = []
     if (this.props.selectedAlerts.length === 0) {
@@ -58,10 +61,14 @@ class AllAlerts extends Component {
       })
     } else {
       this.props.selectedAlerts.map((alert, i) => {
+        console.log("whatAlerts", this.props.alerts)
+        console.log("alertsInTheHouse", alert)
         let alertObj = { ...this.props.alerts[alert] }
+        console.log("aObj", alertObj)
         alertObj.severity = alert.severity
         sevCount[alert.severity]++
         selectedAlerts.push(alertObj)
+        console.log("selecting", selectedAlerts)
       })
     }
 
@@ -75,7 +82,8 @@ class AllAlerts extends Component {
     }
 
     this.state = {
-      preds,
+      // preds,
+      objectives,
       filtered: selectedAlerts,
       filteredFYIs: selectedFYIs,
       filterValue: "",
@@ -112,18 +120,23 @@ class AllAlerts extends Component {
         filterValue: e.target.value,
       })
     else {
+      console.log("eval", e.target.value)
+      console.log(
+        "sAlerts",
+        this.state.selectedAlerts.filter(q => q.tags.includes(e.target.value))
+      )
       let filtered = []
       let filteredFYIs = []
 
-      filtered = this.state.selectedAlerts.filter(p =>
-        p.tags.includes(e.target.value)
-      )
+      filtered = this.state.selectedAlerts
+        .map(p => p.tags.toString())
+        .filter(q => q.includes(eval))
       filtered.map(alert => {
         sevCount[alert.severity]++
       })
 
       filteredFYIs = this.state.selectedFYIs.filter(p =>
-        p.tags.includes(e.target.value)
+        p.category.includes(e.target.value)
       )
 
       this.setState({
@@ -153,9 +166,11 @@ class AllAlerts extends Component {
 
       if (this.props.selectedAlerts.length === 0) {
         selectedAlerts = [...this.state.alerting]
+        console.log("alertObjj", this.state.alerting)
       } else {
         this.props.selectedAlerts.map((alert, i) => {
           let alertObj = { ...this.props.alerts[alert.alert] }
+
           alertObj.severity = alert.severity
           selectedAlerts.push(alertObj)
         })
@@ -177,14 +192,14 @@ class AllAlerts extends Component {
         this.state.filterValue === "" ||
         this.state.filterValue === "All"
       ) {
-        filtered = [...selectedAlerts]
-        filteredFYIs = [...selectedFYIs]
+        filtered = [...this.state.selectedAlerts]
+        filteredFYIs = [...this.state.selectedFYIs]
       } else {
         filtered = selectedAlerts.filter(p =>
-          p.tags.includes(this.state.filterValue)
+          p.category.includes(this.state.filterValue)
         )
         filteredFYIs = selectedFYIs.filter(p =>
-          p.tags.includes(this.state.filterValue)
+          p.category.includes(this.state.filterValue)
         )
       }
 
@@ -205,16 +220,46 @@ class AllAlerts extends Component {
   }
 
   render() {
+    // console.log("selectedFYIs", this.state)
+    // console.log(
+    //   "STATEFILT",
+    //   this.state.filtered.map((alert, i) => {
+    //     return alert.tags
+    //   })
+    // )
+    console.log("propAlerts", this.props.alerts)
+    console.log(
+      "PPPPP",
+      this.state.filtered.filter(p => {
+        return p.tags
+      })
+    )
+
+    console.log(
+      "FILTERED",
+      this.state.filtered.filter((p, i) => {
+        return p.tags
+      })
+    )
+    console.log("slerting", this.state.alerting)
+    console.log(
+      "selectedAlerts",
+      this.props.selectedAlerts.map((alert, i) => {
+        return alert.alert
+      })
+    )
+    // console.log("STATETAGS", this.state.tags)
+
     let countText = `${this.state.filtered.length} Alerts`
     if (this.state.selectedTab === TAB_NAMES.fyis) {
       countText = `${this.state.filteredFYIs.length} FYIs`
     }
 
     let sliced = this.state.tags.slice(0, alert.length - 1)
-
+    console.log("SLICED", sliced)
     let flattenedArray = sliced.flat()
     let uniqueArray = [...new Set(flattenedArray.flat())]
-
+    console.log("unique", uniqueArray)
     return (
       <>
         <Row className={styles.alertsMargin}>
@@ -348,7 +393,7 @@ class AllAlerts extends Component {
                       >
                         <option default>All</option>
 
-                        {sliced.map((tag, i) => {
+                        {uniqueArray.map((tag, i) => {
                           return (
                             <option value={tag} key={i}>
                               {tag}
@@ -392,7 +437,8 @@ class AllAlerts extends Component {
 AllAlerts.propTypes = {
   alertsCase: PropTypes.shape({
     alerts: PropTypes.object,
-    predictions: PropTypes.object,
+    // predictions: PropTypes.object,
+    objectives: PropTypes.object,
     fyis: PropTypes.object,
     "use-cases": PropTypes.object,
   }).isRequired,

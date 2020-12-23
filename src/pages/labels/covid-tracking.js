@@ -8,7 +8,7 @@ import store from "../../store/index"
 const CovidTrackingPage = () => (
   <Provider store={store}>
     <Header />
-    <LabelWrapper jsonFile="ctp-blob" />
+    <LabelWrapper jsonFile="ctp-blob-v2" />
   </Provider>
 )
 

@@ -1,0 +1,880 @@
+{
+    "overview": {
+        "use-cases": [
+            "How will holiday travel impact us?",
+            "Should we enact targeted shutdowns? If so, for how long?",
+            "Should we limit elective procedures at hostpitals for the foreseeable future?",
+            "Does the impact of COVID differ by based on age, race, type of work, socioeconomic status, etc.?",
+            "What do the next few months look like for the US in terms of COVID impact?",
+            "Where do we need to distribute more PPE?"
+        ],
+        "summary": {
+            "Dataset Name": "The Covid Tracking Project Dataset",
+            "Data Collection Range": "January 22, 2020 - Present",
+            "Created By": "COVID Tracking Project, The Atlantic",
+            "Content": "<100 KB, Tabular (csv, JSON)",
+            "Source": "<https://covidtracking.com/data/api>, Historical US Values Section"
+        },
+        "badges": {
+            "data-license": 2,
+            "funding": 1,
+            "quality-review": 2,
+            "ethical-review": 2,
+            "updates": 2
+        }
+    },
+    "dataset-info": {
+        "Description": [
+            {
+                "question": "Tell us about this dataset. ",
+                "help": "Please provide an overview of this dataset.",
+                "type": "markdown",
+                "answer": "This Dataset is comprised of US state level data for Covid-19. All of the data is taken directly from the websites of state/territory public health authorities, and includes, by state: positive and negative cases, pending results, current and cumulative hospitalizations, cumultive and current patients in ICUs, cumulative and current patients on ventilators, total recovered, and total deaths. These numbers are compiled to provide the most complete picture of the US COVID-19 testing effort and the outbreak\u2019s effects on the people and communities it strikes. The data is updated daily between 4-5 pm. Up to date information about the data sources and known issues here: https://covidtracking.com/data"
+            },
+            {
+                "question": "Is there an intended purpose for the dataset? What domain was it designed for? ",
+                "help": "For example, is there a service or organization that leverages this dataset? Is this dataset made available for a certain use in mind?",
+                "type": "markdown",
+                "answer": "The intended purpose is to aggregate accurate daily data about state-level Covid cases, hospital/ICU/ventilator use at the state level, and recovery and deaths for Covid patients at the state-level. This data is manually entered, and sourced from multiple state sources, which enables more thoroughness and nuance than datasets that are automatically generated. Some specific use cases could include better transparency into state reporting, and cross-checking the data with the CDC and other groups reporting data to check for consistency/accuracy/possibly anomolies. "
+            },
+            {
+                "question": "What is the license under which the dataset is made available? ",
+                "help": "If possible, please link to license description. ",
+                "type": "markdown",
+                "answer": "Non-Commercial. The COVID Tracking Project at The Atlantic data and website content is published under a Creative Commons CC BY-NC-4.0 license, which requires users to attribute the source and license type (CC BY-NC-4.0) when sharing the data. Derivative use of this data and website content that supports healthcare or medical research (including institutional use by public health and for-profit organizations), or journalistic usage (by nonprofit or for-profit organizations) is also allowed. All other commercial uses are not permitted under the Creative Commons license, and will require permission from The COVID Tracking Project at The Atlantic.\n\nRead more: https://covidtracking.com/about-data/license"
+            },
+            {
+                "question": "Are there any additional restrictions under which the dataset is made available? Are there any legislation, codes of practice or guidance from the jurisdiction or domain in which the data was collected about the use of this data? Are there tasks for which the dataset cannot be used? Please provide a description or guidance. ",
+                "help": "The purpose of this question is to highlight any information pertinent to data practitioners who may wish to leverage this dataset in their work. This should include any legal restrictions, usage restrictions, license restrictions.",
+                "type": "markdown",
+                "answer": "No. "
+            },
+            {
+                "question": "Are there tasks for which the dataset would be cautioned against being used? If so, please provide a description. ",
+                "help": "For example, use cases that are known to be problematic, such as a generalized use case that highlights historical or systematic issues in the dataset. ",
+                "type": "markdown",
+                "answer": "Yes. The data sources leveraged at the local level are of varying quality, which has been documented through the States Grades initiative: https://covidtracking.com/about-data/state-grades\n\nNote that the data is not compiled at the county or zip-code level because the high-resolution data hasn\u2019t been available in any consistent way at levels below that of the state/territory: https://covidtracking.com/blog"
+            },
+            {
+                "question": "Has the dataset been used for any tasks already? If so, please provide a description and links to papers or systems using the dataset",
+                "help": "Note that for mature datasets, this could be a long list. Feel free to identify types or categories rather than list every known implementation. ",
+                "type": "markdown",
+                "answer": "Yes. This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations. "
+            }
+        ],
+        "Provenance": [
+            {
+                "question": "Who created the dataset and on behalf of which entity?",
+                "help": "e.g. which team or research group on behalf of which company, institution, organization?",
+                "type": "markdown",
+                "answer": "Created by the Covid-Tracking Project, composed of volunteers and supported by the Atlantic Monthly Group."
+            },
+            {
+                "question": "How is / was the collection and management of this dataset funded? ",
+                "help": "",
+                "type": "markdown",
+                "answer": "Non-Profit Group, Private Corporation, or Organization. This dataset is supported by The Atlantic Monthly Group, the Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation. "
+            }
+        ],
+        "Collection": [
+            {
+                "question": "Over what timeframe was the data collected? If the data continues to be updated, please indicate. ",
+                "help": "",
+                "type": "markdown",
+                "answer": "Collection on a subset of data began on 20200122, and has continued daily since, with additional states being added over time. From March 14 forward there are timestamped snapshots of the data source we used for each change available publicly. We update the full dataset each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. "
+            },
+            {
+                "question": "What mechanisms or procedures were used to collect the data?",
+                "help": "e.g. Manual curation of data, software API, hardware apparatus or sensor",
+                "type": "markdown",
+                "answer": "Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\n\nAPIs, web site scraping, social media monitoring, human recording. More info here: https://covidtracking.com/about-data/sources"
+            },
+            {
+                "question": "What is the relationship between the dataset collector and owners or managers of the dataset?",
+                "help": "",
+                "type": "markdown",
+                "answer": "The original data was collected, cleaned, and distributed by individual states or jurisdictions. The data has been preprocessed and cleaned by the Covid Tracking Project after collected and organized from the original sources. "
+            },
+            {
+                "question": "If individuals' data is included in this dataset, did those individuals consent to the collection and use of their data? If so, please describe consent procedure.",
+                "help": "",
+                "type": "markdown",
+                "answer": "N/A. There is no individual-level data in the dataset, and thus no consent collected. "
+            },
+            {
+                "question": "If individuals' data is included in this dataset, was this data altered to ensure higher levels of privacy? If yes, please describe any privacy procedures followed with regards to this dataset (anonymization efforts, privacy protocols, supression techniques, etc). ",
+                "help": "If sensitive, feel free to describe these procedures at a high level. ",
+                "type": "markdown",
+                "answer": "N/A. There is no individual-level data in the dataset, and thus no anonymization process. "
+            },
+            {
+                "question": "Has the data been reviewed for quality?",
+                "help": "If so, please provide information about the review process. ",
+                "type": "markdown",
+                "answer": "Yes. Data has been reviewed by internal team. To help members of the public understand how well each state is performing, The Covid Tracking Project has assigned each state a data-quality grade based on an assessment of the completeness of their reporting. See the State Grades and learn more about the quality metrics here: https://covidtracking.com/about-data/state-grades"
+            },
+            {
+                "question": "Were any ethical review processes conducted (e.g., by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.",
+                "help": "If so, please provide information about the review process. ",
+                "type": "markdown",
+                "answer": "Yes. The dataset volunteer team has an advisory board which provides accountability. Additionally, the team has partnered with the Center for Antiracist Research in data processing: https://covidtracking.com/about/advisory-board"
+            }
+        ],
+        "Management": [
+            {
+                "question": "How is the data being mananged at rest and in transit?",
+                "help": "Particularly with regards to encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software. ",
+                "type": "markdown",
+                "answer": "Internally. The data is managed by the internal team at the organization. "
+            },
+            {
+                "question": "How can the data be accessed? If this is going to change over time, please indicate this. ",
+                "help": "Please indicte permanent URL location or method by which data can be accessed. ",
+                "type": "markdown",
+                "answer": "You can download CSV files for everything tracked, see the dataset as a spreadsheet, or use the APIs:\n\nDownload CSVs: https://covidtracking.com/data/download\n\nSpreadseheet Online: https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml\n\nAPI: https://covidtracking.com/api"
+            },
+            {
+                "question": "Will the dataset be distributed to any other individuals/third parties (e.g. companies, institutions, organizations)? If yes, when will the dataset be distributed and how will the dataset be distributed (e.g. GitHub, tarball on the website, etc)?",
+                "help": "",
+                "type": "markdown",
+                "answer": "Unknown. "
+            },
+            {
+                "question": "Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)? If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?",
+                "help": "",
+                "type": "markdown",
+                "answer": "Data is updated daily. See more details at: <https://covidtracking.com/about-data>"
+            },
+            {
+                "question": "Is there a mechanism through which an individual can request their personal information be removed?",
+                "help": "",
+                "type": "markdown",
+                "answer": "N/A. There is no individual-level data in the dataset, and thus no process for individual level data removal. "
+            }
+        ],
+        "Composition": [
+            {
+                "question": "Does the dataset have a metadata repository or data dictionary? If yes, please provide the link and if not, please explain what each field means.",
+                "help": "The purpose of this question is to enable data practitioners to understand what is contained in the dataset at a field level. ",
+                "type": "markdown",
+                "answer": "See individual sections of the website for detailed data dictionary: https://covidtracking.com/data/api"
+            },
+            {
+                "question": "In the case of explicitly related instances, are these relationships indicated? \n(e.g., relating an instance about a user to instances about their posts)",
+                "help": "Explicitly related instances refers to instances that include pointers or keys to other instances. If applicable, please describe these relationships or indicate where to find more information. ",
+                "type": "markdown",
+                "answer": "No. Instances are a time series; the same state appears many times and indicates the same geographical territory.  "
+            },
+            {
+                "question": "What data does each instance consist of? For example, does it consist of raw data (e.g., unprocessed text or images) or features? In either case, please provide a description.",
+                "help": "If this information has been described elsewhere, please indicate where it can be found (e.g. data dictionary). ",
+                "type": "markdown",
+                "answer": "It includes the following data by state in the form of numberical units: positive and negative, cumulative and daily; hostiptalized: current and cummulative; ICU: current and cumulative; ventilator use: current and cumulative; cumulative deaths & recovered. "
+            },
+            {
+                "question": "How many instances are there in total (of each type, if appropriate)?",
+                "help": "The purpose of this question is to enable data practitioners to quickly understand the size or breadth of a dataset. If this is covered in the data dictionary or elsewhere, please indicate where this information can be found. ",
+                "type": "markdown",
+                "answer": "New instances added daily at a rate of 56 instances/day. "
+            },
+            {
+                "question": "Is there a label or target associated with each instance?",
+                "help": "Please indicate the use of labels / targets. 'Labels' and 'Targets' facilitate the use of the dataset in classification algorithms. You can learn more about this here: https://en.wikipedia.org/wiki/Labeled_data",
+                "type": "markdown",
+                "answer": "Yes. Each instance is (state, date). "
+            },
+            {
+                "question": "Is any information missing from individual instances? If so, what is missing and why?",
+                "help": "For example, if a subset of instances have known collection or data fidelity issues due to e.g. collection timeframe gaps, geographical differences, etc.",
+                "type": "markdown",
+                "answer": "Yes. Many known quality issues, mostly from the underlying data (collected from individual geographies). State Grades have been given to each state's data based on a variety of factors. \nState Grades: https://covidtracking.com/data\nFactors: https://covidtracking.com/about-data/state-grades"
+            },
+            {
+                "question": "Is your dataset a sample? If so, what was the sampling strategy used (e.g. deterministic, probabilistic with specific sampling probabilities), and does it accurately represents the intended output?",
+                "help": "If your dataset is a sample, please describe sampling methodology. If your sample is not representative of the population data, please describe why not (e.g. to cover a more diverse range of instances, because instances were withheld or unavailable).",
+                "type": "markdown",
+                "answer": "No. This dataset is not a sample. "
+            },
+            {
+                "question": "Was any preprocessing/cleaning/labeling of the data done? If so, please provide a description. ",
+                "help": "e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values",
+                "type": "markdown",
+                "answer": "Yes. Dataset was scraped when possible and leveraged manual human cleaning where applicable by the Covid Tracking Project team. More info here: https://covidtracking.com/about-data/faq"
+            },
+            {
+                "question": "If the data was processed, was the raw data saved in addition to the preprocessed/cleaned/labeled data? If yes, please provide a link to the raw data.",
+                "help": "Data practitioners may want to confirm your preprocessing steps to better understand the final data product. ",
+                "type": "markdown",
+                "answer": "No. Raw data is not available within the dataset but is available at over 50 upstream data sources. See each state's data section to find more information about upstream data sources: <https://covidtracking.com/data>"
+            },
+            {
+                "question": "Are there recommended data splits? If so, please provide a description of these splits, explaining the rationale behind them.",
+                "help": "Common splits include training, development/validation, testing data.",
+                "type": "markdown",
+                "answer": "No. "
+            },
+            {
+                "question": "Are there any errors, sources of noise, or redundancies in the dataset? If so, please provide a description",
+                "help": "",
+                "type": "markdown",
+                "answer": "Yes. Many known quality issues with underlying data. You can see state-specific quality information: \nState Grades: https://covidtracking.com/data"
+            },
+            {
+                "question": "Does the dataset include information from upstream sources? If so, name these sources, their stability, and any known usage limitations. ",
+                "help": "Upstream sources can include e.g. other datasets, research papers, tweets, websites.",
+                "type": "markdown",
+                "answer": "Yes. \"Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\"\n\nSource: <https://covidtracking.com/about-data/sources>"
+            },
+            {
+                "question": "If the datastet includes information from upstream sources, is this dataset technically dependent upon those sources? ",
+                "help": "For example, if this dataset pulls data in directly from an external API it is technically dependent upon that upstream source being available. ",
+                "type": "markdown",
+                "answer": "Self-Contained. The dataset does not have any technical dependencies. "
+            },
+            {
+                "question": "Is there confidential data included in this dataset?",
+                "help": "If so, please indicate the nature of the data and for what purpose this data is included. ",
+                "type": "markdown",
+                "answer": "No. There is no confidential data included in this dataset. "
+            },
+            {
+                "question": "Does the dataset identify any subpopulations (e.g., by age, gender)? If yes, please indicate their distributions within the dataset where possible / available.  ",
+                "help": "",
+                "type": "markdown",
+                "answer": "N/A. There are no subpopulations identified in this dataset (e.g., by age, gender). "
+            }
+        ]
+    },
+    "objectives-section": {
+        "alerts": {
+            "no-racial-breakdown": {
+                "title": "Case data not split out by race",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        "Racial Bias"
+                    ]
+                ],
+                "mitigation": "CTP has done considerable extra work to analyze the extent to which individual states' racial data is accurate and transparent, available in their [Racial Data Dashboard](https://covidtracking.com/race/dashboard). Using this data as context for any objective can help mitigate any biases perpetuated due to individual states' lack of reporting racial data.",
+                "severity": 2.0,
+                "content": "[Recent studies have shown](https://www.nytimes.com/interactive/2020/07/05/us/coronavirus-latinos-african-americans-cdc-data.html) that there are racial disparities in who the virus impacts. While some states are starting to report racial data, not all of them have. As a consequence, this dataset does not have racial data and therefore cannot account for disparate impacts on people by race in decision making."
+            },
+            "no-gender-breakdown": {
+                "title": "Case data not split out by gender",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        "Gender Bias"
+                    ]
+                ],
+                "mitigation": "No current mitigation known. This would require additional reported data in the upstream data sources from which CTP pulls, or combination with another dataset that has this data. No known external dataset could be used, however. ",
+                "severity": 3.0,
+                "content": "While some states are starting to report gender data, not all of them have. As a consequence, this dataset does not have gender data and therefore cannot account for disparate impacts on people by gender in decision making."
+            },
+            "no-worktype-breakdown": {
+                "title": "Case data not split out by type of employment",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        "Socioeconomic Bias"
+                    ]
+                ],
+                "mitigation": "No current mitigation known. This would require additional reported data in the upstream data sources from which CTP pulls, or combination with another dataset that has this data. No known external dataset could be used, however. ",
+                "severity": 3.0,
+                "content": "There is no breakdown by employment type, and therefore we cannot tell if essential workers are being adversely impacted due to their increased exposure and/or access to PPE. This is important data when considering reopening guidelines."
+            },
+            "geographic-specificity": {
+                "title": "Reports by state only, no reports by county or zip code",
+                "type": "markdown",
+                "category": "Completeness",
+                "tags": [
+                    [
+                        "Socioeconomic Bias"
+                    ]
+                ],
+                "mitigation": "No current mitigation known. As [reported by CTP](https://covidtracking.com/about-data), \"we don\u2019t attempt to compile this data at the county or zip-code level, because the high-resolution data we\u2019re seeking hasn\u2019t been available in any consistent way at levels below that of the state/territory. This may change over time, but that\u2019s where we are today.\"",
+                "severity": 3.0,
+                "content": "State-level data is helpful for breaking down reopening guidelines from a state perspective. However, a lack of more granular information prevents seeing the impact of outbreaks based on socioecnomic and racial factors, which are more tightly correlated with zip codes due to existing racial and socioeconomic segregation in many metropolitan areas. In this dataset, the data is not compiled at the county or zip-code level because the high-resolution data hasn\u2019t been available in any consistent way at levels below that of the state/territory: <https://covidtracking.com/blog>."
+            },
+            "testing-dependency": {
+                "title": "Confirmed Active Cases Highly Dependent on Testing",
+                "type": "markdown",
+                "category": "Provenance",
+                "tags": [
+                    [
+                        "Non-representative Sample Size"
+                    ]
+                ],
+                "mitigation": "No current mitigation known. This is an issue with upstream data reporting/collection to begin with, and the nature of the data due to current resources available in general.",
+                "severity": 3.0,
+                "content": "Testing rates are not high enough in most states to get an accurate account of the number of confirmed active cases impact state-wide. However, one can use ratios between testing & confirmed active to mitigate this issue somewhat. [See here](https://www.propublica.org/article/how-to-understand-covid-19-numbers) for more information."
+            },
+            "inconsistent-reporting": {
+                "title": "Reporting is Inconsistent Across States",
+                "type": "markdown",
+                "category": "Collection",
+                "tags": [
+                    [
+                        "Non-representative Sample Size"
+                    ]
+                ],
+                "mitigation": "CTP reports [grades](https://covidtracking.com/about-data/state-grades) for each states, and this can be used to qualify any objectie modeling based on a state's grade.",
+                "severity": 2.0,
+                "content": "Reporting is not consistent across states; some states have health deparments for each town/city, while some only have health departments for the state, making reporting more cumbersome. Additionally, state health departments may be pressured politically to not create comprehensive reports, as those may impact economic reopening plans."
+            },
+            "reporting-date-epi-date": {
+                "title": "Reporting Date is Not Always When Infection Occurred",
+                "type": "markdown",
+                "category": "Provenance",
+                "tags": [
+                    [
+                        "Out of Date Data"
+                    ]
+                ],
+                "mitigation": "Using 7-day and 14-day rolling averages when projecting timeseries data can mitigate issues of unknown incubation period to some extent.",
+                "severity": 1.0,
+                "content": "COVID can incubate for up to 14 days before manifesting symptoms, meaning the tie between a reported date and an infecting event is strained. This can make it difficult to get an accurate, real time picture of what's happening."
+            },
+            "test-definition": {
+                "title": "Definition of Total Tests Varies",
+                "type": "markdown",
+                "category": "Provenance",
+                "tags": [
+                    [
+                        "Non-representative Data"
+                    ]
+                ],
+                "mitigation": "Going to the origin point of CTP's data, individual state reporting systems, and deducing from their documentation how they tally \"total tests\" would be a way to account for different states reporting this value differently. This information may or may not be available for all states.",
+                "severity": 2.0,
+                "content": "[As noted](https://covidtracking.com/blog/counting-covid-19-tests) by the CTP, different states tally \"total tests\" in different ways \u2013 some by total unique people, some by total specimens, etc. This can make it difficult to model testing capacity by state, since it is not uniform."
+            },
+            "case-reassignment": {
+                "title": "Patient Data Sometimes Get Reassigned to Another State",
+                "type": "markdown",
+                "category": "Provenance",
+                "tags": [
+                    [
+                        "Non-representative Sample Size"
+                    ]
+                ],
+                "mitigation": "No current mitigation known.",
+                "severity": 3.0,
+                "content": "State-wide data can get artificially inflated/deflated by patient data getting moved from one plact to another, which can impact trends in cases, and how they are seen."
+            },
+            "excluded-purpose": {
+                "title": "Excluded Purpose: Usage Restrictions",
+                "type": "markdown",
+                "category": "Description",
+                "tags": [
+                    [
+                        "Purpose Definition"
+                    ]
+                ],
+                "mitigation": "Follow license restrictions when using this dataset or learn more about usage if unclear. ",
+                "severity": 1.0,
+                "content": "The COVID Tracking Project at The Atlantic data and website content is published under a Creative Commons CC BY-NC-4.0 license, which requires users to attribute the source and license type (CC BY-NC-4.0) when sharing the data. Derivative use of this data and website content that supports healthcare or medical research (including institutional use by public health and for-profit organizations), or journalistic usage (by nonprofit or for-profit organizations) is also allowed. All other commercial uses are not permitted under the Creative Commons license, and will require permission from The COVID Tracking Project at The Atlantic.\n\nRead more: <https://covidtracking.com/about-data/license>"
+            },
+            "cautioned-purpose": {
+                "title": "Cautioned Purpose: Use caution on specific use of dataset",
+                "type": "markdown",
+                "category": "Description",
+                "tags": [
+                    [
+                        "Purpose Definition"
+                    ]
+                ],
+                "mitigation": "No current mitigation known.",
+                "severity": 3.0,
+                "content": "The data sources leveraged at the local level are of varying quality, which has been documented through the States Grades initiative: <https://covidtracking.com/about-data/state-grades>"
+            },
+            "missing-data": {
+                "title": "Varying levels of quality of local data ",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    [
+                        "Non-representative Data"
+                    ]
+                ],
+                "mitigation": "No current mitigation known. This is an issue with upstream data reporting/collection to begin with, and the nature of the data due to current resources available in general.",
+                "severity": 3.0,
+                "content": "The data sources leveraged at the local level are of varying quality, which has been documented through the States Grades initiative: <https://covidtracking.com/about-data/state-grades>"
+            }
+        },
+        "fyis": {
+            "data-license": {
+                "title": "License uses Creative Commons ",
+                "type": "markdown",
+                "category": "Description",
+                "content": "Non-Commercial. The COVID Tracking Project at The Atlantic data and website content is published under a Creative Commons CC BY-NC-4.0 license, which requires users to attribute the source and license type (CC BY-NC-4.0) when sharing the data. Derivative use of this data and website content that supports healthcare or medical research (including institutional use by public health and for-profit organizations), or journalistic usage (by nonprofit or for-profit organizations) is also allowed. All other commercial uses are not permitted under the Creative Commons license, and will require permission from The COVID Tracking Project at The Atlantic.\n\nRead more: https://covidtracking.com/about-data/license"
+            },
+            "existing-use-case": {
+                "title": "Existing Use Cases",
+                "type": "markdown",
+                "category": "Description",
+                "content": "This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations. "
+            },
+            "funding": {
+                "title": "Dataset is Publicly Funded",
+                "type": "markdown",
+                "category": "Provenance",
+                "content": "This dataset is supported by The Atlantic Monthly Group, the Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation. "
+            },
+            "dataset-sampling": {
+                "title": "Dataset is not a Sample",
+                "type": "markdown",
+                "category": "Completeness",
+                "content": "This dataset is not a sample. "
+            },
+            "raw-data": {
+                "title": "Raw Data",
+                "type": "markdown",
+                "category": "Completeness",
+                "content": "Raw data is not available within the dataset but is available at over 50 upstream data sources. See each state's data section to find more information about upstream data sources: <https://covidtracking.com/data>"
+            },
+            "upstream-dependence": {
+                "title": "Dataset Dependent upon Upstream Data Sources",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "\"Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\"\n\nSource: <https://covidtracking.com/about-data/sources>"
+            },
+            "confidential-data": {
+                "title": "No Confidential Data ",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "There is no confidential data included in this dataset. "
+            },
+            "dataset-subpopulations": {
+                "title": "Dataset Subpopulations",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "There are no subpopulations identified in this dataset (e.g., by age, gender). "
+            },
+            "collection-timeframe": {
+                "title": "Collection Timeframe",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "Collection on a subset of data began on 20200122, and has continued daily since, with additional states being added over time. From March 14 forward there are timestamped snapshots of the data source we used for each change available publicly. We update the full dataset each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. "
+            },
+            "collection-organization": {
+                "title": "Collection Organization",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "The original data was collected, cleaned, and distributed by individual states or jurisdictions. The data has been preprocessed and cleaned by the Covid Tracking Project after collected and organized from the original sources. "
+            },
+            "user-consent": {
+                "title": "User Consent",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "There is no individual-level data in the dataset, and thus no consent collected. "
+            },
+            "anonymization": {
+                "title": "Anonymization Process",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "There is no individual-level data in the dataset, and thus no anonymization process. "
+            },
+            "quality-review": {
+                "title": "Quality Review is Done",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "Data has been reviewed by internal team. To help members of the public understand how well each state is performing, The Covid Tracking Project has assigned each state a data-quality grade based on an assessment of the completeness of their reporting. See the State Grades and learn more about the quality metrics here: <https://covidtracking.com/about-data/state-grades>"
+            },
+            "ethical-review": {
+                "title": "Ethical Review is Done",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "The dataset volunteer team has an advisory board which provides accountability. Additionally, the team has partnered with the Center for Antiracist Research in data processing: <https://covidtracking.com/about/advisory-board>"
+            },
+            "updates": {
+                "title": "Updated Daily",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "Data is updated daily. See more details at: <https://covidtracking.com/about-data>"
+            }
+        },
+        "objectives": {
+            "pred-icu": {
+                "description": "Predict ICU occupation in the future",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "pred-hos": {
+                "description": "Predict hospitalizations in the future",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "pred-vent": {
+                "description": "Predict ventilator usage in the future",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "pred-rate-hos": {
+                "description": "Predict rate of increase in hospitalization",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "pred-rate-test": {
+                "description": "Predict rate of increase in positive tests",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "test-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "class-state": {
+                "description": "Classify states into binary categories",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "cluster-state": {
+                "description": "Cluster states into groups",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "mod-test": {
+                "description": "Model weekly patterns in test results",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "testing-dependency",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "reporting-date-epi-date",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "test-definition",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "case-reassignment",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "mod-hos": {
+                "description": "Model weekly patterns in hospitalization rates",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "mod-vent": {
+                "description": "Model weekly patterns in ventilator usage",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            }
+        }
+    }
+}
