@@ -1,25 +1,31 @@
 {
     "overview": {
+        "use-cases": [
+            "Identify diagnosis in lesion images",
+            "Predict incidence of diagnosis in a population"
+        ],
         "summary": {
-            "datasetName": "2018 SIIM-ISIC Melanoma Classification Challenge Dataset",
-            "dataCollectionRange": "1998 - 2018",
-            "datasetPublishDate": "Unknown",
-            "datasetUpdateFrequency": "Unknown",
-            "lastLabelUpdate": "Unknown",
-            "createdBy": "International Skin Imaging Collaboration (ISIC)",
-            "creatorContactInfo": "TBA",
-            "licenseInfo": "CC-BY-NC",
-            "datasetSize": "(Trillions of bytes)",
-            "datasetFormat": "Big. Rul big.",
-            "sourceURL": "?"
+            "Dataset Name": "2018 SIIM-ISIC Melanoma Classification Challenge Dataset",
+            "Data Collection Range": "1998 - 2018",
+            "Created By": "International Skin Imaging Collaboration (ISIC)",
+            "Content": "Training of neural networks for automated diagnosis of pigmented skin lesions is hampered by the small size and lack of diversity of available dataset of dermatoscopic images. We tackle this problem by releasing the HAM10000 (\"Human Against Machine with 10000 training images\") dataset. We collected dermatoscopic images from different populations, acquired and stored by different modalities. The final dataset consists of 10015 dermatoscopic images which can serve as a training set for academic machine learning purposes.",
+            "Source": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T"
         },
-        "top-use-cases": [
-            "identify-melanoma",
-            "predict-incidence"
-        ]
+        "badges": {
+            "about-humans": 1,
+            "individual-data": 1,
+            "data-license": 2,
+            "funding": 1,
+            "subpopulations": 1,
+            "quality-review": 1,
+            "ethical-review": 1,
+            "updates": 4,
+            "data-license": 1,
+            "source": 1
+        }
     },
     "dataset-info": {
-        "description": [
+        "Description": [
             {
                 "question": "Tell us about this dataset. ",
                 "help": "Please provide an overview of this dataset.",
@@ -57,7 +63,7 @@
                 "answer": "Yes. The dataset was provided to the participants of the ISIC 2018 classification challenge. The challenge was run through Kaggle (https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000) and hosted by the annual MICCAI conference in Granada, Spain."
             }
         ],
-        "provenance": [
+        "Provenance": [
             {
                 "question": "Who created the dataset and on behalf of which entity?",
                 "help": "e.g. which team or research group on behalf of which company, institution, organization?",
@@ -71,7 +77,7 @@
                 "answer": "Unknown - possibly ViDIR Group (Medical University of Vienna) https://www.meduniwien.ac.at/vidir "
             }
         ],
-        "collection": [
+        "Collection": [
             {
                 "question": "Over what timeframe was the data collected? If the data continues to be updated, please indicate. ",
                 "help": "",
@@ -115,7 +121,7 @@
                 "answer": "The data collection was approved by the ethics review committee at the Medical University of Vienna and the University of Queensland."
             }
         ],
-        "management": [
+        "Management": [
             {
                 "question": "How is the data being mananged at rest and in transit?",
                 "help": "Particularly with regards to encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software. ",
@@ -147,7 +153,7 @@
                 "answer": "?"
             }
         ],
-        "composition": [
+        "Composition": [
             {
                 "question": "Does the dataset have a metadata repository or data dictionary? If yes, please provide the link and if not, please explain what each field means.",
                 "help": "The purpose of this question is to enable data practitioners to understand what is contained in the dataset at a field level. ",
@@ -240,16 +246,14 @@
             }
         ]
     },
-    "use-cases-section": {
+    "objectives-section": {
         "alerts": {
             "same-patient": {
                 "title": "Dataset does not indicate which (if any) legions are from the same patient",
                 "type": "markdown",
                 "category": "Composition",
                 "tags": [
-                    [
-                        ""
-                    ]
+                    ""
                 ],
                 "mitigation": "None known. ",
                 "severity": 2.0,
@@ -260,9 +264,7 @@
                 "type": "markdown",
                 "category": "Completeness",
                 "tags": [
-                    [
-                        ""
-                    ]
+                    ""
                 ],
                 "mitigation": "None known; caution against using this dataset to do general epidemiological modeling. ",
                 "severity": "",
@@ -273,9 +275,7 @@
                 "type": "markdown",
                 "category": "Completeness",
                 "tags": [
-                    [
-                        "Racial Bias "
-                    ]
+                    "Racial Bias "
                 ],
                 "mitigation": "None Known. ",
                 "severity": "",
@@ -283,217 +283,164 @@
             }
         },
         "fyis": {
+            "data-license": {
+                "title": "Data License is Non-Commercial",
+                "type": "markdown",
+                "category": "Description",
+                "content": "Non-Commercial. The dataset is licensed under Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0), which allows non-comercial use of the dataset with attribution. Read more about the license here: https://creativecommons.org/licenses/by-nc-sa/4.0/"
+            },
+            "existing-use-case": {
+                "title": "Existing Use Cases",
+                "type": "markdown",
+                "category": "Description",
+                "content": "Yes. The dataset was provided to the participants of the ISIC 2018 classification challenge. The challenge was run through Kaggle (https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000) and hosted by the annual MICCAI conference in Granada, Spain."
+            },
+            "funding": {
+                "title": "Funding Sources",
+                "type": "markdown",
+                "category": "Provenance",
+                "content": "Unknown - possibly ViDIR Group (Medical University of Vienna) https://www.meduniwien.ac.at/vidir "
+            },
+            "dataset-sampling": {
+                "title": "Dataset is accurately sampled",
+                "type": "markdown",
+                "category": "Completeness",
+                "content": ""
+            },
+            "raw-data": {
+                "title": "Raw Data Not Accessible",
+                "type": "markdown",
+                "category": "Completeness",
+                "content": "The raw data is maintained by the original imaging databases, but cannot be accessed by the public. "
+            },
+            "upstream-dependence": {
+                "title": "No upstream data dependency",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "Dataset is not dependent on any upstream sources for content."
+            },
+            "confidential-data": {
+                "title": "No confidential data in dataset",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "No confidential data is contained in this dataset "
+            },
+            "subpopulations": {
+                "title": "Subpopulations Identified",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "This dataset identifies people based on: Physical attributes, Age (approximate, at time image was taken), Biological Sex"
+            },
+            "collection-timeframe": {
+                "title": "",
+                "type": "markdown",
+                "category": "Composition",
+                "content": ""
+            },
+            "collection-organization": {
+                "title": "Collected by same organization as development",
+                "type": "markdown",
+                "category": "Composition",
+                "content": "The data in this dataset is collected by the same organization as the one that developed the dataset itself."
+            },
+            "user-consent": {
+                "title": "Consent Gathered",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "Consent was gathered from patients at each medical site according to their individual policies??"
+            },
+            "anonymization": {
+                "title": "Data Anonymized",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "We used automated screening by neural networks, multiple manual reviews and cleared EXIF-data of the images to remove any potentially identifiable information. Data can thus be regarded anonymized to the best of our knowledge."
+            },
+            "quality-review": {
+                "title": "",
+                "type": "markdown",
+                "category": "Collection",
+                "content": ""
+            },
+            "ethical-review": {
+                "title": "Ethical Review Completed",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "The data collection was approved by the ethics review committee at the Medical University of Vienna and the University of Queensland."
+            },
+            "updates": {
+                "title": "Dataset is static",
+                "type": "markdown",
+                "category": "Collection",
+                "content": "No updates are performed on this dataset."
+            },
+            "right-removed": {
+                "title": "",
+                "type": "markdown",
+                "category": "Collection",
+                "content": ""
+            },
             "photo-choice": {
                 "title": "Preprocessing - Choice of photo when there were several ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "From a series of multiple sequential images of the same nevus we extracted only the most recent one."
             },
-            "methodology-tool ": {
+            "methodology-tool": {
                 "title": "Preprocessing - Selection and exclusion of images",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "Selection and exclusion of images: We selected only non-melanocytic lesions with a consensus benign diagnosis, nevi with >1.5 years of digital dermatoscopic follow-up, and excised lesions with a histopathologic report. Cases with uncertain diagnoses and collisions were excluded except for melanomas in association with a nevus."
             },
             "selection-images": {
                 "title": "Preprocessing - Standardization techniques across data source and type ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "Data was automatically and manually adjusted to standardize formats, digitize diapositives, crop and center images, save at specific resolutions and in quadratic pixels, make manual histogram corrections"
             },
             "manual-qa": {
                 "title": "Preprocessing - Manual QA ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "A final manual screening and validation round was performed on all images to exclude cases with issues relating to type, identifiability, quality, and content. "
-            },
-            "consent": {
-                "title": "Consent Gathered",
-                "type": "markdown",
-                "category": "Collection",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "Consent was gathered from patients at each medical site according to their individual policies??"
-            },
-            "anonymized": {
-                "title": "Data Anonymized",
-                "type": "markdown",
-                "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "We used automated screening by neural networks, multiple manual reviews and cleared EXIF-data of the images to remove any potentially identifiable information. Data can thus be regarded anonymized to the best of our knowledge."
-            },
-            "ethical-review": {
-                "title": "Ethical Review",
-                "type": "markdown",
-                "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "The data collection was approved by the ethics review committee at the Medical University of Vienna and the University of Queensland."
             },
             "contact": {
                 "title": "Contact Dataset Owner",
                 "type": "markdown",
                 "category": "Provenance",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "You can contact ISIC through the forum here: https://forum.isic-archive.com/"
             },
             "usage-restrictions": {
                 "title": "Usage Restrictions",
                 "type": "markdown",
                 "category": "Description",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "No additional usage restrictions beyond license. "
-            },
-            "license ": {
-                "title": "Data License is Non-Commercial",
-                "type": "markdown",
-                "category": "Description",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "Non-Commercial. The dataset is licensed under Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0), which allows non-comercial use of the dataset with attribution. Read more about the license here: https://creativecommons.org/licenses/by-nc-sa/4.0/"
-            },
-            "existing-use": {
-                "title": "Existing Use Cases",
-                "type": "markdown",
-                "category": "Description",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "Yes. The dataset was provided to the participants of the ISIC 2018 classification challenge. The challenge was run through Kaggle (https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000) and hosted by the annual MICCAI conference in Granada, Spain."
             },
             "same-lesion": {
                 "title": "Dataset indicates which images of the same lesion ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "The dataset includes lesions with multiple images, which can be tracked by the lesionid-column within the HAM10000_metadata file."
-            },
-            "funding": {
-                "title": "Funding Sources",
-                "type": "markdown",
-                "category": "Provenance",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "Unknown - possibly ViDIR Group (Medical University of Vienna) https://www.meduniwien.ac.at/vidir "
             },
             "define-diagnoses": {
                 "title": "Methodology: Definition of Diagnoses",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "Diagnoses Categorization: The seven generic classes were chosen for simplicity and in regard of the intended use as a benchmark dataset for the diagnosis of pigmented lesions by humans and machines. The seven classes covered more than 95% of all pigmented lesions examined in daily clinical practice of the two study sites. "
             },
             "define-benign": {
                 "title": "Methodology: Definition of Benign ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "Definition of Benign: If nevi monitored by digital dermatoscopy did not show any changes during 3 follow-up visits or 1.5 years we accepted this as evidence of biologic benignity. "
             },
             "instance-labels": {
                 "title": "Instance Labels",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
                 "content": "Cases include a representative collection of all important diagnostic categories in the realm of pigmented lesions: Actinic keratoses and intraepithelial carcinoma / Bowen's disease (akiec), basal cell carcinoma (bcc), benign keratosis-like lesions (solar lentigines / seborrheic keratoses and lichen-planus like keratoses, bkl), dermatofibroma (df), melanoma (mel), melanocytic nevi (nv) and vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage, vasc)."
-            },
-            "noise": {
-                "title": "Noise not removed from images",
-                "type": "markdown",
-                "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "Very rarely also small angiomas and seborrheic keratoses may collide with the target lesion. We did not remove this \"noise\" and we also did not remove terminal hairs because it reflects the situation in clinical practice. "
-            },
-            "confidential-data": {
-                "title": "No confidential data in dataset",
-                "type": "markdown",
-                "category": "Composition",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "No confidential data is contained in this dataset "
-            },
-            "raw-data": {
-                "title": "Raw Data Not Accessible",
-                "type": "markdown",
-                "category": "Provenance",
-                "tags": [
-                    [
-                        ""
-                    ]
-                ],
-                "content": "The raw data is maintained by the original imaging databases, but cannot be accessed by the public. "
             }
         },
-        "predictions": {
+        "objectives": {
             "performance-site": {
                 "description": "Calculate Accuracy: Performance vs. Anatomical Site ",
                 "alerts": [
@@ -509,27 +456,6 @@
                         "alert": "skin-representation",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "photo-choice",
-                    "methodology-tool ",
-                    "selection-images",
-                    "manual-qa",
-                    "consent",
-                    "anonymized",
-                    "ethical-review",
-                    "contact",
-                    "usage-restrictions",
-                    "license ",
-                    "existing-use",
-                    "same-lesion",
-                    "funding",
-                    "define-diagnoses",
-                    "define-benign",
-                    "instance-labels",
-                    "noise",
-                    "confidential-data",
-                    "raw-data"
                 ]
             },
             "performance-age": {
@@ -547,27 +473,6 @@
                         "alert": "skin-representation",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "photo-choice",
-                    "methodology-tool ",
-                    "selection-images",
-                    "manual-qa",
-                    "consent",
-                    "anonymized",
-                    "ethical-review",
-                    "contact",
-                    "usage-restrictions",
-                    "license ",
-                    "existing-use",
-                    "same-lesion",
-                    "funding",
-                    "define-diagnoses",
-                    "define-benign",
-                    "instance-labels",
-                    "noise",
-                    "confidential-data",
-                    "raw-data"
                 ]
             },
             "performance-sex": {
@@ -585,27 +490,6 @@
                         "alert": "skin-representation",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "photo-choice",
-                    "methodology-tool ",
-                    "selection-images",
-                    "manual-qa",
-                    "consent",
-                    "anonymized",
-                    "ethical-review",
-                    "contact",
-                    "usage-restrictions",
-                    "license ",
-                    "existing-use",
-                    "same-lesion",
-                    "funding",
-                    "define-diagnoses",
-                    "define-benign",
-                    "instance-labels",
-                    "noise",
-                    "confidential-data",
-                    "raw-data"
                 ]
             },
             "auc": {
@@ -623,27 +507,6 @@
                         "alert": "skin-representation",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "photo-choice",
-                    "methodology-tool ",
-                    "selection-images",
-                    "manual-qa",
-                    "consent",
-                    "anonymized",
-                    "ethical-review",
-                    "contact",
-                    "usage-restrictions",
-                    "license ",
-                    "existing-use",
-                    "same-lesion",
-                    "funding",
-                    "define-diagnoses",
-                    "define-benign",
-                    "instance-labels",
-                    "noise",
-                    "confidential-data",
-                    "raw-data"
                 ]
             },
             "multiple-images": {
@@ -661,27 +524,6 @@
                         "alert": "skin-representation",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "photo-choice",
-                    "methodology-tool ",
-                    "selection-images",
-                    "manual-qa",
-                    "consent",
-                    "anonymized",
-                    "ethical-review",
-                    "contact",
-                    "usage-restrictions",
-                    "license ",
-                    "existing-use",
-                    "same-lesion",
-                    "funding",
-                    "define-diagnoses",
-                    "define-benign",
-                    "instance-labels",
-                    "noise",
-                    "confidential-data",
-                    "raw-data"
                 ]
             },
             "incidence-age": {
@@ -699,27 +541,6 @@
                         "alert": "skin-representation",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "photo-choice",
-                    "methodology-tool ",
-                    "selection-images",
-                    "manual-qa",
-                    "consent",
-                    "anonymized",
-                    "ethical-review",
-                    "contact",
-                    "usage-restrictions",
-                    "license ",
-                    "existing-use",
-                    "same-lesion",
-                    "funding",
-                    "define-diagnoses",
-                    "define-benign",
-                    "instance-labels",
-                    "noise",
-                    "confidential-data",
-                    "raw-data"
                 ]
             },
             "incidence-sex": {
@@ -737,27 +558,6 @@
                         "alert": "skin-representation",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "photo-choice",
-                    "methodology-tool ",
-                    "selection-images",
-                    "manual-qa",
-                    "consent",
-                    "anonymized",
-                    "ethical-review",
-                    "contact",
-                    "usage-restrictions",
-                    "license ",
-                    "existing-use",
-                    "same-lesion",
-                    "funding",
-                    "define-diagnoses",
-                    "define-benign",
-                    "instance-labels",
-                    "noise",
-                    "confidential-data",
-                    "raw-data"
                 ]
             },
             "select-diagnosis": {
@@ -775,46 +575,6 @@
                         "alert": "skin-representation",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "photo-choice",
-                    "methodology-tool ",
-                    "selection-images",
-                    "manual-qa",
-                    "consent",
-                    "anonymized",
-                    "ethical-review",
-                    "contact",
-                    "usage-restrictions",
-                    "license ",
-                    "existing-use",
-                    "same-lesion",
-                    "funding",
-                    "define-diagnoses",
-                    "define-benign",
-                    "instance-labels",
-                    "noise",
-                    "confidential-data",
-                    "raw-data"
-                ]
-            }
-        },
-        "use-cases": {
-            "identify-melanoma": {
-                "description": "Identify diagnosis in lesion images",
-                "predictions": [
-                    "performance-site",
-                    "performance-age",
-                    "performance-sex",
-                    "auc",
-                    "multiple-images"
-                ]
-            },
-            "predict-incidence": {
-                "description": "Predict incidence of diagnosis in a population",
-                "predictions": [
-                    "incidence-age",
-                    "incidence-sex"
                 ]
             }
         }

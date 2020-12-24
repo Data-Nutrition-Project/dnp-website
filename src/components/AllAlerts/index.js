@@ -101,7 +101,7 @@ class AllAlerts extends Component {
       })
     else {
       let filtered = this.state.selectedAlerts.filter(p =>
-        p.tags[0].includes(e.target.value)
+        p.tags.includes(e.target.value)
       )
       filtered.map(alert => {
         sevCount[alert.severity]++
@@ -150,7 +150,7 @@ class AllAlerts extends Component {
         filtered = [...selectedAlerts]
       } else {
         filtered = selectedAlerts.filter(p =>
-          p.tags[0].includes(this.state.filterValue)
+          p.tags.includes(this.state.filterValue)
         )
       }
 

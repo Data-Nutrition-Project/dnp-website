@@ -35,10 +35,8 @@ class DatasetDropdown extends Component {
         <ul className={styles.dropdown}>
           {dropdowns.map(dropdown => {
             return (
-              <Link
-                spy={true}
-                smooth={true}
-                to={`#${dropdown}-title`}
+              <a
+                href={`#${dropdown}-title`}
                 onClick={() => {
                   this.boldButton(dropdown)
                 }}
@@ -57,7 +55,7 @@ class DatasetDropdown extends Component {
                   )}
                   {dropdown}
                 </div>
-              </Link>
+              </a>
             )
           })}
         </ul>
