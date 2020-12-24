@@ -8,7 +8,7 @@ import store from "../../store/index"
 const TaxBillsPage = () => (
   <Provider store={store}>
     <Header />
-    <LabelWrapper jsonFile="justfix-blob-v2" />
+    <LabelWrapper jsonFile="taxbills-nyc-blob" />
   </Provider>
 )
 
