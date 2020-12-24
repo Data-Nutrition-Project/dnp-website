@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{"8j3C":function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),r=t.n(a),o=t("/MKj"),c=t("80L9"),i=t("ihrq"),l=t("Q2AE");n.default=function(){return r.a.createElement(o.a,{store:l.a},r.a.createElement(i.a,null),r.a.createElement(c.a,{jsonFile:"justfix-blob-v2"}))}}}]);
-//# sourceMappingURL=component---src-pages-labels-taxbills-nyc-js-480479786630d8fec8f9.js.map
