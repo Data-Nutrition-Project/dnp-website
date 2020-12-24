@@ -252,9 +252,7 @@
                 "title": "Dataset does not indicate which (if any) legions are from the same patient",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    ""
-                ],
+                "tags": [],
                 "mitigation": "None known. ",
                 "severity": 2.0,
                 "content": "The dataset indicates which images are from the same lesion, but not whether multiple lesions are from the same patient. "
@@ -263,11 +261,9 @@
                 "title": "Dataset is a convenience sample and is not representative of general incidence of melanoma ",
                 "type": "markdown",
                 "category": "Completeness",
-                "tags": [
-                    ""
-                ],
+                "tags": [],
                 "mitigation": "None known; caution against using this dataset to do general epidemiological modeling. ",
-                "severity": "",
+                "severity": 1.0,
                 "content": "The distribution of disease states represent a modified \u201creal world\u201d setting whereby there are more benign lesions than malignant lesions, but an over-representation of malignancies. Caution against using this dataset for any epidemiological modeling due to convenience sampling. "
             },
             "skin-representation": {
@@ -275,11 +271,22 @@
                 "type": "markdown",
                 "category": "Completeness",
                 "tags": [
-                    "Racial Bias "
+                    "Racial Bias"
                 ],
                 "mitigation": "None Known. ",
-                "severity": "",
+                "severity": 3.0,
                 "content": "Dermatological datasets have a tendancy to underrepresent darker skin types. This may lead to either overdiagnosis or underdiagnosis of melanomas in darker skin types, both of which would have significant clinical implications."
+            },
+            "lighting": {
+                "title": "Inconsistent lighting in images may alter skin type ",
+                "type": "markdown",
+                "category": "Composition",
+                "tags": [
+                    "Racial Bias"
+                ],
+                "mitigation": "Do not attempt to manually label skin types in dataset. ",
+                "severity": 2.0,
+                "content": "Because lighting in inconsistent in the images, strong caution against manually adding labels to dataset to capture skin type"
             }
         },
         "fyis": {
