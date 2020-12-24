@@ -38,14 +38,14 @@ const IndexPage = props => (
             </span>
           </div>
           <div className={styles.centerText}>
-            <AnchorLink to="#section-solution-tool" className={styles.tealButtonLink}>
+            <AnchorLink to="/#section-solution-tool" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
                 <i className="icon-play-circle"></i>tool
               </Button>
             </AnchorLink>
-            <AnchorLink to="#section-solution-research" className={styles.tealButtonLink}>
+            <AnchorLink to="/#section-solution-research" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
@@ -93,7 +93,7 @@ const IndexPage = props => (
         </Row>
         <div className={styles.centerText}>
           <p className={styles.lead}>
-            Want to get involved? <AnchorLink href="#section-contact">Contact Us!</AnchorLink>
+            Want to get involved? <AnchorLink to="/#section-contact">Contact Us!</AnchorLink>
           </p>
         </div>
       </Container>
@@ -201,11 +201,13 @@ const IndexPage = props => (
                 white paper
               </a>.             
             </p>
-            <Button
-              className={classNames(styles.tealButton, styles.modButtonLarge, styles.modButtonParagraph)}
-            >
-               <i className="icon-play-circle"></i>Go to Labels
-            </Button>
+            <a href="/labels">
+              <Button
+                className={classNames(styles.tealButton, styles.modButtonLarge, styles.modButtonParagraph)}
+              >
+                <i className="icon-play-circle"></i>{' '}Go to Labels
+              </Button>
+            </a>
           </Col>
           <Col md={{ span: 7 }}>
             <img
