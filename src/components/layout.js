@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
                         </a>
                     </Col>
                     <Col md={6}>
-                        Copyrights &copy; 2018 All Rights Reserved by The Data Nutrition Project.<br />
+                        Copyrights &copy; 2020 All Rights Reserved by The Data Nutrition Project.<br />
                     </Col>
                     <div />
                 </Container>

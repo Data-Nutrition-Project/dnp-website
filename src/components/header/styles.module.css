@@ -133,6 +133,10 @@
   padding: 0.5rem 1rem;
 }
 
+.navDropdown {
+  background-color: darkSlateBlue;
+}
+
 @media (max-width: tabletMaxWidth) {
   .header {
     height: auto;

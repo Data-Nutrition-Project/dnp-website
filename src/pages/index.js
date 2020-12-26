@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import classNames from "classnames"
 
 import Button from "react-bootstrap/Button"
@@ -37,25 +38,20 @@ const IndexPage = props => (
             </span>
           </div>
           <div className={styles.centerText}>
-            <Link to="/labels/covid-tracking" className={styles.tealButtonLink}>
+            <AnchorLink to="/#section-solution-tool" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
-                <i className="icon-play-circle"></i>solution
+                <i className="icon-play-circle"></i>tool
               </Button>
-            </Link>
-            <a
-              className={styles.tealButtonLink}
-              href="https://arxiv.org/abs/1805.03677"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            </AnchorLink>
+            <AnchorLink to="/#section-solution-research" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
-                <i className="icon-line-paper"></i>paper
+                <i className="icon-line-paper"></i>research
               </Button>
-            </a>
+            </AnchorLink>
           </div>
         </div>
       </div>
@@ -97,7 +93,7 @@ const IndexPage = props => (
         </Row>
         <div className={styles.centerText}>
           <p className={styles.lead}>
-            Want to get involved? <a href="#section-contact">Contact Us!</a>
+            Want to get involved? <AnchorLink to="/#section-contact">Contact Us!</AnchorLink>
           </p>
         </div>
       </Container>
@@ -151,69 +147,69 @@ const IndexPage = props => (
     <section id="content" className={styles.section}>
       <Container className={styles.clearfix}>
         <div
-          id="section-solution"
+          id="section-solution-tool"
           className={classNames(
             styles.headingBlock,
             styles.centerText,
             styles.pageSection
           )}
         >
-          <h2>Technical Solution</h2>
+          <h2>Tool</h2>
           <span className={styles.headingSubHeader}>
-            Standard interactive reports
+            A "nutrition label" for datasets.
           </span>
         </div>
         <Row id="side-navigation">
-          <Col md={{ span: 4 }}>
-            <div id="snav-content1">
-              <h3>A "nutrition label" for datasets.</h3>
-              The Data Nutrition Project aims to create a standard label for
-              interrogating datasets for measures that will ultimately drive the
-              creation of better, more inclusive algorithms. <br />
-              <br /> Our current prototype includes a highly-generalizable
-              interactive data diagnostic label that allows for exploring any
-              number of domain-specific aspects in datasets. Similar to a
-              nutrition label on food, our Dataset Nutrition Label aims to
-              highlight the key ingredients in a dataset such as meta-data and
-              populations, as well as unique or anomalous features regarding
-              distributions, missing data, and comparisons to other ‘ground
-              truth’ datasets. We are currently testing our label on several
-              datasets, with an eye towards open sourcing this effort and
-              gathering community feedback. <br />
-              <br /> The design utilizes a ‘modular’ framework that can be
-              leveraged to add or remove areas of investigation based on the
-              domain of the dataset. For example, Dataset Nutrition Labels for
-              data about people may include modules about the representation of
-              race and gender, while Nutrition Labels for data about trees may
-              not require that module. <br /> <br /> To learn more, check out
-              our{" "}
+          <Col md={{ span: 5 }}>
+            <p id="snav-content1">
+              The Data Nutrition Project aims to create a standard label for{' '}
+              interrogating datasets for measures that will ultimately drive{' '}
+              the creation of better, more inclusive algorithms. Our belief is{' '}
+              that deeper transparency into dataset health can lead to better{' '}
+              data decisions, which in turn lead to better AI.
+              <br /><br />
+              Founded in 2018 through the{' '}
+              <a href="https://www.berkmankleinassembly.org/" target="_blank" rel="noopener noreferrer">Assembly Fellowship</a>,{' '}
+              The Data Nutrition{' '}
+              Project takes inspiration from nutritional labels on food, aiming{' '}
+              to build labels that highlight the key ingredients in a dataset such{' '}
+              as meta-data and populations, as well as unique or anomalous{' '}
+              features regarding distributions, missing data, and comparisons{' '}
+              to other ‘ground truth’ datasets. 
+              <br /><br />
+              Building off of the ‘modular’ framework initially presented in our{' '}
               <a
                 href="https://ahmedhosny.github.io/datanutrition/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                live prototype
-              </a>{" "}
-              built on the Dollars for Docs dataset from{" "}
-              <a
-                href="https://www.propublica.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                ProPublica
-              </a>
-              . A first draft of our paper can be found{" "}
+                2018 prototype
+              </a>{' '}
+              and based on feedback from data scientists and dataset owners, we{' '}
+              have further adjusted the Label to match a common journey: a data{' '}
+              scientist looking for a dataset with a particular purpose in mind.{' '}
+              The <Link to="/labels">second generation Dataset Nutrition Label</Link>{' '}
+              now provides targeted information about a dataset based on its{' '}
+              intended use case, including alerts and flags that are pertinent{' '}
+              to that particular use. Read more about the methodology behind the{' '}
+              second generation in our most recent{' '}
               <a
                 href="https://arxiv.org/abs/1805.03677"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                here
-              </a>
-              .
-            </div>
+                white paper
+              </a>.             
+            </p>
+            <a href="/labels">
+              <Button
+                className={classNames(styles.tealButton, styles.modButtonLarge, styles.modButtonParagraph)}
+              >
+                <i className="icon-play-circle"></i>{' '}Go to Labels
+              </Button>
+            </a>
           </Col>
-          <Col md={{ span: 8 }}>
+          <Col md={{ span: 7 }}>
             <img
               alt="label display"
               className={styles.img}
@@ -226,46 +222,67 @@ const IndexPage = props => (
     <div className={classNames(styles.section, styles.modGray)}>
       <Container className={styles.clearfix}>
         <div
+          id="section-solution-research"
           className={classNames(
             styles.headingBlock,
             styles.centerText,
             styles.pageSection
           )}
         >
-          <h2>Community Solution</h2>
+          <h2>Research</h2>
           <span className={styles.headingSubHeader}>
             Workshops and Conversations
           </span>
         </div>
+      </Container>
+    </div>
+    <section id="content" className={styles.section}>
+      <Container className={styles.clearfix}>
+        <div
+          id="section-solution-workshops"
+          className={classNames(
+            styles.headingBlock,
+            styles.centerText,
+            styles.pageSection
+          )}
+        >
+          <h2>Workshops</h2>
+          <span className={styles.headingSubHeader}>
+            Demystifying how AI Perpetuates Systemic Biases
+          </span>
+        </div>
         <Row id="side-navigation">
-          <Col md={{ span: 4 }}>
-            <div id="snav-content1">
+          <Col md={{ span: 5 }}>
+            <p>
               We believe that building artificial intelligence is as much about
               learning as it is about technical implementation. Through our
               workshop series, the Data Nutrition Project brings a curriculum of
               awareness to organizations of all sizes and types - from small
               technical teams to larger, non-technical communities.
-              <br />
-              <br />
-              <h3>Demystifying AI Workshop</h3>
-              Our first workshop in the series is a brief, non-technical
-              overview of how Artificial Intelligence (AI) algorithms work.
-              Participants participate in an experiential activity in which you
-              get to “be the algorithm”, and afterwards reflect on how bias is
-              perpetuated in the stages of algorithm development you
-              experienced. We also tie this experience into current industry
-              themes and examples and discuss the complexities of building tools
-              that mitigate the issue.
-              <br />
-              <br />
-              This workshop is great for community groups looking to better
+              <br/>
+              <br/>
+              <b>Example: Demystifying AI</b>
+              <br/>
+              This workshop is a brief, non-technical overview of how Artificial 
+              Intelligence (AI) algorithms work. Participants participate in an 
+              experiential activity in which you get to “be the algorithm”, and 
+              afterwards reflect on how bias is perpetuated in the stages of 
+              algorithm development you experienced. We also tie this experience 
+              into current industry themes and examples and discuss the complexities 
+              of building tools that mitigate the issue.
+              <br/>
+              <br/>
+              We have facilitated this workshop at conferences, as well as at local events for community 
+              organizers in the Greater Boston Area. This workshop is great for community groups looking to better
               understand how AI works, and how it is used in tools that we all
               use on a daily basis. It's also helpful for tech professionals who
-              do not code, such as designers, project managers, etc.{" "}
-              <a href="#section-contact">Contact Us</a> to find out more!
-            </div>
+              do not code, such as designers, project managers, etc.
+              <br/>
+              <br/>
+              <a href="#section-contact">Contact Us</a> to find out more about ongoing workshops!
+            </p>
           </Col>
-          <Col md={{ span: 8 }}>
+          <Col md={{ span: 7 }}>
             <img
               alt="workshop presentation"
               className={styles.img}
@@ -286,7 +303,7 @@ const IndexPage = props => (
           </Col>
         </Row>
       </Container>
-    </div>
+    </section>
     <div className={styles.sectionImage}>
       <img
         alt="DNP member presenting"
@@ -344,7 +361,7 @@ const IndexPage = props => (
               imgAlt="chmielinski_kasia"
               name="Kasia Chmielinski"
               role="Project Lead"
-              bio="Technologist at McKinsey working to drive impact in the healthcare industry through advanced analytics. Previously at The US Digital Service (The White House) and the Scratch project at the MIT Media Lab. Ex-Googler, native Bostonian. Dabbled in architecture at the Chinese University of Hong Kong before graduating with a degree in physics from Harvard University. Avid bird-watcher."
+              bio="Technologist at McKinsey working to drive impact in healthcare through advanced analytics. Current Affiliate at the Berkman Klein Center at Harvard University and Digital Lab Fellow at Consumer Reports. Previously at the US Digital Service (The White House) and the MIT Media Lab. Native Bostonian, born cyclist. Avid bird-watcher."
               socialMedia={[
                 {
                   href: "https://www.linkedin.com/in/kchmielinski/",
@@ -358,7 +375,7 @@ const IndexPage = props => (
               imgAlt="newman_sarah"
               name="Sarah Newman"
               role="Research &amp; Strategy"
-              bio="Senior Researcher at metaLAB at Harvard, Fellow at the Berkman Klein Center for Internet &amp; Society, AI Grant Fellow. Studies new technologies and their effects on people. Creates interactive art installations that explore social and cultural dimensions of new tech, runs research workshops with creative materials. Leads metaLAB's work on AI + Art. Persuaded by the power of metaphors."
+              bio="Director of Art &amp; Education at metaLAB at Harvard, Fellow at the Berkman Klein Center, Program Design Co-Lead for Harvard Assembly Fellowships. Studies new technologies and their effects on people. Creates interactive art installations that explore social and cultural dimensions of new tech, runs research workshops with creative materials. Former AI Grant Fellow, Rockefeller Bellagio AI Resident. Persuaded by the power of metaphors."
               socialMedia={[
                 {
                   href: "https://www.linkedin.com/in/sarah-newman-ba340867/",
@@ -386,7 +403,7 @@ const IndexPage = props => (
               imgAlt="taylor_matt"
               name="Matt Taylor"
               role="Data Science &amp; Workshop Facilitation"
-              bio="Freelance learning experience designer and facilitator, with a background in AI implementation. Previously worked as an engineer in natural language processing, moderation tool development, and creative coding platform development. Currently creating learning experiences in STEAM for young people, and demystifying AI for all people. Seasoned pun specialist."
+              bio="Freelance learning experience designer and facilitator, with a background in AI implementation. Previously worked as an engineer in natural language processing, moderation tool development, and creative coding platform development. Currently creating learning experiences in STEAM for young people, and demystifying AI for all people. Also spends time developing tech tools for mutual aid orgs, and organizing tech workers for social justice. Seasoned pun specialist."
               socialMedia={[
                 {
                   href: "https://mewtaylor.com/",
@@ -410,7 +427,7 @@ const IndexPage = props => (
               imgAlt="qiu_chelsea"
               name="Chelsea Qiu"
               role="Research Collaborator"
-              bio="Researcher at metaLAB at Harvard, architect in training. Previous research focused on the co-inhabitation of human and machines. Work explores the intersection of spaces, technology, and senses through physical and digital means. Teaches the integrated process of design and fabrication. M.Arch from MIT. Fascinated by the human brain and enjoys puzzles of all kinds."
+              bio="Designer and architect in training. Previous research focused on the co-inhabitation of human and machines. Work explores the intersection of spaces, technology, and senses through physical and digital means. M.Arch from MIT. Fascinated by the human brain and enjoys puzzles of all kinds."
               socialMedia={[
                 {
                   href: "https://chelseaqiu.com/",
@@ -459,7 +476,7 @@ const IndexPage = props => (
             />
           </Row>
           <div className={classNames(styles.headingBlock, styles.centerText)}>
-            <h2>Collaborating Organizations</h2>
+            <h2>Collaborators</h2>
           </div>
           <Row>
             <Bio
@@ -494,7 +511,97 @@ const IndexPage = props => (
                   href: "https://www.instagram.com/humanityinnovationlabs/",
                   icon: "icon-instagram",
                   className: "si-instagram",
+                }
+              ]}
+            />
+            <Bio
+              imgPath={require("../images/justfix.png")}
+              imgAlt="JustFix.nyc"
+              imgClassName={styles.darkBackground}
+              name="JustFix.nyc"
+              role="Research &amp; Design Collaborator"
+              bio="JustFix.nyc co-designs and builds tools for tenants, housing organizers, and legal advocates fighting displacement in New York City. Our mission is to galvanize a 21st century tenant movement working towards housing for all — and we think the power of data and technology should be accessible to those fighting this fight."
+              socialMedia={[
+                {
+                  href: "https://www.justfix.nyc/",
+                  icon: "icon-line-globe",
+                  className: "si-dribble",
                 },
+                {
+                  href:
+                    "https://www.linkedin.com/company/justfix-nyc",
+                  icon: "icon-linkedin",
+                  className: "si-linkedin",
+                },
+                {
+                  href: "http://twitter.com/justfixnyc",
+                  icon: "icon-twitter",
+                  className: "si-twitter",
+                },
+                {
+                  href: "https://facebook.com/JustFixNYC",
+                  icon: "icon-facebook",
+                  className: "si-facebook",
+                },
+                {
+                  href: "https://github.com/JustFixNYC",
+                  icon: "icon-github",
+                  className: "si-github",
+                }
+              ]}
+            />
+            <Bio
+              imgPath={require("../images/rotemberg_veronica.jpg")}
+              imgAlt="Dr_Veronica_Rotemberg"
+              name="Dr. Veronica Rotemberg"
+              role="Research Collaborator"
+              bio="Dr. Veronica Rotemberg is a dermatologist at Memorial Sloan Kettering Cancer Center (MSK). Dr. Rotemberg directs the imaging informatics program in the dermatology service and sees patients at high risk for skin cancer.  She received her MD-PhD from Duke University with a PhD in biomedical engineering focusing on elasticity imaging. She leads the AI working group for the International Skin Imaging Collaboration and is especially interested in imaging standards and evaluating challenges and biases of AI when applied to clinical settings."
+              socialMedia={[
+                {
+                  href: "https://www.mskcc.org/cancer-care/doctors/veronica-rotemberg",
+                  icon: "icon-line-globe",
+                  className: "si-dribble",
+                },
+                {
+                  href: "https://www.isic-archive.com/#!/topWithHeader/wideContentTop/main",
+                  icon: "icon-line-globe",
+                  className: "si-dribble",
+                },
+                {
+                  href: "http://twitter.com/Dr_Vron",
+                  icon: "icon-twitter",
+                  className: "si-twitter",
+                }
+              ]}
+            />
+            <Bio
+              imgPath={require("../images/ai_global.png")}
+              imgAlt="ai_global"
+              name="AI Global"
+              role="Researc Collaborator"
+              bio="AI Global is a non-profit building tangible governance tools to address growing concerns about AI. Their mission is to catalyze the practical and responsible design, development, and use of AI. Their tools have been among the first to demonstrate how to turn responsible AI principles into action. Bringing extensive experience in responsible AI policy and the development of AI systems for industry, AI Global is uniquely positioned to partner with organizations across public and private sectors to guide and inform responsible AI governance around the world."
+              socialMedia={[
+                {
+                  href: "http://ai-global.org/",
+                  icon: "icon-line-globe",
+                  className: "si-dribble",
+                },
+                {
+                  href:
+                    "https://www.linkedin.com/company/ai-global",
+                  icon: "icon-linkedin",
+                  className: "si-linkedin",
+                },
+                {
+                  href: "https://twitter.com/_AIGlobal",
+                  icon: "icon-twitter",
+                  className: "si-twitter",
+                },
+                {
+                  href: "https://www.instagram.com/responsibleaiglobal/",
+                  icon: "icon-instagram",
+                  className: "si-instagram",
+                }
               ]}
             />
           </Row>
@@ -597,44 +704,13 @@ const IndexPage = props => (
         <Row>
           <Col md={{ span: 6 }}>
             <h4 id="faq-1">
-              <strong>Q.</strong> Do you have a prototype or more information?
+              <strong>Q.</strong> Where can I see the Dataset Nutrition Label and learn about the methodology? 
             </h4>
             <p>
-              Yes, we do! You can take a look at a{" "}
-              <a
-                href="https://ahmedhosny.github.io/datanutrition/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                live protoype
-              </a>{" "}
-              of the Dataset Nutrition Label for the Dollars for Docs dataset
-              that our friends at{" "}
-              <a
-                href="https://www.propublica.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                ProPublica
-              </a>{" "}
-              have made available to our group. We are also currently working on
-              a{" "}
-              <a
-                href="https://arxiv.org/abs/1805.03677"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                paper
-              </a>{" "}
-              describing our work, the{" "}
-              <a
-                href="https://ahmedhosny.github.io/datanutrition/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                protoype
-              </a>
-              , and future directions.
+              You can take a look at the Dataset Nutrition Label&nbsp;
+              <a href="/labels">here</a> and corresponding methodology paper here.&nbsp;
+              Older versions (<a href="https://ahmedhosny.github.io/datanutrition/" target="_blank" rel="noopener noreferrer">Label</a>,&nbsp;
+              <a href="https://arxiv.org/abs/1805.03677" target="_blank" rel="noopener noreferrer">paper</a>) are also still available online.
             </p>
 
             <div className={styles.line}></div>
@@ -672,23 +748,8 @@ const IndexPage = props => (
               <strong>Q.</strong> Is your work open source?
             </h4>
             <p>
-              Yes. You can view our{" "}
-              <a
-                href="https://ahmedhosny.github.io/datanutrition/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                live protoype
-              </a>{" "}
-              here, and the code behind the prototype on{" "}
-              <a
-                href="https://github.com/ahmedhosny/datanutrition"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Github
-              </a>
-              .
+              Yes. You can view the Dataset Nutrition Label code&nbsp;
+              <a href="https://github.com/Data-Nutrition-Project/dnp-website" target="_blank" rel="noopener noreferrer">here</a>. 
             </p>
           </Col>
           <Col md={{ span: 6 }}>
