@@ -595,7 +595,7 @@ class Overview extends Component {
                 {BINARY_BADGE_MAP.map((object, i) => (
                   <img
                     className={styles.badge}
-                    src={"/badges/" + object.options[this.props.badges[object.key] - 1] + ".png"}
+                    src={process.env.GATSBY_ROOT_PATH + "badges/" + object.options[this.props.badges[object.key] - 1] + ".png"}
                     alt={object.alt[this.props.badges[object.key] - 1]}
                   />
                 ))}
@@ -604,7 +604,7 @@ class Overview extends Component {
                 {MULTI_BADGE_MAP.map((object, i) => (
                   <img
                     className={styles.badge}
-                    src={"/badges/" + object.options[this.props.badges[object.key] - 1] + ".png"}
+                    src={process.env.GATSBY_ROOT_PATH + "badges/" + object.options[this.props.badges[object.key] - 1] + ".png"}
                     alt={object.alt[this.props.badges[object.key] - 1]}
                   />
                 ))}
