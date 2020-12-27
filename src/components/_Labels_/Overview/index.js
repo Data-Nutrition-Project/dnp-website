@@ -432,10 +432,6 @@ class Overview extends Component {
     )
   }
 
-  badgeDefaultSrc = (e) => {
-    e.target.src = "/badges/data-license-1.png"
-  }
-
   render() {
     return (
       <>
@@ -601,7 +597,6 @@ class Overview extends Component {
                     className={styles.badge}
                     src={"/badges/" + object.options[this.props.badges[object.key] - 1] + ".png"}
                     alt={object.alt[this.props.badges[object.key] - 1]}
-                    onError={this.badgeDefaultSrc}
                   />
                 ))}
               </Col>
@@ -611,7 +606,6 @@ class Overview extends Component {
                     className={styles.badge}
                     src={"/badges/" + object.options[this.props.badges[object.key] - 1] + ".png"}
                     alt={object.alt[this.props.badges[object.key] - 1]}
-                    onError={this.badgeDefaultSrc}
                   />
                 ))}
               </Col>
