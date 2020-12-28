@@ -15,7 +15,7 @@ import Layout from "../../components/layout"
 
 import styles from "./index.module.css"
 
-const FAQ_QUESTIONS = [
+const FAQ_QUESTIONS_1 = [
   {
     'q': 'What is the Dataset Nutrition Label and who created it?',
     'a': 'The Dataset Nutrition Label is a standard quality framework for assessing dataset quality. The Dataset Nutrition Label standard is a project of the Data Nutrition Project, a non-profit group that creates tools and practices around dataset quality that encourage responsible model development.'
@@ -27,11 +27,10 @@ const FAQ_QUESTIONS = [
   {
     'q': 'What are Use Cases and how do you determine these?',
     'a': 'The Dataset Nutrition Label highlights business and research questions, or Use Cases, for which the dataset may be relevant. The Use Cases included in our current prototypes were identified by the Data Nutrition Project alongside subject matter experts and the original dataset owners.'
-  },
-  {
-    'q': 'On the Overview page, what do the badges stand for and how are they determined?',
-    'a': 'The overview badges highlight a standard set of critical information about every dataset in a way that is immediately relevant and comprehensible. These icons indicate a short-hand way of highlighting binary and non-binary answers covered more deeply in the Dataset Info pane.\n\nThe badges include:\n\n1. Quality Review (Yes, No)\n2. Individual Level Data (Yes, No)\n3. Ethical Review (Yes, No)\n4. Information about People (Yes, No)\n5. Information about Subpopulations (Yes, No)\n6. License (Commercial, Non-Commercial, Conditional Non-Commercial)\n7. Funding Source (Single-source not for profit, Single-source for profit, Government, Multi-Source)\n8. Update Frequency (Static, frequency)\n9. Data Source (Single Source, Multi Source)\n'
-  },
+  }
+]
+
+const FAQ_QUESTIONS_2 = [
   {
     'q': 'What is a Modeling Objective?',
     'a': 'On the Dataset Nutrition Label, a Modeling Objective indicates statistical approach that the data can be leveraged to address. For example, the [ISIC 2018 dataset](/labels/isic-2018) could be leveraged to train a statistical model to answer the Modeling Objective, ‘Identify diagnosis in lesion images’.'
@@ -75,26 +74,14 @@ const FAQ_QUESTIONS = [
 ]
 
 const LabelIndexPage = props => {
-  const [toggleStatus, setToggleStatus] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ])
+  const [toggleStatus, setToggleStatus] = useState([-1, false])
 
   const toggleCaret = (key) => {
-    toggleStatus[key] = (!toggleStatus[key])
-    setToggleStatus(toggleStatus)
+    if (key === toggleStatus[0]) {
+      setToggleStatus([key, !toggleStatus[1]])
+    } else {
+      setToggleStatus([key, true])
+    }
   }
 
   return (
@@ -140,7 +127,6 @@ const LabelIndexPage = props => {
               with both dataset owners and subject matter experts:
             </p>
             <ul>
-              <li><Link to="/labels/covid-tracking">Covid Tracking Project</Link></li>
               <li><Link to="/labels/isic-2020">2020 SIIM-ISIC Melanoma Classification Challenge Dataset</Link></li>
               <li><Link to="/labels/isic-2018">2018 SIIM-ISIC Melanoma Classification Challenge Dataset</Link></li>
               <li><Link to="/labels/taxbills-nyc">taxbills.nyc Dataset</Link></li>
@@ -153,20 +139,19 @@ const LabelIndexPage = props => {
           <Col md={12}>
             <h3 className={styles.subSectionHeader}>Frequently Asked Questions</h3>
             <Accordion>
-              {FAQ_QUESTIONS.map((qa, i) => (
+              {FAQ_QUESTIONS_1.map((qa, i) => (
                 <Card className={styles.card} key={i}>
                   <Accordion.Toggle
                     as={Card.Header}
                     eventKey={i.toString()}
                     className={styles.cardHeader}
                     onClick={() => {
-                      toggleStatus[i] = (!toggleStatus[i])
-                      setToggleStatus([...toggleStatus])
+                      toggleCaret(i)
                     }}
                   >
                     {qa.q}
                     <span className={styles.moreButton}>
-                      {toggleStatus[i] ? (
+                      {toggleStatus[0] === i && toggleStatus[1] ? (
                         <FontAwesomeIcon icon={faAngleDown} />
                       ) : (
                         <FontAwesomeIcon icon={faAngleRight} />
@@ -174,6 +159,218 @@ const LabelIndexPage = props => {
                     </span>
                   </Accordion.Toggle>
                   <Accordion.Collapse eventKey={i.toString()}>
+                    <Card.Body>
+                      <ReactMarkdown source={qa.a} />
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              ))}
+              <Card className={styles.card} key={3}>
+                <Accordion.Toggle
+                  as={Card.Header}
+                  eventKey={'3'}
+                  className={styles.cardHeader}
+                  onClick={() => {
+                    toggleCaret(3)
+                  }}
+                >
+                  On the Overview page, what do the badges stand for and how are they determined?
+                  <span className={styles.moreButton}>
+                    {toggleStatus[0] === 3 && toggleStatus[1] ? (
+                      <FontAwesomeIcon icon={faAngleDown} />
+                    ) : (
+                      <FontAwesomeIcon icon={faAngleRight} />
+                    )}
+                  </span>
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey={'3'}>
+                  <Card.Body className={styles.cardBody}>
+                    <div>
+                      <p>
+                        The overview badges highlight a standard set of critical information about every dataset in a way that is immediately relevant and comprehensible. These icons indicate a short-hand way of highlighting binary and non-binary answers covered more deeply in the Dataset Info pane.
+                      </p>
+                      <p>The badges include:</p>
+                      <ul className={styles.badgeQ}>
+                        <li>
+                          <Col md={4} sm={12}>1. Quality Review (Yes, No)</Col>
+                          <Col md={9} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/quality-review-y.png")}
+                                alt="quality review yes badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/quality-review-n.png")}
+                                alt="quality review no badge"
+                            />
+                          </Col>
+                        </li>
+                        <li>
+                          <Col md={4} sm={12}>2. Individual Level Data (Yes, No)</Col>
+                          <Col md={6} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/individual-data-y.png")}
+                                alt="individual level data yes badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/individual-data-n.png")}
+                                alt="individual level data no badge"
+                            />
+                          </Col>
+                        </li>
+                        <li>
+                          <Col md={4} sm={12}>3. Ethical Review (Yes, No)</Col>
+                          <Col md={6} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/ethical-review-y.png")}
+                                alt="ethical review yes badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/ethical-review-n.png")}
+                                alt="ethical review no badge"
+                            />
+                          </Col>
+                        </li>
+                        <li>
+                          <Col md={4} sm={12}>4. Information about People (Yes, No)</Col>
+                          <Col md={6} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/about-humans-y.png")}
+                                alt="about humans yes badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/about-humans-n.png")}
+                                alt="about humans no badge"
+                            />
+                          </Col>
+                        </li>
+                        <li>
+                          <Col md={4} sm={12}>5. Information about Subpopulations (Yes, No)</Col>
+                          <Col md={6} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/subpopulations-y.png")}
+                                alt="info about subpopulations yes badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/subpopulations-n.png")}
+                                alt="info about subpopulations no badge"
+                            />
+                          </Col>
+                        </li>
+                        <li>
+                          <Col md={4} sm={12}>6. License (Commercial, Non-Commercial)</Col>
+                          <Col md={6} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/data-license-c.png")}
+                                alt="license commercial badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/data-license-nc.png")}
+                                alt="license non-commercial badge"
+                            />
+                          </Col>
+                        </li>
+                        <li>
+                          <Col md={4} sm={12}>7. Funding Source (Single-source not for profit, Single-source for profit, Government, Multi-Source)</Col>
+                          <Col md={6} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/funding-nfp.png")}
+                                alt="funding source not for profit"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/funding-fp.png")}
+                                alt="funding source for profit"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/funding-g.png")}
+                                alt="funding source government"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/funding-ms.png")}
+                                alt="funding source multi-sourced"
+                            />
+                          </Col>
+                        </li>
+                        <li>
+                          <Col md={4} sm={12}>8. Update Frequency (Daily, Weekly, Annually, Static)</Col>
+                          <Col md={6} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/updates-d.png")}
+                                alt="updated daily badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/updates-w.png")}
+                                alt="updated weekly badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/updates-a.png")}
+                                alt="updated yearly badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/updates-na.png")}
+                                alt="not updated/static badge"
+                            />
+                          </Col>
+                        </li>
+                        <li>
+                          <Col md={4} sm={12}>9. Data Source (Single Source, Multi Source)</Col>
+                          <Col md={6} sm={12} className={styles.badgeRow}>
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/source-ss.png")}
+                                alt="single source data badge"
+                            />
+                            <img
+                                className={styles.badgeImg}
+                                src={require("../../../static/badges/source-ms.png")}
+                                alt="multi-source data badge"
+                            />
+                          </Col>
+                        </li>
+                      </ul>
+                    </div>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+              {FAQ_QUESTIONS_2.map((qa, i) => (
+                <Card className={styles.card} key={i+4}>
+                  <Accordion.Toggle
+                    as={Card.Header}
+                    eventKey={(i+4).toString()}
+                    className={styles.cardHeader}
+                    onClick={() => {
+                      toggleCaret((i+4))
+                    }}
+                  >
+                    {qa.q}
+                    <span className={styles.moreButton}>
+                      {toggleStatus[0] === (i+4) && toggleStatus[1] ? (
+                        <FontAwesomeIcon icon={faAngleDown} />
+                      ) : (
+                        <FontAwesomeIcon icon={faAngleRight} />
+                      )}
+                    </span>
+                  </Accordion.Toggle>
+                  <Accordion.Collapse eventKey={(i+4).toString()}>
                     <Card.Body>
                       <ReactMarkdown source={qa.a} />
                     </Card.Body>
