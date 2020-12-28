@@ -231,9 +231,53 @@ const IndexPage = props => (
         >
           <h2>Research</h2>
           <span className={styles.headingSubHeader}>
-            Workshops and Conversations
+            Published and Related Works
           </span>
         </div>
+        <Row id="side-navigation">
+          <Col md={{ span: 5 }}>
+            <b>Summary</b>
+            <p>
+              Since our initial paper was published, it has been cited in over 60 additional papers, with the list continually growing as the domain expands.
+            </p>
+            <b>Related Work</b>
+            <ul>
+              <li><a href="https://arxiv.org/pdf/1908.09635.pdf">A Survey on Bias and Fairness in Machine Learning</a></li>
+              <li><a href="https://arxiv.org/pdf/1803.09010.pdf">Datasheets for Datasets</a></li>
+              <li><a href="https://openreview.net/pdf?id=By4oPeX9f">Data Statements for Natural Language Processing: Toward Mitigating System Bias and Enabling Better Science</a></li>
+              <li><a href="https://arxiv.org/pdf/1905.06876.pdf">From What to How: An Initial Review of Publicly Available AI Ethics Tools, Methods and Research to Translate Principles into Practices </a></li>
+              <li><a href="https://aifs360.mybluemix.net/">AI FactSheets 360 (IBM)</a></li>
+              <li><a href="https://modelcards.withgoogle.com/about">Model Cards (Google)</a></li>
+            </ul>
+            <b>Recent Talks (2020)</b>
+            <ul>
+              <li>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; paper</li>
+              <li>Office of the Chief Technology Officer, US Digital Service</li>
+              <li>DRIVE/2020</li>
+              <li>Presentation to the Berkman Klein Center Fellows, Harvard</li>
+              <li>Presentation to students at Harvard Kennedy School in Product Management course</li>
+            </ul>
+          </Col>
+          <Col md={{ span: 7 }}>
+            <img
+              alt="workshop presentation"
+              className={styles.img}
+              src={require("../images/dnp-2.jpg")}
+            />
+            <div class={styles.photoCredit}>
+              <span>
+                Photo Credit:{" "}
+                <a
+                  href="http://www.jsbenjamin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Jess Benjamin
+                </a>
+              </span>
+            </div>
+          </Col>
+        </Row>
       </Container>
     </div>
     <section id="content" className={styles.section}>
@@ -253,16 +297,16 @@ const IndexPage = props => (
         </div>
         <Row id="side-navigation">
           <Col md={{ span: 5 }}>
+            <b>Summary</b>
             <p>
               We believe that building artificial intelligence is as much about
               learning as it is about technical implementation. Through our
               workshop series, the Data Nutrition Project brings a curriculum of
               awareness to organizations of all sizes and types - from small
               technical teams to larger, non-technical communities.
-              <br/>
-              <br/>
-              <b>Example: Demystifying AI</b>
-              <br/>
+            </p>
+            <b>Example: Demystifying AI</b>
+            <p>
               This workshop is a brief, non-technical overview of how Artificial 
               Intelligence (AI) algorithms work. Participants participate in an 
               experiential activity in which you get to “be the algorithm”, and 
@@ -270,17 +314,15 @@ const IndexPage = props => (
               algorithm development you experienced. We also tie this experience 
               into current industry themes and examples and discuss the complexities 
               of building tools that mitigate the issue.
-              <br/>
-              <br/>
+            </p>
+            <p>
               We have facilitated this workshop at conferences, as well as at local events for community 
               organizers in the Greater Boston Area. This workshop is great for community groups looking to better
               understand how AI works, and how it is used in tools that we all
               use on a daily basis. It's also helpful for tech professionals who
               do not code, such as designers, project managers, etc.
-              <br/>
-              <br/>
-              <a href="#section-contact">Contact Us</a> to find out more about ongoing workshops!
             </p>
+            <a href="#section-contact">Contact Us</a> to find out more about ongoing workshops!
           </Col>
           <Col md={{ span: 7 }}>
             <img
