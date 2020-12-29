@@ -306,44 +306,26 @@ class AllAlerts extends Component {
                 <div className={styles.tabContent}>
                   <div className={styles.severity} />
                   <span className={styles.alertUnderlineBold} />
-                  <div className={styles.parentDiv}>
-                    <div className={styles.filter}>
-                      <span className={styles.boldHeader}>Filter: </span>{" "}
-                      <select
-                        className={styles.select}
-                        id="select"
-                        onChange={e => this.onChange(e)}
-                      >
-                        <option default>All</option>
+                  <div className={styles.fyiContainer}>
+                    {this.state.alerting.length === 0 && <b>LOADING...</b>}
 
-                        {uniqueArray.map((tag, i) => {
+                    {Object.entries(this.props.fyis).length > 0 && (
+                      <div>
+                        {Object.entries(this.props.fyis).map(([key, fyi], i) => {
                           return (
-                            <option value={tag} key={i}>
-                              {tag}
-                            </option>
+                            <AlertCard
+                              key={i}
+                              title={fyi.title}
+                              category={fyi.category}
+                              content={fyi.content}
+                              tags={fyi.tags}
+                              severity={0}
+                            />
                           )
                         })}
-                      </select>
-                    </div>
+                      </div>
+                    )}
                   </div>
-                  {this.state.alerting.length === 0 && <b>LOADING...</b>}
-
-                  {Object.entries(this.props.fyis).length > 0 && (
-                    <div>
-                      {Object.entries(this.props.fyis).map(([key, fyi], i) => {
-                        return (
-                          <AlertCard
-                            key={i}
-                            title={fyi.title}
-                            category={fyi.category}
-                            content={fyi.content}
-                            tags={fyi.tags}
-                            severity={0}
-                          />
-                        )
-                      })}
-                    </div>
-                  )}
                 </div>
               </Tab>
             </Tabs>
