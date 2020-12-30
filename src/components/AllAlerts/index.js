@@ -28,12 +28,6 @@ class AllAlerts extends Component {
     const alerting = []
     const fyis = []
 
-    let sevCount = {
-      3: 0,
-      2: 0,
-      1: 0,
-    }
-
     for (const [key, info] of Object.entries(this.props.alerts)) {
       alerting.push(info)
     }
@@ -53,14 +47,10 @@ class AllAlerts extends Component {
     let selectedAlerts = []
     if (this.props.selectedAlerts.length === 0) {
       selectedAlerts = alerting
-      alerting.map((alert, i) => {
-        sevCount[alert.severity]++
-      })
     } else {
       this.props.selectedAlerts.map((alert, i) => {
         let alertObj = { ...this.props.alerts[alert] }
         alertObj.severity = alert.severity
-        sevCount[alert.severity]++
         selectedAlerts.push(alertObj)
       })
     }
@@ -74,20 +64,12 @@ class AllAlerts extends Component {
       alerting,
       fyis,
       selectedTab: TAB_NAMES.alerts,
-      highCount: sevCount[3],
-      midCount: sevCount[2],
-      lowCount: sevCount[1],
     }
 
     this.onChange = this.onChange.bind(this)
   }
 
   async onChange(e) {
-    let sevCount = {
-      3: 0,
-      2: 0,
-      1: 0,
-    }
 
     if (
       !e.target.value ||
@@ -103,15 +85,9 @@ class AllAlerts extends Component {
       let filtered = this.state.selectedAlerts.filter(p =>
         p.tags.includes(e.target.value)
       )
-      filtered.map(alert => {
-        sevCount[alert.severity]++
-      })
       this.setState({
         filtered,
         filterValue: e.target.value,
-        highCount: sevCount[3],
-        midCount: sevCount[2],
-        lowCount: sevCount[1],
       })
     }
   }
@@ -121,11 +97,6 @@ class AllAlerts extends Component {
       JSON.stringify(this.props.selectedAlerts) !==
       JSON.stringify(prevProps.selectedAlerts)
     ) {
-      let sevCount = {
-        3: 0,
-        2: 0,
-        1: 0,
-      }
 
       let selectedAlerts = []
 
@@ -154,24 +125,21 @@ class AllAlerts extends Component {
         )
       }
 
-      filtered.map(alert => {
-        sevCount[alert.severity]++
-      })
-
       this.setState({
         selectedAlerts: selectedAlerts,
-
         filtered: filtered,
-
-        highCount: sevCount[3],
-        midCount: sevCount[2],
-        lowCount: sevCount[1],
       })
     }
   }
 
   render() {
     let countText
+    let sevCount = {
+      3: 0,
+      2: 0,
+      1: 0,
+    }
+
     this.state.filtered.length === 1
       ? (countText = `${this.state.filtered.length} Alert`)
       : (countText = `${this.state.filtered.length} Alerts`)
@@ -183,6 +151,11 @@ class AllAlerts extends Component {
     let sliced = this.state.tags.slice(0, alert.length - 1)
     let flattenedArray = sliced.flat()
     let uniqueArray = [...new Set(flattenedArray.flat())]
+
+    this.state.filtered.map((alert, i) => {
+      sevCount[alert.severity]++
+    })
+
     return (
       <>
         <Row className={styles.alertsMargin}>
@@ -222,7 +195,7 @@ class AllAlerts extends Component {
                               className={styles.mitigationRefImg}
                               src={require("../AlertCard/high.svg")}
                             />
-                            {this.state.highCount} No
+                            {sevCount[3]} No
                           </div>
 
                           <div className={styles.parentAlerts}>
@@ -230,7 +203,7 @@ class AllAlerts extends Component {
                               className={styles.mitigationRefImg}
                               src={require("../AlertCard/moderate.svg")}
                             />
-                            {this.state.midCount} Maybe
+                            {sevCount[2]} Maybe
                           </div>
 
                           <div className={styles.parentAlerts}>
@@ -238,7 +211,7 @@ class AllAlerts extends Component {
                               className={styles.mitigationRefImg}
                               src={require("../AlertCard/medium.svg")}
                             />
-                            {this.state.lowCount} Yes
+                            {sevCount[1]} Yes
                           </div>
                         </Row>
                       </Container>
