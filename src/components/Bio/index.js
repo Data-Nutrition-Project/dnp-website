@@ -3,19 +3,24 @@ import React from "react"
 import classNames from "classnames"
 import Col from 'react-bootstrap/Col'
 import PropTypes from "prop-types"
+import Row from 'react-bootstrap/Row'
 
 import styles from "./styles.module.css"
 
 const Bio = props => (
-    <Col md={{ span: 6 }} className={classNames(styles.bottomMargin)}>
-        <div className={classNames(styles.team, styles.teamList, styles.clearfix, { [styles.modAlum]: props.alum })}>
-            <div className={styles.teamImage}>
-                <img
-                    className={classNames(styles.teamImageImg, props.imgClassName)}
-                    src={props.imgPath}
-                    alt={props.imgAlt}
-                />
+    <Row className={styles.bioRow}>
+        <Col xl={5} lg={{ span: 5 }} md={12}>
+            <div className={classNames(styles.team, styles.teamList, styles.clearfix)}>
+                <div className={styles.teamImage}>
+                    <img
+                        className={classNames(styles.teamImageImg, props.imgClassName)}
+                        src={props.imgPath}
+                        alt={props.imgAlt}
+                    />
+                </div>
             </div>
+        </Col>
+        <Col xl={6} lg={{ span: 6 }} md={12} className={styles.teamDescCol}>
             <div className={styles.teamDesc}>
                 <div className={styles.teamTitle}>
                     <h4 className={styles.teamTitleName}>{props.name}</h4>
@@ -33,8 +38,8 @@ const Bio = props => (
                     </a>
                 ))}
             </div>
-        </div>
-    </Col>
+        </Col>
+    </Row>
 )
 
 Bio.propTypes = {
