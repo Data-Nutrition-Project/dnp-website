@@ -127,8 +127,8 @@ const LabelIndexPage = props => {
               with both dataset owners and subject matter experts:
             </p>
             <ul>
-              <li><Link to="/labels/isic-2020">2020 SIIM-ISIC Melanoma Classification Challenge Dataset</Link></li>
-              <li><Link to="/labels/isic-2018">2018 SIIM-ISIC Melanoma Classification Challenge Dataset</Link></li>
+              <li><Link to="/labels/isic-2020">2020 SIIM-ISIC Melanoma Classification Challenge Dataset</Link> [Draft]</li>
+              <li><Link to="/labels/isic-2018">2018 SIIM-ISIC Melanoma Classification Challenge Dataset</Link> [Draft]</li>
               <li><Link to="/labels/taxbills-nyc">taxbills.nyc Dataset</Link></li>
               <li><Link to="/labels/nopv-nyc">NYC's NoPV Dataset</Link></li>
             </ul>
