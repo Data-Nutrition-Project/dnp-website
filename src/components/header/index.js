@@ -52,18 +52,18 @@ const Header = () => {
                                 </AnchorLink>
                             </Nav.Item>
                             <NavDropdown title="Solutions" id="solutions" className={styles.navDropdown}>
-                                <NavDropdown.Item>
-                                    <AnchorLink to="/#section-solution-tool" className={styles.navLink}>
-                                        Tool
+                                <NavDropdown.Item className={styles.dropdownItem}>
+                                    <AnchorLink to="/#section-solution-tool" className={classNames(styles.navLink, styles.dropdownLink)}>
+                                        The Tool
                                     </AnchorLink>
                                 </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    <AnchorLink to="/#section-solution-research" className={styles.navLink}>
-                                        Research
+                                <NavDropdown.Item className={styles.dropdownItem}>
+                                    <AnchorLink to="/#section-solution-research" className={classNames(styles.navLink, styles.dropdownLink)}>
+                                        Our Research
                                     </AnchorLink>
                                 </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    <AnchorLink to="/#section-solution-workshops" className={styles.navLink}>
+                                <NavDropdown.Item className={styles.dropdownItem}>
+                                    <AnchorLink to="/#section-solution-workshops" className={classNames(styles.navLink, styles.dropdownLink)}>
                                         Workshops
                                     </AnchorLink>
                                 </NavDropdown.Item>

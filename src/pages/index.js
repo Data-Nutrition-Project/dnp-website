@@ -156,7 +156,7 @@ const IndexPage = props => (
             styles.pageSection
           )}
         >
-          <h2>Tool</h2>
+          <h2>The Tool</h2>
           <span className={styles.headingSubHeader}>
             A "nutrition label" for datasets.
           </span>
@@ -187,7 +187,7 @@ const IndexPage = props => (
                 2018 prototype
               </a>{' '}
               and based on feedback from data scientists and dataset owners, we{' '}
-              have further adjusted the Label to match a common journey: a data{' '}
+              have further adjusted the Label to support a common user journey: a data{' '}
               scientist looking for a dataset with a particular purpose in mind.{' '}
               The <Link to="/labels">second generation Dataset Nutrition Label</Link>{' '}
               now provides targeted information about a dataset based on its{' '}
@@ -226,7 +226,7 @@ const IndexPage = props => (
             styles.pageSection
           )}
         >
-          <h2>Research</h2>
+          <h2>Our Research</h2>
           <span className={styles.headingSubHeader}>
             Published and Related Works
           </span>
@@ -264,7 +264,7 @@ const IndexPage = props => (
             </p> 
           </Col>
           <Col xl={{ span: 5 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
-            <div>
+            <div className={styles.talksSection}>
               <b>Recent Talks (2020)</b>
               <ul>
                 <li>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; <a href="http://securedata.lol/camera_ready/26.pdf">paper</a></li>
@@ -285,14 +285,7 @@ const IndexPage = props => (
             />
             <div class={styles.photoCredit}>
               <span>
-                Photo Credit:{" "}
-                <a
-                  href="http://www.jsbenjamin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Jess Benjamin
-                </a>
+                Consumer Reports virtual panel featuring Amira Dhalla, Kasia Chmielinski, Joy Buolamwini, Shalini Kantayya, Jade Magnus
               </span>
             </div> 
           </Col>
@@ -309,7 +302,7 @@ const IndexPage = props => (
             styles.pageSection
           )}
         >
-          <h2>Workshops</h2>
+          <h2>Workshops &amp; Facilitation</h2>
           <span className={styles.headingSubHeader}>
             Demystifying how AI Perpetuates Systemic Biases
           </span>
@@ -340,7 +333,9 @@ const IndexPage = props => (
               use on a daily basis. It's also helpful for tech professionals who
               do not code, such as designers, project managers, etc.
             </p>
-            <AnchorLink to="#section-contact">Contact Us</AnchorLink> to find out more about ongoing workshops!
+            <p>
+              <AnchorLink to="#section-contact">Contact Us</AnchorLink> to find out more about ongoing workshops!
+            </p>
           </Col>
           <Col xl={{ span: 6, offset: 1 }} lg={{ span: 8, offset: 2 }} md={{ span: 10, offset: 1 }}>
             <img
@@ -405,13 +400,7 @@ const IndexPage = props => (
               Assembly program
             </a>{" "}
             at the Berkman Klein Center at Harvard University &amp; MIT Media
-            Lab. <br />
-            <br />
-            <i id="disclaimer" className={styles.disclaimer}>
-              Please note: This project is the work of individuals who
-              participated in the Assembly program. If named, participants'
-              employers are provided for identification purposes only.
-            </i>
+            Lab.
           </span>
         </div>
         <Container fluid>

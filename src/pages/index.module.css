@@ -235,6 +235,10 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
     margin-top: 0;
 }
 
+.talksSection {
+    margin-bottom: 2.5rem;
+}
+
 
 /* Team section */
 
@@ -318,5 +322,14 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 
     .slider {
         height: auto;
+    }
+
+    .sectionImage {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .sectionImageImg {
+        margin: -4.5rem 0;
     }
 }
