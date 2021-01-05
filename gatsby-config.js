@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: "/dnp-website",
   siteMetadata: {
     title: `The Data Nutrition Project`,
     description: `Empowering data scientists and policymakers with practical tools to improve AI outcomes`,
