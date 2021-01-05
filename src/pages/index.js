@@ -308,7 +308,7 @@ const IndexPage = props => (
           </span>
         </div>
         <Row>
-          <Col xl={{ span: 3, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
+          <Col xl={{ span: 4, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
             <p className={styles.headerSentence}>
               We believe that building artificial intelligence is as much about learning as it is about technical implementation.
             </p>
@@ -337,7 +337,7 @@ const IndexPage = props => (
               <AnchorLink to="#section-contact">Contact Us</AnchorLink> to find out more about ongoing workshops!
             </p>
           </Col>
-          <Col xl={{ span: 6, offset: 1 }} lg={{ span: 8, offset: 2 }} md={{ span: 10, offset: 1 }}>
+          <Col xl={{ span: 5, offset: 1 }} lg={{ span: 8, offset: 2 }} md={{ span: 10, offset: 1 }}>
             <img
               alt="workshop presentation"
               className={styles.img}
