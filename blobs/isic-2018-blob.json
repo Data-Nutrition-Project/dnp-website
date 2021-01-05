@@ -5,7 +5,7 @@
             "Predict incidence of diagnosis in a population"
         ],
         "summary": {
-            "Dataset Name": "2018 SIIM-ISIC Melanoma Classification Challenge Dataset",
+            "Dataset Name": "2018 SIIM-ISIC Melanoma Classification Challenge Dataset [Draft]",
             "Data Collection Range": "1998 - 2018",
             "Created By": "International Skin Imaging Collaboration (ISIC)",
             "Content": "Training of neural networks for automated diagnosis of pigmented skin lesions is hampered by the small size and lack of diversity of available dataset of dermatoscopic images. We tackle this problem by releasing the HAM10000 (\"Human Against Machine with 10000 training images\") dataset. We collected dermatoscopic images from different populations, acquired and stored by different modalities. The final dataset consists of 10015 dermatoscopic images which can serve as a training set for academic machine learning purposes.",

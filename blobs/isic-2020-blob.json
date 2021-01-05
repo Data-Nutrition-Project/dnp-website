@@ -5,7 +5,7 @@
             "Predict incidence of melanoma in a population"
         ],
         "summary": {
-            "Dataset Name": "2020 SIIM-ISIC Melanoma Classification Challenge Dataset",
+            "Dataset Name": "2020 SIIM-ISIC Melanoma Classification Challenge Dataset [Draft]",
             "Data Collection Range": "1998 - 2019",
             "Created By": "International Skin Imaging Collaboration (ISIC)",
             "Content": "The 2020 SIIM-ISIC Melanoma Classification challenge dataset was created for the purpose of conducting a machine learning competition to identify melanoma in lesion images. As the leading healthcare organization for informatics in medical imaging, the Society for Imaging Informatics in Medicine (SIIM)'s mission is to advance medical imaging informatics through education, research, and innovation in a multi-disciplinary community. SIIM is joined by the International Skin Imaging Collaboration (ISIC), an international effort to improve melanoma diagnosis. The ISIC Archive contains the largest publicly available collection of quality-controlled dermoscopic images of skin lesions.",
