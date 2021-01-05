@@ -17,8 +17,8 @@
             "data-license": 2,
             "funding": 1,
             "subpopulations": 1,
-            "quality-review": 1,
-            "ethical-review": 1,
+            "quality-review": 2,
+            "ethical-review": 2,
             "updates": 4,
             "data-license": 1,
             "source": 1
@@ -322,10 +322,10 @@
                 "content": "There are multiple sources of funding for this dataset. \n\n- The dataset provided by The University of Queensland in Brisbane was funded by the National Health and Medical Research Council (NHMRC) \u2013 Centre of Research Excellence Scheme (APP 1099021). \n- Other funding sources include the Melanoma Research Alliance Young Investigator Award 614197 and NIH Core Grant (P30 CA008748). "
             },
             "dataset-sampling": {
-                "title": "",
+                "title": "Dataset Sampling",
                 "type": "markdown",
                 "category": "Completeness",
-                "content": ""
+                "content": "Dataset is a sample, and is an accurate sample for a particular use."
             },
             "raw-data": {
                 "title": "Raw data not accessible",
@@ -340,10 +340,10 @@
                 "content": "This dataset is not dependent on any upstream sources for its content."
             },
             "confidential-data": {
-                "title": "",
+                "title": "No confidential data",
                 "type": "markdown",
                 "category": "Composition",
-                "content": ""
+                "content": "No confidential data is present in this dataset."
             },
             "subpopulations": {
                 "title": "Subpopulations identified",
@@ -351,17 +351,11 @@
                 "category": "Composition",
                 "content": "This dataset identifies people based on: Physical attributes, Age (approximate, at time image was taken), Biological Sex"
             },
-            "collection-timeframe": {
-                "title": "",
-                "type": "markdown",
-                "category": "Composition",
-                "content": ""
-            },
             "collection-organization": {
                 "title": "Collected by same organization as development",
                 "type": "markdown",
                 "category": "Composition",
-                "content": ""
+                "content": "This dataset was collected by the same organization that developed it."
             },
             "user-consent": {
                 "title": "Consent gathered",
@@ -376,16 +370,16 @@
                 "content": "Images with identifiable marks (jewelry, tattoos, etc) were removed from the dataset during preprocessing. "
             },
             "quality-review": {
-                "title": "",
+                "title": "Quality Review",
                 "type": "markdown",
                 "category": "Collection",
-                "content": ""
+                "content": "No information available on quality review for this dataset."
             },
             "ethical-review": {
-                "title": "",
+                "title": "Ethical Review",
                 "type": "markdown",
                 "category": "Collection",
-                "content": ""
+                "content": "No information available on ethical review for this dataset."
             },
             "updates": {
                 "title": "Dataset is static",
@@ -394,10 +388,10 @@
                 "content": "No updates are made to the dataset"
             },
             "right-removed": {
-                "title": "",
+                "title": "Right to be Removed",
                 "type": "markdown",
                 "category": "Collection",
-                "content": ""
+                "content": "There is no right to be removed for this dataset."
             },
             "same-patient": {
                 "title": "Dataset clearly represents which images are from the same patient ",
@@ -429,7 +423,7 @@
                 "category": "Collection",
                 "content": "When multiple image types were available, the selected image was either the one of highest resolution or if multiple images at the same resolution were available, one was chosen randomly. "
             },
-            "methodology-tool ": {
+            "methodology-tool": {
                 "title": "Preprocessing - Methodology and Tool ",
                 "type": "markdown",
                 "category": "Collection",
