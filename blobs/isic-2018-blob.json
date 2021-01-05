@@ -375,10 +375,10 @@
                 "content": "No updates are performed on this dataset."
             },
             "right-removed": {
-                "title": "Right to be Removed",
+                "title": "",
                 "type": "markdown",
                 "category": "Collection",
-                "content": "There is no right to be removed for this dataset."
+                "content": ""
             },
             "photo-choice": {
                 "title": "Preprocessing - Choice of photo when there were several ",
