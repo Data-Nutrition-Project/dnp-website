@@ -89,7 +89,7 @@ const LabelIndexPage = props => {
       <Container className={styles.labelLanding}>
         <Row className={styles.titleSection}>
           <Col md={12}>
-            <h1>The Dataset Nutrition Label's Label</h1>
+            <h1>The Dataset Nutrition Label</h1>
             <h4 className={styles.titleSectionSubtitle}>
               Information on the purpose and functionality of the label
             </h4>

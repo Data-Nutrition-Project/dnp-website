@@ -268,7 +268,7 @@ const IndexPage = props => (
               <b>Recent Talks (2020)</b>
               <ul>
                 <li>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; <a href="http://securedata.lol/camera_ready/26.pdf">paper</a></li>
-                <li>Office of the Chief Technology Officer, US Digital Service</li>
+                <li>Office of the Chief Technology Officer, US Department of Education</li>
                 <li>DRIVE/2020, ‘Bias in, Bias out’</li>
                 <li>The Berkman Klein Center at Harvard University, Fellows Presentation</li>
                 <li>The Harvard Kennedy School, Lecture for Product Management &amp; Society Class</li>
