@@ -1,3 +1,7 @@
+@value layout: "../layout.css";
+
+@value tabletMaxWidth: 1024px from layout;
+
 .bioRow {
     margin-bottom: 2rem;
     justify-content: center;
@@ -85,4 +89,10 @@
 .socialIcon i {
     display: block;
     position: relative;
+}
+
+@media (max-width: tabletMaxWidth) {
+    .teamImage {
+        margin-bottom: .75rem;
+    }
 }

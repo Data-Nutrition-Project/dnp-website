@@ -37,7 +37,7 @@ const IndexPage = props => (
               }
             </span>
           </div>
-          <div className={styles.centerText}>
+          <div className={classNames(styles.centerText, styles.mobileSpacer)}>
             <AnchorLink to="/#section-solution-tool" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
@@ -198,9 +198,9 @@ const IndexPage = props => (
                 white paper
               </a>.             
             </p>
-            <Link to="/labels">
+            <Link to="/labels/">
               <Button
-                className={classNames(styles.tealButton, styles.modButtonLarge, styles.modButtonParagraph)}
+                className={classNames(styles.tealButton, styles.modButtonLarge, styles.modButtonParagraph, styles.mobileSpacer)}
               >
                 <i className="icon-play-circle"></i>{' '}Go to Labels
               </Button>
@@ -1025,16 +1025,14 @@ const IndexPage = props => (
           <Col sm={2} xs={12} className={styles.centerText}>
             <h2 className={styles.contactHeader}>OR</h2>
           </Col>
-          <Col sm={4} xs={12}>
-            <div id="snav-content1">
-              <Button
-                as="a"
-                href="mailto:nutrition@media.mit.edu"
-                className={classNames(styles.tealButton, styles.modButtonLarge)}
-              >
-                <i class="icon-line2-users"></i>{' '}Send us an email
-              </Button>
-            </div>
+          <Col sm={4} xs={12} className={styles.centerText}>
+            <Button
+              as="a"
+              href="mailto:nutrition@media.mit.edu"
+              className={classNames(styles.tealButton, styles.modButtonLarge)}
+            >
+              <i class="icon-line2-users"></i>{' '}Send us an email
+            </Button>
           </Col>
         </Row>
       </Container>
