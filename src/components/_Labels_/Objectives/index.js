@@ -26,8 +26,8 @@ class Objectives extends React.Component {
     })
     e.stopPropagation()
   }
+
   render() {
-    let objectives = this.props.objectives
     return (
       <div>
         <Element id={"Selector-title"} />
@@ -39,8 +39,8 @@ class Objectives extends React.Component {
         <Element id={"Alerts-title"} />
         <AllAlerts
           objectives={this.props.objectives.objectives}
-          alerts={objectives.alerts}
-          fyis={objectives.fyis}
+          alerts={this.props.objectives.alerts}
+          fyis={this.props.objectives.fyis}
           selectedAlerts={this.state.selectedAlerts}
         />
       </div>

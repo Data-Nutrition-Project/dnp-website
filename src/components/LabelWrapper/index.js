@@ -19,7 +19,6 @@ class LabelWrapper extends Component {
   }
 
   render() {
-    console.log("label", this.props.label)
     return (
       <div key={0} className={styles.labelWrapper}>
         {this.props.label.overview === undefined ? (
