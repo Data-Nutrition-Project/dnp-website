@@ -563,7 +563,7 @@ const IndexPage = props => (
                 imgPath={require("../images/justfix.png")}
                 imgAlt="JustFix.nyc"
                 name="JustFix.nyc"
-                role="Research &amp; Design Collaborator"
+                role="Research &amp; Data Collaborator"
                 bio="JustFix.nyc co-designs and builds tools for tenants, housing organizers, and legal advocates fighting displacement in New York City. Our mission is to galvanize a 21st century tenant movement working towards housing for all — and we think the power of data and technology should be accessible to those fighting this fight."
                 socialMedia={[
                   {
