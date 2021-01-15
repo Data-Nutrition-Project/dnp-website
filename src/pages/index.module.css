@@ -4,6 +4,10 @@
 @value teal from layout;
 @value backgroundGray from layout;
 
+@value tabletMaxWidth: 1024px from layout;
+@value landscapeMaxWidth: 767px from layout;
+@value portraitMaxWidth: 479px from layout;
+
 
 /* General layout */
 
@@ -63,7 +67,8 @@
     display: block;
     margin-top: 10px;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 1.75rem;
+    font-weight: 300;
 }
 
 .centerText {
@@ -82,6 +87,8 @@
     letter-spacing: .125rem;
     text-transform: uppercase;
     line-height: 2rem;
+    width: auto;
+    height: auto;
 }
 
 .tealButtonLink {
@@ -101,6 +108,10 @@
 .modButtonLarge {
     padding: 0 2rem;
     line-height: 3.5rem;
+}
+
+.modButtonParagraph {
+    margin: .5rem 0;
 }
 
 .photoCredit {
@@ -134,7 +145,7 @@
 }
 
 .headingBlock h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
 }
 
 .headingSubHeader {
@@ -186,6 +197,11 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 
 .header.transparentHeader + .sliderParallax .sliderParallaxInner { top: 0; }
 
+.headerSentence {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
 
 /* Info sections */
 
@@ -213,6 +229,10 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
     margin-top: 0;
 }
 
+.talksSection {
+    margin-bottom: 2.5rem;
+}
+
 
 /* Team section */
 
@@ -221,6 +241,14 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 }
 
 /* FAQ */
+
+.faq h4 {
+    font-size: 1.25rem;
+}
+
+.faq p {
+    font-size: 1.125rem;
+}
 
 .line {
     clear: both;
@@ -260,7 +288,7 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 .subscribeLabel {
     display: inline-block;
     max-width: 100%;
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -271,4 +299,59 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 
 .contactHeader {
     margin-bottom: 0;
+}
+
+@media (max-width: tabletMaxWidth) {
+    .modButtonLarge {
+        padding: .25rem 2rem;
+        line-height: 2rem;
+    }
+
+    .mobileSpacer {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: landscapeMaxWidth) {
+    .modButtonLarge {
+        padding: .25rem 2rem;
+        line-height: 2rem;
+    }
+
+    .slider {
+        height: auto;
+    }
+
+    .sectionImage {
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: portraitMaxWidth) {
+    .pageTitleHeader {
+        font-size: 2.5rem;
+    }
+
+    .pageTitleSpan {
+        font-size: 1.5rem;
+    }
+
+    .missionList {
+        font-size: 1rem;
+    }
+
+    .headingBlock h2 {
+        font-size: 1.75rem;
+    }
+
+    .headingSubHeader,
+    .headerSentence,
+    .lead {
+        font-size: 1.25rem;  
+    }
+
+    .sectionImageImg {
+        margin: 0;
+    }
 }

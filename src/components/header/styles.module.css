@@ -41,7 +41,6 @@
 .logo {
   position: relative;
   float: left;
-  font-family: "Raleway", sans-serif;
   font-size: 2rem;
   line-height: 100%;
   margin-right: 2.25rem;
@@ -87,7 +86,6 @@
   font-size: 1rem;
   letter-spacing: 0.0625rem;
   text-transform: uppercase;
-  font-family: "Raleway", sans-serif;
 }
 
 .primaryNav div > a span {
@@ -131,6 +129,14 @@
 
 .navLink {
   padding: 0.5rem 1rem;
+}
+
+.navDropdown {
+  background-color: darkSlateBlue;
+}
+
+.dropdownItem {
+  padding-left: 0;
 }
 
 @media (max-width: tabletMaxWidth) {
@@ -182,5 +188,18 @@
   .primaryNav div {
     width: 100%;
     background-color: darkSlateBlue;
+  }
+
+  .dropdownItem {
+    padding-left: .5rem;
+  }
+
+  .dropdownLink {
+    color: white;
+  }
+
+  .dropdownLink:hover,
+  .dropdownLink.current {
+    color: teal;
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import classNames from "classnames"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import ReactMarkdown from "react-markdown"
@@ -8,71 +9,321 @@ import { VegaLite } from "react-vega"
 import styles from "./styles.module.css"
 import colors from "../../layout.css"
 
-const SEVERITY_MAP = {
-  3: "NOT KNOWN",
-  2: "POSSIBLE",
-  1: "KNOWN",
-}
+const COLOR_MAP = [
+  colors.alertYellow,
+  colors.alertOrange,
+  colors.alertRed
+]
+
+const SEVERITY_MAP = [
+  "Yes",
+  "Maybe",
+  "No"
+]
+
+const BINARY_BADGE_MAP = [
+  {
+    key: 'about-humans',
+    alt: [
+      'badge saying dataset is about humans',
+      'badge saying dataset is not about humans'
+    ],
+    options: [
+      'about-humans-y',
+      'about-humans-n'
+    ]
+  },
+  {
+    key: 'individual-data',
+    alt: [
+      'badge saying dataset has individual data',
+      'badge saying dataset does not have individual data'
+    ],
+    options: [
+      'individual-data-y',
+      'individual-data-n'
+    ]
+  },
+  {
+    key: 'subpopulations',
+    alt: [
+      'badge saying dataset identifies subpopulations',
+      'badge saying dataset does not identify subpopulations'
+    ],
+    options: [
+      'subpopulations-y',
+      'subpopulations-n'
+    ]
+  },
+  {
+    key: 'quality-review',
+    alt: [
+      'badge saying dataset has been reviewed for quality',
+      'badge saying dataset does not have quality review'
+    ],
+    options: [
+      'quality-review-y',
+      'quality-review-n'
+    ]
+  },
+  {
+    key: 'ethical-review',
+    alt: [
+      'badge saying dataset has been reviewed for ethical issues',
+      'badge saying dataset does not have ethical review'
+    ],
+    options: [
+      'ethical-review-y',
+      'ethical-review-n'
+    ]
+  }
+]
+
+const MULTI_BADGE_MAP = [
+  {
+    key: 'data-license',
+    alt: [
+      'badge saying dataset license is non-commercial',
+      'badge saying dataset license is commercial'
+    ],
+    options: [
+      'data-license-nc',
+      'data-license-c'
+    ]
+  },
+  {
+    key: 'funding',
+    alt: [
+      'badge saying dataset funding is multi-source',
+      'badge saying dataset funding is for-profit funded',
+      'badge saying dataset funding is not-for-profit funded',
+      'badge saying dataset funding is government funded'
+    ],
+    options: [
+      'funding-ms',
+      'funding-fp',
+      'funding-nfp',
+      'funding-g'
+    ]
+  },
+  {
+    key: 'source',
+    alt: [
+      'badge saying dataset is from single source',
+      'badge saying dataset is from multiple sources'
+    ],
+    options: [
+      'source-ss',
+      'source-ms'
+    ]
+  },
+  {
+    key: 'updates',
+    alt: [
+      'badge saying dataset is updated daily',
+      'badge saying dataset is updated weekly',
+      'badge saying dataset is updated annualy',
+      'badge saying dataset is not updated'
+    ],
+    options: [
+      'updates-d',
+      'updates-w',
+      'updates-a',
+      'updates-na'
+    ]
+  }
+]
 
 class Overview extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      useCaseSelected: this.props.topUseCases[0],
+
+    let data = {
+      byCategory: [],
+      byMitigation: [],
+      byPotentialHarm: [],
+      categoryHarmMatrix: {
+        Completeness: {count: 0, tags: {}},
+        Provenance: {count: 0, tags: {}},
+        Collection: {count: 0, tags: {}},
+        Description: {count: 0, tags: {}},
+        Composition: {count: 0, tags: {}},
+      }
     }
-  }
-
-  handleUseCaseChange(e) {
-    e.stopPropagation()
-    this.setState({
-      useCaseSelected: e.target.value
-    })
-  }
-
-  renderAlertsChart = () => {
-    const data = []
-    this.props.useCasesSection['use-cases'][this.state.useCaseSelected].predictions.map((pred, i) => {
-      this.props.useCasesSection.predictions[pred].alerts.map(alert => {
-        this.props.useCasesSection.alerts[alert.alert].tags.map(tag => {
-          data.push({
-            category: this.props.useCasesSection.alerts[alert.alert].category,
-            type: tag,
-            severity: SEVERITY_MAP[alert.severity],
-          })
+    Object.entries(this.props.objectivesSection.alerts).map((alertInfo, i) => {
+      const alert = alertInfo[1]
+      const severity = parseInt(alert.severity)
+      data.byCategory.push({
+        category: alert.category,
+        severity: severity,
+        label: SEVERITY_MAP[severity - 1]
+      })
+      data.byMitigation.push({
+        severity: severity,
+        label: SEVERITY_MAP[severity - 1]
+      })
+      alert.tags.map(tag => {
+        if (data.categoryHarmMatrix[alert.category].tags[tag] === undefined) {
+          data.categoryHarmMatrix[alert.category].tags[tag] = 0
+        }
+        data.categoryHarmMatrix[alert.category].count++
+        data.categoryHarmMatrix[alert.category].tags[tag]++
+        data.byPotentialHarm.push({
+          potentialHarm: tag,
+          severity: severity,
+          label: SEVERITY_MAP[severity - 1]
         })
       })
     })
 
+    this.state = data
+  }
+
+  renderAlertsCategory = (alertsByCat) => {
     const spec = {
-      mark: "point",
+      layer: [
+        {
+          mark: "bar",
+        },
+        {
+          mark: {
+            type: "text",
+            font: "Raleway",
+            align: "left",
+            baseline: "bottom",
+            size: "11",
+            dx: 8,
+            dy: 3
+          },
+          encoding: {
+            text: {
+              field: "category"
+            },
+            color: {
+              value: "black"
+            }
+          }
+        }
+      ],
       width: "container",
       encoding: {
         y: {
-          field: "type",
-          type: "nominal"
+          field: "category",
+          band: 0.75,
+          axis: {
+            labelFontSize: 0
+          }
         },
         x: {
+          aggregate: "count",
           field: "category",
-          type: "nominal",
-          sort: ["Description", "Composition", "Collection", "Provenance", "Completeness"],
           axis: {
-            labelAngle: -45
+            orient: "top",
+            tickMinStep: 1
           }
         },
-        size: {
-          aggregate: "count",
+        color: {
+          type: "nominal",
           field: "severity",
-          legend: {
-            title: "Number of Alerts",
-            titleFontSize: 12,
-            labelFontSize: 12,
-          }
+          scale: {
+            domain: [1, 2, 3],
+            range: COLOR_MAP
+          },
+          legend: false
         },
       },
       config: {
+        view: {
+          stroke: "transparent"
+        },
         axis: {
-          grid: true,
+          grid: false,
           tickBand: "extent",
+          labelFont: "Raleway",
+          labelFontSize: "12",
+          titleFontSize: 0
+        },
+        legend: {
+          titleFontSize: 0,
+          padding: 12,
+        }
+      },
+      data: { name: "alerts" },
+    }
+
+    return (
+      <VegaLite
+        className={styles.alertGraph}
+        spec={spec}
+        actions={false}
+        data={{
+          alerts: alertsByCat,
+        }}
+      />
+    )
+  }
+
+  renderAlertsHarm = (alertsByHarm) => {
+    const spec = {
+      layer: [
+        {
+          mark: "bar",
+        },
+        {
+          mark: {
+            type: "text",
+            font: "Raleway",
+            align: "left",
+            baseline: "bottom",
+            size: "11",
+            dx: 5,
+            dy: 3
+          },
+          encoding: {
+            text: {
+              field: "potentialHarm"
+            },
+            color: {
+              value: "black"
+            }
+          }
+        }
+      ],
+      width: "container",
+      encoding: {
+        y: {
+          field: "potentialHarm",
+          band: 0.75,
+          axis: {
+            labelFontSize: 0
+          }
+        },
+        x: {
+          aggregate: "count",
+          field: "potentialHarm",
+          axis: {
+            orient: "top",
+            tickMinStep: 1
+          }
+        },
+        color: {
+          type: "nominal",
+          field: "severity",
+          scale: {
+            domain: [1, 2, 3],
+            range: [colors.alertBlue]
+          },
+          legend: false
+        }
+      },
+      config: {
+        view: {
+          stroke: "transparent"
+        },
+        axis: {
+          grid: false,
+          tickBand: "extent",
+          labelFont: "Raleway",
           labelFontSize: "12",
           titleFontSize: 0,
         },
@@ -90,7 +341,92 @@ class Overview extends Component {
         spec={spec}
         actions={false}
         data={{
-          alerts: data,
+          alerts: alertsByHarm,
+        }}
+      />
+    )
+  }
+
+  renderAlerts = (alerts) => {
+    const spec = {
+      layer: [
+        {
+          mark: "bar",
+        },
+        {
+          mark: {
+            type: "text",
+            font: "Raleway",
+            align: "left",
+            baseline: "bottom",
+            size: "11",
+            dx: 8,
+            dy: 3
+          },
+          encoding: {
+            text: {
+              field: "label"
+            },
+            color: {
+              value: "black"
+            }
+          }
+        }
+      ],
+      width: "container",
+      encoding: {
+        y: {
+          field: "severity",
+          type: "nominal",
+          band: 0.75,
+          axis: {
+            labelFontSize: 0
+          }
+        },
+        x: {
+          aggregate: "count",
+          field: "label",
+          axis: {
+            orient: "top",
+            tickMinStep: 1
+          }
+        },
+        color: {
+          type: "nominal",
+          field: "severity",
+          scale: {
+            domain: [1, 2, 3],
+            range: COLOR_MAP
+          },
+          legend: false
+        }
+      },
+      config: {
+        view: {
+          stroke: "transparent"
+        },
+        axis: {
+          grid: false,
+          tickBand: "extent",
+          labelFont: "Raleway",
+          labelFontSize: "12",
+          titleFontSize: 0,
+        },
+        legend: {
+          titleFontSize: 0,
+          padding: 12,
+        },
+      },
+      data: { name: "alerts" },
+    }
+
+    return (
+      <VegaLite
+        className={styles.alertGraph}
+        spec={spec}
+        actions={false}
+        data={{
+          alerts: alerts,
         }}
       />
     )
@@ -99,142 +435,204 @@ class Overview extends Component {
   render() {
     return (
       <>
-        <Row className={styles.row}>     
-          <Col md={{ span: 6 }}>
-            <h3 className={styles.sectionTitle}>About</h3>
-            <span className={styles.datasetUnderline} />
-            <div className={styles.qAndA}>
-              <ReactMarkdown
-                className={styles.answer}
-                source={this.props.datasetInfoDescription[0].answer}
-              />
-            </div>
-          </Col>
-          <Col md={{ span: 6 }}>
-            <h3 className={styles.sectionTitle}>Top Use Cases</h3>
-            <span className={styles.datasetUnderline} />
-            {this.props.topUseCases.map((useCaseName, i) => (
-              <Row className={styles.useCaseList}>
-                <Col md={1} className={styles.useCaseListNumber}>
-                  {i + 1}
-                </Col>
-                <Col md={{ span: 10 }} className={styles.useCaseQuestion}>
-                  {
-                    this.props.useCasesSection["use-cases"][useCaseName]
-                      .description
-                  }
-                </Col>
-              </Row>
-            ))}
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-            <h3 className={styles.sectionTitle}>Summary</h3>
-            <span className={styles.datasetUnderline} />
-            <div className={styles.summaryCreationSection}>
-              <div className={styles.primarySummary}>
-                <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Created By:</Col>
-                  <Col md={6}>
-                    <ReactMarkdown>
-                      {this.props.summary.createdBy +
-                        ", " +
-                        this.props.summary.creatorContactInfo}
-                    </ReactMarkdown>
-                  </Col>
+        <Row className={styles.row}>
+          <Col md={{ span: 5 }} sm={{ span: 12 }}>
+            <Row className={styles.row}>
+              <Col md={{ span: 12 }}>
+                <h3 className={styles.sectionTitle}>About</h3>
+                <div className={classNames(styles.qAndA, styles.pFontSize)}>
+                  <ReactMarkdown
+                    className={styles.answer}
+                    source={this.props.datasetInfoDescription[0].answer}
+                  />
                 </div>
+              </Col>
+            </Row>
+            <Row className={styles.row}>
+              <Col md={12} className={styles.pFontSize}>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>
+                  <span className={styles.summaryLabel}>
                     Data Creation Range:
-                  </Col>
-                  <Col md={6}>
+                  </span>
+                  <span>
                     <ReactMarkdown>
-                      {this.props.summary.dataCollectionRange}
+                      {this.props.summary['Data Collection Range']}
                     </ReactMarkdown>
-                  </Col>
+                  </span>
                 </div>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Publish Date:</Col>
-                  <Col md={6}>
+                  <span className={styles.summaryLabel}>Created By:</span>
+                  <span>
                     <ReactMarkdown>
-                      {this.props.summary.datasetPublishDate}
+                      {this.props.summary['Created By']}
                     </ReactMarkdown>
-                  </Col>
+                  </span>
                 </div>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Update Frequency:</Col>
-                  <Col md={6}>
-                    <ReactMarkdown>
-                      {this.props.summary.datasetUpdateFrequency}
-                    </ReactMarkdown>
-                  </Col>
+                  <span className={styles.summaryLabel}>Content:</span>
+                  <span>
+                    {this.props.summary['Content']}
+                  </span>
                 </div>
                 <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>
-                    Most Recent Label Update:
-                  </Col>
-                  <Col md={6}>
-                    <ReactMarkdown>
-                      {this.props.summary.lastLabelUpdate}
-                    </ReactMarkdown>
-                  </Col>
+                  <span className={styles.summaryLabel}>Source:</span>
+                  <span>
+                    <ReactMarkdown>{this.props.summary['Source']}</ReactMarkdown>
+                  </span>
                 </div>
-              </div>
-              <div className={styles.secondarySummary}>
-                <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>License:</Col>
-                  <Col md={6}>
-                    <ReactMarkdown>{this.props.summary.licenseInfo}</ReactMarkdown>
-                  </Col>
-                </div>
-                <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Size:</Col>
-                  <Col md={6}>
-                    <ReactMarkdown>{this.props.summary.datasetSize}</ReactMarkdown>
-                  </Col>
-                </div>
-                <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Format:</Col>
-                  <Col md={6}>
-                    <ReactMarkdown>
-                      {this.props.summary.datasetFormat}
-                    </ReactMarkdown>
-                  </Col>
-                </div>
-                <div className={styles.summaryRow}>
-                  <Col md={6} className={styles.summaryLabel}>Source URL:</Col>
-                  <Col md={6}>
-                    <ReactMarkdown>{this.props.summary.sourceURL}</ReactMarkdown>
-                  </Col>
-                </div>
-              </div>
-            </div>
-            <ReactMarkdown source={this.props.summary.summaryText} />
-          </Col>    
-          <Col md={{ span: 6 }}>
-            <h3 className={styles.sectionTitle}>Alerts</h3>
+              </Col>
+            </Row>
             <span className={styles.datasetUnderline} />
-            <div className={styles.useCaseSelector}>
-              <span><b>Use Case:</b></span>
-              <select
-                className={styles.useCasesSelectorDropdown}
-                id="use-case-selector"
-                onChange={e => this.handleUseCaseChange(e)}
-              >
-                {this.props.topUseCases.map((useCase, i) => {
-                  return (
-                    <option value={useCase} key={i}>
-                      {this.props.useCasesSection['use-cases'][useCase].description}
-                    </option>
-                  )
-                })}
-              </select>
-            </div>
-            <div className={styles.alertSection}>
-              {this.renderAlertsChart()} 
-            </div>
+            <Row>
+              <Col md={12}>
+                <h3 className={classNames(styles.sectionTitle, styles.alertsCategoryHeader)}>
+                  <span>Alert Count</span>
+                  <span>{
+                    this.state.categoryHarmMatrix.Completeness.count +
+                    this.state.categoryHarmMatrix.Provenance.count +
+                    this.state.categoryHarmMatrix.Collection.count +
+                    this.state.categoryHarmMatrix.Description.count +
+                    this.state.categoryHarmMatrix.Composition.count
+                  }*</span>
+                </h3>
+                <h4 className={styles.labelCategory}>
+                  <span>Completeness</span>
+                  <span>{this.state.categoryHarmMatrix.Completeness.count}</span>
+                </h4>
+                {Object.entries(this.state.categoryHarmMatrix.Completeness.tags).length > 0 && (
+                  <ul className={classNames(styles.labelHarmList, styles.pFontSize)}>
+                    {Object.entries(this.state.categoryHarmMatrix.Completeness.tags).map((values, i) => (
+                      <li className={styles.labelHarmItem}>
+                        <span className={styles.labelHarmItemName}>{values[0]}</span>
+                        <span className={styles.labelHarmItemCount}>{values[1]}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <h4 className={styles.labelCategory}>
+                  <span>Provenance</span>
+                  <span>{this.state.categoryHarmMatrix.Provenance.count}</span>
+                </h4>
+                {Object.entries(this.state.categoryHarmMatrix.Provenance.tags).length > 0 && (
+                  <ul className={classNames(styles.labelHarmList, styles.pFontSize)}>
+                    {Object.entries(this.state.categoryHarmMatrix.Provenance.tags).map((values, i) => (
+                      <li className={styles.labelHarmItem}>
+                        <span className={styles.labelHarmItemName}>{values[0]}</span>
+                        <span className={styles.labelHarmItemCount}>{values[1]}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}     
+                <h4 className={styles.labelCategory}>
+                  <span>Collection</span>
+                  <span>{this.state.categoryHarmMatrix.Collection.count}</span>
+                </h4>
+                {Object.entries(this.state.categoryHarmMatrix.Collection.tags).length > 0 && (
+                  <ul className={classNames(styles.labelHarmList, styles.pFontSize)}>
+                    {Object.entries(this.state.categoryHarmMatrix.Collection.tags).map((values, i) => (
+                      <li className={styles.labelHarmItem}>
+                        <span className={styles.labelHarmItemName}>{values[0]}</span>
+                        <span className={styles.labelHarmItemCount}>{values[1]}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <h4 className={styles.labelCategory}>
+                  <span>Description</span>
+                  <span>{this.state.categoryHarmMatrix.Description.count}</span>
+                </h4>
+                {Object.entries(this.state.categoryHarmMatrix.Description.tags).length > 0 && (
+                  <ul className={classNames(styles.labelHarmList, styles.pFontSize)}>
+                    {Object.entries(this.state.categoryHarmMatrix.Description.tags).map((values, i) => (
+                      <li className={styles.labelHarmItem}>
+                        <span className={styles.labelHarmItemName}>{values[0]}</span>
+                        <span className={styles.labelHarmItemCount}>{values[1]}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}           
+                <h4 className={styles.labelCategory}>
+                  <span>Composition</span>
+                  <span>{this.state.categoryHarmMatrix.Composition.count}</span>
+                </h4>
+                {Object.entries(this.state.categoryHarmMatrix.Composition.tags).length > 0 && (
+                  <ul className={classNames(styles.labelHarmList, styles.pFontSize)}>
+                    {Object.entries(this.state.categoryHarmMatrix.Composition.tags).map((values, i) => (
+                      <li className={styles.labelHarmItem}>
+                        <span className={styles.labelHarmItemName}>{values[0]}</span>
+                        <span className={styles.labelHarmItemCount}>{values[1]}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )} 
+                <span className={styles.datasetUnderline} />
+                <p className={styles.caption}>* Please refer to the Objectives and Alerts section for more details</p>
+              </Col>
+            </Row>
           </Col>
+          <Col md={{ span: 6, offset: 1 }} sm={{ span: 12 }}>
+            <Row className={styles.row}>
+              <Col md={{ span: 12 }}>
+                <h3 className={classNames(styles.sectionTitle, styles.hasSubtitle)}>Use Cases</h3>
+                <p className={styles.caption}>Potential real-world applications of the dataset</p>
+                {this.props.useCases.map((useCase, i) => (
+                  <div className={classNames(styles.useCaseList, styles.pFontSize)}>
+                    <p className={styles.useCaseListNumber}>
+                      {i + 1}
+                    </p>
+                    <p md={{ span: 11 }} className={styles.useCaseQuestion}>
+                      { useCase }
+                    </p>
+                  </div>
+                ))}
+              </Col>
+            </Row>
+            <div>
+              <h3 className={styles.sectionTitle}>Badges</h3>
+            </div>
+            <Row className={styles.row}>
+              <Col md={6} className={styles.badgeRows}>
+                {BINARY_BADGE_MAP.map((object, i) => (
+                  <img
+                    className={styles.badge}
+                    src={"/badges/" + object.options[this.props.badges[object.key] - 1] + ".png"}
+                    alt={object.alt[this.props.badges[object.key] - 1]}
+                  />
+                ))}
+              </Col>
+              <Col md={6} className={styles.badgeRows}>
+                {MULTI_BADGE_MAP.map((object, i) => (
+                  <img
+                    className={styles.badge}
+                    src={"/badges/" + object.options[this.props.badges[object.key] - 1] + ".png"}
+                    alt={object.alt[this.props.badges[object.key] - 1]}
+                  />
+                ))}
+              </Col>
+            </Row>
+            <Row>
+              <Col xl={{ span: 6 }} md={{ span: 12 }}>
+                <div className={styles.alertSection}>
+                  <p className={styles.graphHeader}>Alert Count by Category</p>
+                  {this.renderAlertsCategory(this.state.byCategory)} 
+                </div>
+              </Col>
+              <Col xl={{ span: 6 }} md={{ span: 12 }}>
+                <div className={styles.alertSection}>
+                  <p className={styles.graphHeader}>Alert Count by Mitigation Potential</p>
+                  {this.renderAlerts(this.state.byMitigation)} 
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col xl={{ span: 8 }} md={{ span: 12 }}>
+                <div className={styles.alertSection}>
+                  <p className={styles.graphHeader}>Alert Count by Potential Harm</p>
+                  {this.renderAlertsHarm(this.state.byPotentialHarm)} 
+                </div>
+              </Col>
+            </Row>
+          </Col>  
         </Row>
       </>
     )
@@ -242,162 +640,16 @@ class Overview extends Component {
 }
 
 Overview.propTypes = {
-  summary: PropTypes.shape({
-    dataCollectionRange: PropTypes.string,
-    datasetPublishDate: PropTypes.string,
-    datasetUpdateFrequency: PropTypes.string,
-    lastLabelUpdate: PropTypes.string,
-    createdBy: PropTypes.string,
-    creatorContactInfo: PropTypes.string,
-    licenseInfo: PropTypes.string,
-    datasetSize: PropTypes.string,
-    datasetFormat: PropTypes.string,
-    sourceURL: PropTypes.string,
-  }).isRequired,
+  summary: PropTypes.object.isRequired,
   // the dataset info section of the blob to pull out purpose questions
   datasetInfoDescription: PropTypes.array.isRequired,
-  topUseCases: PropTypes.array.isRequired,
+  useCases: PropTypes.array.isRequired,
+  badges: PropTypes.object.isRequired,
   // whole use cases section to do alerts data extraction
-  useCasesSection: PropTypes.shape({
+  objectivesSection: PropTypes.shape({
     alerts: PropTypes.object,
-    predictions: PropTypes.object,
-    "use-cases": PropTypes.object,
-  }).isRequired,
-}
-
-Overview.defaultProps = {
-  summary: {
-    dataCollectionRange: "August 1-5th, 2020",
-    datasetPublishDate: "August 5th, 2020",
-    datasetUpdateFrequency: "Neverrrrr",
-    lastLabelUpdate: "August 5th, 2020",
-    createdBy: "MEEEEEEEE",
-    creatorContactInfo: "</>",
-    licenseInfo: "Creative Commons",
-    datasetSize: "One yard",
-    datasetFormat: "Some numbers etched into cement.",
-    sourceURL: "<http://datanutrition.org/>",
-  },
-  datasetInfoDescription: [
-    {
-      question: "Tell us about this dataset.",
-      help: "Please provide an overview of this dataset.",
-      type: "markdown",
-      answer: "If you don't already know, then you shouldn't be asking friend.",
-    },
-    {
-      question:
-        "Is there an intended purpose for the dataset? What domain was it designed for?",
-      help:
-        "For example, is there a service or organization that leverages this dataset? Is this dataset made available for a certain use in mind?",
-      type: "markdown",
-      answer: "Um, WINNING OF COURSE.",
-    },
-  ],
-  topUseCases: ["winning-1", "winning-2", "i-win-3", "i-win-4"],
-  useCasesSection: {
-    alerts: {
-      "alert-1": {
-        category: "completeness",
-        tags: ["race"],
-      },
-      "alert-2": {
-        category: "accuracy",
-        tags: ["ability"],
-      },
-      "alert-3": {
-        category: "completeness",
-        tags: ["gender"],
-      },
-      "alert-4": {
-        category: "accessibility",
-        tags: ["race"],
-      },
-      "alert-5": {
-        category: "accuracy",
-        tags: ["socioeconomic"],
-      },
-      "alert-6": {
-        category: "completeness",
-        tags: ["gender"],
-      },
-    },
-    predictions: {
-      "prediction-1": {
-        alerts: [
-          {
-            alert: "alert-1",
-            severity: 3,
-          },
-          {
-            alert: "alert-4",
-            severity: 2,
-          },
-          {
-            alert: "alert-6",
-            severity: 3,
-          },
-        ],
-        fyis: [
-          "fyi-1",
-          "fyi-2",
-          "fyi-3"
-        ]
-      },
-      "prediction-2": {
-        alerts: [
-          {
-            alert: "alert-1",
-            severity: 2,
-          },
-          {
-            alert: "alert-2",
-            severity: 1,
-          },
-          {
-            alert: "alert-5",
-            severity: 0,
-          },
-        ],
-        fyis: [
-          "fyi-1",
-          "fyi-2",
-          "fyi-3"
-        ]
-      },
-      "prediction-3": {
-        alerts: [
-          {
-            alert: "alert-3",
-            severity: 0,
-          },
-          {
-            alert: "alert-6",
-            severity: 3,
-          },
-        ],
-        fyis: [
-          "fyi-1",
-          "fyi-2",
-          "fyi-3"
-        ]
-      },
-    },
-    "use-cases": {
-      "winning-1": {
-        description: "Did we win?",
-      },
-      "winning-2": {
-        description: "Did we win?",
-      },
-      "i-win-3": {
-        description: "Did we win?",
-      },
-      "i-win-4": {
-        description: "Did we win?",
-      },
-    },
-  },
+    objectives: PropTypes.object
+  }).isRequired
 }
 
 export default Overview

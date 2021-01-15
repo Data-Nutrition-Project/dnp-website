@@ -1,28 +1,34 @@
 {
     "overview": {
+        "use-cases": [
+            "How will holiday travel impact us?",
+            "Should we enact targeted shutdowns? If so, for how long?",
+            "Should we limit elective procedures at hostpitals for the foreseeable future?",
+            "Does the impact of COVID differ by based on age, race, type of work, socioeconomic status, etc.?",
+            "What do the next few months look like for the US in terms of COVID impact?",
+            "Where do we need to distribute more PPE?"
+        ],
         "summary": {
-            "datasetName": "The COVID Tracking Project Dataset",
-            "dataCollectionRange": "January 22, 2020 - Present",
-            "datasetPublishDate": "Unknown",
-            "datasetUpdateFrequency": "Daily, at 4-5pm EST",
-            "lastLabelUpdate": "August 5, 2020",
-            "createdBy": "COVID Tracking Project, The Atlantic",
-            "creatorContactInfo": "([Contact](https://covidtracking.com/contact))",
-            "licenseInfo": "Creative Commons, ([more information here](https://covidtracking.com/about-data/license))",
-            "datasetSize": "34 KB",
-            "datasetFormat": "Tabular (csv, JSON)",
-            "sourceURL": "<https://covidtracking.com/data/api>"
+            "Dataset Name": "The Covid Tracking Project Dataset",
+            "Data Collection Range": "January 22, 2020 - Present",
+            "Created By": "COVID Tracking Project, The Atlantic",
+            "Content": "<100 KB, Tabular (csv, JSON)",
+            "Source": "<https://covidtracking.com/data/api>, Historical US Values Section"
         },
-        "top-use-cases": [
-            "bending-curve",
-            "covid-impact",
-            "safe-office",
-            "next-peak",
-            "lockdown-measures"
-        ]
+        "badges": {
+            "about-humans": 1,
+            "individual-data": 1,
+            "subpopulations": 2,
+            "quality-review": 1,
+            "ethical-review": 1,
+            "data-license": 1,
+            "funding": 1,
+            "source": 1,
+            "updates": 1
+        }
     },
     "dataset-info": {
-        "description": [
+        "Description": [
             {
                 "question": "Tell us about this dataset. ",
                 "help": "Please provide an overview of this dataset.",
@@ -60,7 +66,7 @@
                 "answer": "Yes. This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations. "
             }
         ],
-        "provenance": [
+        "Provenance": [
             {
                 "question": "Who created the dataset and on behalf of which entity?",
                 "help": "e.g. which team or research group on behalf of which company, institution, organization?",
@@ -74,7 +80,7 @@
                 "answer": "Non-Profit Group, Private Corporation, or Organization. This dataset is supported by The Atlantic Monthly Group, the Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation. "
             }
         ],
-        "collection": [
+        "Collection": [
             {
                 "question": "Over what timeframe was the data collected? If the data continues to be updated, please indicate. ",
                 "help": "",
@@ -118,7 +124,7 @@
                 "answer": "Yes. The dataset volunteer team has an advisory board which provides accountability. Additionally, the team has partnered with the Center for Antiracist Research in data processing: https://covidtracking.com/about/advisory-board"
             }
         ],
-        "management": [
+        "Management": [
             {
                 "question": "How is the data being mananged at rest and in transit?",
                 "help": "Particularly with regards to encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software. ",
@@ -141,7 +147,7 @@
                 "question": "Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)? If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?",
                 "help": "",
                 "type": "markdown",
-                "answer": "Yes. The full dataset is updated each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. This will continue for the foreseeable future. If things change, information about those changes will be communicated through the website: https://covidtracking.com/about-data"
+                "answer": "Data is updated daily. See more details at: <https://covidtracking.com/about-data>"
             },
             {
                 "question": "Is there a mechanism through which an individual can request their personal information be removed?",
@@ -150,7 +156,7 @@
                 "answer": "N/A. There is no individual-level data in the dataset, and thus no process for individual level data removal. "
             }
         ],
-        "composition": [
+        "Composition": [
             {
                 "question": "Does the dataset have a metadata repository or data dictionary? If yes, please provide the link and if not, please explain what each field means.",
                 "help": "The purpose of this question is to enable data practitioners to understand what is contained in the dataset at a field level. ",
@@ -203,7 +209,7 @@
                 "question": "If the data was processed, was the raw data saved in addition to the preprocessed/cleaned/labeled data? If yes, please provide a link to the raw data.",
                 "help": "Data practitioners may want to confirm your preprocessing steps to better understand the final data product. ",
                 "type": "markdown",
-                "answer": "No. Raw data is not available within the dataset but is available at over 50 upstream data sources:\nhttps://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656"
+                "answer": "No. Raw data is not available within the dataset but is available at over 50 upstream data sources. See each state's data section to find more information about upstream data sources: <https://covidtracking.com/data>"
             },
             {
                 "question": "Are there recommended data splits? If so, please provide a description of these splits, explaining the rationale behind them.",
@@ -221,7 +227,7 @@
                 "question": "Does the dataset include information from upstream sources? If so, name these sources, their stability, and any known usage limitations. ",
                 "help": "Upstream sources can include e.g. other datasets, research papers, tweets, websites.",
                 "type": "markdown",
-                "answer": "Yes. Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\n\nSee upstream data sources (over 50):\nhttps://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656"
+                "answer": "Yes. \"Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\"\n\nSource: <https://covidtracking.com/about-data/sources>"
             },
             {
                 "question": "If the datastet includes information from upstream sources, is this dataset technically dependent upon those sources? ",
@@ -243,7 +249,7 @@
             }
         ]
     },
-    "use-cases-section": {
+    "objectives-section": {
         "alerts": {
             "no-racial-breakdown": {
                 "title": "Case data not split out by race",
@@ -252,8 +258,8 @@
                 "tags": [
                     "Racial Bias"
                 ],
-                "mitigation": "No current mitigation known. This would require additional reported data, or combination with another dataset that has this data. No known external dataset could be used, however. ",
-                "severity": 3.0,
+                "mitigation": "CTP has done considerable extra work to analyze the extent to which individual states' racial data is accurate and transparent, available in their [Racial Data Dashboard](https://covidtracking.com/race/dashboard). Using this data as context for any objective can help mitigate any biases perpetuated due to individual states' lack of reporting racial data.",
+                "severity": 2.0,
                 "content": "[Recent studies have shown](https://www.nytimes.com/interactive/2020/07/05/us/coronavirus-latinos-african-americans-cdc-data.html) that there are racial disparities in who the virus impacts. While some states are starting to report racial data, not all of them have. As a consequence, this dataset does not have racial data and therefore cannot account for disparate impacts on people by race in decision making."
             },
             "no-gender-breakdown": {
@@ -263,7 +269,7 @@
                 "tags": [
                     "Gender Bias"
                 ],
-                "mitigation": "No current mitigation known. This would require additional reported data, or combination with another dataset that has this data. No known external dataset could be used, however. ",
+                "mitigation": "No current mitigation known. This would require additional reported data in the upstream data sources from which CTP pulls, or combination with another dataset that has this data. No known external dataset could be used, however. ",
                 "severity": 3.0,
                 "content": "While some states are starting to report gender data, not all of them have. As a consequence, this dataset does not have gender data and therefore cannot account for disparate impacts on people by gender in decision making."
             },
@@ -274,7 +280,7 @@
                 "tags": [
                     "Socioeconomic Bias"
                 ],
-                "mitigation": "No current mitigation known. This would require additional reported data, or combination with another dataset that has this data. No known external dataset could be used, however. ",
+                "mitigation": "No current mitigation known. This would require additional reported data in the upstream data sources from which CTP pulls, or combination with another dataset that has this data. No known external dataset could be used, however. ",
                 "severity": 3.0,
                 "content": "There is no breakdown by employment type, and therefore we cannot tell if essential workers are being adversely impacted due to their increased exposure and/or access to PPE. This is important data when considering reopening guidelines."
             },
@@ -285,7 +291,7 @@
                 "tags": [
                     "Socioeconomic Bias"
                 ],
-                "mitigation": "No current mitigation known. This would require additional reported data, such as zip code-level information, or county-level information",
+                "mitigation": "No current mitigation known. As [reported by CTP](https://covidtracking.com/about-data), \"we don\u2019t attempt to compile this data at the county or zip-code level, because the high-resolution data we\u2019re seeking hasn\u2019t been available in any consistent way at levels below that of the state/territory. This may change over time, but that\u2019s where we are today.\"",
                 "severity": 3.0,
                 "content": "State-level data is helpful for breaking down reopening guidelines from a state perspective. However, a lack of more granular information prevents seeing the impact of outbreaks based on socioecnomic and racial factors, which are more tightly correlated with zip codes due to existing racial and socioeconomic segregation in many metropolitan areas. In this dataset, the data is not compiled at the county or zip-code level because the high-resolution data hasn\u2019t been available in any consistent way at levels below that of the state/territory: <https://covidtracking.com/blog>."
             },
@@ -296,7 +302,7 @@
                 "tags": [
                     "Non-representative Sample Size"
                 ],
-                "mitigation": "No current mitigation known.",
+                "mitigation": "No current mitigation known. This is an issue with upstream data reporting/collection to begin with, and the nature of the data due to current resources available in general.",
                 "severity": 3.0,
                 "content": "Testing rates are not high enough in most states to get an accurate account of the number of confirmed active cases impact state-wide. However, one can use ratios between testing & confirmed active to mitigate this issue somewhat. [See here](https://www.propublica.org/article/how-to-understand-covid-19-numbers) for more information."
             },
@@ -307,8 +313,8 @@
                 "tags": [
                     "Non-representative Sample Size"
                 ],
-                "mitigation": "No current mitigation known.",
-                "severity": 3.0,
+                "mitigation": "CTP reports [grades](https://covidtracking.com/about-data/state-grades) for each states, and this can be used to qualify any objectie modeling based on a state's grade.",
+                "severity": 2.0,
                 "content": "Reporting is not consistent across states; some states have health deparments for each town/city, while some only have health departments for the state, making reporting more cumbersome. Additionally, state health departments may be pressured politically to not create comprehensive reports, as those may impact economic reopening plans."
             },
             "reporting-date-epi-date": {
@@ -366,28 +372,6 @@
                 "severity": 3.0,
                 "content": "The data sources leveraged at the local level are of varying quality, which has been documented through the States Grades initiative: <https://covidtracking.com/about-data/state-grades>"
             },
-            "existing-use-case": {
-                "title": "Existing Use Cases",
-                "type": "markdown",
-                "category": "Description",
-                "tags": [
-                    "N/A"
-                ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
-                "content": "This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations. "
-            },
-            "publicly-funded": {
-                "title": "Dataset is Publicly Funded",
-                "type": "markdown",
-                "category": "Provenance",
-                "tags": [
-                    "N/A"
-                ],
-                "mitigation": "FYI - Green",
-                "severity": 0.0,
-                "content": "This dataset is supported by The Atlantic Monthly Group, the Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation. "
-            },
             "missing-data": {
                 "title": "Varying levels of quality of local data ",
                 "type": "markdown",
@@ -395,164 +379,110 @@
                 "tags": [
                     "Non-representative Data"
                 ],
-                "mitigation": "No current mitigation known",
+                "mitigation": "No current mitigation known. This is an issue with upstream data reporting/collection to begin with, and the nature of the data due to current resources available in general.",
                 "severity": 3.0,
                 "content": "The data sources leveraged at the local level are of varying quality, which has been documented through the States Grades initiative: <https://covidtracking.com/about-data/state-grades>"
             }
         },
         "fyis": {
-            "field-relationship": {
-                "title": "Field Relationships",
+            "data-license": {
+                "title": "License uses Creative Commons ",
                 "type": "markdown",
-                "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
-                "content": "Instances are a time series; the same state appears many times and indicates the same geographical territory.  "
+                "category": "Description",
+                "content": "Non-Commercial. The COVID Tracking Project at The Atlantic data and website content is published under a Creative Commons CC BY-NC-4.0 license, which requires users to attribute the source and license type (CC BY-NC-4.0) when sharing the data. Derivative use of this data and website content that supports healthcare or medical research (including institutional use by public health and for-profit organizations), or journalistic usage (by nonprofit or for-profit organizations) is also allowed. All other commercial uses are not permitted under the Creative Commons license, and will require permission from The COVID Tracking Project at The Atlantic.\n\nRead more: https://covidtracking.com/about-data/license"
             },
-            "dataset-not-a-sample": {
+            "existing-use-case": {
+                "title": "Existing Use Cases",
+                "type": "markdown",
+                "category": "Description",
+                "content": "This dataset is already being used by its aggregators to: give state grades (CTP); do a CDC-CTP comparison; produce news articles & data vizualizations. "
+            },
+            "funding": {
+                "title": "Dataset is Publicly Funded",
+                "type": "markdown",
+                "category": "Provenance",
+                "content": "This dataset is supported by The Atlantic Monthly Group, the Beneficus Foundation, the Emerson Collective, and the Rockefeller Foundation. "
+            },
+            "dataset-sampling": {
                 "title": "Dataset is not a Sample",
                 "type": "markdown",
-                "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
+                "category": "Completeness",
                 "content": "This dataset is not a sample. "
-            },
-            "data-preprocessed": {
-                "title": "Data was Preprocessing, Cleaned, or Labeled ",
-                "type": "markdown",
-                "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
-                "content": "Dataset was scraped when possible and leveraged manual human cleaning where applicable by the Covid Tracking Project team. The team has oversight and training by epidemiologists and anti-racism experts, suggesting that human cleaning is applied with strong ethical consideration. More info here: <https://covidtracking.com/about-data/faq>"
             },
             "raw-data": {
                 "title": "Raw Data",
                 "type": "markdown",
-                "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
-                "content": "Raw data is not available within the dataset but is available at over 50 upstream data sources:\n<https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
+                "category": "Completeness",
+                "content": "Raw data is not available within the dataset but is available at over 50 upstream data sources. See each state's data section to find more information about upstream data sources: <https://covidtracking.com/data>"
             },
             "upstream-dependence": {
                 "title": "Dataset Dependent upon Upstream Data Sources",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
-                "content": "Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\n\nSee upstream data sources (over 50):\n<https://docs.google.com/spreadsheets/d/1QRaFL-hwMgxI0e_EpaHo3aqLt73Oox2aigPZLG-0Pus/edit?ts=5ea044da#gid=1983833656>"
+                "content": "\"Almost all of the data we compile is taken directly from the websites of local or state/territory public health authorities. Where data is missing from these websites, we supplement available numbers with information from official press conferences with governors or public health authorities.\"\n\nSource: <https://covidtracking.com/about-data/sources>"
             },
-            "no-confidential-data": {
+            "confidential-data": {
                 "title": "No Confidential Data ",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
                 "content": "There is no confidential data included in this dataset. "
             },
-            "dataset-populations": {
-                "title": "Dataset Populations",
+            "dataset-subpopulations": {
+                "title": "Dataset Subpopulations",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
                 "content": "There are no subpopulations identified in this dataset (e.g., by age, gender). "
             },
             "collection-timeframe": {
                 "title": "Collection Timeframe",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
                 "content": "Collection on a subset of data began on 20200122, and has continued daily since, with additional states being added over time. From March 14 forward there are timestamped snapshots of the data source we used for each change available publicly. We update the full dataset each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. "
             },
             "collection-organization": {
                 "title": "Collection Organization",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    "N/A"
-                ],
                 "content": "The original data was collected, cleaned, and distributed by individual states or jurisdictions. The data has been preprocessed and cleaned by the Covid Tracking Project after collected and organized from the original sources. "
             },
             "user-consent": {
                 "title": "User Consent",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    "N/A"
-                ],
                 "content": "There is no individual-level data in the dataset, and thus no consent collected. "
             },
             "anonymization": {
-                "title": "Anonymization Processes",
+                "title": "Anonymization Process",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    "N/A"
-                ],
                 "content": "There is no individual-level data in the dataset, and thus no anonymization process. "
             },
             "quality-review": {
-                "title": "Quality Review",
+                "title": "Quality Review is Done",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    "N/A"
-                ],
                 "content": "Data has been reviewed by internal team. To help members of the public understand how well each state is performing, The Covid Tracking Project has assigned each state a data-quality grade based on an assessment of the completeness of their reporting. See the State Grades and learn more about the quality metrics here: <https://covidtracking.com/about-data/state-grades>"
             },
             "ethical-review": {
-                "title": "Ethical Review",
+                "title": "Ethical Review is Done",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    "N/A"
-                ],
                 "content": "The dataset volunteer team has an advisory board which provides accountability. Additionally, the team has partnered with the Center for Antiracist Research in data processing: <https://covidtracking.com/about/advisory-board>"
             },
-            "data-management-unknown": {
-                "title": "Data Mangaement - Unknown",
-                "type": "markdown",
-                "category": "Description",
-                "tags": [
-                    "N/A"
-                ],
-                "content": " The data is managed by the internal team at the organization. "
-            },
             "updates": {
-                "title": "Updates",
+                "title": "Updated Daily",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    "N/A"
-                ],
-                "content": "The full dataset is updated each day between 4pm and 5pm EDT, with limited additional updates as new information arrives. This will continue for the foreseeable future. If things change, information about those changes will be communicated through the website: <https://covidtracking.com/about-data>"
-            },
-            "right-forgotten": {
-                "title": "Right to be Forgotten",
-                "type": "markdown",
-                "category": "Collection",
-                "tags": [
-                    "N/A"
-                ],
-                "content": "There is no individual-level data in the dataset, and thus no process for individual level data removal. "
+                "content": "Data is updated daily. See more details at: <https://covidtracking.com/about-data>"
             }
         },
-        "predictions": {
-            "current-r0": {
-                "description": "Current r0 Value",
+        "objectives": {
+            "pred-icu": {
+                "description": "Predict ICU occupation in the future",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
-                        "severity": 3
+                        "severity": 2
                     },
                     {
                         "alert": "no-gender-breakdown",
@@ -563,91 +493,12 @@
                         "severity": 3
                     },
                     {
-                        "alert": "testing-dependency",
-                        "severity": 3
+                        "alert": "geographic-specificity",
+                        "severity": 1
                     },
                     {
                         "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "reporting-date-epi-date",
                         "severity": 1
-                    },
-                    {
-                        "alert": "test-definition",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "excluded-purpose",
-                        "severity": 1
-                    },
-                    {
-                        "alert": "cautioned-purpose",
-                        "severity": 3
-                    }, 
-                    {
-                        "alert": "missing-data",
-                        "severity": 3
-                    }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
-                ]
-            },
-            "future-r0": {
-                "description": "Project Future r0 Value",
-                "alerts": [
-                    {
-                        "alert": "no-racial-breakdown",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "no-gender-breakdown",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "no-worktype-breakdown",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "testing-dependency",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "reporting-date-epi-date",
-                        "severity": 1
-                    },
-                    {
-                        "alert": "test-definition",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
                     },
                     {
                         "alert": "excluded-purpose",
@@ -661,32 +512,14 @@
                         "alert": "missing-data",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
                 ]
             },
-            "current-prevalence": {
-                "description": "Current COVID Prevalence",
+            "pred-hos": {
+                "description": "Predict hospitalizations in the future",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
-                        "severity": 3
+                        "severity": 2
                     },
                     {
                         "alert": "no-gender-breakdown",
@@ -697,24 +530,12 @@
                         "severity": 3
                     },
                     {
-                        "alert": "testing-dependency",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "reporting-date-epi-date",
+                        "alert": "geographic-specificity",
                         "severity": 1
                     },
                     {
-                        "alert": "test-definition",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
                     },
                     {
                         "alert": "excluded-purpose",
@@ -728,32 +549,43 @@
                         "alert": "missing-data",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
                 ]
             },
-            "infections-forecasted": {
-                "description": "Timeseries of Forecasted Infections",
+            "pred-vent": {
+                "description": "Predict ventilator usage in the future",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
                         "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "pred-rate-hos": {
+                "description": "Predict rate of increase in hospitalization",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
                     },
                     {
                         "alert": "no-gender-breakdown",
@@ -762,6 +594,47 @@
                     {
                         "alert": "no-worktype-breakdown",
                         "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "inconsistent-reporting",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "excluded-purpose",
+                        "severity": 1
+                    },
+                    {
+                        "alert": "cautioned-purpose",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "missing-data",
+                        "severity": 3
+                    }
+                ]
+            },
+            "pred-rate-test": {
+                "description": "Predict rate of increase in positive tests",
+                "alerts": [
+                    {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "no-gender-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "no-worktype-breakdown",
+                        "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
                     },
                     {
                         "alert": "testing-dependency",
@@ -795,32 +668,14 @@
                         "alert": "missing-data",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
                 ]
             },
-            "deaths-forecasted": {
-                "description": "Timeseries of Forecasted Deaths",
+            "class-state": {
+                "description": "Classify states into binary categories",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
-                        "severity": 3
+                        "severity": 1
                     },
                     {
                         "alert": "no-gender-breakdown",
@@ -832,11 +687,7 @@
                     },
                     {
                         "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
+                        "severity": 1
                     },
                     {
                         "alert": "excluded-purpose",
@@ -850,32 +701,14 @@
                         "alert": "missing-data",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
                 ]
             },
-            "deaths-region": {
-                "description": "Change in Deaths by Region",
+            "cluster-state": {
+                "description": "Cluster states into groups",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
-                        "severity": 3
+                        "severity": 1
                     },
                     {
                         "alert": "no-gender-breakdown",
@@ -887,11 +720,7 @@
                     },
                     {
                         "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
+                        "severity": 1
                     },
                     {
                         "alert": "excluded-purpose",
@@ -905,32 +734,14 @@
                         "alert": "missing-data",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
                 ]
             },
-            "infections-region": {
-                "description": "Change in Cases by Region",
+            "mod-test": {
+                "description": "Model weekly patterns in test results",
                 "alerts": [
                     {
                         "alert": "no-racial-breakdown",
-                        "severity": 3
+                        "severity": 2
                     },
                     {
                         "alert": "no-gender-breakdown",
@@ -939,6 +750,10 @@
                     {
                         "alert": "no-worktype-breakdown",
                         "severity": 3
+                    },
+                    {
+                        "alert": "geographic-specificity",
+                        "severity": 1
                     },
                     {
                         "alert": "testing-dependency",
@@ -972,99 +787,30 @@
                         "alert": "missing-data",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
                 ]
             },
-            "tests-capita": {
-                "description": "Tests per Capita",
+            "mod-hos": {
+                "description": "Model weekly patterns in hospitalization rates",
                 "alerts": [
                     {
-                        "alert": "geographic-specificity",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "testing-dependency",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "reporting-date-epi-date",
-                        "severity": 1
-                    },
-                    {
-                        "alert": "test-definition",
+                        "alert": "no-racial-breakdown",
                         "severity": 2
                     },
                     {
-                        "alert": "case-reassignment",
+                        "alert": "no-gender-breakdown",
                         "severity": 3
                     },
                     {
-                        "alert": "excluded-purpose",
-                        "severity": 1
-                    },
-                    {
-                        "alert": "cautioned-purpose",
+                        "alert": "no-worktype-breakdown",
                         "severity": 3
                     },
-                    {
-                        "alert": "missing-data",
-                        "severity": 3
-                    }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
-                ]
-            },
-            "icu-capita": {
-                "description": "ICU Cases per Capita",
-                "alerts": [
                     {
                         "alert": "geographic-specificity",
-                        "severity": 3
+                        "severity": 1
                     },
                     {
                         "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
+                        "severity": 1
                     },
                     {
                         "alert": "excluded-purpose",
@@ -1078,40 +824,22 @@
                         "alert": "missing-data",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
                 ]
             },
-            "ventilator-capita": {
-                "description": "Ventilator Need per Capita",
+            "mod-vent": {
+                "description": "Model weekly patterns in ventilator usage",
                 "alerts": [
                     {
+                        "alert": "no-racial-breakdown",
+                        "severity": 2
+                    },
+                    {
                         "alert": "geographic-specificity",
-                        "severity": 3
+                        "severity": 1
                     },
                     {
                         "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
+                        "severity": 1
                     },
                     {
                         "alert": "excluded-purpose",
@@ -1125,292 +853,6 @@
                         "alert": "missing-data",
                         "severity": 3
                     }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
-                ]
-            },
-            "icu-forecasted": {
-                "description": "Forecasted ICU Cases per Capita",
-                "alerts": [
-                    {
-                        "alert": "geographic-specificity",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "excluded-purpose",
-                        "severity": 1
-                    },
-                    {
-                        "alert": "cautioned-purpose",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "missing-data",
-                        "severity": 3
-                    }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
-                ]
-            },
-            "ventilator-forecasted": {
-                "description": "Forecasted Ventilator Need per Capita",
-                "alerts": [
-                    {
-                        "alert": "geographic-specificity",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "excluded-purpose",
-                        "severity": 1
-                    },
-                    {
-                        "alert": "cautioned-purpose",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "missing-data",
-                        "severity": 3
-                    }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
-                ]
-            },
-            "hospitalizations-capita": {
-                "description": "Hospitalizations per Capita",
-                "alerts": [
-                    {
-                        "alert": "geographic-specificity",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "excluded-purpose",
-                        "severity": 1
-                    },
-                    {
-                        "alert": "cautioned-purpose",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "missing-data",
-                        "severity": 3
-                    }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
-                ]
-            },
-            "hospitalizations-forecasted": {
-                "description": "Forecasted Hospitalizations per Capita",
-                "alerts": [
-                    {
-                        "alert": "geographic-specificity",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "inconsistent-reporting",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "case-reassignment",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "excluded-purpose",
-                        "severity": 1
-                    },
-                    {
-                        "alert": "cautioned-purpose",
-                        "severity": 3
-                    },
-                    {
-                        "alert": "missing-data",
-                        "severity": 3
-                    }
-                ],
-                "fyis": [
-                    "field-relationship",
-                    "dataset-not-a-sample",
-                    "data-preprocessed",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "data-management-unknown",
-                    "updates",
-                    "right-forgotten"
-                ]
-            }
-        },
-        "use-cases": {
-            "bending-curve": {
-                "description": "Are we bending the curve?",
-                "predictions": [
-                    "current-r0",
-                    "deaths-forecasted",
-                    "deaths-region",
-                    "icu-capita",
-                    "hospitalizations-capita"
-                ]
-            },
-            "prevalence-region": {
-                "description": "What is the prevalence of COVID per region?",
-                "predictions": [
-                    "current-r0",
-                    "current-prevalence",
-                    "deaths-region",
-                    "tests-capita",
-                    "icu-capita",
-                    "hospitalizations-capita"
-                ]
-            },
-            "hotspots": {
-                "description": "Where will there be hotspots?",
-                "predictions": [
-                    "current-r0",
-                    "future-r0",
-                    "current-prevalence",
-                    "infections-forecasted",
-                    "icu-capita",
-                    "icu-forecasted",
-                    "ventilator-forecasted",
-                    "hospitalizations-capita"
-                ]
-            },
-            "exceed-capacity": {
-                "description": "Will we exceed hospital or ICU capacity in the near future?",
-                "predictions": [
-                    "icu-capita",
-                    "hospitalizations-capita"
-                ]
-            },
-            "covid-impact": {
-                "description": "Does the impact of COVID differ by based on age, race, type of work, socioeconomic status, etc.?",
-                "predictions": [
-                    "current-prevalence",
-                    "tests-capita",
-                    "icu-capita",
-                    "ventilator-capita",
-                    "hospitalizations-capita"
-                ]
-            },
-            "safe-office": {
-                "description": "Is it safe to go back to the office?",
-                "predictions": [
-                    "current-r0",
-                    "future-r0",
-                    "current-prevalence",
-                    "infections-forecasted",
-                    "tests-capita"
-                ]
-            },
-            "next-peak": {
-                "description": "Will case numbers peak again?",
-                "predictions": [
-                    "future-r0",
-                    "infections-forecasted",
-                    "icu-forecasted",
-                    "ventilator-forecasted"
-                ]
-            },
-            "lockdown-measures": {
-                "description": "Do the lockdown measures actually change behaviour?",
-                "predictions": [
-                    "current-r0",
-                    "ventilator-capita",
-                    "hospitalizations-capita"
                 ]
             }
         }

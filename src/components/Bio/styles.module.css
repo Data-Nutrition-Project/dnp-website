@@ -1,3 +1,12 @@
+@value layout: "../layout.css";
+
+@value tabletMaxWidth: 1024px from layout;
+
+.bioRow {
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
 .clearfix {
     padding-left: 0;
     padding-right: 0;
@@ -43,9 +52,9 @@
 }
 
 .teamImage {
-    float: left;
-    width: 15rem;
-    margin-right: 1.875rem;
+    margin: auto;
+    width: 100%;
+    max-width: 18rem;
 }
 
 .teamImageImg {
@@ -53,16 +62,11 @@
     width: 100%;
     border-radius: 50%;
     object-fit: cover;
-    max-height: 15rem;
+    max-height: 18rem;
 }
 
-.modAlum {
-    display: flex;
-    align-items: center;
-}
-
-.bottomMargin {
-    margin-bottom: 3rem;
+.teamDescCol {
+    margin-bottom: 3.5rem;
 }
 
 .socialIcon {
@@ -85,4 +89,10 @@
 .socialIcon i {
     display: block;
     position: relative;
+}
+
+@media (max-width: tabletMaxWidth) {
+    .teamImage {
+        margin-bottom: .75rem;
+    }
 }

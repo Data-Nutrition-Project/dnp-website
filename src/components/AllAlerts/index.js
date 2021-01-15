@@ -23,18 +23,12 @@ const TAB_NAMES = {
 class AllAlerts extends Component {
   constructor(props) {
     super(props)
-    const preds = this.props.predictions
+    const objectives = this.props.objectives
     const tags = []
     const alerting = []
     const fyis = []
 
-    let sevCount = {
-      3: 0,
-      2: 0,
-      1: 0,
-    }
-
-    for (const [prediction, info] of Object.entries(this.props.alerts)) {
+    for (const [key, info] of Object.entries(this.props.alerts)) {
       alerting.push(info)
     }
     for (const [key, info] of Object.entries(this.props.fyis)) {
@@ -53,52 +47,29 @@ class AllAlerts extends Component {
     let selectedAlerts = []
     if (this.props.selectedAlerts.length === 0) {
       selectedAlerts = alerting
-      alerting.map((alert, i) => {
-        sevCount[alert.severity]++
-      })
     } else {
       this.props.selectedAlerts.map((alert, i) => {
         let alertObj = { ...this.props.alerts[alert] }
         alertObj.severity = alert.severity
-        sevCount[alert.severity]++
         selectedAlerts.push(alertObj)
       })
     }
 
-    let selectedFYIs = []
-    if (this.props.selectedFYIs.length === 0) {
-      selectedFYIs = fyis
-    } else {
-      this.props.selectedFYIs.map((fyi, i) => {
-        selectedFYIs.push({ ...this.props.fyis[fyi] })
-      })
-    }
-
     this.state = {
-      preds,
+      objectives,
       filtered: selectedAlerts,
-      filteredFYIs: selectedFYIs,
       filterValue: "",
       selectedAlerts,
-      selectedFYIs,
       tags,
       alerting,
       fyis,
       selectedTab: TAB_NAMES.alerts,
-      highCount: sevCount[3],
-      midCount: sevCount[2],
-      lowCount: sevCount[1],
     }
 
     this.onChange = this.onChange.bind(this)
   }
 
   async onChange(e) {
-    let sevCount = {
-      3: 0,
-      2: 0,
-      1: 0,
-    }
 
     if (
       !e.target.value ||
@@ -108,31 +79,15 @@ class AllAlerts extends Component {
     )
       this.setState({
         filtered: [...this.state.selectedAlerts],
-        filteredFYIs: [...this.state.selectedFYIs],
         filterValue: e.target.value,
       })
     else {
-      let filtered = []
-      let filteredFYIs = []
-
-      filtered = this.state.selectedAlerts.filter(p =>
+      let filtered = this.state.selectedAlerts.filter(p =>
         p.tags.includes(e.target.value)
       )
-      filtered.map(alert => {
-        sevCount[alert.severity]++
-      })
-
-      filteredFYIs = this.state.selectedFYIs.filter(p =>
-        p.tags.includes(e.target.value)
-      )
-
       this.setState({
         filtered,
-        filteredFYIs,
         filterValue: e.target.value,
-        highCount: sevCount[3],
-        midCount: sevCount[2],
-        lowCount: sevCount[1],
       })
     }
   }
@@ -142,35 +97,21 @@ class AllAlerts extends Component {
       JSON.stringify(this.props.selectedAlerts) !==
       JSON.stringify(prevProps.selectedAlerts)
     ) {
-      let sevCount = {
-        3: 0,
-        2: 0,
-        1: 0,
-      }
 
       let selectedAlerts = []
-      let selectedFYIs = []
 
       if (this.props.selectedAlerts.length === 0) {
         selectedAlerts = [...this.state.alerting]
       } else {
         this.props.selectedAlerts.map((alert, i) => {
           let alertObj = { ...this.props.alerts[alert.alert] }
+
           alertObj.severity = alert.severity
           selectedAlerts.push(alertObj)
         })
       }
 
-      if (this.props.selectedFYIs.length === 0) {
-        selectedFYIs = [...this.state.fyis]
-      } else {
-        this.props.selectedFYIs.map((fyi, i) => {
-          selectedFYIs.push({ ...this.props.fyis[fyi] })
-        })
-      }
-
       let filtered = []
-      let filteredFYIs = []
 
       if (
         this.state.filterValue === " " ||
@@ -178,42 +119,42 @@ class AllAlerts extends Component {
         this.state.filterValue === "All"
       ) {
         filtered = [...selectedAlerts]
-        filteredFYIs = [...selectedFYIs]
       } else {
         filtered = selectedAlerts.filter(p =>
           p.tags.includes(this.state.filterValue)
         )
-        filteredFYIs = selectedFYIs.filter(p =>
-          p.tags.includes(this.state.filterValue)
-        )
       }
-
-      filtered.map(alert => {
-        sevCount[alert.severity]++
-      })
 
       this.setState({
         selectedAlerts: selectedAlerts,
-        selectedFYIs: selectedFYIs,
         filtered: filtered,
-        filteredFYIs: filteredFYIs,
-        highCount: sevCount[3],
-        midCount: sevCount[2],
-        lowCount: sevCount[1],
       })
     }
   }
 
   render() {
-    let countText = `${this.state.filtered.length} Alerts`
+    let countText
+    let sevCount = {
+      3: 0,
+      2: 0,
+      1: 0,
+    }
+
+    this.state.filtered.length === 1
+      ? (countText = `${this.state.filtered.length} Alert`)
+      : (countText = `${this.state.filtered.length} Alerts`)
+
     if (this.state.selectedTab === TAB_NAMES.fyis) {
-      countText = `${this.state.filteredFYIs.length} FYIs`
+      countText = `${Object.keys(this.props.fyis).length} FYIs`
     }
 
     let sliced = this.state.tags.slice(0, alert.length - 1)
-
     let flattenedArray = sliced.flat()
     let uniqueArray = [...new Set(flattenedArray.flat())]
+
+    this.state.filtered.map((alert, i) => {
+      sevCount[alert.severity]++
+    })
 
     return (
       <>
@@ -254,7 +195,7 @@ class AllAlerts extends Component {
                               className={styles.mitigationRefImg}
                               src={require("../AlertCard/high.svg")}
                             />
-                            {this.state.highCount} No
+                            {sevCount[3]} No
                           </div>
 
                           <div className={styles.parentAlerts}>
@@ -262,7 +203,7 @@ class AllAlerts extends Component {
                               className={styles.mitigationRefImg}
                               src={require("../AlertCard/moderate.svg")}
                             />
-                            {this.state.midCount} Maybe
+                            {sevCount[2]} Maybe
                           </div>
 
                           <div className={styles.parentAlerts}>
@@ -270,7 +211,7 @@ class AllAlerts extends Component {
                               className={styles.mitigationRefImg}
                               src={require("../AlertCard/medium.svg")}
                             />
-                            {this.state.lowCount} Yes
+                            {sevCount[1]} Yes
                           </div>
                         </Row>
                       </Container>
@@ -338,47 +279,26 @@ class AllAlerts extends Component {
                 <div className={styles.tabContent}>
                   <div className={styles.severity} />
                   <span className={styles.alertUnderlineBold} />
-                  <div className={styles.parentDiv}>
-                    <div className={styles.filter}>
-                      <span className={styles.boldHeader}>Filter: </span>{" "}
-                      <select
-                        className={styles.select}
-                        id="select"
-                        onChange={e => this.onChange(e)}
-                      >
-                        <option default>All</option>
+                  <div className={styles.fyiContainer}>
+                    {this.state.alerting.length === 0 && <b>LOADING...</b>}
 
-                        {sliced.map((tag, i) => {
+                    {Object.entries(this.props.fyis).length > 0 && (
+                      <div>
+                        {Object.entries(this.props.fyis).map(([key, fyi], i) => {
                           return (
-                            <option value={tag} key={i}>
-                              {tag}
-                            </option>
+                            <AlertCard
+                              key={i}
+                              title={fyi.title}
+                              category={fyi.category}
+                              content={fyi.content}
+                              tags={fyi.tags}
+                              severity={0}
+                            />
                           )
                         })}
-                      </select>
-                    </div>
-                  </div>
-                  {this.state.alerting.length === 0 && <b>LOADING...</b>}
-                  {this.state.alerting.length > 0 &&
-                    this.state.filteredFYIs.length === 0 && (
-                      <b>No fyis to show</b>
+                      </div>
                     )}
-                  {this.state.filteredFYIs.length > 0 && (
-                    <div>
-                      {this.state.filteredFYIs.map((fyi, i) => {
-                        return (
-                          <AlertCard
-                            key={i}
-                            title={fyi.title}
-                            category={fyi.category}
-                            content={fyi.content}
-                            tags={fyi.tags}
-                            severity={0}
-                          />
-                        )
-                      })}
-                    </div>
-                  )}
+                  </div>
                 </div>
               </Tab>
             </Tabs>
@@ -392,9 +312,8 @@ class AllAlerts extends Component {
 AllAlerts.propTypes = {
   alertsCase: PropTypes.shape({
     alerts: PropTypes.object,
-    predictions: PropTypes.object,
+    objectives: PropTypes.object,
     fyis: PropTypes.object,
-    "use-cases": PropTypes.object,
   }).isRequired,
   shape: PropTypes.shape({
     color: PropTypes.string,

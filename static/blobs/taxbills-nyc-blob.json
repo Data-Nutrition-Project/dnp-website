@@ -1,28 +1,34 @@
 {
-   "overview": {
+    "overview": {
+        "use-cases": [
+            "How many rent stabilized units are in a particular building? ",
+            "Has a building lost rent stabilized units? ",
+            "Is there a pattern of deregulation in a building?",
+            "Is there a pattern of deregulation for a specific landlord?",
+            "Where might there be abuse of tax abatements? Is the landlord breaking the rules of the abatements? ",
+            "Where is gentrification happening?"
+        ],
         "summary": {
-            "datasetName": "TaxBills NYC Dataset (joined.csv)",
-            "dataCollectionRange": "January, 2015 - Present",
-            "datasetPublishDate": "Unknown",
-            "datasetUpdateFrequency": "Yearly",
-            "lastLabelUpdate": "August 5, 2020",
-            "createdBy": "John Krauss",
-            "creatorContactInfo": "([Github page](https://github.com/talos))",
-            "licenseInfo": "Creative Commons Attribution Share-Alike (see [here](https://github.com/talos/nyc-stabilization-unit-counts#nyc-stabilization-unit-counts) for more info)",
-            "datasetSize": "9.8 MB",
-            "datasetFormat": "Tabular (csv, JSON)",
-            "sourceURL": "<https://github.com/talos/nyc-stabilization-unit-counts>"
+            "Dataset Name": "TaxBills NYC Dataset (joined.csv)",
+            "Data Collection Range": "January, 2015 - Present",
+            "Created By": "John Krauss",
+            "Content": "Tabular (csv, JSON)",
+            "Source": "<https://github.com/talos/nyc-stabilization-unit-counts>"
         },
-        "top-use-cases": [
-            "units-building",
-            "units-building-lost",
-            "deregulation-building",
-            "deregulation-landlord",
-            "gentrification"
-        ]
+        "badges": {
+            "about-humans": 2,
+            "individual-data": 1,
+            "subpopulations": 2,
+            "quality-review": 1,
+            "ethical-review": 2,
+            "data-license": 2,
+            "funding": 1,
+            "updates": 3,
+            "source": 1
+        }
     },
-   "dataset-info": {
-        "description": [
+    "dataset-info": {
+        "Description": [
             {
                 "question": "Tell us about this dataset. ",
                 "help": "Please provide an overview of this dataset.",
@@ -60,7 +66,7 @@
                 "answer": "1. Changes in Rent Stabilization Visualization: <https://docker4data.carto.com/viz/766a0f32-1ea1-11e5-b267-0e49835281d6/public_map>\n2. Who Owns What lookup tool: <https://whoownswhat.justfix.nyc/>"
             }
         ],
-        "provenance": [
+        "Provenance": [
             {
                 "question": "Who created the dataset and on behalf of which entity?",
                 "help": "e.g. which team or research group on behalf of which company, institution, organization?",
@@ -74,7 +80,7 @@
                 "answer": "This dataset was scraped by individuals as part of a volunteer effort led by John Krauss <http://blog.johnkrauss.com/>. The people involved are anti-displacement activists who did this without funding or direction of a specific entity."
             }
         ],
-        "collection": [
+        "Collection": [
             {
                 "question": "Over what timeframe was the data collected? If the data continues to be updated, please indicate. ",
                 "help": "",
@@ -118,7 +124,7 @@
                 "answer": "No"
             }
         ],
-        "management": [
+        "Management": [
             {
                 "question": "How is the data being mananged at rest and in transit?",
                 "help": "Particularly with regards to encryption at rest and in transit, access controls on internal users and third parties, access logs, and up-to-date software. ",
@@ -150,7 +156,7 @@
                 "answer": "N/A"
             }
         ],
-        "composition": [
+        "Composition": [
             {
                 "question": "Does the dataset have a metadata repository or data dictionary? If yes, please provide the link and if not, please explain what each field means.",
                 "help": "The purpose of this question is to enable data practitioners to understand what is contained in the dataset at a field level. ",
@@ -243,17 +249,15 @@
             }
         ]
     },
-    "use-cases-section": {
+    "objectives-section": {
         "alerts": {
             "count-estimates": {
                 "title": "Some stabilized unit counts are estimates",
                 "type": "markdown",
                 "category": "Collection",
                 "tags": [
-                    [
-                        "Socioeconmic Bias",
-                        " Inaccurate Prediction"
-                    ]
+                    "Socioeconmic Bias",
+                    " Inaccurate Prediction"
                 ],
                 "mitigation": "Dataset provides a mitigation by marking these in the data, so that dataset users can account for them in calculations",
                 "severity": 1.0,
@@ -264,9 +268,7 @@
                 "type": "markdown",
                 "category": "Provenance",
                 "tags": [
-                    [
-                        "Misrepresentation"
-                    ]
+                    "Misrepresentation"
                 ],
                 "mitigation": "One would need to do some serious digging into public records to identify \"true ownership\", which itself is a subjective definition that is not easily defined from public records without human intervention. However, company ownership is a matter of public record, so this information can be identified.",
                 "severity": 2.0,
@@ -277,9 +279,7 @@
                 "type": "markdown",
                 "category": "Composition",
                 "tags": [
-                    [
-                        "Racial bias"
-                    ]
+                    "Racial bias"
                 ],
                 "mitigation": "Do not use zipcode as a main feature in prediction algorithms, unless specifically looking to address racial bias.",
                 "severity": 1.0,
@@ -287,251 +287,100 @@
             }
         },
         "fyis": {
+            "data-license": {
+                "title": "Non-commercial License",
+                "type": "markdown",
+                "category": "Description",
+                "content": "Creative Commons Attribution Share-Alike"
+            },
             "existing-use-case": {
                 "title": "Existing Use Cases",
                 "type": "markdown",
                 "category": "Description",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "1. Changes in Rent Stabilization Visualization: <https://docker4data.carto.com/viz/766a0f32-1ea1-11e5-b267-0e49835281d6/public_map>\n2. Who Owns What lookup tool: <https://whoownswhat.justfix.nyc/>\n3. Other use cases listed on the github repository for the dataset: <https://github.com/talos/nyc-stabilization-unit-counts>"
             },
-            "volunteer-funded": {
-                "title": "Volunteer funded",
+            "funding": {
+                "title": "Volunteer Funded",
                 "type": "markdown",
                 "category": "Provenance",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "This dataset was scraped by individuals as part of a volunteer effort led by John Krauss <http://blog.johnkrauss.com/>. The people involved are anti-displacement activists who did this without funding or direction of a specific entity."
             },
-            "dataset-not-a-sample": {
+            "dataset-sampling": {
                 "title": "Dataset is not a Sample",
                 "type": "markdown",
                 "category": "Completeness",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "This dataset is not a sample."
             },
             "raw-data": {
-                "title": "Raw Data",
+                "title": "Raw Data Available Alongside Dataset",
                 "type": "markdown",
                 "category": "Completeness",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "Data from the original PDFs is available with the github repository."
             },
             "upstream-dependence": {
                 "title": "Dataset Dependent upon Upstream Data Sources",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "This data is parsed from NoPVs published by New York City. The original data is stored as individual .pdf files per each tax record. Usage limitations for the original data are that it is not in list-format anywhere - it is only in individual .pdf files per building, and therefore hard to look at. Per year they are stable, once uploaded."
             },
-            "no-confidential-data": {
+            "confidential-data": {
                 "title": "No Confidential Data",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "There is no confidential data included in this dataset. "
             },
-            "dataset-populations": {
-                "title": "Dataset Populations",
+            "dataset-subpopulations": {
+                "title": "No Dataset Subpopulations Identified",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "There are no subpopulations identified in this dataset (e.g., by age, gender). "
             },
             "collection-timeframe": {
                 "title": "Collection Timeframe",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "The dataset collects yearly information, and is therefore updated yearly. It has recorde for each instance dating back to 2008."
             },
             "collection-organization": {
                 "title": "Collection Organization",
                 "type": "markdown",
                 "category": "Composition",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "The original dataset is a set of tax documents published by a government agency. That data has been preprocessed and cleaned by the volunteers who have made this dataset."
             },
             "user-consent": {
-                "title": "User Consent",
+                "title": "No User Consent Needed",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "There is no individual-level data in the dataset, and thus no consent collected. "
             },
             "anonymization": {
-                "title": "Anonymization Process",
+                "title": "No Anonymization Process Needed",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "There is no individual-level data in the dataset, and thus no anonymization process. "
             },
             "quality-review": {
-                "title": "Quality Review",
+                "title": "Dataset Has Been Quality Reviewed",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "The data has been reviewed by the team of volunteers who maintain the dataset."
             },
             "ethical-review": {
                 "title": "Ethical Review",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "No institutional review of this dataset has occurred."
             },
             "updates": {
                 "title": "Updates",
                 "type": "markdown",
                 "category": "Collection",
-                "tags": [
-                    [
-                        "N/A"
-                    ]
-                ],
                 "content": "Data is updated yearly. Date of update is unknown."
             }
         },
-        "predictions": {
-            "per-building": {
-                "description": "% of stabilized units over time for a building",
-                "alerts": [
-                    {
-                        "alert": "count-estimates",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "zipcode-redlining",
-                        "severity": 2
-                    }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            },
-            "per-community": {
-                "description": "% of stabilized units over time for a community district",
-                "alerts": [
-                    {
-                        "alert": "count-estimates",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "zipcode-redlining",
-                        "severity": 2
-                    }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            },
-            "per-zip": {
-                "description": "% of stabilized units over time for a zipcode",
-                "alerts": [
-                    {
-                        "alert": "count-estimates",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "zipcode-redlining",
-                        "severity": 2
-                    }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            },
-            "per-owner": {
-                "description": "% of stabilized units over time for an owner (name)",
+        "objectives": {
+            "pre-per-building": {
+                "description": "Predict change in % of stabilized units for a building",
                 "alerts": [
                     {
                         "alert": "count-estimates",
@@ -545,26 +394,10 @@
                         "alert": "zipcode-redlining",
                         "severity": 2
                     }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
                 ]
             },
-            "per-building-est": {
-                "description": "Estimated % of stabilized units next year for a building",
+            "pre-per-community": {
+                "description": "Predict change in % of stabilized units for a community disctrict",
                 "alerts": [
                     {
                         "alert": "count-estimates",
@@ -574,26 +407,10 @@
                         "alert": "zipcode-redlining",
                         "severity": 2
                     }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
                 ]
             },
-            "per-community-est": {
-                "description": "Estimated % of stabilized units next year for a community district",
+            "pre-per-zip": {
+                "description": "Predict change in % of stabilized units for a zip code",
                 "alerts": [
                     {
                         "alert": "count-estimates",
@@ -603,55 +420,10 @@
                         "alert": "zipcode-redlining",
                         "severity": 2
                     }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
                 ]
             },
-            "per-zip-est": {
-                "description": "Estimated % of stabilized units next year for a zipcode",
-                "alerts": [
-                    {
-                        "alert": "count-estimates",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "zipcode-redlining",
-                        "severity": 2
-                    }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            },
-            "per-owner-est": {
-                "description": "Estimated % of stabilized units next year for an owner (name)",
+            "pre-per-owner": {
+                "description": "Predict change in % of stabilized units for an owner (name)",
                 "alerts": [
                     {
                         "alert": "count-estimates",
@@ -665,113 +437,10 @@
                         "alert": "zipcode-redlining",
                         "severity": 2
                     }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
                 ]
             },
-            "num-building": {
-                "description": "# of stabilized units over time for a building",
-                "alerts": [
-                    {
-                        "alert": "count-estimates",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "zipcode-redlining",
-                        "severity": 2
-                    }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            },
-            "num-community": {
-                "description": "# of stabilized units over time for a community district",
-                "alerts": [
-                    {
-                        "alert": "count-estimates",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "zipcode-redlining",
-                        "severity": 2
-                    }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            },
-            "num-zip": {
-                "description": "# of stabilized units over time for a zipcode",
-                "alerts": [
-                    {
-                        "alert": "count-estimates",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "zipcode-redlining",
-                        "severity": 2
-                    }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            },
-            "num-owner": {
-                "description": "# of stabilized units over time for an owner (name)",
+            "pre-reg-owner": {
+                "description": "Predict building deregulation based on owner patterns",
                 "alerts": [
                     {
                         "alert": "count-estimates",
@@ -785,26 +454,10 @@
                         "alert": "zipcode-redlining",
                         "severity": 2
                     }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
                 ]
             },
-            "num-building-est": {
-                "description": "Estimated # of stabilized units next year for a building",
+            "pre-reg-community": {
+                "description": "Predict buliding deregulation based on community district patterns ",
                 "alerts": [
                     {
                         "alert": "count-estimates",
@@ -814,26 +467,10 @@
                         "alert": "zipcode-redlining",
                         "severity": 2
                     }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
                 ]
             },
-            "num-community-est": {
-                "description": "Estimated # of stabilized units next year for a community district",
+            "pre-reg-zip": {
+                "description": "Predict buliding deregulation based on zip code patterns ",
                 "alerts": [
                     {
                         "alert": "count-estimates",
@@ -843,55 +480,10 @@
                         "alert": "zipcode-redlining",
                         "severity": 2
                     }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
                 ]
             },
-            "num-zip-est": {
-                "description": "Estimated # of stabilized units next year for a zipcode",
-                "alerts": [
-                    {
-                        "alert": "count-estimates",
-                        "severity": 2
-                    },
-                    {
-                        "alert": "zipcode-redlining",
-                        "severity": 2
-                    }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            },
-            "num-owner-est": {
-                "description": "Estimated # of stabilized units next year for an owner (name)",
+            "cla-owner": {
+                "description": "Classify owners into categories based on rate of stabilization",
                 "alerts": [
                     {
                         "alert": "count-estimates",
@@ -905,79 +497,19 @@
                         "alert": "zipcode-redlining",
                         "severity": 2
                     }
-                ],
-                "fyis": [
-                    "existing-use-case",
-                    "volunteer-funded",
-                    "dataset-not-a-sample",
-                    "raw-data",
-                    "upstream-dependence",
-                    "no-confidential-data",
-                    "dataset-populations",
-                    "collection-timeframe",
-                    "collection-organization",
-                    "user-consent",
-                    "anonymization",
-                    "quality-review",
-                    "ethical-review",
-                    "updates"
-                ]
-            }
-        },
-        "use-cases": {
-            "units-building": {
-                "description": "How many rent stabilized units are in a particular building? ",
-                "predictions": [
-                    "per-building",
-                    "per-building-est",
-                    "num-building",
-                    "num-building-est"
                 ]
             },
-            "units-building-lost": {
-                "description": "Has a building lost rent stabilized units? ",
-                "predictions": [
-                    "per-building",
-                    "per-building-est",
-                    "num-building",
-                    "num-building-est"
-                ]
-            },
-            "deregulation-building": {
-                "description": "Is there a pattern of deregulation in a building?",
-                "predictions": [
-                    "per-building",
-                    "per-building-est",
-                    "num-building",
-                    "num-building-est"
-                ]
-            },
-            "deregulation-landlord": {
-                "description": "Is there a pattern of deregulation for a specific landlord?",
-                "predictions": [
-                    "per-owner",
-                    "per-owner-est",
-                    "num-owner"
-                ]
-            },
-            "abatement-abuse": {
-                "description": "Where might there be abuse of tax abatements? Is the landlord breaking the rules of the abatements? ",
-                "predictions": [
-                    "per-building",
-                    "per-building-est",
-                    "num-building",
-                    "num-building-est"
-                ]
-            },
-            "gentrification": {
-                "description": "Where is gentrification happening?",
-                "predictions": [
-                    "per-community",
-                    "per-zip",
-                    "per-community-est",
-                    "per-zip-est",
-                    "num-community-est",
-                    "num-zip-est"
+            "cla-zip": {
+                "description": "Classify zip codes based on rate of stabilization",
+                "alerts": [
+                    {
+                        "alert": "count-estimates",
+                        "severity": 2
+                    },
+                    {
+                        "alert": "zipcode-redlining",
+                        "severity": 2
+                    }
                 ]
             }
         }

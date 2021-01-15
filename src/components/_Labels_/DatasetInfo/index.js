@@ -16,11 +16,11 @@ class DatasetInfo extends React.Component {
   }
 
   render() {
-    const descriptions = this.props.datasetInfo.description || []
-    const compositions = this.props.datasetInfo.composition || []
-    const provenances = this.props.datasetInfo.provenance || []
-    const collections = this.props.datasetInfo.collection || []
-    const managements = this.props.datasetInfo.management || []
+    const descriptions = this.props.datasetInfo.Description || []
+    const compositions = this.props.datasetInfo.Composition || []
+    const provenances = this.props.datasetInfo.Provenance || []
+    const collections = this.props.datasetInfo.Collection || []
+    const managements = this.props.datasetInfo.Management || []
 
     return (
       <>
