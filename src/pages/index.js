@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container"
 import Form from "react-bootstrap/Form"
 import Row from "react-bootstrap/Row"
 
+import Banner from "../components/Banner"
 import Bio from "../components/Bio"
 import Layout from "../components/layout"
 
@@ -16,6 +17,9 @@ import styles from "./index.module.css"
 
 const IndexPage = props => (
   <Layout>
+    <Banner
+      content={"Our children’s book “I’m Not a Tomato!” is launching on Kickstarter this summer! Sign up [here](https://forms.gle/NBB7JsDzCWzbV5xFA) to receive an email when we launch!"}
+    />
     <section
       id="slider"
       className={classNames(
@@ -42,14 +46,14 @@ const IndexPage = props => (
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
-                <i className="icon-play-circle"></i>tool
+                <i className="icon-play-circle"></i>the dataset nutrition label
               </Button>
             </AnchorLink>
             <AnchorLink to="/#section-solution-research" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
-                <i className="icon-line-paper"></i>research
+                <i className="icon-line-paper"></i>our research
               </Button>
             </AnchorLink>
           </div>
@@ -198,13 +202,22 @@ const IndexPage = props => (
                 white paper
               </a>.             
             </p>
-            <Link to="/labels/">
-              <Button
-                className={classNames(styles.tealButton, styles.modButtonLarge, styles.modButtonParagraph, styles.mobileSpacer)}
-              >
-                <i className="icon-play-circle"></i>{' '}Go to Labels
-              </Button>
-            </Link>
+            <Row style={{'justify-content': 'space-around'}}>
+              <Link to="/labels/">
+                <Button
+                  className={classNames(styles.tealButton, styles.modButtonMed, styles.modButtonParagraph, styles.mobileSpacer)}
+                >
+                  <i className="icon-play-circle"></i>{' '}Go to Labels
+                </Button>
+              </Link>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAX48nSAUBcmDM7EyghODzeyoxXPVchitLXdNmGmODNWGjtQ/viewform" target="_blank">
+                <Button
+                  className={classNames(styles.tealButton, styles.modButtonMed, styles.modButtonParagraph, styles.mobileSpacer)}
+                >
+                  <i className="icon-play-circle"></i>{' '}Build a Label
+                </Button>
+              </a>
+            </Row>
           </Col>
           <Col xl={{ span: 6, offset: 1 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <img
