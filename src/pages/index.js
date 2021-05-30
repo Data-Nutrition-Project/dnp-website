@@ -529,6 +529,32 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/kranzinger_chris.png")}
+                imgAlt="kranzinger_chris"
+                name="Chris Kranzinger"
+                role="Data Science Collaborator"
+                bio="McCloy Fellow at Harvard integrating machine intelligence systems, data, and society. Combines data science and economics to inform (policy) decision making and studies questions around trust and safety in AI. Previously, Senior Data Scientist at QuantCo, co-founder of two tech start-ups, founding president of the AI association at Harvard’s Kennedy School, and industry expert advising Germany’s first national strategy on AI. Passionate European, staunch free athlete, and aspiring photographer."
+                socialMedia={[
+                  {
+                    href: "https://www.linkedin.com/in/cnk/",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                  {
+                    href: "https://github.com/chksi",
+                    icon: "icon-github",
+                    className: "si-github",
+                  },
+                  {
+                    href: "https://harvardaiclub.github.io/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
+                  },
+                ]}
+              />
+            </Col>
           </Row>
           <div className={classNames(styles.headingBlock, styles.centerText)}>
             <h2>Collaborators</h2>
