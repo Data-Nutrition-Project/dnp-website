@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container"
 import Form from "react-bootstrap/Form"
 import Row from "react-bootstrap/Row"
 
+import Banner from "../components/Banner"
 import Bio from "../components/Bio"
 import Layout from "../components/layout"
 
@@ -16,6 +17,9 @@ import styles from "./index.module.css"
 
 const IndexPage = props => (
   <Layout>
+    <Banner
+      content={"Our children’s book “I’m Not a Tomato!” is launching on Kickstarter this summer! Sign up [here](https://forms.gle/NBB7JsDzCWzbV5xFA) to receive an email when we launch!"}
+    />
     <section
       id="slider"
       className={classNames(
@@ -42,14 +46,14 @@ const IndexPage = props => (
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
-                <i className="icon-play-circle"></i>tool
+                <i className="icon-play-circle"></i>the dataset nutrition label
               </Button>
             </AnchorLink>
             <AnchorLink to="/#section-solution-research" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
-                <i className="icon-line-paper"></i>research
+                <i className="icon-line-paper"></i>our research
               </Button>
             </AnchorLink>
           </div>
@@ -198,13 +202,22 @@ const IndexPage = props => (
                 white paper
               </a>.             
             </p>
-            <Link to="/labels/">
-              <Button
-                className={classNames(styles.tealButton, styles.modButtonLarge, styles.modButtonParagraph, styles.mobileSpacer)}
-              >
-                <i className="icon-play-circle"></i>{' '}Go to Labels
-              </Button>
-            </Link>
+            <Row style={{'justify-content': 'space-around'}}>
+              <Link to="/labels/">
+                <Button
+                  className={classNames(styles.tealButton, styles.modButtonMed, styles.modButtonParagraph, styles.mobileSpacer)}
+                >
+                  <i className="icon-play-circle"></i>{' '}Go to Labels
+                </Button>
+              </Link>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAX48nSAUBcmDM7EyghODzeyoxXPVchitLXdNmGmODNWGjtQ/viewform" target="_blank">
+                <Button
+                  className={classNames(styles.tealButton, styles.modButtonMed, styles.modButtonParagraph, styles.mobileSpacer)}
+                >
+                  <i className="icon-play-circle"></i>{' '}Build a Label
+                </Button>
+              </a>
+            </Row>
           </Col>
           <Col xl={{ span: 6, offset: 1 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <img
@@ -510,6 +523,32 @@ const IndexPage = props => (
                 socialMedia={[
                   {
                     href: "http://jessyurko.com/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
+                  },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/kranzinger_chris.png")}
+                imgAlt="kranzinger_chris"
+                name="Chris Kranzinger"
+                role="Data Science Collaborator"
+                bio="McCloy Fellow at Harvard integrating machine intelligence systems, data, and society. Combines data science and economics to inform (policy) decision making and studies questions around trust and safety in AI. Previously, Senior Data Scientist at QuantCo, co-founder of two tech start-ups, founding president of the AI association at Harvard’s Kennedy School, and industry expert advising Germany’s first national strategy on AI. Passionate European, staunch free athlete, and aspiring photographer."
+                socialMedia={[
+                  {
+                    href: "https://www.linkedin.com/in/cnk/",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                  {
+                    href: "https://github.com/chksi",
+                    icon: "icon-github",
+                    className: "si-github",
+                  },
+                  {
+                    href: "https://harvardaiclub.github.io/",
                     icon: "icon-line-globe",
                     className: "si-dribble",
                   },

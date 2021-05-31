@@ -1,0 +1,23 @@
+@value layout: "../layout.css";
+
+@value teal from layout;
+@value alertBlue from layout;
+@value lightGray from layout;
+
+.banner {
+    position: relative;
+    width: 100%;
+    background-color: teal;
+}
+
+.banner > p {
+    margin: 0;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.25rem;
+    color: lightGray;
+}
+
+.banner > p > a:hover{
+    color: alertBlue;
+}

@@ -54,7 +54,7 @@ const Header = () => {
                             <NavDropdown title="Solutions" id="solutions" className={styles.navDropdown}>
                                 <NavDropdown.Item className={styles.dropdownItem}>
                                     <AnchorLink to="/#section-solution-tool" className={classNames(styles.navLink, styles.dropdownLink)}>
-                                        The Tool
+                                        The Label
                                     </AnchorLink>
                                 </NavDropdown.Item>
                                 <NavDropdown.Item className={styles.dropdownItem}>

@@ -110,6 +110,11 @@
     line-height: 3.5rem;
 }
 
+.modButtonMed {
+    padding: 0 1.5rem;
+    line-height: 3rem;
+}
+
 .modButtonParagraph {
     margin: .5rem 0;
 }
