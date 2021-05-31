@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{DEEN:function(e,n,a){"use strict";a.r(n);var t=a("q1tI"),o=a.n(t),r=a("/MKj"),c=a("80L9"),l=a("ihrq"),i=a("Q2AE");n.default=function(){return o.a.createElement(r.a,{store:i.a},o.a.createElement(l.a,null),o.a.createElement(c.a,{jsonFile:"nopv-nyc-blob"}))}}}]);
+//# sourceMappingURL=component---src-pages-labels-nopv-nyc-js-3c1f3a59d111660b9d9e.js.map
