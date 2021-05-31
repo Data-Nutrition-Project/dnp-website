@@ -70,7 +70,6 @@ class AllAlerts extends Component {
   }
 
   async onChange(e) {
-
     if (
       !e.target.value ||
       e.target.value === " " ||
@@ -97,7 +96,6 @@ class AllAlerts extends Component {
       JSON.stringify(this.props.selectedAlerts) !==
       JSON.stringify(prevProps.selectedAlerts)
     ) {
-
       let selectedAlerts = []
 
       if (this.props.selectedAlerts.length === 0) {
@@ -149,6 +147,7 @@ class AllAlerts extends Component {
     }
 
     let sliced = this.state.tags.slice(0, alert.length - 1)
+    console.log("slice", sliced)
     let flattenedArray = sliced.flat()
     let uniqueArray = [...new Set(flattenedArray.flat())]
 
@@ -230,7 +229,7 @@ class AllAlerts extends Component {
 
                         {uniqueArray
                           .filter((tag, i) => {
-                            return tag != "N/A"
+                            return tag != undefined
                           })
                           .map((tag, i) => {
                             return (
@@ -284,18 +283,20 @@ class AllAlerts extends Component {
 
                     {Object.entries(this.props.fyis).length > 0 && (
                       <div>
-                        {Object.entries(this.props.fyis).map(([key, fyi], i) => {
-                          return (
-                            <AlertCard
-                              key={i}
-                              title={fyi.title}
-                              category={fyi.category}
-                              content={fyi.content}
-                              tags={fyi.tags}
-                              severity={0}
-                            />
-                          )
-                        })}
+                        {Object.entries(this.props.fyis).map(
+                          ([key, fyi], i) => {
+                            return (
+                              <AlertCard
+                                key={i}
+                                title={fyi.title}
+                                category={fyi.category}
+                                content={fyi.content}
+                                tags={fyi.tags}
+                                severity={0}
+                              />
+                            )
+                          }
+                        )}
                       </div>
                     )}
                   </div>
