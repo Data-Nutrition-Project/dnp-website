@@ -452,22 +452,6 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/josh.jpg")}
-                imgAlt="joseph_josh"
-                name="Josh Joseph"
-                role="AI Research"
-                bio="Chief Intelligence Architect for MIT's Quest for Intelligence. Previously, Chief Science Officer at Alpha Features, an alternative data distribution platform, and co-founded a proprietary trading company based on machine learning driven strategy discovery and fully autonomous trading. Has done a variety of consulting work across finance, life sciences, and robotics.  Aero/Astro PhD on modeling and planning in the presence of complex dynamics from MIT. BS in Applied Mathematics and Mechanical Engineering from RIT. Spends too much time arguing about consciousness. Terrible improviser."
-                socialMedia={[
-                  {
-                    href: "https://www.linkedin.com/in/jmjoseph/",
-                    icon: "icon-linkedin",
-                    className: "si-linkedin",
-                  },
-                ]}
-              />
-            </Col>
-            <Col xl={{ span: 5 }} md={12}>
-              <Bio
                 imgPath={require("../images/taylor_matt.png")}
                 imgAlt="taylor_matt"
                 name="Matt Taylor"
@@ -492,7 +476,7 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
+            <Col xl={{ span: 5 }} md={12}>
               <Bio
                 imgPath={require("../images/thomas_kemi.jpg")}
                 imgAlt="thomas_kemi"
@@ -513,7 +497,7 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5 }} md={12}>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
                 imgPath={require("../images/yurkofsky_jess.jpg")}
                 imgAlt="yurkofsky_jessica"
@@ -529,7 +513,7 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
+            <Col xl={{ span: 5 }} md={12}>
               <Bio
                 imgPath={require("../images/kranzinger_chris.png")}
                 imgAlt="kranzinger_chris"
@@ -551,6 +535,27 @@ const IndexPage = props => (
                     href: "https://harvardaiclub.github.io/",
                     icon: "icon-line-globe",
                     className: "si-dribble",
+                  },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/dokuaa_serena.jpg")}
+                imgAlt="dokuaa_serena"
+                name="Serena Dokuaa"
+                role="AI Policy Collaborator"
+                bio="Policy Research Analyst at Data &amp; Society. Affiliate at metaLab at Harvard. Formerly the 2020-2021 Technology Equity Fellow at the Greenlining Institute. Focused on ensuring that AI policy protects historically minoritized communities. Writer exploring: AI + Black Feminism and AI policy."
+                socialMedia={[
+                  {
+                    href: "http://www.linkedin.com/in/serena-oduro",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                  {
+                    href: "https://twitter.com/serenaoduro",
+                    icon: "icon-twitter",
+                    className: "si-twitter",
                   },
                 ]}
               />
@@ -750,6 +755,21 @@ const IndexPage = props => (
               />
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/josh.jpg")}
+                imgAlt="joseph_josh"
+                name="Josh Joseph"
+                role="AI Research"
+                socialMedia={[
+                  {
+                    href: "https://www.linkedin.com/in/jmjoseph/",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5 }} md={12}>
               <Bio
                 alum={true}
                 imgPath={require("../images/YQiu.png")}
