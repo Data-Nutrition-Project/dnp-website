@@ -541,9 +541,9 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/dokuaa_serena.jpg")}
-                imgAlt="dokuaa_serena"
-                name="Serena Dokuaa"
+                imgPath={require("../images/oduro_serena.jpg")}
+                imgAlt="oduro_serena"
+                name="Serena Oduro"
                 role="AI Policy Collaborator"
                 bio="Policy Research Analyst at Data &amp; Society. Affiliate at metaLab at Harvard. Formerly the 2020-2021 Technology Equity Fellow at the Greenlining Institute. Focused on ensuring that AI policy protects historically minoritized communities. Writer exploring: AI + Black Feminism and AI policy."
                 socialMedia={[
