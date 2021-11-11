@@ -17,9 +17,6 @@ import styles from "./index.module.css"
 
 const IndexPage = props => (
   <Layout>
-    <Banner
-      content={"Our children’s book “I’m Not a Tomato!” is launching on Kickstarter this summer! Sign up [here](https://forms.gle/NBB7JsDzCWzbV5xFA) to receive an email when we launch!"}
-    />
     <section
       id="slider"
       className={classNames(
