@@ -3,8 +3,7 @@ os:
   - linux
 dist: xenial
 node_js:
-  - "stable"
-  - "lts/*"
+  - "12.22"
 
 branches:
   only:
