@@ -538,21 +538,21 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/oduro_serena.jpg")}
-                imgAlt="oduro_serena"
-                name="Serena Oduro"
-                role="AI Policy Collaborator"
-                bio="Policy Research Analyst at Data &amp; Society. Affiliate at metaLab at Harvard. Formerly the 2020-2021 Technology Equity Fellow at the Greenlining Institute. Focused on ensuring that AI policy protects historically minoritized communities. Writer exploring: AI + Black Feminism and AI policy."
+                imgPath={require("../images/luzzi_erica.png")}
+                imgAlt="luzzi_erica"
+                name="Erica Luzzi"
+                role="Research &amp; Design Collaborator"
+                bio="Master in Design Engineering Student at the Harvard GSD and SEAS. Focused on human-AI interaction with a background in cognitive science and computer science. Fascinated by the creative potential and ethical implications of design of interactive intelligent systems. Functions best when near the ocean."
                 socialMedia={[
                   {
-                    href: "http://www.linkedin.com/in/serena-oduro",
+                    href: "https://www.linkedin.com/in/erica-luzzi-65659213b/",
                     icon: "icon-linkedin",
                     className: "si-linkedin",
                   },
                   {
-                    href: "https://twitter.com/serenaoduro",
-                    icon: "icon-twitter",
-                    className: "si-twitter",
+                    href: "https://www.ericaluzzi.com/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
                   },
                 ]}
               />
@@ -667,7 +667,7 @@ const IndexPage = props => (
                 imgPath={require("../images/ai_global.png")}
                 imgAlt="ai_global"
                 name="AI Global"
-                role="Researc Collaborator"
+                role="Research Collaborator"
                 bio="AI Global is a non-profit building tangible governance tools to address growing concerns about AI. Their mission is to catalyze the practical and responsible design, development, and use of AI. Their tools have been among the first to demonstrate how to turn responsible AI principles into action. Bringing extensive experience in responsible AI policy and the development of AI systems for industry, AI Global is uniquely positioned to partner with organizations across public and private sectors to guide and inform responsible AI governance around the world."
                 socialMedia={[
                   {
@@ -783,6 +783,27 @@ const IndexPage = props => (
                     href: "https://www.linkedin.com/in/chelseaqiu/",
                     icon: "icon-linkedin",
                     className: "si-linkedin",
+                  },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                alum={true}
+                imgPath={require("../images/oduro_serena.jpg")}
+                imgAlt="oduro_serena"
+                name="Serena Oduro"
+                role="AI Policy Collaborator"
+                socialMedia={[
+                  {
+                    href: "http://www.linkedin.com/in/serena-oduro",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                  {
+                    href: "https://twitter.com/serenaoduro",
+                    icon: "icon-twitter",
+                    className: "si-twitter",
                   },
                 ]}
               />
