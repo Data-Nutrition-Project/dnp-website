@@ -1,0 +1,25 @@
+{
+  "name": "dnp-api",
+  "version": "1.0.0",
+  "description": "back end for the Data Nutrition Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Data-Nutrition-Project/dnp-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Data-Nutrition-Project/dnp-api/issues"
+  },
+  "homepage": "https://github.com/Data-Nutrition-Project/dnp-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2"
+  }
+}
