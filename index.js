@@ -14,11 +14,15 @@ app.use(cors())
 
 const main = async () => {
 
-  const client = await connect(process.env.LOCAL_DB_URL);
+  const client = await connect(process.env.DB_URL);
   await client.connect();
-  
+
   app.get('/hello', async (req, res) => {
     res.send({message: "hello!"});
+  })
+
+  app.get('/database', async (req, res) => {
+    res.send({message: "database is connected!"});
   })
 
   app.listen(port, () => {
@@ -27,3 +31,5 @@ const main = async () => {
 }
 
 main();
+
+// B^jPp8O7YB5JlrR&zmV
