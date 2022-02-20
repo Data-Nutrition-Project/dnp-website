@@ -4,7 +4,7 @@
   "description": "back end for the Data Nutrition Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node index.js"
   },
   "repository": {
@@ -22,5 +22,8 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "mongodb": "^4.3.1"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
