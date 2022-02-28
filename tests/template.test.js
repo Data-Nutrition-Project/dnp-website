@@ -3,7 +3,7 @@ require('dotenv').config()
 const { connect } = require('../database/connector.js')
 const { TemplateService } = require('../database/template.js')
 
-let templates
+let templatesCollection
 let templateService
 const templatesToDelete = []
 
@@ -14,15 +14,15 @@ describe("templates service", () => {
     const client = await connect(process.env.TEST_DB_URL).catch(console.dir)
     await client.connect()
     const database = client.db("dnp-test")
-    templates = database.collection("templates")
-    templateService = new TemplateService(templates)
+    templatesCollection = database.collection("templates")
+    templateService = new TemplateService(templatesCollection)
   })
 
   // we want to cleanup all the things we inserted afterwards
   afterAll(async () => {
     await Promise.all(
       templatesToDelete.map(
-        templateId => templates.deleteOne({_id: templateId})
+        templateId => templatesCollection.deleteOne({_id: templateId})
       )
     )
   })
@@ -35,10 +35,10 @@ describe("templates service", () => {
     const template = await templateService.addTemplate(templateToAdd)
     templatesToDelete.push(template.insertedId)
 
-    const readTemplates = await templates.find().toArray()
-    // this is here to make sure we clean up after ourselves
-    expect(readTemplates.length).toBe(1)
-    expect(readTemplates[0]).toEqual(templateToAdd)
+    const readTemplates = await templatesCollection.find().toArray()
+
+    const foundTemplate = readTemplates.find(e => e._id = template.insertedId)
+    expect(foundTemplate).toEqual(templateToAdd)
   });
 
   // add a template into our database
@@ -46,11 +46,18 @@ describe("templates service", () => {
   // assert they are the same
   it('can find an existing template', async () => {
     const templateToAdd = dummyTemplate()
-    const template = await templates.insertOne(templateToAdd)
+    const template = await templatesCollection.insertOne(templateToAdd)
     templatesToDelete.push(template.insertedId)
 
     const foundTemplate = await templateService.getTemplate(template.insertedId)
     expect(foundTemplate).toEqual(templateToAdd)
+  })
+
+  // look for a made up template id
+  // confirm that it is null
+  it('will not find a made up template', async () => {
+    const foundTemplate = await templateService.getTemplate("aqui, la cuenta es pequena, los desserts son grande")
+    expect(foundTemplate).toEqual(null)
   })
 })
 
