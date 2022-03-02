@@ -35,6 +35,15 @@ describe('/template routes', () => {
     )
   })
 
+  it('denies an invalid template', (done) => {
+    request(app)
+      .post('/template')
+      .send({arco: 'iris'})
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json')
+      .expect(400, done)
+  })
+
   it('adds to the database with POST', async () => {
     const dummy = {
       version: 247,
@@ -76,6 +85,12 @@ describe('/template routes', () => {
       .expect(200)
 
     expect(response.body.version).toBe(dummy.version)
+  })
+
+  it('wont find an imaginary template', (done) => {
+    request(app)
+      .get(`/template?id=baddabbaddabbaddabbaddab`)
+      .expect(404, done)
   })
 });
 
