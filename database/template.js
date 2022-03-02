@@ -4,16 +4,33 @@
 class TemplateService {
   constructor(templatesCollection) {
     this.templatesCollection = templatesCollection
+    this.requiredAttributes = [
+      'status',
+      'questions',
+      'version',
+    ]
   }
 
   // simply inserts
-  async addTemplate(templateObject) {
+  addTemplate(templateObject) {
     return this.templatesCollection.insertOne(templateObject)
   }
 
   // simply fetches
-  async getTemplate(templateId) {
+  getTemplate(templateId) {
     return this.templatesCollection.findOne({_id: templateId})
+  }
+
+  // we want to make sure we have the right attributes
+  validateTemplate(templateObject) {
+    const matches = this.requiredAttributes
+      .filter(d => !(d in templateObject))
+
+    if ( matches.length ) {
+      return null
+    } else {
+      return templateObject
+    }
   }
 }
 
