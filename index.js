@@ -21,7 +21,7 @@ const main = async () => {
   const client = await connect(process.env.DB_URL).catch(console.dir)
   await client.connect()
   console.log("Connected successfully to server");
-  const database = client.db("dnp-test")
+  const database = client.db("dnp-api")
   const templatesCollection = database.collection("templates")
 
   const templateService = new TemplateService(templatesCollection)
