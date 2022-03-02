@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { ObjectID } = require('mongodb')
 
 const { connect } = require('../database/connector.js')
 const { TemplateService } = require('../database/template.js')
@@ -8,6 +9,7 @@ const request = require('supertest')
 const express = require('express')
 
 const app = express()
+app.use(express.json())
 
 let templateService
 let templatesCollection
@@ -33,19 +35,33 @@ describe('/template routes', () => {
     )
   })
 
-  // it('adds to the database with POST', async (done) => {
-  //   request(app)
-  //     .post('/template')
-  //     .send({
-  //       version: 1,
-  //       questions: [],
-  //       status: 'draft'
-  //     })
-  //     .expect(200, done)
-  // })
+  it('adds to the database with POST', async () => {
+    const dummy = {
+      version: 247,
+      questions: [],
+      status: 'draft'
+    }
+
+    const response = await request(app)
+      .post('/template')
+      .send(dummy)
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json')
+
+    const id = new ObjectID(response.body.id)
+    templatesToDelete.push(id)
+
+    expect(response.status).toEqual(200)
+    expect(response.body.id).toBeDefined()
+
+    const foundTemplate = await templateService.getTemplate(id)
+
+    expect(foundTemplate._id).toEqual(id)
+    expect(foundTemplate.questions).toEqual(dummy.questions)
+    expect(foundTemplate.version).toEqual(dummy.version)
+  })
 
   it('gets an existing one with GET', async () => {
-    // jest.setTimeout(30000);
     const dummy = dummyTemplate()
     const addedTemplate = await templateService.addTemplate(dummy)
     templatesToDelete.push(addedTemplate.insertedId)

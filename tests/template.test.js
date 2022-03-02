@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { ObjectID } = require('mongodb')
 
 const { connect } = require('../database/connector.js')
 const { TemplateService } = require('../database/template.js')
@@ -27,6 +28,23 @@ describe("templates service", () => {
     )
   })
 
+  it('can validate a valid template', () => {
+    const template = dummyTemplate()
+    const templateValidated = templateService.validateTemplate(template)
+
+    expect(templateValidated).toEqual(template)
+  })
+
+  it("doesn't validate a invalid template", () => {
+    const template = {
+      version: 1,
+      bummy: 2
+    }
+    const templateValidated = templateService.validateTemplate(template)
+
+    expect(templateValidated).toBe(null)
+  })
+
   // add a template with our methods
   // look for it in the db
   // confirm it was there :)
@@ -36,8 +54,7 @@ describe("templates service", () => {
     templatesToDelete.push(template.insertedId)
 
     const readTemplates = await templatesCollection.find().toArray()
-
-    const foundTemplate = readTemplates.find(e => e._id = template.insertedId)
+    const foundTemplate = readTemplates.find(e => e._id.toString() == template.insertedId.toString())
     expect(foundTemplate).toEqual(templateToAdd)
   });
 
