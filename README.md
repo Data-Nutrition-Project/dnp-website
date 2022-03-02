@@ -7,7 +7,6 @@ Backend for DNP website, ingestion engine, and all things DNP. Built in Node.
 1. copy the sample `.env` file from below to a new file with the name `.env`
 1. run `npm install` to get all the modules
 1. run `npm run start` to begin the API
-1. visit http://localhost:3000/hello in your browser to see a message!
 
 
 ##### dotenv

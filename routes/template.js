@@ -44,7 +44,3 @@ exports.TemplatesRouter = (app, templateService) => {
     }
   })
 }
-
-//
-// {"mess":
-//   {"{\"version\":1,\"questions\":[],\"status\":\"draft\"}":""}}

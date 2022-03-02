@@ -27,19 +27,9 @@ const main = async () => {
   const templateService = new TemplateService(templatesCollection)
   TemplatesRouter(app, templateService)
 
-  // app.get('/hello', async (req, res) => {
-  //   res.send({message: "hello!"})
-  // })
-
-  // app.get('/database', async (req, res) => {
-  //   res.send({message: "database is connected!"})
-  // })
-
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
   })
 }
 
 main();
-
-// B^jPp8O7YB5JlrR&zmV
