@@ -13,12 +13,14 @@ const port = process.env.PORT
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json())
 app.use(cors())
 
 const main = async () => {
   // big ol block of db logic, probably belongs elsewhere
   const client = await connect(process.env.DB_URL).catch(console.dir)
   await client.connect()
+  console.log("Connected successfully to server");
   const database = client.db("dnp-test")
   const templatesCollection = database.collection("templates")
 
