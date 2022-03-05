@@ -17,7 +17,7 @@ const templatesToDelete = []
 
 describe('/template routes', () => {
   beforeAll(async () => {
-    const client = await connect(process.env.DB_URL).catch(console.dir)
+    const client = await connect(process.env.TEST_DB_URL).catch(console.dir)
     await client.connect()
     const database = client.db("dnp-test")
     templatesCollection = database.collection("templates")
