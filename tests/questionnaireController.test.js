@@ -52,17 +52,24 @@ describe("questionnaires controller", () => {
 
   // create a new template
   // get a questionnaire from that id
+  // affirm the return and the db make sense
   it('can start a new questionnaire', async () => {
     const template = await templateService.addTemplate(dummyTemplate())
     templatesToDelete.push(template.insertedId)
 
     const newQuestionnaire = await questionnairesController.getQuestionnaireFromTemplate(template.insertedId)
     questionnairesToDelete.push(newQuestionnaire._id)
-
+    // make sure our return is correct
     expect(newQuestionnaire).toBeDefined()
     expect(newQuestionnaire._id).toBeDefined()
     expect(newQuestionnaire._id).not.toBe(template.insertedId)
     expect(newQuestionnaire.dnpId).toBeDefined()
+
+    // make sure out db feels the same way
+    const questionnaire = await questionnaireService.getQuestionnaire(newQuestionnaire._id)
+    expect(questionnaire).toBeDefined()
+    expect(questionnaire._id).toBeDefined()
+    expect(questionnaire.dnpId).toBeDefined()
   })
 
   // create a new template
@@ -94,6 +101,13 @@ describe("questionnaires controller", () => {
     expect(questionnaireThree.schema_version).toBeDefined()
     expect(questionnaireThree.schema_version).toBe(3)
     expect(questionnaireThree._id).not.toBe(questionnaireTwo._id) // we want a different one
+  })
+
+  // look for a made up template id
+  // confirm that it is null
+  it('will not find a made up template', async () => {
+    const foundTemplate = await questionnairesController.getQuestionnaireFromTemplate("aqui, la cuenta es pequena, los desserts son grande")
+    expect(foundTemplate).toEqual(null)
   })
 })
 

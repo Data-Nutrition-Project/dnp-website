@@ -9,11 +9,18 @@ class QuestionnaireController {
   // start a new questionnaire from the given templateId
   async getQuestionnaireFromTemplate(templateId) {
     const emptyTemplate = await this.templateService.getTemplate(templateId)
+    if ( !emptyTemplate )  {
+      return null
+    }
+
+    emptyTemplate.dnpId = uuidv4()
+    delete emptyTemplate._id
+
     const questionnaireInserted = await this.questionnaireService.addQuestionnaire(emptyTemplate)
 
     // we want both a mongo id and a dnp id
     emptyTemplate._id = questionnaireInserted.insertedId
-    emptyTemplate.dnpId = uuidv4()
+
 
     return emptyTemplate
   }
