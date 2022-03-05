@@ -19,6 +19,13 @@ class QuestionnaireService {
   getQuestionnaireByDnpId(questionnaireDnpId) {
     return this.questionnairesCollection.findOne({dnpId: questionnaireDnpId})
   }
+
+  getNewestQuestionnaire(questionnaireDnpId) {
+    return this.questionnairesCollection
+      .find({dnpId: questionnaireDnpId})
+      .toArray()
+      .then(d => d.sort((a, b) => b.schema_version - a.schema_version)[0])
+  }
 }
 
 exports.QuestionnaireService = QuestionnaireService
