@@ -84,13 +84,13 @@ describe("questionnaires service", () => {
     const dnpId = '1234 I declare thumb war'
 
     const questionnaireToAdd1 = dummyQuestionnaire()
-    questionnaireToAdd1.schema_version = 1
+    questionnaireToAdd1.schema_version = 4
     questionnaireToAdd1.dnpId = dnpId
     const questionnaire1 = await questionnairesCollection.insertOne(questionnaireToAdd1)
     questionnairesToDelete.push(questionnaire1.insertedId)
 
     const questionnaireToAdd2 = dummyQuestionnaire()
-    questionnaireToAdd2.schema_version = 2
+    questionnaireToAdd2.schema_version = 5
     questionnaireToAdd2.dnpId = dnpId
     const questionnaire2 = await questionnairesCollection.insertOne(questionnaireToAdd2)
     questionnairesToDelete.push(questionnaire2.insertedId)
@@ -102,7 +102,7 @@ describe("questionnaires service", () => {
 
     const newestQuestionnaire = await questionnaireService.getNewestQuestionnaire(dnpId)
     expect(newestQuestionnaire).toBeDefined()
-    expect(newestQuestionnaire).toEqual(questionnaireToAdd2)
+    expect(newestQuestionnaire.schema_version).toBe(5)
   })
 })
 

@@ -6,7 +6,8 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
       const savedQuestionnaire = await questionnaireController.saveQuestionnaire(req.body)
       res.status(200)
         .send({
-          id: savedQuestionnaire.insertedId
+          id: savedQuestionnaire.insertedId,
+          schema_version: savedQuestionnaire.schema_version
         })
     } catch ( err ) {
       res.status(500).send({

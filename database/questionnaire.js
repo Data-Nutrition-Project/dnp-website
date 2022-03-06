@@ -22,9 +22,7 @@ class QuestionnaireService {
 
   getNewestQuestionnaire(questionnaireDnpId) {
     return this.questionnairesCollection
-      .find({dnpId: questionnaireDnpId})
-      .toArray()
-      .then(d => d.sort((a, b) => b.schema_version - a.schema_version)[0])
+      .findOne({dnpId: questionnaireDnpId}, {sort: { schema_version: -1 }})
   }
 }
 

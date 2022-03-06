@@ -70,7 +70,7 @@ describe('/questionnaire routes', () => {
     expect(foundQuestionnaire).toBeDefined()
   })
 
-  // search for an imaginary questionnaire through the api
+  // start an imaginary template through the api
   it('wont find an imaginary template', (done) => {
     request(app)
       .get(`/new-questionnaire?id=baddabbaddabbaddabbaddab`)
