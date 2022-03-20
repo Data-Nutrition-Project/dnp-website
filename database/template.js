@@ -11,17 +11,35 @@ class TemplateService {
     ]
   }
 
-  // simply inserts
+  /*
+  @params
+    templateObject :: object - template to be inserted, see required attributes
+  This method will insert a given template object into the database under the template collection
+  @return
+    Mongo Insert object - contains vital information like what id the object was inserted under
+  */
   addTemplate(templateObject) {
     return this.templatesCollection.insertOne(templateObject)
   }
 
-  // simply fetches
+  /*
+  @params
+    templateId :: MongoId - id of the template to be found in database
+  This method will find a template that has the given _id in the templates collection
+  @return
+    template object - singular template that has the given _id
+  */
   getTemplate(templateId) {
     return this.templatesCollection.findOne({_id: templateId})
   }
 
-  // we want to make sure we have the right attributes
+  /*
+  @params
+    templateObject :: object - template to be verified
+  This method will validate whether the proper attributes are in place
+  @return
+    null if invalid, templateObject param if valid
+  */
   validateTemplate(templateObject) {
     const matches = this.requiredAttributes
       .filter(d => !(d in templateObject))
