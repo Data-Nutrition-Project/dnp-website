@@ -15,9 +15,11 @@ class TemplateService {
   @params
     templateObject :: object - template to be inserted, see required attributes
   @desc
-    This method will insert a given template object into the database under the template collection
+    This method will insert a given template object into the database
+      under the template collection
   @return
-    Mongo Insert object - contains vital information like what id the object was inserted under
+    Mongo Insert object - contains vital information like what id the object
+      was inserted under
   */
   addTemplate(templateObject) {
     return this.templatesCollection.insertOne(templateObject)
@@ -27,7 +29,8 @@ class TemplateService {
   @params
     templateId :: MongoId - id of the template to be found in database
   @desc
-    This method will find a template that has the given _id in the templates collection
+    This method will find a template that has the given _id in the
+      templates collection
   @return
     template object - singular template that has the given _id
   */

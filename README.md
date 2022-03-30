@@ -16,3 +16,13 @@ PORT=3000
 DB_URL=mongodb://localhost:27017/dnp-api
 TEST_DB_URL=mongodb://localhost:27017/dnp-test
 ```
+
+#### Routes
+###### Templates
+- `POST /template`: saves a new template to the database
+- `GET /template?id=...`: gets a template with the given id from the database
+
+###### Questionnaires
+- `POST /questionnaire`: saves a questionnaire to the database, incrementing its schema_version
+- `GET /questionnaire?id=...`: gets the most recent version of a questionnaire with a given id
+- `GET /new-questionnaire?id=...`: gets an empty template of a given id to be used as a questionnaire
