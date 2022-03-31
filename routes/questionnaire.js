@@ -14,10 +14,7 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
     try {
       const savedQuestionnaire = await questionnaireController.saveQuestionnaire(req.body)
       res.status(200)
-        .send({
-          id: savedQuestionnaire.insertedId,
-          schema_version: savedQuestionnaire.schema_version
-        })
+        .send(savedQuestionnaire)
     } catch ( err ) {
       res.status(500).send({
         message: `Error saving questionnaire`,

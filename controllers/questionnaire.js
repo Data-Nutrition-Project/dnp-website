@@ -38,8 +38,9 @@ class QuestionnaireController {
     }
 
     const questionnaireResult = await this.questionnaireService.addQuestionnaire(questionnaireObject)
-    questionnaireResult.schema_version = questionnaireObject.schema_version
-    return questionnaireResult
+    questionnaireObject._id = questionnaireResult.insertedId
+
+    return questionnaireObject
   }
 }
 
