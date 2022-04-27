@@ -38,6 +38,7 @@ class QuestionnaireController {
     }
 
     const questionnaireResult = await this.questionnaireService.addQuestionnaire(questionnaireObject)
+    // copy our new mongo id to our object to send back to frontend
     questionnaireObject._id = questionnaireResult.insertedId
 
     return questionnaireObject

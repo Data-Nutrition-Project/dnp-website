@@ -8,7 +8,7 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
     This route will accept a questionnaire through a POST body and insert it into
       the database after bumping the schema_version
   @return
-    insertedObject :: shaped like { id: _id, schema_version }
+    newQuestionnaire :: shaped like { id, schema_version, dnpId, questionnaire, etc. }
   */
   app.post('/questionnaire', async (req, res) => {
     try {
