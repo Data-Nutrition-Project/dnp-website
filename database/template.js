@@ -6,7 +6,7 @@ class TemplateService {
     this.templatesCollection = templatesCollection
     this.requiredAttributes = [
       'status',
-      'questions',
+      'questionnaire',
       'version',
     ]
   }
