@@ -48,7 +48,8 @@
 }
 
 .mitigationRow {
-  align-items: center;
+  display: flex;
+  align-items: flex-start;
   margin-bottom: .5rem;
 }
 

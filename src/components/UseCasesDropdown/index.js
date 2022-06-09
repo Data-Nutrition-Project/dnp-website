@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 import classNames from "classnames"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"

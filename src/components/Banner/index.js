@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import ReactMarkdown from "react-markdown"
 
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 const Banner = props => (
   <ReactMarkdown

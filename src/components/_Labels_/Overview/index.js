@@ -6,13 +6,13 @@ import Row from "react-bootstrap/Row"
 import ReactMarkdown from "react-markdown"
 import { VegaLite } from "react-vega"
 
-import styles from "./styles.module.css"
-import colors from "../../layout.css"
+import * as styles from "./styles.module.css"
+import * as colors from "../../layout.css"
 
 const COLOR_MAP = [
-  colors.alertYellow,
-  colors.alertOrange,
-  colors.alertRed
+  '#fcda24',
+  '#f5931e',
+  '#f0190c'
 ]
 
 const SEVERITY_MAP = [
@@ -264,6 +264,8 @@ class Overview extends Component {
   }
 
   renderAlertsHarm = (alertsByHarm) => {
+    console.log(alertsByHarm)
+    console.log(COLOR_MAP)
     const spec = {
       layer: [
         {
@@ -311,7 +313,7 @@ class Overview extends Component {
           field: "severity",
           scale: {
             domain: [1, 2, 3],
-            range: [colors.alertBlue]
+            range: ['#5b8b92']
           },
           legend: false
         }
@@ -443,7 +445,7 @@ class Overview extends Component {
                 <div className={classNames(styles.qAndA, styles.pFontSize)}>
                   <ReactMarkdown
                     className={styles.answer}
-                    source={this.props.datasetInfoDescription[0].answer}
+                    children={this.props.datasetInfoDescription[0].answer}
                   />
                 </div>
               </Col>

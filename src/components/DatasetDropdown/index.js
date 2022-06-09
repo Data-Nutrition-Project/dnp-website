@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 import classNames from "classnames"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"

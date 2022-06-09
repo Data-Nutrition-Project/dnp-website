@@ -189,18 +189,18 @@
 }
 
 .sliderParallax .sliderParallaxInner {
-    position: fixed;
+    position: relative;
     width: 100%;
     height: 100%;
 }
 
-.device-touch .sliderParallax .sliderParallax-inner { position: relative; }
+/* .device-touch .sliderParallax .sliderParallax-inner { position: relative; }
 
 body:not(.side-header) .sliderParallax .sliderParallaxInner { left: 0; }
 
 body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 
-.header.transparentHeader + .sliderParallax .sliderParallaxInner { top: 0; }
+.header.transparentHeader + .sliderParallax .sliderParallaxInner { top: 0; } */
 
 .headerSentence {
     font-size: 1.75rem;

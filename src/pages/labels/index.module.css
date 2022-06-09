@@ -43,12 +43,11 @@
 
 .cardHeader {
   background-color: white !important;
-  font-weight: bold;
   padding: .75rem 0;
 }
 
 .cardBody {
-  padding: 1.25rem 0;
+  padding: 1.25rem 1rem;
 }
 
 .moreButton {

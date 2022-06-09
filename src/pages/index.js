@@ -13,7 +13,7 @@ import Banner from "../components/Banner"
 import Bio from "../components/Bio"
 import Layout from "../components/layout"
 
-import styles from "./index.module.css"
+import * as styles from "./index.module.css"
 
 const IndexPage = props => (
   <Layout>
@@ -144,7 +144,7 @@ const IndexPage = props => (
             <img
               alt="diagram"
               className={styles.img}
-              src={require("../images/diagram.png")}
+              src={require("../images/diagram.png").default}
             />
           </Col>
         </Row>
@@ -223,7 +223,7 @@ const IndexPage = props => (
             <img
               alt="label display"
               className={styles.img}
-              src={require("../images/label.png")}
+              src={require("../images/label.png").default}
             />
           </Col>
         </Row>
@@ -294,7 +294,7 @@ const IndexPage = props => (
             <img
               alt="zoom panel on coded bias december 2020"
               className={styles.img}
-              src={require("../images/cr-panel-dec2020.png")}
+              src={require("../images/cr-panel-dec2020.png").default}
             />
             <div class={styles.photoCredit}>
               <span>
@@ -354,7 +354,7 @@ const IndexPage = props => (
             <img
               alt="workshop presentation"
               className={styles.img}
-              src={require("../images/dnp-2.jpg")}
+              src={require("../images/dnp-2.jpg").default}
             />
             <div class={styles.photoCredit}>
               <span>
@@ -375,7 +375,7 @@ const IndexPage = props => (
     <div className={styles.sectionImage}>
       <img
         alt="DNP member presenting"
-        src={require("../images/newman-76edit.jpg")}
+        src={require("../images/newman-76edit.jpg").default}
         className={classNames(styles.sectionImageImg, styles.img)}
       />
     </div>
@@ -420,7 +420,7 @@ const IndexPage = props => (
           <Row>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/chmielinski_kasia.png")}
+                imgPath={require("../images/chmielinski_kasia.png").default}
                 imgAlt="chmielinski_kasia"
                 name="Kasia Chmielinski"
                 role="Project Lead"
@@ -436,7 +436,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5 }} md={12}>
               <Bio
-                imgPath={require("../images/newman_sarah_1.png")}
+                imgPath={require("../images/newman_sarah_1.png").default}
                 imgAlt="newman_sarah"
                 name="Sarah Newman"
                 role="Research &amp; Strategy"
@@ -452,7 +452,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/josh.jpg")}
+                imgPath={require("../images/josh.jpg").default}
                 imgAlt="joseph_josh"
                 name="Josh Joseph"
                 role="AI Research"
@@ -468,7 +468,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5 }} md={12}>
               <Bio
-                imgPath={require("../images/taylor_matt.png")}
+                imgPath={require("../images/taylor_matt.png").default}
                 imgAlt="taylor_matt"
                 name="Matt Taylor"
                 role="Data Science &amp; Workshop Facilitation"
@@ -494,7 +494,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/thomas_kemi.jpg")}
+                imgPath={require("../images/thomas_kemi.jpg").default}
                 imgAlt="thomas_kemi"
                 name="Kemi Thomas"
                 role="Software Engineering Collaborator"
@@ -515,7 +515,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5 }} md={12}>
               <Bio
-                imgPath={require("../images/yurkofsky_jess.jpg")}
+                imgPath={require("../images/yurkofsky_jess.jpg").default}
                 imgAlt="yurkofsky_jessica"
                 name="Jessica Yurkofsky"
                 role="Design Research Collaborator"
@@ -531,7 +531,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/kranzinger_chris.png")}
+                imgPath={require("../images/kranzinger_chris.png").default}
                 imgAlt="kranzinger_chris"
                 name="Chris Kranzinger"
                 role="Data Science Collaborator"
@@ -562,7 +562,7 @@ const IndexPage = props => (
           <Row>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/hil.png")}
+                imgPath={require("../images/hil.png").default}
                 imgAlt="humanity_innovation_labs"
                 name="Humanity Innovation Labs"
                 role="User Experience Research &amp; Design Collaborator"
@@ -599,7 +599,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5 }} md={12}>
               <Bio
-                imgPath={require("../images/justfix.png")}
+                imgPath={require("../images/justfix.png").default}
                 imgAlt="JustFix.nyc"
                 name="JustFix.nyc"
                 role="Research &amp; Data Collaborator"
@@ -636,7 +636,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/rotemberg_veronica.jpg")}
+                imgPath={require("../images/rotemberg_veronica.jpg").default}
                 imgAlt="Dr_Veronica_Rotemberg"
                 name="Dr. Veronica Rotemberg"
                 role="Research Collaborator"
@@ -662,7 +662,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5 }} md={12}>
               <Bio
-                imgPath={require("../images/ai_global.png")}
+                imgPath={require("../images/ai_global.png").default}
                 imgAlt="ai_global"
                 name="AI Global"
                 role="Researc Collaborator"
@@ -700,7 +700,7 @@ const IndexPage = props => (
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
                 alum={true}
-                imgPath={require("../images/holland_sarah.png")}
+                imgPath={require("../images/holland_sarah.png").default}
                 imgAlt="holland_sarah"
                 name="Sarah Holland"
                 role="Research &amp; Public Policy"
@@ -721,7 +721,7 @@ const IndexPage = props => (
             <Col xl={{ span: 5 }} md={12}>
               <Bio
                 alum={true}
-                imgPath={require("../images/hosny_ahmed.png")}
+                imgPath={require("../images/hosny_ahmed.png").default}
                 imgAlt="hosny_ahmed"
                 name="Ahmed Hosny"
                 role="Data Science"
@@ -752,7 +752,7 @@ const IndexPage = props => (
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
                 alum={true}
-                imgPath={require("../images/YQiu.png")}
+                imgPath={require("../images/YQiu.png").default}
                 imgAlt="qiu_chelsea"
                 name="Chelsea Qiu"
                 role="Research &amp; Design"
@@ -777,7 +777,7 @@ const IndexPage = props => (
     <div className={styles.sectionImage}>
       <img
         alt="divider"
-        src={require("../images/dnp-3.jpg")}
+        src={require("../images/dnp-3.jpg").default}
         className={classNames(styles.sectionImageImg, styles.img)}
       />
     </div>
@@ -920,7 +920,7 @@ const IndexPage = props => (
                 <a href="https://www.media.mit.edu/">
                   <div className={styles.mediaBox}>
                     <img
-                      src={require("../images/logo1.png")}
+                      src={require("../images/logo1.png").default}
                       alt="MIT Media Lab"
                     />
                   </div>
@@ -932,7 +932,7 @@ const IndexPage = props => (
                 <a href="https://cyber.harvard.edu/">
                   <div className={styles.mediaBox}>
                     <img
-                      src={require("../images/logo2.png")}
+                      src={require("../images/logo2.png").default}
                       alt="Berkman Klein Center"
                     />
                   </div>
@@ -943,7 +943,7 @@ const IndexPage = props => (
               <div className={styles.featureBox}>
                 <a href="https://www.bkmla.org/">
                   <div className={styles.mediaBox}>
-                    <img src={require("../images/logo3.png")} alt="Assembly" />
+                    <img src={require("../images/logo3.png").default} alt="Assembly" />
                   </div>
                 </a>
               </div>
@@ -953,7 +953,7 @@ const IndexPage = props => (
                 <a href="https://aiethicsinitiative.org/">
                   <div className={styles.mediaBox}>
                     <img
-                      src={require("../images/logo4.png")}
+                      src={require("../images/logo4.png").default}
                       alt="AI Ethics and Governance"
                       style={{ opacity: 0.7 }}
                     />
@@ -1008,6 +1008,9 @@ const IndexPage = props => (
                           placeholder="Email Address"
                           name="EMAIL"
                           id="mce-EMAIL"
+                          style={{
+                            height: '2rem'
+                          }}
                         />
                       </Form.Group>
                       <div id="mce-responses" className="clear">

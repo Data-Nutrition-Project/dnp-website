@@ -9,7 +9,7 @@ import Row from "react-bootstrap/Row"
 import Tabs from "react-bootstrap/Tabs"
 import Tab from "react-bootstrap/Tab"
 
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 import { config } from "@fortawesome/fontawesome-svg-core"
 
@@ -185,36 +185,34 @@ class AllAlerts extends Component {
                 <div className={styles.tabContent}>
                   <div className={styles.severity}>
                     <div className={styles.parentColors}>
-                      <Container>
-                        <Row className={styles.mitigationRow}>
-                          <div className={styles.boldHeader}>
-                            Mitigation Possible:
-                          </div>
-                          <div className={styles.parentAlerts}>
-                            <img
-                              className={styles.mitigationRefImg}
-                              src={require("../AlertCard/high.svg")}
-                            />
-                            {sevCount[3]} No
-                          </div>
+                      <div className={styles.mitigationRow}>
+                        <div className={styles.boldHeader}>
+                          Mitigation Possible:
+                        </div>
+                        <div className={styles.parentAlerts}>
+                          <img
+                            className={styles.mitigationRefImg}
+                            src={require("../AlertCard/high.svg").default}
+                          />
+                          {sevCount[3]} No
+                        </div>
 
-                          <div className={styles.parentAlerts}>
-                            <img
-                              className={styles.mitigationRefImg}
-                              src={require("../AlertCard/moderate.svg")}
-                            />
-                            {sevCount[2]} Maybe
-                          </div>
+                        <div className={styles.parentAlerts}>
+                          <img
+                            className={styles.mitigationRefImg}
+                            src={require("../AlertCard/moderate.svg").default}
+                          />
+                          {sevCount[2]} Maybe
+                        </div>
 
-                          <div className={styles.parentAlerts}>
-                            <img
-                              className={styles.mitigationRefImg}
-                              src={require("../AlertCard/medium.svg")}
-                            />
-                            {sevCount[1]} Yes
-                          </div>
-                        </Row>
-                      </Container>
+                        <div className={styles.parentAlerts}>
+                          <img
+                            className={styles.mitigationRefImg}
+                            src={require("../AlertCard/medium.svg").default}
+                          />
+                          {sevCount[1]} Yes
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <span className={styles.alertUnderlineBold} />
@@ -285,6 +283,7 @@ class AllAlerts extends Component {
                     {Object.entries(this.props.fyis).length > 0 && (
                       <div>
                         {Object.entries(this.props.fyis).map(([key, fyi], i) => {
+                          console.log(fyi.content)
                           return (
                             <AlertCard
                               key={i}

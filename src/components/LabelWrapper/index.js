@@ -10,7 +10,7 @@ import Overview from "../_Labels_/Overview/index"
 import Objectives from "../_Labels_/Objectives/index"
 import { fetchLabelThunk } from "../../store/labelStore"
 
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 class LabelWrapper extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class LabelWrapper extends Component {
               <div className={styles.labelHeader}>
                 <img
                     className={styles.logoImg}
-                    src={require("../../images/logo-leaf-only.png")}
+                    src={require("../../images/logo-leaf-only.png").default}
                     alt="logo"
                 />
                 <div className={styles.labelTitle}>

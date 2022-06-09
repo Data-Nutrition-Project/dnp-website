@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 import classNames from "classnames"
 
 class Selector extends Component {
