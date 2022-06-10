@@ -46,13 +46,13 @@
     "devDependencies": {
         "@emotion/core": "11.0.0",
         "@testing-library/jest-dom": "5.16.4",
-        "babel-jest": "^28.1.0",
+        "babel-jest": "^28.1.1",
         "babel-plugin-emotion": "11.0.0",
         "babel-preset-gatsby": "^2.15.0",
         "emotion": "11.0.0",
         "gh-pages": "4.0.0",
         "identity-obj-proxy": "3.0.0",
-        "jest": "28.1.0",
+        "jest": "^28.1.1",
         "jest-emotion": "11.0.0",
         "prettier": "^2.6.2",
         "react-test-renderer": "^17.0.0",
@@ -72,7 +72,7 @@
         "start": "npm run develop",
         "serve": "gatsby serve",
         "clean": "gatsby clean",
-        "test": "",
+        "test": "jest --passWithNoTests",
         "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/Data-Nutrition-Project/dnp-website.git"
     },
     "repository": {
