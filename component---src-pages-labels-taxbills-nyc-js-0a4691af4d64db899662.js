@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkData_Nutrition_Project=self.webpackChunkData_Nutrition_Project||[]).push([[649],{1803:function(e,t,n){n.r(t);var r=n(7294),a=n(2714),l=n(9208),c=n(8859),u=n(7833);t.default=function(){return r.createElement(a.zt,{store:u.ZP},r.createElement(c.Z,null),r.createElement(l.Z,{jsonFile:"taxbills-nyc-blob"}))}}}]);
+//# sourceMappingURL=component---src-pages-labels-taxbills-nyc-js-0a4691af4d64db899662.js.map

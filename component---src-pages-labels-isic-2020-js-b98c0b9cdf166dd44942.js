@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkData_Nutrition_Project=self.webpackChunkData_Nutrition_Project||[]).push([[564],{4257:function(e,t,n){n.r(t);var r=n(7294),a=n(2714),c=n(9208),u=n(8859),i=n(7833);t.default=function(){return r.createElement(a.zt,{store:i.ZP},r.createElement(u.Z,null),r.createElement(c.Z,{jsonFile:"isic-2020-blob"}))}}}]);
+//# sourceMappingURL=component---src-pages-labels-isic-2020-js-b98c0b9cdf166dd44942.js.map

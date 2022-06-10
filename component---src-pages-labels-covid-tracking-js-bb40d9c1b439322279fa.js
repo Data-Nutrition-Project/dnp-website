@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{BUpX:function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),r=t.n(a),c=t("/MKj"),o=t("80L9"),l=t("ihrq"),i=t("Q2AE");n.default=function(){return r.a.createElement(c.a,{store:i.a},r.a.createElement(l.a,null),r.a.createElement(o.a,{jsonFile:"ctp-blob"}))}}}]);
-//# sourceMappingURL=component---src-pages-labels-covid-tracking-js-bb40d9c1b439322279fa.js.map

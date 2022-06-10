@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkData_Nutrition_Project=self.webpackChunkData_Nutrition_Project||[]).push([[612],{5606:function(e,t,n){n.r(t);var r=n(7294),a=n(2714),c=n(9208),u=n(8859),l=n(7833);t.default=function(){return r.createElement(a.zt,{store:l.ZP},r.createElement(u.Z,null),r.createElement(c.Z,{jsonFile:"ctp-blob"}))}}}]);
+//# sourceMappingURL=component---src-pages-labels-covid-tracking-js-8a70e14055e15f4171ec.js.map

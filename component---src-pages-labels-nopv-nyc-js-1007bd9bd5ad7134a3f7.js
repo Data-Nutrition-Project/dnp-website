@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkData_Nutrition_Project=self.webpackChunkData_Nutrition_Project||[]).push([[44],{8200:function(e,t,n){n.r(t);var r=n(7294),a=n(2714),c=n(9208),u=n(8859),l=n(7833);t.default=function(){return r.createElement(a.zt,{store:l.ZP},r.createElement(u.Z,null),r.createElement(c.Z,{jsonFile:"nopv-nyc-blob"}))}}}]);
+//# sourceMappingURL=component---src-pages-labels-nopv-nyc-js-1007bd9bd5ad7134a3f7.js.map
