@@ -17,9 +17,6 @@ import * as styles from "./index.module.css"
 
 const IndexPage = props => (
   <Layout>
-    <Banner
-      content={"Our children’s book “I’m Not a Tomato!” is launching on Kickstarter this summer! Sign up [here](https://forms.gle/NBB7JsDzCWzbV5xFA) to receive an email when we launch!"}
-    />
     <section
       id="slider"
       className={classNames(
@@ -452,23 +449,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/josh.jpg").default}
-                imgAlt="joseph_josh"
-                name="Josh Joseph"
-                role="AI Research"
-                bio="Chief Intelligence Architect for MIT's Quest for Intelligence. Previously, Chief Science Officer at Alpha Features, an alternative data distribution platform, and co-founded a proprietary trading company based on machine learning driven strategy discovery and fully autonomous trading. Has done a variety of consulting work across finance, life sciences, and robotics.  Aero/Astro PhD on modeling and planning in the presence of complex dynamics from MIT. BS in Applied Mathematics and Mechanical Engineering from RIT. Spends too much time arguing about consciousness. Terrible improviser."
-                socialMedia={[
-                  {
-                    href: "https://www.linkedin.com/in/jmjoseph/",
-                    icon: "icon-linkedin",
-                    className: "si-linkedin",
-                  },
-                ]}
-              />
-            </Col>
-            <Col xl={{ span: 5 }} md={12}>
-              <Bio
-                imgPath={require("../images/taylor_matt.png").default}
+                imgPath={require("../images/taylor_matt.png")}
                 imgAlt="taylor_matt"
                 name="Matt Taylor"
                 role="Data Science &amp; Workshop Facilitation"
@@ -492,7 +473,7 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
+            <Col xl={{ span: 5 }} md={12}>
               <Bio
                 imgPath={require("../images/thomas_kemi.jpg").default}
                 imgAlt="thomas_kemi"
@@ -513,7 +494,7 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5 }} md={12}>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
                 imgPath={require("../images/yurkofsky_jess.jpg").default}
                 imgAlt="yurkofsky_jessica"
@@ -529,13 +510,13 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
+            <Col xl={{ span: 5 }} md={12}>
               <Bio
                 imgPath={require("../images/kranzinger_chris.png").default}
                 imgAlt="kranzinger_chris"
                 name="Chris Kranzinger"
-                role="Data Science Collaborator"
-                bio="McCloy Fellow at Harvard integrating machine intelligence systems, data, and society. Combines data science and economics to inform (policy) decision making and studies questions around trust and safety in AI. Previously, Senior Data Scientist at QuantCo, co-founder of two tech start-ups, founding president of the AI association at Harvard’s Kennedy School, and industry expert advising Germany’s first national strategy on AI. Passionate European, staunch free athlete, and aspiring photographer."
+                role="Data Science Advisor"
+                bio="Data Scientist, Economist, and ML enthusiast combining data and social science to inform strategic decision making and studies questions around trust and safety in AI. Former McCloy Fellow at Harvard and current Sr. Applied Scientist at Uber with a background in Engineering and Economics. Passionate European, staunch free athlete, and aspiring photographer."
                 socialMedia={[
                   {
                     href: "https://www.linkedin.com/in/cnk/",
@@ -547,8 +528,24 @@ const IndexPage = props => (
                     icon: "icon-github",
                     className: "si-github",
                   },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/luzzi_erica.png")}
+                imgAlt="luzzi_erica"
+                name="Erica Luzzi"
+                role="Research &amp; Design Collaborator"
+                bio="Master in Design Engineering Student at the Harvard GSD and SEAS. Focused on human-AI interaction with a background in cognitive science and computer science. Fascinated by the creative potential and ethical implications of design of interactive intelligent systems. Functions best when near the ocean."
+                socialMedia={[
                   {
-                    href: "https://harvardaiclub.github.io/",
+                    href: "https://www.linkedin.com/in/erica-luzzi-65659213b/",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                  {
+                    href: "https://www.ericaluzzi.com/",
                     icon: "icon-line-globe",
                     className: "si-dribble",
                   },
@@ -665,7 +662,7 @@ const IndexPage = props => (
                 imgPath={require("../images/ai_global.png").default}
                 imgAlt="ai_global"
                 name="AI Global"
-                role="Researc Collaborator"
+                role="Research Collaborator"
                 bio="AI Global is a non-profit building tangible governance tools to address growing concerns about AI. Their mission is to catalyze the practical and responsible design, development, and use of AI. Their tools have been among the first to demonstrate how to turn responsible AI principles into action. Bringing extensive experience in responsible AI policy and the development of AI systems for industry, AI Global is uniquely positioned to partner with organizations across public and private sectors to guide and inform responsible AI governance around the world."
                 socialMedia={[
                   {
@@ -751,6 +748,21 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
+                imgPath={require("../images/josh.jpg").default}
+                imgAlt="joseph_josh"
+                name="Josh Joseph"
+                role="AI Research"
+                socialMedia={[
+                  {
+                    href: "https://www.linkedin.com/in/jmjoseph/",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5 }} md={12}>
+              <Bio
                 alum={true}
                 imgPath={require("../images/YQiu.png").default}
                 imgAlt="qiu_chelsea"
@@ -766,6 +778,27 @@ const IndexPage = props => (
                     href: "https://www.linkedin.com/in/chelseaqiu/",
                     icon: "icon-linkedin",
                     className: "si-linkedin",
+                  },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                alum={true}
+                imgPath={require("../images/oduro_serena.jpg").default}
+                imgAlt="oduro_serena"
+                name="Serena Oduro"
+                role="AI Policy Collaborator"
+                socialMedia={[
+                  {
+                    href: "http://www.linkedin.com/in/serena-oduro",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                  {
+                    href: "https://twitter.com/serenaoduro",
+                    icon: "icon-twitter",
+                    className: "si-twitter",
                   },
                 ]}
               />

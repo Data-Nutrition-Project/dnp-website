@@ -31,7 +31,7 @@ exports[`Alert renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-angle-right fa-w-8 "
+              className="svg-inline--fa fa-angle-right "
               data-icon="angle-right"
               data-prefix="fas"
               focusable="false"
