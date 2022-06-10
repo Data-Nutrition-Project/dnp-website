@@ -6,6 +6,9 @@ node_js:
   - "stable"
   - "lts/*"
 
+env:
+  - SITE_URL="https://datanutrition.org"
+
 branches:
   only:
     - master
