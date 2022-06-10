@@ -6,7 +6,7 @@ import React, { useState } from "react"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import Nav from 'react-bootstrap/Nav'
 
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 const Header = () => {
     // updates the display class for the mobile nav
@@ -29,7 +29,7 @@ const Header = () => {
                         <AnchorLink to="/" className={styles.standardLogo}>
                             <img
                                 className={styles.logoImg}
-                                src={require("../../images/logo-s.png")}
+                                src={require("../../images/logo-s.png").default}
                                 alt="logo"
                             />
                         </AnchorLink>

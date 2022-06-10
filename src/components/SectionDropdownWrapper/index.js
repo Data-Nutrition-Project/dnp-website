@@ -3,7 +3,7 @@ import UseCasesDropdown from "../UseCasesDropdown"
 import DatasetDropdown from "../DatasetDropdown"
 import SectionBase from "../SectionBase"
 import LabelMenus from "../LabelMenus"
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 const SectionDropdonwWrapper = () => {
   return (

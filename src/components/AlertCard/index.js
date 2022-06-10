@@ -13,7 +13,7 @@ import ReactMarkdown from "react-markdown"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleDown, faAngleRight } from "@fortawesome/free-solid-svg-icons"
 
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 const AlertCard = props => {
   const severityMap = {
@@ -39,72 +39,60 @@ const AlertCard = props => {
             <p className={toggle ? styles.titleBold : styles.titleText}>
               {props.title}
             </p>
-            <Accordion.Toggle
-              onClick={toggleCaret}
+            <Accordion.Header
               className={styles.caret}
               eventKey="0"
             >
-              <span className={styles.moreButton}>
-                {toggle ? (
-                  <FontAwesomeIcon icon={faAngleDown} />
-                ) : (
-                  <FontAwesomeIcon icon={faAngleRight} />
-                )}
-              </span>
-            </Accordion.Toggle>
+            </Accordion.Header>
           </div>
         </Card.Header>
 
-        <Accordion.Collapse eventKey="0">
+        <Accordion.Body eventKey="0">
           <div className={styles.flexCollapse}>
             <span className={styles.content} />
 
             <div className={styles.childCollapse}>
-              <Container>
-                <Row>
-                  <Col>
-                    {props.severity != 0 && (
-                      <p className={styles.subtitleText}>
-                        Mitigation Possible:{" "}
-                        <b className={styles.propertyValue}>{sevClassName}</b>
-                      </p>
-                    )}
-                    <p className={styles.subtitleText}>
-                      Category:{" "}
-                      <b className={styles.propertyValue}>{props.category}</b>
-                    </p>
-                    {props.severity != 0 && (
-                      <div className={styles.subtitleText}>
-                        Potential for Harm:{" "}
-                        {props.tags.map((tag, i) => {
-                          return (
-                            <b key={i} className={styles.propertyValue}>
-                              {tag}
-                            </b>
-                          )
-                        })}
-                      </div>
-                    )}
-                  </Col>
-                  <span className={styles.lineBreakOne}></span>
-                </Row>
-
-                <ReactMarkdown
-                  className={styles.contentParagraph}
-                  source={props.content}
-                />
-                {props.mitigation !== undefined && (
+              <div>
+                {props.severity != 0 && (
+                  <p className={styles.subtitleText}>
+                    Mitigation Possible:{" "}
+                    <b className={styles.propertyValue}>{sevClassName}</b>
+                  </p>
+                )}
+                <p className={styles.subtitleText}>
+                  Category:{" "}
+                  <b className={styles.propertyValue}>{props.category}</b>
+                </p>
+                {props.severity != 0 && (
                   <div className={styles.subtitleText}>
-                    <b>Possible Mitigations: </b>
-                    <p className={styles.propertyValue}>{props.mitigation}</p>
+                    Potential for Harm:{" "}
+                    {props.tags.map((tag, i) => {
+                      return (
+                        <b key={i} className={styles.propertyValue}>
+                          {tag}
+                        </b>
+                      )
+                    })}
                   </div>
                 )}
+              </div>
+              <span className={styles.lineBreakOne}></span>
 
-                <span className={styles.lineBreakTwo}></span>
-              </Container>
+              <ReactMarkdown
+                className={styles.contentParagraph}
+                children={props.content}
+              />
+              {props.mitigation !== undefined && (
+                <div className={styles.subtitleText}>
+                  <b>Possible Mitigations: </b>
+                  <p className={styles.propertyValue}>{props.mitigation}</p>
+                </div>
+              )}
+
+              <span className={styles.lineBreakTwo}></span>
             </div>
           </div>
-        </Accordion.Collapse>
+        </Accordion.Body>
       </Card>
     </Accordion>
   )

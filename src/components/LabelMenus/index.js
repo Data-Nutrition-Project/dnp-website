@@ -7,7 +7,7 @@ import UseCasesDropdown from "../UseCasesDropdown"
 import DatasetDropdown from "../DatasetDropdown"
 import { sendBaseInfo } from "../../store/bases"
 
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 const menus = [
   {

@@ -12,7 +12,7 @@ import ReactMarkdown from "react-markdown"
 
 import Layout from "../../components/layout"
 
-import styles from "./index.module.css"
+import * as styles from "./index.module.css"
 
 const FAQ_QUESTIONS_1 = [
   {
@@ -139,242 +139,203 @@ const LabelIndexPage = props => {
             <h3 className={styles.subSectionHeader}>Frequently Asked Questions</h3>
             <Accordion>
               {FAQ_QUESTIONS_1.map((qa, i) => (
-                <Card className={styles.card} key={i}>
-                  <Accordion.Toggle
-                    as={Card.Header}
-                    eventKey={i.toString()}
-                    className={styles.cardHeader}
-                    onClick={() => {
-                      toggleCaret(i)
-                    }}
-                  >
-                    {qa.q}
-                    <span className={styles.moreButton}>
-                      {toggleStatus[0] === i && toggleStatus[1] ? (
-                        <FontAwesomeIcon icon={faAngleDown} />
-                      ) : (
-                        <FontAwesomeIcon icon={faAngleRight} />
-                      )}
-                    </span>
-                  </Accordion.Toggle>
-                  <Accordion.Collapse eventKey={i.toString()}>
-                    <Card.Body>
-                      <ReactMarkdown source={qa.a} />
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
+                <Accordion.Item eventKey={i.toString()} className={styles.card} key={i}>
+                    <Accordion.Header
+                      as={Card.Header}
+                      className={styles.cardHeader}
+                    >
+                      <b>{qa.q}</b>
+                    </Accordion.Header>
+                    <Accordion.Body className={styles.cardBody}>
+                      <ReactMarkdown children={qa.a} />
+                    </Accordion.Body>
+                </Accordion.Item>
               ))}
-              <Card className={styles.card} key={3}>
-                <Accordion.Toggle
+              <Accordion.Item eventKey={'3'} className={styles.card} key={3}>
+                <Accordion.Header
                   as={Card.Header}
-                  eventKey={'3'}
                   className={styles.cardHeader}
-                  onClick={() => {
-                    toggleCaret(3)
-                  }}
                 >
-                  On the Overview page, what do the badges stand for and how are they determined?
-                  <span className={styles.moreButton}>
-                    {toggleStatus[0] === 3 && toggleStatus[1] ? (
-                      <FontAwesomeIcon icon={faAngleDown} />
-                    ) : (
-                      <FontAwesomeIcon icon={faAngleRight} />
-                    )}
-                  </span>
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey={'3'}>
-                  <Card.Body className={styles.cardBody}>
-                    <div>
-                      <p>
-                        The overview badges highlight a standard set of critical information about every dataset in a way that is immediately relevant and comprehensible. These icons indicate a short-hand way of highlighting binary and non-binary answers covered more deeply in the Dataset Info pane.
-                      </p>
-                      <p>The badges include:</p>
-                      <ul className={styles.badgeQ}>
-                        <li>
-                          <Col md={4} sm={12}>1. Quality Review (Yes, No)</Col>
-                          <Col md={9} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/quality-review-y.png")}
-                                alt="quality review yes badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/quality-review-n.png")}
-                                alt="quality review no badge"
-                            />
-                          </Col>
-                        </li>
-                        <li>
-                          <Col md={4} sm={12}>2. Individual Level Data (Yes, No)</Col>
-                          <Col md={6} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/individual-data-y.png")}
-                                alt="individual level data yes badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/individual-data-n.png")}
-                                alt="individual level data no badge"
-                            />
-                          </Col>
-                        </li>
-                        <li>
-                          <Col md={4} sm={12}>3. Ethical Review (Yes, No)</Col>
-                          <Col md={6} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/ethical-review-y.png")}
-                                alt="ethical review yes badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/ethical-review-n.png")}
-                                alt="ethical review no badge"
-                            />
-                          </Col>
-                        </li>
-                        <li>
-                          <Col md={4} sm={12}>4. Information about People (Yes, No)</Col>
-                          <Col md={6} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/about-humans-y.png")}
-                                alt="about humans yes badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/about-humans-n.png")}
-                                alt="about humans no badge"
-                            />
-                          </Col>
-                        </li>
-                        <li>
-                          <Col md={4} sm={12}>5. Information about Subpopulations (Yes, No)</Col>
-                          <Col md={6} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/subpopulations-y.png")}
-                                alt="info about subpopulations yes badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/subpopulations-n.png")}
-                                alt="info about subpopulations no badge"
-                            />
-                          </Col>
-                        </li>
-                        <li>
-                          <Col md={4} sm={12}>6. License (Commercial, Non-Commercial)</Col>
-                          <Col md={6} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/data-license-c.png")}
-                                alt="license commercial badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/data-license-nc.png")}
-                                alt="license non-commercial badge"
-                            />
-                          </Col>
-                        </li>
-                        <li>
-                          <Col md={4} sm={12}>7. Funding Source (Single-source not for profit, Single-source for profit, Government, Multi-Source)</Col>
-                          <Col md={6} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/funding-nfp.png")}
-                                alt="funding source not for profit"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/funding-fp.png")}
-                                alt="funding source for profit"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/funding-g.png")}
-                                alt="funding source government"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/funding-ms.png")}
-                                alt="funding source multi-sourced"
-                            />
-                          </Col>
-                        </li>
-                        <li>
-                          <Col md={4} sm={12}>8. Update Frequency (Daily, Weekly, Annually, Static)</Col>
-                          <Col md={6} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/updates-d.png")}
-                                alt="updated daily badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/updates-w.png")}
-                                alt="updated weekly badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/updates-a.png")}
-                                alt="updated yearly badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/updates-na.png")}
-                                alt="not updated/static badge"
-                            />
-                          </Col>
-                        </li>
-                        <li>
-                          <Col md={4} sm={12}>9. Data Source (Single Source, Multi Source)</Col>
-                          <Col md={6} sm={12} className={styles.badgeRow}>
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/source-ss.png")}
-                                alt="single source data badge"
-                            />
-                            <img
-                                className={styles.badgeImg}
-                                src={require("../../../static/badges/source-ms.png")}
-                                alt="multi-source data badge"
-                            />
-                          </Col>
-                        </li>
-                      </ul>
-                    </div>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
+                  <b>On the Overview page, what do the badges stand for and how are they determined?</b>
+                </Accordion.Header>
+                <Accordion.Body className={styles.cardBody}>
+                  <div>
+                    <p>
+                      The overview badges highlight a standard set of critical information about every dataset in a way that is immediately relevant and comprehensible. These icons indicate a short-hand way of highlighting binary and non-binary answers covered more deeply in the Dataset Info pane.
+                    </p>
+                    <p>The badges include:</p>
+                    <ul className={styles.badgeQ}>
+                      <li>
+                        <Col md={4} sm={12}>1. Quality Review (Yes, No)</Col>
+                        <Col md={9} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/quality-review-y.png").default}
+                              alt="quality review yes badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/quality-review-n.png").default}
+                              alt="quality review no badge"
+                          />
+                        </Col>
+                      </li>
+                      <li>
+                        <Col md={4} sm={12}>2. Individual Level Data (Yes, No)</Col>
+                        <Col md={6} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/individual-data-y.png").default}
+                              alt="individual level data yes badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/individual-data-n.png").default}
+                              alt="individual level data no badge"
+                          />
+                        </Col>
+                      </li>
+                      <li>
+                        <Col md={4} sm={12}>3. Ethical Review (Yes, No)</Col>
+                        <Col md={6} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/ethical-review-y.png").default}
+                              alt="ethical review yes badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/ethical-review-n.png").default}
+                              alt="ethical review no badge"
+                          />
+                        </Col>
+                      </li>
+                      <li>
+                        <Col md={4} sm={12}>4. Information about People (Yes, No)</Col>
+                        <Col md={6} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/about-humans-y.png").default}
+                              alt="about humans yes badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/about-humans-n.png").default}
+                              alt="about humans no badge"
+                          />
+                        </Col>
+                      </li>
+                      <li>
+                        <Col md={4} sm={12}>5. Information about Subpopulations (Yes, No)</Col>
+                        <Col md={6} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/subpopulations-y.png").default}
+                              alt="info about subpopulations yes badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/subpopulations-n.png").default}
+                              alt="info about subpopulations no badge"
+                          />
+                        </Col>
+                      </li>
+                      <li>
+                        <Col md={4} sm={12}>6. License (Commercial, Non-Commercial)</Col>
+                        <Col md={6} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/data-license-c.png").default}
+                              alt="license commercial badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/data-license-nc.png").default}
+                              alt="license non-commercial badge"
+                          />
+                        </Col>
+                      </li>
+                      <li>
+                        <Col md={4} sm={12}>7. Funding Source (Single-source not for profit, Single-source for profit, Government, Multi-Source)</Col>
+                        <Col md={6} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/funding-nfp.png").default}
+                              alt="funding source not for profit"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/funding-fp.png").default}
+                              alt="funding source for profit"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/funding-g.png").default}
+                              alt="funding source government"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/funding-ms.png").default}
+                              alt="funding source multi-sourced"
+                          />
+                        </Col>
+                      </li>
+                      <li>
+                        <Col md={4} sm={12}>8. Update Frequency (Daily, Weekly, Annually, Static)</Col>
+                        <Col md={6} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/updates-d.png").default}
+                              alt="updated daily badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/updates-w.png").default}
+                              alt="updated weekly badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/updates-a.png").default}
+                              alt="updated yearly badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/updates-na.png").default}
+                              alt="not updated/static badge"
+                          />
+                        </Col>
+                      </li>
+                      <li>
+                        <Col md={4} sm={12}>9. Data Source (Single Source, Multi Source)</Col>
+                        <Col md={6} sm={12} className={styles.badgeRow}>
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/source-ss.png").default}
+                              alt="single source data badge"
+                          />
+                          <img
+                              className={styles.badgeImg}
+                              src={require("../../../static/badges/source-ms.png").default}
+                              alt="multi-source data badge"
+                          />
+                        </Col>
+                      </li>
+                    </ul>
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
               {FAQ_QUESTIONS_2.map((qa, i) => (
-                <Card className={styles.card} key={i+4}>
-                  <Accordion.Toggle
+                <Accordion.Item eventKey={(i+4).toString()} className={styles.card} key={i+4}>
+                  <Accordion.Header
                     as={Card.Header}
-                    eventKey={(i+4).toString()}
                     className={styles.cardHeader}
-                    onClick={() => {
-                      toggleCaret((i+4))
-                    }}
                   >
-                    {qa.q}
-                    <span className={styles.moreButton}>
-                      {toggleStatus[0] === (i+4) && toggleStatus[1] ? (
-                        <FontAwesomeIcon icon={faAngleDown} />
-                      ) : (
-                        <FontAwesomeIcon icon={faAngleRight} />
-                      )}
-                    </span>
-                  </Accordion.Toggle>
-                  <Accordion.Collapse eventKey={(i+4).toString()}>
-                    <Card.Body>
-                      <ReactMarkdown source={qa.a} />
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
+                    <b>{qa.q}</b>
+                  </Accordion.Header>
+                  <Accordion.Body className={styles.cardBody}>
+                      <ReactMarkdown children={qa.a} />
+                  </Accordion.Body>
+                </Accordion.Item>
               ))}
             </Accordion>
           </Col>

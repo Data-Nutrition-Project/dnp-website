@@ -44,6 +44,7 @@
 }
 
 .childCollapse {
+  width: 100%;
   margin-right: 0.9375rem;
 }
 
@@ -84,14 +85,14 @@
   height: 0.2rem;
   border: solid 0.4rem borderDarkGray;
   background-color: black;
-  margin-left: 1.375rem;
+  margin-left: 0.4rem;
   margin-top: 0.625rem;
   margin-bottom: 0.625rem;
 }
 
 .lineBreakTwo {
   display: block;
-  width: 102%;
+  width: 100%;
   height: 0.4rem;
   border: solid 0.4rem borderDarkGray;
   background-color: black;
@@ -148,7 +149,7 @@ div.row {
   background: url(./low.svg);
   background-size: 2.8125rem 2.1875rem;
   position: relative;
-  bottom: 0.8rem;
+  bottom: 0.3rem;
   padding: 0;
   margin-left: -0.75rem;
   margin-right: 0;
@@ -160,7 +161,7 @@ div.row {
   background: url(./medium.svg);
   background-size: 2.8125rem 3.125rem;
   position: relative;
-  bottom: 0.8rem;
+  bottom: 0.3rem;
   padding: 0;
   margin-left: -0.75rem;
   margin-right: 0;
@@ -172,7 +173,7 @@ div.row {
   background: url(./moderate.svg);
   background-size: 2.8125rem 3.125rem;
   position: relative;
-  bottom: 0.8rem;
+  bottom: 0.3rem;
   padding: 0;
   margin-left: -0.75rem;
   margin-right: 0;
@@ -184,7 +185,7 @@ div.row {
   background: url(./high.svg);
   background-size: 2.8125rem 3.125rem;
   position: relative;
-  bottom: 0.8rem;
+  bottom: 0.3rem;
   padding: 0;
   margin-left: -0.75rem;
   margin-right: 0;

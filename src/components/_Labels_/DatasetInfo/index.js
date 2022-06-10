@@ -7,7 +7,7 @@ import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 
 import ScrollButton from "../../ScrollButton/index.js"
 
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 class DatasetInfo extends React.Component {
   constructor(props) {
@@ -65,7 +65,7 @@ class DatasetInfo extends React.Component {
               {description.type === "markdown" ? (
                 <ReactMarkdown
                   className={styles.datasetMrkdwn}
-                  source={description.answer || description.content}
+                  children={description.answer || description.content}
                 />
               ) : (
                 ""
@@ -86,7 +86,7 @@ class DatasetInfo extends React.Component {
               {composition.type === "markdown" ? (
                 <ReactMarkdown
                   className={styles.datasetMrkdwn}
-                  source={composition.answer || composition.content}
+                  children={composition.answer || composition.content}
                 />
               ) : (
                 ""
@@ -106,7 +106,7 @@ class DatasetInfo extends React.Component {
               {provenance.type === "markdown" ? (
                 <ReactMarkdown
                   className={styles.datasetMrkdwn}
-                  source={provenance.answer || provenance.content}
+                  children={provenance.answer || provenance.content}
                 />
               ) : (
                 ""
@@ -126,7 +126,7 @@ class DatasetInfo extends React.Component {
               {collection.type === "markdown" ? (
                 <ReactMarkdown
                   className={styles.datasetMrkdwn}
-                  source={collection.answer || collection.content}
+                  children={collection.answer || collection.content}
                 />
               ) : (
                 ""
@@ -146,7 +146,7 @@ class DatasetInfo extends React.Component {
               {management.type === "markdown" ? (
                 <ReactMarkdown
                   className={styles.datasetMrkdwn}
-                  source={management.answer || management.content}
+                  children={management.answer || management.content}
                 />
               ) : (
                 ""

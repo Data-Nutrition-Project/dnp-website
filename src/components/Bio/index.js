@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import PropTypes from "prop-types"
 import Row from 'react-bootstrap/Row'
 
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 
 const Bio = props => (
     <Row className={styles.bioRow}>

@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./styles.module.css"
+import * as styles from "./styles.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { config } from "@fortawesome/fontawesome-svg-core"
