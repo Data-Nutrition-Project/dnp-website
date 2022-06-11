@@ -449,7 +449,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/taylor_matt.png")}
+                imgPath={require("../images/taylor_matt.png").default}
                 imgAlt="taylor_matt"
                 name="Matt Taylor"
                 role="Data Science &amp; Workshop Facilitation"
@@ -533,7 +533,7 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/luzzi_erica.png")}
+                imgPath={require("../images/luzzi_erica.png").default}
                 imgAlt="luzzi_erica"
                 name="Erica Luzzi"
                 role="Research &amp; Design Collaborator"
