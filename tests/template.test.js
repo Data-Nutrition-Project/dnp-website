@@ -32,13 +32,14 @@ describe("templates service", () => {
     const template = dummyTemplate()
     const templateValidated = templateService.validateTemplate(template)
 
+    expect(templateService.validateTemplate).toBeDefined()
     expect(templateValidated).toEqual(template)
   })
 
   it("doesn't validate a invalid template", () => {
     const template = {
       version: 1,
-      bummy: 2
+      bummy: true
     }
     const templateValidated = templateService.validateTemplate(template)
 
@@ -80,6 +81,6 @@ describe("templates service", () => {
 
 const dummyTemplate = () => ({
   version: 1,
-  questions: [],
+  questionnaire: [],
   status: 'draft'
 })

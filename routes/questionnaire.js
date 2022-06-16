@@ -35,7 +35,7 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
   */
   app.get('/new-questionnaire', async (req, res) => {
     try {
-      const emptyTemplate = await questionnaireController.getQuestionnaireFromTemplate(new ObjectID(req.query.id))
+      const emptyTemplate = await questionnaireController.getQuestionnaireFromTemplate(new ObjectID(req.query.id), req.query.name)
 
       if ( !emptyTemplate ) {
         res.status(404)

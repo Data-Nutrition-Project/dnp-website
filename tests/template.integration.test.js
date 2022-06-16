@@ -47,8 +47,8 @@ describe('/template routes', () => {
   it('adds to the database with POST', async () => {
     const dummy = {
       version: 247,
-      questions: [],
-      status: 'draft'
+      questionnaire: [],
+      status: 'draft',
     }
 
     const response = await request(app)
@@ -96,6 +96,6 @@ describe('/template routes', () => {
 
 const dummyTemplate = () => ({
   version: 3,
-  questions: ["how much chuck could a would chuck chuck?"],
+  questionnaire: ["how much chuck could a would chuck chuck?"],
   status: 'draft'
 })

@@ -86,7 +86,7 @@ describe("questionnaires controller", () => {
 
     // they save for the first time
     const savedQuestionnaireTwo = await questionnairesController.saveQuestionnaire(questionnaireOne)
-    const questionnaireTwo = await questionnaireService.getQuestionnaire(savedQuestionnaireTwo.insertedId)
+    const questionnaireTwo = await questionnaireService.getQuestionnaire(savedQuestionnaireTwo._id)
     questionnairesToDelete.push(questionnaireTwo._id)
     expect(questionnaireTwo).toBeDefined()
     expect(questionnaireTwo.schema_version).toBeDefined()
@@ -95,7 +95,7 @@ describe("questionnaires controller", () => {
 
     // they save for a second time
     const savedQuestionnaireThree = await questionnairesController.saveQuestionnaire(questionnaireTwo)
-    const questionnaireThree = await questionnaireService.getQuestionnaire(savedQuestionnaireThree.insertedId)
+    const questionnaireThree = await questionnaireService.getQuestionnaire(savedQuestionnaireThree._id)
     questionnairesToDelete.push(questionnaireThree._id)
     expect(questionnaireThree).toBeDefined()
     expect(questionnaireThree.schema_version).toBeDefined()
@@ -113,11 +113,12 @@ describe("questionnaires controller", () => {
 
 const dummyQuestionnaire = () => ({
   version: 8675309,
-  questions: [],
-  status: 'big ups ya?'
+  questionnaire: [],
+  status: 'big ups ya?',
+  name: 'Rob'
 })
 const dummyTemplate = () => ({
   version: 8675310,
-  questions: [],
-  status: 'down in front'
+  questionnaire: [],
+  status: 'down in front',
 })

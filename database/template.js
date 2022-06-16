@@ -7,7 +7,7 @@ class TemplateService {
     this.requiredAttributes = [
       'status',
       'questionnaire',
-      'version',
+      'version'
     ]
   }
 

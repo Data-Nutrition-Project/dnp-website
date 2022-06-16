@@ -7,7 +7,7 @@ class QuestionnaireController {
   }
 
   // start a new questionnaire from the given templateId
-  async getQuestionnaireFromTemplate(templateId) {
+  async getQuestionnaireFromTemplate(templateId, name) {
     const emptyTemplate = await this.templateService.getTemplate(templateId)
     if ( !emptyTemplate )  {
       return null
@@ -15,6 +15,8 @@ class QuestionnaireController {
 
     emptyTemplate.dnpId = uuidv4()
     delete emptyTemplate._id
+
+    emptyTemplate.name = name
 
     const questionnaireInserted = await this.questionnaireService.addQuestionnaire(emptyTemplate)
 
@@ -26,6 +28,8 @@ class QuestionnaireController {
   }
 
   // save a questionnaire as a user fills out new questions
+  // bumps the version, marks the time it happens
+  // returns the whole object
   async saveQuestionnaire(questionnaireObject) {
     if ( questionnaireObject._id ) {
       delete questionnaireObject._id
@@ -40,7 +44,7 @@ class QuestionnaireController {
     const questionnaireResult = await this.questionnaireService.addQuestionnaire(questionnaireObject)
     // copy our new mongo id to our object to send back to frontend
     questionnaireObject._id = questionnaireResult.insertedId
-
+    questionnaireObject.savedDate = new Date()
     return questionnaireObject
   }
 }
