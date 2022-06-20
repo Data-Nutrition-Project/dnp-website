@@ -996,7 +996,7 @@ const IndexPage = props => (
                   </div>
                   <div>
                     <span>Tech Spotlight at Harvard Kennedy School’s Belfer Center</span>
-                  </div> 
+                  </div>
                 </a>
               </div>
             </Col>
