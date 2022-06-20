@@ -419,11 +419,11 @@ const IndexPage = props => (
           <Row>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/chmielinski_kasia.png").default}
+                imgPath={require("../images/chmielinski_kasia.jpg").default}
                 imgAlt="chmielinski_kasia"
                 name="Kasia Chmielinski"
                 role="Project Lead"
-                bio="Technologist at McKinsey working to drive impact in healthcare through advanced analytics. Current Affiliate at the Berkman Klein Center at Harvard University and Digital Lab Fellow at Consumer Reports. Previously at the US Digital Service (The White House) and the MIT Media Lab. Native Bostonian, born cyclist. Avid bird-watcher."
+                bio="Technologist and product leader focused on building data-driven systems. Current Shorenstein Fellow at Harvard Kennedy School and Affiliate at the Berkman Klein Center. Previously at McKinsey &amp; Company, the US Digital Service (The White House), MIT Media Lab, and Google. Native Bostonian, enthusiastic cyclist. Avid bird-watcher."
                 socialMedia={[
                   {
                     href: "https://www.linkedin.com/in/kchmielinski/",
