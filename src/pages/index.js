@@ -994,6 +994,9 @@ const IndexPage = props => (
                       style={{ opacity: 0.7 }}
                     />
                   </div>
+                  <div>
+                    <span>Tech Spotlight at Harvard Kennedy School’s Belfer Center</span>
+                  </div>
                 </a>
               </div>
             </Col>
