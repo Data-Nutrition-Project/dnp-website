@@ -115,7 +115,7 @@ const IndexPage = props => (
           </span>
         </div>
         <Row>
-          <Col xl={{ span: 3, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
+          <Col xl={{ span: 4, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
             <div>
               <p className={styles.headerSentence}>
                 Incomplete, misunderstood, and historically problematic data can
@@ -137,7 +137,7 @@ const IndexPage = props => (
               </p>
             </div>
           </Col>
-          <Col xl={{ span: 6, offset: 1 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
+          <Col xl={{ span: 5, offset: 1 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <img
               alt="diagram"
               className={styles.img}
@@ -163,7 +163,7 @@ const IndexPage = props => (
           </span>
         </div>
         <Row>
-          <Col xl={{ span: 3, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
+          <Col xl={{ span: 4, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
             <p className={styles.headerSentence}>
               The Data Nutrition Project aims to create a standard label for interrogating datasets.
             </p>
@@ -204,7 +204,7 @@ const IndexPage = props => (
                 <Button
                   className={classNames(styles.tealButton, styles.modButtonMed, styles.modButtonParagraph, styles.mobileSpacer)}
                 >
-                  <i className="icon-play-circle"></i>{' '}Go to Labels
+                  <i className="icon-play-circle"></i>{' '}Go to Label 2.0
                 </Button>
               </Link>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAX48nSAUBcmDM7EyghODzeyoxXPVchitLXdNmGmODNWGjtQ/viewform" target="_blank">
@@ -216,12 +216,17 @@ const IndexPage = props => (
               </a>
             </Row>
           </Col>
-          <Col xl={{ span: 6, offset: 1 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
+          <Col xl={{ span: 5, offset: 1 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <img
               alt="label display"
               className={styles.img}
-              src={require("../images/label.png").default}
+              src={require("../images/label_v3.jpg").default}
             />
+            <div class={styles.photoCredit}>
+              <span>
+                Third Generation Dataset Nutrition Label (2022)
+              </span>
+            </div> 
           </Col>
         </Row>
       </Container>
@@ -275,17 +280,14 @@ const IndexPage = props => (
           </Col>
           <Col xl={{ span: 5 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <div className={styles.talksSection}>
-              <b>Recent Talks (2020)</b>
+              <b>Recent Talks</b>
               <ul>
                 <li>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; <a href="http://securedata.lol/camera_ready/26.pdf">paper</a></li>
-                <li>Office of the Chief Technology Officer, US Department of Education</li>
-                <li>DRIVE/2020, ‘Bias in, Bias out’</li>
-                <li>The Berkman Klein Center at Harvard University, Fellows Presentation</li>
-                <li>The Harvard Kennedy School, Lecture for Product Management &amp; Society Class</li>
-                <li>Consumer Reports Virtual Panel, ‘Building a Movement for Algorithmic Justice’</li>
-                <li>Machine Learning for Social Good, Poster Session</li>
-                <li>INDUSTRY, ‘Considering Ethical Product Development’</li>
-                <li>GoodSystems AI Workshop, University of Texas at Austin</li>
+                <li>Putting Science into Standards (PSIS) Program, the European Commission’s Joint Research Centre (JRC) CEN, CENELEC (2022)</li>
+                <li>Understanding Bias and Fairness in AI-enabled Healthcare Software, Duke-Margolis Center for Health Policy (2021)</li>
+                <li>WARNING: This Label is Really Important - From Broadband to IoT, the Next Generation of Consumer Nutrition Labels, New America and Consumer Reports (2021)</li>
+                <li>RightsCon Presenter (2021)</li>
+                <li>Howard/Mathematica Summer Institute in Computational Social Science (2021)</li>
               </ul>
             </div>
             <img
@@ -436,8 +438,8 @@ const IndexPage = props => (
                 imgPath={require("../images/newman_sarah_1.png").default}
                 imgAlt="newman_sarah"
                 name="Sarah Newman"
-                role="Research &amp; Strategy"
-                bio="Director of Art &amp; Education at metaLAB at Harvard, Fellow at the Berkman Klein Center, Program Design Co-Lead for Harvard Assembly Fellowships. Studies new technologies and their effects on people. Creates interactive art installations that explore social and cultural dimensions of new tech, runs research workshops with creative materials. Former AI Grant Fellow, Rockefeller Bellagio AI Resident. Persuaded by the power of metaphors."
+                role="Research Lead"
+                bio="Director of Art &amp; Education at metaLAB at Harvard. Interested in interrelations within complex systems. Creates interactive art installations that explore social and cultural dimensions of new tech, runs research workshops with creative materials. Former AI Grant Fellow, Rockefeller Bellagio AI Resident. Persuaded by the power of metaphors. Avid sheller."
                 socialMedia={[
                   {
                     href: "https://www.linkedin.com/in/sarah-newman-ba340867/",
@@ -496,22 +498,6 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
-                imgPath={require("../images/yurkofsky_jess.jpg").default}
-                imgAlt="yurkofsky_jessica"
-                name="Jessica Yurkofsky"
-                role="Design Research Collaborator"
-                bio="Designer, technologist, and librarian focused on visual communication and experimental pedagogy. Principal at Harvard's metaLAB, with a background in Sociology and Urban Planning. Lives in the woods in Vermont. Dedicated builder of cardboard models and drawer of cartoons."
-                socialMedia={[
-                  {
-                    href: "http://jessyurko.com/",
-                    icon: "icon-line-globe",
-                    className: "si-dribble",
-                  },
-                ]}
-              />
-            </Col>
-            <Col xl={{ span: 5 }} md={12}>
-              <Bio
                 imgPath={require("../images/kranzinger_chris.png").default}
                 imgAlt="kranzinger_chris"
                 name="Chris Kranzinger"
@@ -531,24 +517,35 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
+            <Col xl={{ span: 5 }} md={12}>
               <Bio
-                imgPath={require("../images/luzzi_erica.png").default}
-                imgAlt="luzzi_erica"
-                name="Erica Luzzi"
-                role="Research &amp; Design Collaborator"
-                bio="Master in Design Engineering Student at the Harvard GSD and SEAS. Focused on human-AI interaction with a background in cognitive science and computer science. Fascinated by the creative potential and ethical implications of design of interactive intelligent systems. Functions best when near the ocean."
+                imgPath={require("../images/teyrouz_carine.jpeg").default}
+                imgAlt="teyrouz_carine"
+                name="Carine Teyrouz"
+                role="UX Design Collaborator"
+                bio="NN/g certified product designer, UX mentor &amp; facilitator. Holds a master’s degree in design &amp; web project management. Currently working with startups &amp; SMEs on applying design thinking methodologies to create intuitive and easy-to-use digital products."
                 socialMedia={[
                   {
-                    href: "https://www.linkedin.com/in/erica-luzzi-65659213b/",
+                    href: "https://www.linkedin.com/in/carineteyrouz/",
                     icon: "icon-linkedin",
                     className: "si-linkedin",
-                  },
+                  }
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/king_hg.jpg").default}
+                imgAlt="king_hg"
+                name="HG King"
+                role="Software Engineering Collaborator"
+                bio="NYC-based software engineer and consultant, with a focus on driving innovation and business value using an Agile and scrappy approach to build products with clients. Occasionally helps artists with technology. Interested in technology and sustainability, specifically how technology is connected to modern social issues in the form of problems or solutions."
+                socialMedia={[
                   {
-                    href: "https://www.ericaluzzi.com/",
-                    icon: "icon-line-globe",
-                    className: "si-dribble",
-                  },
+                    href: "https://www.linkedin.com/in/hgking/",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  }
                 ]}
               />
             </Col>
@@ -557,80 +554,6 @@ const IndexPage = props => (
             <h2>Collaborators</h2>
           </div>
           <Row>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
-              <Bio
-                imgPath={require("../images/hil.png").default}
-                imgAlt="humanity_innovation_labs"
-                name="Humanity Innovation Labs"
-                role="User Experience Research &amp; Design Collaborator"
-                bio="HIL is an agile consultancy that offers exploratory research and design services for ingenious proof of concepts in wearables, such as digital experiences and physical devices. We work in the ambiguous space of emerging technologies and use qualitative and quantitative methods in order to drive design. The sectors we work within are health and fitness, medical and industrial applications."
-                socialMedia={[
-                  {
-                    href: "https://www.humanityinnovationlabs.com",
-                    icon: "icon-line-globe",
-                    className: "si-dribble",
-                  },
-                  {
-                    href:
-                      "https://www.linkedin.com/company/humanity-innovation-labs",
-                    icon: "icon-linkedin",
-                    className: "si-linkedin",
-                  },
-                  {
-                    href: "https://twitter.com/HumanityILabs",
-                    icon: "icon-twitter",
-                    className: "si-twitter",
-                  },
-                  {
-                    href: "https://www.facebook.com/humanityinnovationlabs/",
-                    icon: "icon-facebook",
-                    className: "si-facebook",
-                  },
-                  {
-                    href: "https://www.instagram.com/humanityinnovationlabs/",
-                    icon: "icon-instagram",
-                    className: "si-instagram",
-                  }
-                ]}
-              />
-            </Col>
-            <Col xl={{ span: 5 }} md={12}>
-              <Bio
-                imgPath={require("../images/justfix.png").default}
-                imgAlt="JustFix.nyc"
-                name="JustFix.nyc"
-                role="Research &amp; Data Collaborator"
-                bio="JustFix.nyc co-designs and builds tools for tenants, housing organizers, and legal advocates fighting displacement in New York City. Our mission is to galvanize a 21st century tenant movement working towards housing for all — and we think the power of data and technology should be accessible to those fighting this fight."
-                socialMedia={[
-                  {
-                    href: "https://www.justfix.nyc/",
-                    icon: "icon-line-globe",
-                    className: "si-dribble",
-                  },
-                  {
-                    href:
-                      "https://www.linkedin.com/company/justfix-nyc",
-                    icon: "icon-linkedin",
-                    className: "si-linkedin",
-                  },
-                  {
-                    href: "http://twitter.com/justfixnyc",
-                    icon: "icon-twitter",
-                    className: "si-twitter",
-                  },
-                  {
-                    href: "https://facebook.com/JustFixNYC",
-                    icon: "icon-facebook",
-                    className: "si-facebook",
-                  },
-                  {
-                    href: "https://github.com/JustFixNYC",
-                    icon: "icon-github",
-                    className: "si-github",
-                  }
-                ]}
-              />
-            </Col>
             <Col xl={{ span: 5, offset: 1 }} md={12}>
               <Bio
                 imgPath={require("../images/rotemberg_veronica.jpg").default}
@@ -659,25 +582,25 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5 }} md={12}>
               <Bio
-                imgPath={require("../images/ai_global.png").default}
-                imgAlt="ai_global"
-                name="AI Global"
+                imgPath={require("../images/raii.jpeg").default}
+                imgAlt="raii"
+                name="Responsible AI Institute"
                 role="Research Collaborator"
-                bio="AI Global is a non-profit building tangible governance tools to address growing concerns about AI. Their mission is to catalyze the practical and responsible design, development, and use of AI. Their tools have been among the first to demonstrate how to turn responsible AI principles into action. Bringing extensive experience in responsible AI policy and the development of AI systems for industry, AI Global is uniquely positioned to partner with organizations across public and private sectors to guide and inform responsible AI governance around the world."
+                bio="Responsible AI Institute is a non-profit building tangible governance tools to address growing concerns about AI. Their mission is to catalyze the practical and responsible design, development, and use of AI. Their tools have been among the first to demonstrate how to turn responsible AI principles into action. Bringing extensive experience in responsible AI policy and the development of AI systems for industry, Responsible AI Institute is uniquely positioned to partner with organizations across public and private sectors to guide and inform responsible AI governance around the world."
                 socialMedia={[
                   {
-                    href: "http://ai-global.org/",
+                    href: "https://www.responsible.ai/",
                     icon: "icon-line-globe",
                     className: "si-dribble",
                   },
                   {
                     href:
-                      "https://www.linkedin.com/company/ai-global",
+                      "https://www.linkedin.com/company/responsible-ai-institute/",
                     icon: "icon-linkedin",
                     className: "si-linkedin",
                   },
                   {
-                    href: "https://twitter.com/_AIGlobal",
+                    href: "https://twitter.com/ResponsibleAI",
                     icon: "icon-twitter",
                     className: "si-twitter",
                   },
@@ -688,6 +611,38 @@ const IndexPage = props => (
                   }
                 ]}
               />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/sherman_michael.jpeg").default}
+                imgAlt="Michael_Sherman"
+                name="Michael Sherman"
+                role="Children's Book Illustrator"
+                bio="Artist, illustrator, and educator in NYC, focusing on the nexus of individuality and community. Rhode Island School of Design graduate, Cill Rialaig Arts Centre resident, Lower Manhattan Cultural Council grantee, and Northwest Review contributor. His current project, “Meta-morphic: a series of 1000 head drawings,” uses drawing as a tool to examine the stewardship and ownership of images and icons. Also known as papa to his two young kids."
+                socialMedia={[
+                  {
+                    href: "http://www.michaelshermanstudio.com/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
+                  },
+                  {
+                    href: "https://www.instagram.com/michaelshermstudio",
+                    icon: "icon-instagram",
+                    className: "si-instagram",
+                  }
+                ]}
+              />
+            </Col>
+          </Row>
+          <div className={classNames(styles.headingBlock, styles.centerText)}>
+            <h2>Former Collaborators</h2>
+          </div>
+          <Row>
+            <Col xl={{ span: 5, offset: 1 }} md={12} className={styles.centerText}>
+              <h3><a href="https://www.humanityinnovationlabs.com">Humanity Innovation Labs</a></h3>
+            </Col>
+            <Col xl={{ span: 5 }} md={12} className={styles.centerText}>
+              <h3><a href="https://www.justfix.nyc/">JustFix.nyc</a></h3>
             </Col>
           </Row>
           <div className={classNames(styles.headingBlock, styles.centerText)}>
@@ -763,21 +718,20 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5 }} md={12}>
               <Bio
-                alum={true}
-                imgPath={require("../images/YQiu.png").default}
-                imgAlt="qiu_chelsea"
-                name="Chelsea Qiu"
-                role="Research &amp; Design"
+                imgPath={require("../images/luzzi_erica.png").default}
+                imgAlt="luzzi_erica"
+                name="Erica Luzzi"
+                role="Research &amp; Design Collaborator"
                 socialMedia={[
                   {
-                    href: "https://chelseaqiu.com/",
-                    icon: "icon-line-globe",
-                    className: "si-dribble",
-                  },
-                  {
-                    href: "https://www.linkedin.com/in/chelseaqiu/",
+                    href: "https://www.linkedin.com/in/erica-luzzi-65659213b/",
                     icon: "icon-linkedin",
                     className: "si-linkedin",
+                  },
+                  {
+                    href: "https://www.ericaluzzi.com/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
                   },
                 ]}
               />
@@ -799,6 +753,42 @@ const IndexPage = props => (
                     href: "https://twitter.com/serenaoduro",
                     icon: "icon-twitter",
                     className: "si-twitter",
+                  },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5  }} md={12}>
+              <Bio
+                alum={true}
+                imgPath={require("../images/YQiu.png").default}
+                imgAlt="qiu_chelsea"
+                name="Chelsea Qiu"
+                role="Research &amp; Design"
+                socialMedia={[
+                  {
+                    href: "https://chelseaqiu.com/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
+                  },
+                  {
+                    href: "https://www.linkedin.com/in/chelseaqiu/",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                ]}
+              />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/yurkofsky_jess.jpg").default}
+                imgAlt="yurkofsky_jessica"
+                name="Jessica Yurkofsky"
+                role="Design Research Collaborator"
+                socialMedia={[
+                  {
+                    href: "http://jessyurko.com/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
                   },
                 ]}
               />
@@ -946,7 +936,7 @@ const IndexPage = props => (
     >
       <Container>
         <div className={classNames(styles.centerText)}>
-          <h2>Supported By:</h2>
+          <h2>Support &amp; Awards</h2>
           <Row className={styles.supporters}>
             <Col md={{ span: 3 }}>
               <div className={styles.featureBox}>
@@ -988,6 +978,58 @@ const IndexPage = props => (
                     <img
                       src={require("../images/logo4.png").default}
                       alt="AI Ethics and Governance"
+                      style={{ opacity: 0.7 }}
+                    />
+                  </div>
+                </a>
+              </div>
+            </Col>
+            <Col md={{ span: 3 }}>
+              <div className={styles.featureBox}>
+                <a href="https://www.belfercenter.org/">
+                  <div className={styles.mediaBox}>
+                    <img
+                      src={require("../images/logo5.png").default}
+                      alt="Tech Spotlight at Harvard Kennedy School’s Belfer Center"
+                      style={{ opacity: 0.7 }}
+                    />
+                  </div>
+                </a>
+              </div>
+            </Col>
+            <Col md={{ span: 3 }}>
+              <div className={styles.featureBox}>
+                <a href="https://datascience.harvard.edu/">
+                  <div className={styles.mediaBox}>
+                    <img
+                      src={require("../images/logo6.png").default}
+                      alt="Harvard Data Science Initiative"
+                      style={{ opacity: 0.7 }}
+                    />
+                  </div>
+                </a>
+              </div>
+            </Col>
+            <Col md={{ span: 3 }}>
+              <div className={styles.featureBox}>
+                <a href="https://www.consumerreports.org/">
+                  <div className={styles.mediaBox}>
+                    <img
+                      src={require("../images/logo7.png").default}
+                      alt="Consumer Reports"
+                      style={{ opacity: 0.7 }}
+                    />
+                  </div>
+                </a>
+              </div>
+            </Col>
+            <Col md={{ span: 3 }}>
+              <div className={styles.featureBox}>
+                <a href="https://ars.electronica.art/prix/en/digitalhumanity/">
+                  <div className={styles.mediaBox}>
+                    <img
+                      src={require("../images/logo8.png").default}
+                      alt="Ars Electronica Award for Digital Humanity 2022"
                       style={{ opacity: 0.7 }}
                     />
                   </div>
