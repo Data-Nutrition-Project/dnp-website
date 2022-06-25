@@ -62,6 +62,7 @@ describe('DNP API', () => {
   // save it 2 times with post
   // get the max version with get
   it('can go through the flow of templates and questionnaires', async () => {
+    const name = 'Jimmy'
     //
     // we need a template to start off with
     //
@@ -85,7 +86,7 @@ describe('DNP API', () => {
     // start a new empty questionnaire with that template
     //
     const newQuestionnaireResponse = await request(app)
-      .get(`/new-questionnaire?id=${templateResponse.body.id}`)
+      .get(`/new-questionnaire?id=${templateResponse.body.id}&name=${name}`)
       .expect(200)
     const newQuestionnaireId = new ObjectID(newQuestionnaireResponse.body._id)
     questionnairesToDelete.push(newQuestionnaireId)
@@ -102,7 +103,7 @@ describe('DNP API', () => {
     //
     // let's fill out some questions
     //
-    workingQuestionnaire.questions.push("I think, there for I am?")
+    workingQuestionnaire.questionnaire.push("I think, there for I am?")
     const firstSavedQuestionnaireResponse = await request(app)
       .post(`/questionnaire?id=${workingQuestionnaire.dnpId}`)
       .send(workingQuestionnaire) // not so empty anymore
@@ -117,7 +118,7 @@ describe('DNP API', () => {
     workingQuestionnaire.schema_version = firstSavedQuestionnaireResponse.body.schema_version
 
     // lets do that again
-    workingQuestionnaire.questions.push("All we are, is dust in the wind, dude?")
+    workingQuestionnaire.questionnaire.push("All we are, is dust in the wind, dude?")
     const secondSavedQuestionnaireResponse = await request(app)
       .post(`/questionnaire?id=${workingQuestionnaire.dnpId}`)
       .send(workingQuestionnaire) // not so empty anymore
@@ -146,6 +147,6 @@ describe('DNP API', () => {
 
 const dummyTemplate = () => ({
   version: 444,
-  questions: ["what say you?"],
+  questionnaire: ["what say you?"],
   status: 'thinking about it'
 })

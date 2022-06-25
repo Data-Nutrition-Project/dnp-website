@@ -55,10 +55,11 @@ describe('/questionnaire routes', () => {
   // use the api to generate a new questionnaire
   // make sure it created questionnaire in the db
   it('can create a new questionnaire', async () => {
+    const name = 'Albert'
     const newTemplate = await templateService.addTemplate(dummyTemplate())
     templatesToDelete.push(newTemplate.insertedId)
     const response = await request(app)
-      .get(`/new-questionnaire?id=${newTemplate.insertedId}`)
+      .get(`/new-questionnaire?id=${newTemplate.insertedId}&name=${name}`)
       .expect(200)
 
     expect(response.body._id).toBeDefined()
@@ -112,9 +113,8 @@ describe('/questionnaire routes', () => {
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
       .expect(200)
-    const id = new ObjectID(response.body.id)
+    const id = new ObjectID(response.body._id)
     questionnairesToDelete.push(id)
-
     const savedQuestionnaire = await questionnaireService.getQuestionnaire(id)
     expect(savedQuestionnaire).toBeDefined()
     expect(savedQuestionnaire.dnpId).toBe(dummyQuestionnaire.dnpId)
@@ -125,5 +125,6 @@ describe('/questionnaire routes', () => {
 const dummyTemplate = () => ({
   version: 444,
   questions: ["what say you?"],
-  status: 'thinking about it'
+  status: 'thinking about it',
+  name: 'Jimmy'
 })

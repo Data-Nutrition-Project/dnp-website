@@ -19,10 +19,10 @@ TEST_DB_URL=mongodb://localhost:27017/dnp-test
 
 #### Routes
 ###### Templates
-- `POST /template`: saves a new template to the database
-- `GET /template?id=...`: gets a template with the given id from the database
+- `POST /template`: Saves a new template to the database.
+- `GET /template?id=...`: Gets a template with the given id from the database.
 
 ###### Questionnaires
-- `POST /questionnaire`: saves a questionnaire to the database, incrementing its schema_version
-- `GET /questionnaire?id=...`: gets the most recent version of a questionnaire with a given id
-- `GET /new-questionnaire?id=...`: gets an empty template of a given id to be used as a questionnaire
+- `POST /questionnaire`: Saves a questionnaire to the database, incrementing its schema_version. Returns the new questionnaire object.
+- `GET /questionnaire?id=...`: Gets the most recent version of a questionnaire with a given id.
+- `GET /new-questionnaire?id=...`: Gets an empty template of a given id to be used as a questionnaire.
