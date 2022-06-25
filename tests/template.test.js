@@ -71,6 +71,23 @@ describe("templates service", () => {
     expect(foundTemplate).toEqual(templateToAdd)
   })
 
+  // add a template into our database
+  // use our method to find it
+  // assert they are the same
+  it('can find the newest template', async () => {
+    const templateToAdd = dummyTemplate()
+    const template = await templatesCollection.insertOne(templateToAdd)
+    templatesToDelete.push(template.insertedId)
+
+    const templateToAdd2 = dummyTemplate()
+    const template2 = await templatesCollection.insertOne(templateToAdd2)
+    templatesToDelete.push(template2.insertedId)
+
+    const foundTemplate = await templateService.getNewestTemplate()
+    expect(foundTemplate._id).toEqual(templateToAdd2._id)
+    expect(foundTemplate._id).not.toEqual(templateToAdd._id)
+  })
+
   // look for a made up template id
   // confirm that it is null
   it('will not find a made up template', async () => {
