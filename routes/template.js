@@ -44,7 +44,14 @@ exports.TemplatesRouter = (app, templateService) => {
   */
   app.get('/template', async (req, res) => {
     try {
-      const foundTemplate = await templateService.getTemplate(new ObjectID(req.query.id))
+      let foundTemplate = null
+      
+      if (req.query.id) {
+        foundTemplate = await templateService.getTemplate(new ObjectID(req.query.id))
+      } else {
+        foundTemplate = await templateService.getNewestTemplate()
+      }
+
       if ( !foundTemplate ) {
         res.status(404)
           .send({

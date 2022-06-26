@@ -56,6 +56,17 @@ class TemplateService {
       return templateObject
     }
   }
+  
+  /*
+  @desc
+    This method gets the most recent template, the intention being to use the most
+    up-to-date template for label construction.
+  @return
+    template object
+   */
+  getNewestTemplate() {
+    return this.templatesCollection.find().limit(1).sort({$natural:-1}).next()
+  }
 }
 
 exports.TemplateService = TemplateService

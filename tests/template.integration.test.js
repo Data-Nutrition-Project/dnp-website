@@ -87,6 +87,28 @@ describe('/template routes', () => {
     expect(response.body.version).toBe(dummy.version)
   })
 
+  it('gets the most recent template with GET', async () => {
+    const dummy = dummyTemplate()
+    const addedTemplate = await templateService.addTemplate(dummy)
+    templatesToDelete.push(addedTemplate.insertedId)
+
+    const dummy2 = dummyTemplate()
+    const addedTemplate2 = await templateService.addTemplate(dummy2)
+    templatesToDelete.push(addedTemplate2.insertedId)
+
+    const dummy3 = dummyTemplate()
+    const addedTemplate3 = await templateService.addTemplate(dummy3)
+    templatesToDelete.push(addedTemplate3.insertedId)
+
+    const response = await request(app)
+      .get(`/template`)
+      .expect(200)
+
+    expect(response.body._id).toEqual(addedTemplate3.insertedId.toString())
+    expect(response.body._id).not.toEqual(addedTemplate.insertedId.toString())
+  })
+
+
   it('wont find an imaginary template', (done) => {
     request(app)
       .get(`/template?id=baddabbaddabbaddabbaddab`)
