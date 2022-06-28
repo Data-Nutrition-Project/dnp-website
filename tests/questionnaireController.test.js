@@ -57,7 +57,8 @@ describe("questionnaires controller", () => {
     const template = await templateService.addTemplate(dummyTemplate())
     templatesToDelete.push(template.insertedId)
 
-    const newQuestionnaire = await questionnairesController.getQuestionnaireFromTemplate(template.insertedId)
+    const newQuestionnaire = await questionnairesController
+      .createQuestionnaireFromTemplate(template.insertedId, 'meh', 'what do you want from me')
     questionnairesToDelete.push(newQuestionnaire._id)
     // make sure our return is correct
     expect(newQuestionnaire).toBeDefined()
@@ -106,7 +107,8 @@ describe("questionnaires controller", () => {
   // look for a made up template id
   // confirm that it is null
   it('will not find a made up template', async () => {
-    const foundTemplate = await questionnairesController.getQuestionnaireFromTemplate("aqui, la cuenta es pequena, los desserts son grande")
+    const foundTemplate = await questionnairesController
+      .createQuestionnaireFromTemplate("aqui, la cuenta es pequena, los desserts son grande")
     expect(foundTemplate).toEqual(null)
   })
 })

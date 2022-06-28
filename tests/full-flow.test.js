@@ -86,7 +86,12 @@ describe('DNP API', () => {
     // start a new empty questionnaire with that template
     //
     const newQuestionnaireResponse = await request(app)
-      .get(`/new-questionnaire?id=${templateResponse.body.id}&name=${name}`)
+      .post(`/new-questionnaire`)
+      .send({
+        id: templateResponse.body.id,
+        name: name,
+        reason: 'I wanted to!!!'
+      })
       .expect(200)
     const newQuestionnaireId = new ObjectID(newQuestionnaireResponse.body._id)
     questionnairesToDelete.push(newQuestionnaireId)

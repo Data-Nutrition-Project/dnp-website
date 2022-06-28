@@ -59,7 +59,12 @@ describe('/questionnaire routes', () => {
     const newTemplate = await templateService.addTemplate(dummyTemplate())
     templatesToDelete.push(newTemplate.insertedId)
     const response = await request(app)
-      .get(`/new-questionnaire?id=${newTemplate.insertedId}&name=${name}`)
+      .post(`/new-questionnaire`)
+      .send({
+        id: newTemplate.insertedId,
+        name: name,
+        reason: 'eh. bored.'
+      })
       .expect(200)
 
     expect(response.body._id).toBeDefined()
@@ -71,11 +76,32 @@ describe('/questionnaire routes', () => {
     expect(foundQuestionnaire).toBeDefined()
   })
 
+  // create a template in the db
+  // use the api to generate a new questionnaire
+  // make sure it created questionnaire in the db
+  it('wont create a new questionnaire without a reason', async () => {
+    const name = 'Albert'
+    const newTemplate = await templateService.addTemplate(dummyTemplate())
+    templatesToDelete.push(newTemplate.insertedId)
+    const response = await request(app)
+      .post(`/new-questionnaire`)
+      .send({
+        id: newTemplate.insertedId,
+        name: name,
+      })
+      .expect(400)
+  })
+
   // start an imaginary template through the api
   it('wont find an imaginary template', (done) => {
     request(app)
-      .get(`/new-questionnaire?id=baddabbaddabbaddabbaddab`)
-      .expect(404, done)
+      .post(`/new-questionnaire`)
+      .send({
+        id: 'baddabbaddabbaddabbaddab',
+        name: 'asdfasdfasdf',
+        reason: 'noneeeeeee'
+      })
+      .expect(400, done)
   })
 
   // create a questionnaire
