@@ -55,14 +55,14 @@ describe('/questionnaire routes', () => {
   // use the api to generate a new questionnaire
   // make sure it created questionnaire in the db
   it('can create a new questionnaire', async () => {
-    const name = 'Albert'
+    const title = 'Albert'
     const newTemplate = await templateService.addTemplate(dummyTemplate())
     templatesToDelete.push(newTemplate.insertedId)
     const response = await request(app)
       .post(`/new-questionnaire`)
       .send({
         id: newTemplate.insertedId,
-        name: name,
+        title: title,
         reason: 'eh. bored.'
       })
       .expect(200)
@@ -87,7 +87,7 @@ describe('/questionnaire routes', () => {
       .post(`/new-questionnaire`)
       .send({
         id: newTemplate.insertedId,
-        name: name,
+        title: name,
       })
       .expect(400)
   })
@@ -98,7 +98,7 @@ describe('/questionnaire routes', () => {
       .post(`/new-questionnaire`)
       .send({
         id: 'baddabbaddabbaddabbaddab',
-        name: 'asdfasdfasdf',
+        title: 'asdfasdfasdf',
         reason: 'noneeeeeee'
       })
       .expect(400, done)

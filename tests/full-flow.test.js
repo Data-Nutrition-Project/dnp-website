@@ -89,7 +89,7 @@ describe('DNP API', () => {
       .post(`/new-questionnaire`)
       .send({
         id: templateResponse.body.id,
-        name: name,
+        title: name,
         reason: 'I wanted to!!!'
       })
       .expect(200)
