@@ -24,7 +24,6 @@ class QuestionnaireController {
     // we want both a mongo id and a dnp id
     emptyTemplate._id = questionnaireInserted.insertedId
 
-
     return emptyTemplate
   }
 
@@ -43,9 +42,11 @@ class QuestionnaireController {
     }
 
     const questionnaireResult = await this.questionnaireService.addQuestionnaire(questionnaireObject)
+    
     // copy our new mongo id to our object to send back to frontend
     questionnaireObject._id = questionnaireResult.insertedId
     questionnaireObject.savedDate = new Date()
+    
     return questionnaireObject
   }
 }
