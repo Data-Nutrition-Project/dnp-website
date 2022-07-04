@@ -6,8 +6,8 @@ class QuestionnaireController {
     this.templateService = templateService
   }
 
-  // start a new questionnaire from the given templateId
-  async getQuestionnaireFromTemplate(templateId, name) {
+  // create a new questionnaire from the given templateId
+  async createQuestionnaireFromTemplate(templateId, title, reason) {
     const emptyTemplate = await this.templateService.getTemplate(templateId)
     if ( !emptyTemplate )  {
       return null
@@ -16,7 +16,8 @@ class QuestionnaireController {
     emptyTemplate.dnpId = uuidv4()
     delete emptyTemplate._id
 
-    emptyTemplate.name = name
+    emptyTemplate.title = title
+    emptyTemplate.labelReason = reason
 
     const questionnaireInserted = await this.questionnaireService.addQuestionnaire(emptyTemplate)
 

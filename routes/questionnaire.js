@@ -1,4 +1,5 @@
 const { ObjectID } = require('mongodb')
+const { body, validationResult } = require('express-validator');
 
 exports.QuestionnairesRouter = (app, questionnaireController, questionnaireService) => {
   /*
@@ -10,7 +11,16 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
   @return
     newQuestionnaire :: shaped like { id, schema_version, dnpId, questionnaire, etc. }
   */
-  app.post('/questionnaire', async (req, res) => {
+  app.post('/questionnaire', 
+    body('status').isString(),
+    body('version').isNumeric(),
+    async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
     try {
       const savedQuestionnaire = await questionnaireController.saveQuestionnaire(req.body)
       res.status(200)
@@ -26,6 +36,8 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
   /*
   @params
     templateId :: queryParams - id of the template that you want to initialize
+    name :: queryParams - name of the label given by the creator
+    reason :: queryParams - reason for creating the label given by the creator
   @desc
     This route will accept a template id and will create and return an empty
       questionnaire object
@@ -33,12 +45,23 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
     questionnaire :: empty questoinnaire, will have no schema_version which means
       it is new and empty
   */
-  app.get('/new-questionnaire', async (req, res) => {
+  app.post('/new-questionnaire',
+    body('id').exists().isLength({min: 20, max: 28}),
+    body('title').exists().isLength({min: 1, max: 50}),
+    body('reason').exists().isLength({min: 5, max: 5000}),
+    async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
     try {
-      const emptyTemplate = await questionnaireController.getQuestionnaireFromTemplate(new ObjectID(req.query.id), req.query.name)
+      const emptyTemplate = await questionnaireController
+        .createQuestionnaireFromTemplate(new ObjectID(req.body.id), req.body.name, req.body.reason)
 
       if ( !emptyTemplate ) {
-        res.status(404)
+        res.status(400)
           .send({
             message: `Could not find template with id :: ${req.query.id}`
           })
