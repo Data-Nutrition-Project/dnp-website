@@ -35,21 +35,27 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
 
   /*
   @params
-    templateId :: queryParams - id of the template that you want to initialize
-    name :: queryParams - name of the label given by the creator
-    reason :: queryParams - reason for creating the label given by the creator
+    templateId :: body - id of the template that you want to initialize
+    title :: body - title of the label given by the creator
+    reason :: body - reason for creating the label given by the creator
   @desc
     This route will accept a template id and will create and return an empty
       questionnaire object
   @return
     questionnaire :: empty questoinnaire, will have no schema_version which means
-      it is new and empty
+      it is new and empty; it will have the following fields:
+        { _id, status, version, labelReason, questionnaire, title, dnpId }
   */
   app.post('/new-questionnaire',
     body('id').exists().isLength({min: 20, max: 28}),
     body('title').exists().isLength({min: 1, max: 50}),
     body('reason').exists().isLength({min: 5, max: 5000}),
     async (req, res) => {
+    
+    // we need this to be casted to the right type, so mongo will accept it
+    const mongoId = new ObjectID(req.body.id)
+    const title = req.body.title
+    const reason = req.body.reason
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -58,12 +64,12 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
 
     try {
       const emptyTemplate = await questionnaireController
-        .createQuestionnaireFromTemplate(new ObjectID(req.body.id), req.body.name, req.body.reason)
+        .createQuestionnaireFromTemplate(mongoId, title, reason)
 
       if ( !emptyTemplate ) {
         res.status(400)
           .send({
-            message: `Could not find template with id :: ${req.query.id}`
+            message: `Could not find template with id :: ${req.body.id}`
           })
       } else {
         res.status(200).send(emptyTemplate)
@@ -84,6 +90,8 @@ exports.QuestionnairesRouter = (app, questionnaireController, questionnaireServi
       version that is available in the database
   @return
     questionnaire :: questionnaire that has the given dnpId and the highest version
+      it will have the following fields:
+        { _id, status, version, labelReason, questionnaire, title, dnpId, schema_version }
   */
   app.get('/questionnaire', async (req, res) => {
     try {

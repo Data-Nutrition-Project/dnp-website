@@ -60,17 +60,22 @@ describe("questionnaires controller", () => {
     const newQuestionnaire = await questionnairesController
       .createQuestionnaireFromTemplate(template.insertedId, 'meh', 'what do you want from me')
     questionnairesToDelete.push(newQuestionnaire._id)
+
     // make sure our return is correct
     expect(newQuestionnaire).toBeDefined()
     expect(newQuestionnaire._id).toBeDefined()
     expect(newQuestionnaire._id).not.toBe(template.insertedId)
     expect(newQuestionnaire.dnpId).toBeDefined()
+    expect(newQuestionnaire.title).toBeDefined()
+    expect(newQuestionnaire.labelReason).toBeDefined()
 
     // make sure out db feels the same way
     const questionnaire = await questionnaireService.getQuestionnaire(newQuestionnaire._id)
     expect(questionnaire).toBeDefined()
     expect(questionnaire._id).toBeDefined()
     expect(questionnaire.dnpId).toBeDefined()
+    expect(questionnaire.title).toBeDefined()
+    expect(questionnaire.labelReason).toBeDefined()
   })
 
   // create a new template

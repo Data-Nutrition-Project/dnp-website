@@ -104,7 +104,6 @@ describe('DNP API', () => {
     expect(workingQuestionnaire.schema_version).not.toBeDefined()
 
 
-
     //
     // let's fill out some questions
     //
@@ -115,7 +114,7 @@ describe('DNP API', () => {
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
       .expect(200)
-    const firstSavedId = new ObjectID(firstSavedQuestionnaireResponse.body.id)
+    const firstSavedId = new ObjectID(firstSavedQuestionnaireResponse.body._id)
     questionnairesToDelete.push(firstSavedId)
     expect(firstSavedQuestionnaireResponse.body.schema_version).toBe(2)
     // need to update our model to keep track of important info the api tells us
@@ -130,7 +129,7 @@ describe('DNP API', () => {
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
       .expect(200)
-    const secondSavedId = new ObjectID(secondSavedQuestionnaireResponse.body.id)
+    const secondSavedId = new ObjectID(secondSavedQuestionnaireResponse.body._id)
     questionnairesToDelete.push(secondSavedId)
     expect(secondSavedQuestionnaireResponse.body.schema_version).toBe(3)
 
