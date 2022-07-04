@@ -41,6 +41,9 @@ class QuestionnaireController {
       questionnaireObject.schema_version = 2
     }
 
+    // saving the date of the time we added this version
+    questionnaireObject.savedDate = new Date()
+
     const questionnaireResult = await this.questionnaireService.addQuestionnaire(questionnaireObject)
     // copy our new mongo id to our object to send back to frontend
     questionnaireObject._id = questionnaireResult.insertedId
