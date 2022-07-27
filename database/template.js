@@ -3,12 +3,8 @@
 // nice clean way to abstract away our db details
 class TemplateService {
   constructor(templatesCollection) {
-    this.templatesCollection = templatesCollection
-    this.requiredAttributes = [
-      'status',
-      'questionnaire',
-      'version'
-    ]
+    this.templatesCollection = templatesCollection;
+    this.requiredAttributes = ["status", "questionnaire", "version"];
   }
 
   /*
@@ -22,7 +18,7 @@ class TemplateService {
       was inserted under
   */
   addTemplate(templateObject) {
-    return this.templatesCollection.insertOne(templateObject)
+    return this.templatesCollection.insertOne(templateObject);
   }
 
   /*
@@ -35,7 +31,7 @@ class TemplateService {
     template object - singular template that has the given _id
   */
   getTemplate(templateId) {
-    return this.templatesCollection.findOne({_id: templateId})
+    return this.templatesCollection.findOne({ _id: templateId });
   }
 
   /*
@@ -47,16 +43,17 @@ class TemplateService {
     null if invalid, templateObject param if valid
   */
   validateTemplate(templateObject) {
-    const matches = this.requiredAttributes
-      .filter(d => !(d in templateObject))
+    const matches = this.requiredAttributes.filter(
+      (d) => !(d in templateObject)
+    );
 
-    if ( matches.length ) {
-      return null
+    if (matches.length) {
+      return null;
     } else {
-      return templateObject
+      return templateObject;
     }
   }
-  
+
   /*
   @desc
     This method gets the most recent template, the intention being to use the most
@@ -65,8 +62,12 @@ class TemplateService {
     template object
    */
   getNewestTemplate() {
-    return this.templatesCollection.find().limit(1).sort({$natural:-1}).next()
+    return this.templatesCollection
+      .find()
+      .limit(1)
+      .sort({ $natural: -1 })
+      .next();
   }
 }
 
-exports.TemplateService = TemplateService
+exports.TemplateService = TemplateService;

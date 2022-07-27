@@ -1,4 +1,4 @@
-const { ObjectID } = require('mongodb')
+const { ObjectID } = require("mongodb");
 
 exports.TemplatesRouter = (app, templateService) => {
   /*
@@ -10,29 +10,27 @@ exports.TemplatesRouter = (app, templateService) => {
   @return
     idObject :: shaped like { id: _id }
   */
-  app.post('/template', async (req, res) => {
+  app.post("/template", async (req, res) => {
     try {
-      const template = templateService.validateTemplate(req.body)
-      if ( !template ) {
-        res.status(400)
-          .send({
-            message: `Could not accept template :: ${req.body}`
-          })
+      const template = templateService.validateTemplate(req.body);
+      if (!template) {
+        res.status(400).send({
+          message: `Could not accept template :: ${req.body}`,
+        });
       } else {
-        const newTemplate = await templateService.addTemplate(template)
+        const newTemplate = await templateService.addTemplate(template);
 
-        res.status(200)
-          .send({
-            id: newTemplate.insertedId
-          })
+        res.status(200).send({
+          id: newTemplate.insertedId,
+        });
       }
-    } catch ( err ) {
+    } catch (err) {
       res.status(500).send({
         message: `Error creating template`,
-        error: err
-      })
+        error: err,
+      });
     }
-  })
+  });
 
   /*
   @params
@@ -42,29 +40,30 @@ exports.TemplatesRouter = (app, templateService) => {
   @return
     templateObject - the template with the given _id
   */
-  app.get('/template', async (req, res) => {
+  app.get("/template", async (req, res) => {
     try {
-      let foundTemplate = null
-      
+      let foundTemplate = null;
+
       if (req.query.id) {
-        foundTemplate = await templateService.getTemplate(new ObjectID(req.query.id))
+        foundTemplate = await templateService.getTemplate(
+          new ObjectID(req.query.id)
+        );
       } else {
-        foundTemplate = await templateService.getNewestTemplate()
+        foundTemplate = await templateService.getNewestTemplate();
       }
 
-      if ( !foundTemplate ) {
-        res.status(404)
-          .send({
-            message: `Could not find template with id :: ${req.query.id}`
-          })
+      if (!foundTemplate) {
+        res.status(404).send({
+          message: `Could not find template with id :: ${req.query.id}`,
+        });
       } else {
-        res.status(200).send(foundTemplate)
+        res.status(200).send(foundTemplate);
       }
-    } catch ( err ) {
+    } catch (err) {
       res.status(500).send({
         message: `Error getting template`,
-        error: err
-      })
+        error: err,
+      });
     }
-  })
-}
+  });
+};

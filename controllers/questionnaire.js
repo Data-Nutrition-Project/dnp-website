@@ -1,57 +1,59 @@
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 class QuestionnaireController {
   constructor(questionnaireService, templateService) {
-    this.questionnaireService = questionnaireService
-    this.templateService = templateService
+    this.questionnaireService = questionnaireService;
+    this.templateService = templateService;
   }
 
   // create a new questionnaire from the given templateId
   async createQuestionnaireFromTemplate(templateId, title, reason) {
-    const emptyTemplate = await this.templateService.getTemplate(templateId)
-    if ( !emptyTemplate )  {
-      return null
+    const emptyTemplate = await this.templateService.getTemplate(templateId);
+    if (!emptyTemplate) {
+      return null;
     }
 
-    emptyTemplate.dnpId = uuidv4()
-    delete emptyTemplate._id
+    emptyTemplate.dnpId = uuidv4();
+    delete emptyTemplate._id;
 
-    emptyTemplate.title = title
-    emptyTemplate.labelReason = reason
+    emptyTemplate.title = title;
+    emptyTemplate.labelReason = reason;
 
-    const questionnaireInserted = await this.questionnaireService.addQuestionnaire(emptyTemplate)
+    const questionnaireInserted =
+      await this.questionnaireService.addQuestionnaire(emptyTemplate);
 
     // we want both a mongo id and a dnp id
-    emptyTemplate._id = questionnaireInserted.insertedId
+    emptyTemplate._id = questionnaireInserted.insertedId;
 
-    return emptyTemplate
+    return emptyTemplate;
   }
 
   // save a questionnaire as a user fills out new questions
   // bumps the version, marks the time it happens
   // returns the whole object
   async saveQuestionnaire(questionnaireObject) {
-    if ( questionnaireObject._id ) {
-      delete questionnaireObject._id
+    if (questionnaireObject._id) {
+      delete questionnaireObject._id;
     }
 
-    if ( questionnaireObject.schema_version ) {
-      questionnaireObject.schema_version += 1
+    if (questionnaireObject.schema_version) {
+      questionnaireObject.schema_version += 1;
     } else {
-      questionnaireObject.schema_version = 2
+      questionnaireObject.schema_version = 2;
     }
 
     // saving the date of the time we added this version
-    questionnaireObject.savedDate = new Date()
+    questionnaireObject.savedDate = new Date();
 
-    const questionnaireResult = await this.questionnaireService.addQuestionnaire(questionnaireObject)
-    
+    const questionnaireResult =
+      await this.questionnaireService.addQuestionnaire(questionnaireObject);
+
     // copy our new mongo id to our object to send back to frontend
-    questionnaireObject._id = questionnaireResult.insertedId
-    questionnaireObject.savedDate = new Date()
-    
-    return questionnaireObject
+    questionnaireObject._id = questionnaireResult.insertedId;
+    questionnaireObject.savedDate = new Date();
+
+    return questionnaireObject;
   }
 }
 
-exports.QuestionnaireController = QuestionnaireController
+exports.QuestionnaireController = QuestionnaireController;

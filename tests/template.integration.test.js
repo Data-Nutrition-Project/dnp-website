@@ -1,123 +1,120 @@
-require('dotenv').config()
-const { ObjectID } = require('mongodb')
+require("dotenv").config();
+const { ObjectID } = require("mongodb");
 
-const { connect } = require('../database/connector.js')
-const { TemplateService } = require('../database/template.js')
-const { TemplatesRouter } = require('../routes/template.js')
+const { connect } = require("../database/connector.js");
+const { TemplateService } = require("../database/template.js");
+const { TemplatesRouter } = require("../routes/template.js");
 
-const request = require('supertest')
-const express = require('express')
+const request = require("supertest");
+const express = require("express");
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
-let templateService
-let templatesCollection
-const templatesToDelete = []
+let templateService;
+let templatesCollection;
+const templatesToDelete = [];
 
-describe('/template routes', () => {
+describe("/template routes", () => {
   beforeAll(async () => {
-    const client = await connect(process.env.TEST_DB_URL).catch(console.dir)
-    await client.connect()
-    const database = client.db("dnp-test")
-    templatesCollection = database.collection("templates")
+    const client = await connect(process.env.TEST_DB_URL).catch(console.dir);
+    await client.connect();
+    const database = client.db("dnp-test");
+    templatesCollection = database.collection("templates");
 
-    templateService = new TemplateService(templatesCollection)
-    TemplatesRouter(app, templateService)
-  })
+    templateService = new TemplateService(templatesCollection);
+    TemplatesRouter(app, templateService);
+  });
 
   // we want to cleanup all the things we inserted afterwards
   afterAll(async () => {
     await Promise.all(
-      templatesToDelete.map(
-        templateId => templatesCollection.deleteOne({_id: templateId})
+      templatesToDelete.map((templateId) =>
+        templatesCollection.deleteOne({ _id: templateId })
       )
-    )
-  })
+    );
+  });
 
-  it('denies an invalid template', (done) => {
+  it("denies an invalid template", (done) => {
     request(app)
-      .post('/template')
-      .send({arco: 'iris'})
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json')
-      .expect(400, done)
-  })
+      .post("/template")
+      .send({ arco: "iris" })
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(400, done);
+  });
 
-  it('adds to the database with POST', async () => {
+  it("adds to the database with POST", async () => {
     const dummy = {
       version: 247,
       questionnaire: [],
-      status: 'draft',
-    }
+      status: "draft",
+    };
 
     const response = await request(app)
-      .post('/template')
+      .post("/template")
       .send(dummy)
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json')
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json");
 
-    const id = new ObjectID(response.body.id)
-    templatesToDelete.push(id)
+    const id = new ObjectID(response.body.id);
+    templatesToDelete.push(id);
 
-    expect(response.status).toEqual(200)
-    expect(response.body.id).toBeDefined()
+    expect(response.status).toEqual(200);
+    expect(response.body.id).toBeDefined();
 
-    const foundTemplate = await templateService.getTemplate(id)
+    const foundTemplate = await templateService.getTemplate(id);
 
-    expect(foundTemplate._id).toEqual(id)
-    expect(foundTemplate.questions).toEqual(dummy.questions)
-    expect(foundTemplate.version).toEqual(dummy.version)
-  })
+    expect(foundTemplate._id).toEqual(id);
+    expect(foundTemplate.questions).toEqual(dummy.questions);
+    expect(foundTemplate.version).toEqual(dummy.version);
+  });
 
-  it('gets an existing one with GET', async () => {
-    const dummy = dummyTemplate()
-    const addedTemplate = await templateService.addTemplate(dummy)
-    templatesToDelete.push(addedTemplate.insertedId)
+  it("gets an existing one with GET", async () => {
+    const dummy = dummyTemplate();
+    const addedTemplate = await templateService.addTemplate(dummy);
+    templatesToDelete.push(addedTemplate.insertedId);
 
-    const foundTemplate = await templateService.getTemplate(addedTemplate.insertedId)
-    expect(foundTemplate._id).toEqual(addedTemplate.insertedId)
-    expect(foundTemplate.questions).toEqual(dummy.questions)
-    expect(foundTemplate.version).toEqual(dummy.version)
+    const foundTemplate = await templateService.getTemplate(
+      addedTemplate.insertedId
+    );
+    expect(foundTemplate._id).toEqual(addedTemplate.insertedId);
+    expect(foundTemplate.questions).toEqual(dummy.questions);
+    expect(foundTemplate.version).toEqual(dummy.version);
 
     const response = await request(app)
       .get(`/template?id=${addedTemplate.insertedId}`)
-      .expect(200)
+      .expect(200);
 
-    expect(response.body.version).toBe(dummy.version)
-  })
+    expect(response.body.version).toBe(dummy.version);
+  });
 
-  it('gets the most recent template with GET', async () => {
-    const dummy = dummyTemplate()
-    const addedTemplate = await templateService.addTemplate(dummy)
-    templatesToDelete.push(addedTemplate.insertedId)
+  it("gets the most recent template with GET", async () => {
+    const dummy = dummyTemplate();
+    const addedTemplate = await templateService.addTemplate(dummy);
+    templatesToDelete.push(addedTemplate.insertedId);
 
-    const dummy2 = dummyTemplate()
-    const addedTemplate2 = await templateService.addTemplate(dummy2)
-    templatesToDelete.push(addedTemplate2.insertedId)
+    const dummy2 = dummyTemplate();
+    const addedTemplate2 = await templateService.addTemplate(dummy2);
+    templatesToDelete.push(addedTemplate2.insertedId);
 
-    const dummy3 = dummyTemplate()
-    const addedTemplate3 = await templateService.addTemplate(dummy3)
-    templatesToDelete.push(addedTemplate3.insertedId)
+    const dummy3 = dummyTemplate();
+    const addedTemplate3 = await templateService.addTemplate(dummy3);
+    templatesToDelete.push(addedTemplate3.insertedId);
 
-    const response = await request(app)
-      .get(`/template`)
-      .expect(200)
+    const response = await request(app).get(`/template`).expect(200);
 
-    expect(response.body._id).toEqual(addedTemplate3.insertedId.toString())
-    expect(response.body._id).not.toEqual(addedTemplate.insertedId.toString())
-  })
+    expect(response.body._id).toEqual(addedTemplate3.insertedId.toString());
+    expect(response.body._id).not.toEqual(addedTemplate.insertedId.toString());
+  });
 
-
-  it('wont find an imaginary template', (done) => {
-    request(app)
-      .get(`/template?id=baddabbaddabbaddabbaddab`)
-      .expect(404, done)
-  })
+  it("wont find an imaginary template", (done) => {
+    request(app).get(`/template?id=baddabbaddabbaddabbaddab`).expect(404, done);
+  });
 });
 
 const dummyTemplate = () => ({
   version: 3,
   questionnaire: ["how much chuck could a would chuck chuck?"],
-  status: 'draft'
-})
+  status: "draft",
+});
