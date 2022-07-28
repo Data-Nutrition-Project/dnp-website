@@ -165,7 +165,7 @@ const dummyTemplate = () => ({
 });
 
 const dummyQuestionnaire = () => ({
-  questionnaire: "testing123",
+  questionnaire: ["testing123"],
   _id: "testing123",
   schema_version: 3,
   title: "testing123",

@@ -18,7 +18,7 @@ exports.QuestionnairesRouter = (
   */
   app.post(
     "/questionnaire",
-    body("questionnaire").isString(),
+    body("questionnaire").isArray(),
     body("_id").isString(),
     body("schema_version").isNumeric(),
     body("title").isString(),

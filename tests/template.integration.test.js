@@ -81,7 +81,7 @@ describe("/template routes", () => {
       .get(`/template?id=${addedTemplate.insertedId}`)
       .expect(200);
 
-    expect(response.body.version).toBe(dummy.version);
+    expect(response.body.questionnaire).toStrictEqual(dummy.questionnaire);
   });
 
   it("gets the most recent template with GET", async () => {
@@ -106,6 +106,29 @@ describe("/template routes", () => {
   it("wont find an imaginary template", (done) => {
     request(app).get(`/template?id=baddabbaddabbaddabbaddab`).expect(404, done);
   });
+
+  it("can insert with POST and find with GET", async () => {
+    const dummy = dummyTemplate();
+
+    const responsePost = await request(app)
+      .post("/template")
+      .send(dummy)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(200);
+
+    expect(responsePost.body._id).toBeDefined();
+    expect(responsePost.body.questionnaire).toBeDefined();
+
+    const _id = new ObjectID(responsePost.body._id);
+    templatesToDelete.push(_id);
+
+    const responseGet = await request(app)
+      .get(`/template?id=${responsePost.body._id}`)
+      .expect(200);
+
+    expect(responseGet.body.questionnaire).toStrictEqual(dummy.questionnaire);
+  })
 });
 
 const dummyTemplate = () => ({
