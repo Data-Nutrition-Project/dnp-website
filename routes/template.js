@@ -43,14 +43,14 @@ exports.TemplatesRouter = (app, templateService) => {
     This route will accept an mongo id of a template and get it from the database,
       newest template if no id is provided
   @return
-    templateObject
+    templateObject :: shaped like { _id, questionnaire }
   */
   app.get("/template", async (req, res) => {
     try {
       let foundTemplate = null;
 
       if (req.query.id) {
-        // have to parse the raw string into mongo id
+        // mongo wont recognize the raw string
         const id = new ObjectID(req.query.id);
         foundTemplate = await templateService.getTemplate(id);
       } else {
