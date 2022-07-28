@@ -5,6 +5,7 @@ const { connect } = require("../database/connector.js");
 
 const { TemplateService } = require("../database/template.js");
 const { QuestionnaireService } = require("../database/questionnaire.js");
+const { LabelService } = require("../database/label.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
 
 let templatesCollection;
@@ -13,10 +14,14 @@ let templateService;
 let questionnairesCollection;
 let questionnaireService;
 
+let labelsCollection;
+let labelService;
+
 let questionnairesController;
 
 const questionnairesToDelete = [];
 const templatesToDelete = [];
+const labelsToDelete = [];
 
 describe("questionnaires controller", () => {
   // connect to our database at the beginning
@@ -28,12 +33,16 @@ describe("questionnaires controller", () => {
     questionnairesCollection = database.collection("questionnaires");
     questionnaireService = new QuestionnaireService(questionnairesCollection);
 
+    labelsCollection = database.collection("labels");
+    labelService = new LabelService(labelsCollection);
+
     templatesCollection = database.collection("templates");
     templateService = new TemplateService(templatesCollection);
 
     questionnairesController = new QuestionnaireController(
       questionnaireService,
-      templateService
+      templateService,
+      labelService
     );
   });
 
@@ -47,6 +56,11 @@ describe("questionnaires controller", () => {
     await Promise.all(
       templatesToDelete.map((templateId) =>
         templatesCollection.deleteOne({ _id: templateId })
+      )
+    );
+    await Promise.all(
+      labelsToDelete.map((labelId) =>
+        labelsCollection.deleteOne({ _id: labelId })
       )
     );
   });
@@ -187,6 +201,42 @@ describe("questionnaires controller", () => {
       );
     expect(foundTemplate).toEqual(null);
   });
+
+  it("will not edit a questionniare with an approved label", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "gonna approve this one";
+
+    const savedQuestionnaireOne =
+      await questionnairesController.saveQuestionnaire(questionnaire);
+    questionnairesToDelete.push(savedQuestionnaireOne._id);
+
+    questionnaire.status = "APPROVED"
+    const approvedLabel = await labelService.addLabel(questionnaire);
+    expect(approvedLabel).toBeDefined();
+    labelsToDelete.push(approvedLabel.insertedId);
+
+    const failedSave =
+      await questionnairesController.saveQuestionnaire(questionnaire);
+    expect(failedSave).toBe(null)
+  })
+
+  it("will not edit a questionniare with an in review label", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "gonna 'in review' this one";
+
+    const savedQuestionnaireOne =
+      await questionnairesController.saveQuestionnaire(questionnaire);
+    questionnairesToDelete.push(savedQuestionnaireOne._id);
+
+    questionnaire.status = "IN REVIEW"
+    const approvedLabel = await labelService.addLabel(questionnaire);
+    expect(approvedLabel).toBeDefined();
+    labelsToDelete.push(approvedLabel.insertedId);
+
+    const failedSave =
+      await questionnairesController.saveQuestionnaire(questionnaire);
+    expect(failedSave).toBe(null)
+  })
 });
 
 const dummyQuestionnaire = () => ({

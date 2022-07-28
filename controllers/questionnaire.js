@@ -1,9 +1,15 @@
 const { v4: uuidv4 } = require("uuid");
 
 class QuestionnaireController {
-  constructor(questionnaireService, templateService) {
+  constructor(questionnaireService, templateService, labelService) {
+    if ( !questionnaireService || !templateService || !labelService )  {
+      throw new Error("QuestionnaireController Dependency Error")
+    }
+
     this.questionnaireService = questionnaireService;
     this.templateService = templateService;
+    this.labelService = labelService;
+    this.lockedStates = ['APPROVED', 'IN REVIEW']
   }
 
   /*
@@ -53,9 +59,11 @@ class QuestionnaireController {
       shaped like { questionnaire, title, reason, dnpId, _id }
   */
   async saveQuestionnaire(questionnaireObject) {
-    // here we will check and see if there is a label
-    // and if there is, it needs to be in the proper state
-    // this will be done soon enough
+    const { dnpId } = questionnaireObject;
+    const label = await this.labelService.getNewestLabel(dnpId);
+    if ( label && this.lockedStates.includes(label.status) ) {
+      return null;
+    }
 
     if (questionnaireObject._id) {
       delete questionnaireObject._id;

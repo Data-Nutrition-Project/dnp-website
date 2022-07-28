@@ -2,9 +2,10 @@ require("dotenv").config();
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
+
 const { TemplateService } = require("../database/template.js");
 const { QuestionnaireService } = require("../database/questionnaire.js");
-
+const { LabelService } = require("../database/label.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
 
 const { QuestionnairesRouter } = require("../routes/questionnaire.js");
@@ -21,24 +22,34 @@ let templatesCollection;
 
 let questionnaireService;
 let questionnaresCollection;
+
+let labelsCollection;
+let labelService;
+
 let questionnaireController;
 
 const templatesToDelete = [];
 const questionnairesToDelete = [];
+const labelsToDelete = [];
 
 describe("DNP API", () => {
   beforeAll(async () => {
     const client = await connect(process.env.TEST_DB_URL).catch(console.dir);
     await client.connect();
     const database = client.db("dnp-test");
+
     templatesCollection = database.collection("templates");
     questionnairesCollection = database.collection("questionnaires");
+
+    labelsCollection = database.collection("labels");
+    labelService = new LabelService(labelsCollection);
 
     templateService = new TemplateService(templatesCollection);
     questionnaireService = new QuestionnaireService(questionnairesCollection);
     questionnaireController = new QuestionnaireController(
       questionnaireService,
-      templateService
+      templateService,
+      labelService
     );
 
     QuestionnairesRouter(app, questionnaireController, questionnaireService);
@@ -55,6 +66,11 @@ describe("DNP API", () => {
     await Promise.all(
       questionnairesToDelete.map((questionnaireId) =>
         questionnairesCollection.deleteOne({ _id: questionnaireId })
+      )
+    );
+    await Promise.all(
+      labelsToDelete.map((labelId) =>
+        labelsCollection.deleteOne({ _id: labelId })
       )
     );
   });

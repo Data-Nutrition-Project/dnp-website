@@ -2,9 +2,12 @@ require("dotenv").config();
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
+
 const { TemplateService } = require("../database/template.js");
 const { QuestionnaireService } = require("../database/questionnaire.js");
+const { LabelService } = require("../database/label.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
+
 const { QuestionnairesRouter } = require("../routes/questionnaire.js");
 
 const request = require("supertest");
@@ -17,25 +20,35 @@ let templateService;
 let templatesCollection;
 
 let questionnaireService;
-let questionnaresCollection;
+let questionnairesCollection;
+
+let labelsCollection;
+let labelService;
+
 let questionnaireController;
 
-const templatesToDelete = [];
 const questionnairesToDelete = [];
+const templatesToDelete = [];
+const labelsToDelete = [];
 
 describe("/questionnaire routes", () => {
   beforeAll(async () => {
     const client = await connect(process.env.TEST_DB_URL).catch(console.dir);
     await client.connect();
     const database = client.db("dnp-test");
-    templatesCollection = database.collection("templates");
     questionnairesCollection = database.collection("questionnaires");
-
-    templateService = new TemplateService(templatesCollection);
     questionnaireService = new QuestionnaireService(questionnairesCollection);
+
+    labelsCollection = database.collection("labels");
+    labelService = new LabelService(labelsCollection);
+
+    templatesCollection = database.collection("templates");
+    templateService = new TemplateService(templatesCollection);
+
     questionnaireController = new QuestionnaireController(
       questionnaireService,
-      templateService
+      templateService,
+      labelService
     );
     QuestionnairesRouter(app, questionnaireController, questionnaireService);
   });
@@ -50,6 +63,11 @@ describe("/questionnaire routes", () => {
     await Promise.all(
       questionnairesToDelete.map((questionnaireId) =>
         questionnairesCollection.deleteOne({ _id: questionnaireId })
+      )
+    );
+    await Promise.all(
+      labelsToDelete.map((labelId) =>
+        labelsCollection.deleteOne({ _id: labelId })
       )
     );
   });
