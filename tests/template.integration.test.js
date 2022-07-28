@@ -45,9 +45,7 @@ describe("/template routes", () => {
   });
 
   it("adds to the database with POST", async () => {
-    const dummy = {
-      questionnaire: [],
-    };
+    const dummy = dummyTemplate();
 
     const response = await request(app)
       .post("/template")
