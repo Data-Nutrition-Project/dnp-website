@@ -98,7 +98,7 @@ describe("questionnaires controller", () => {
   it("can save a questionnaire properly with schema versioning", async () => {
     let questionnaire = dummyQuestionnaire();
     const schema_version = 0;
-    questionnaire.schema_version = schema_version
+    questionnaire.schema_version = schema_version;
     // initial insert, like when a user starts a questionnaire
     const questionnaireInserted = await questionnaireService.addQuestionnaire(
       questionnaire

@@ -134,7 +134,7 @@ describe("/questionnaire routes", () => {
   it("can save a questionnaire", async () => {
     const schema_version = 3;
     const questionnaire = dummyQuestionnaire();
-    questionnaire.schema_version = schema_version
+    questionnaire.schema_version = schema_version;
     questionnaire.dnpId = "cest moi";
     const newQuestionnaire = await questionnaireService.addQuestionnaire(
       questionnaire
@@ -172,4 +172,4 @@ const dummyQuestionnaire = () => ({
   reason: "testing123",
   dnpId: "testing123",
   savedDate: "testing123",
-})
+});

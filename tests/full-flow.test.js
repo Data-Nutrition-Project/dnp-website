@@ -82,8 +82,8 @@ describe("DNP API", () => {
     const foundTemplate = await request(app)
       .get(`/template?id=${templateResponse.body._id}`)
       .expect(200);
-    expect(foundTemplate).toBeDefined()
-    expect(foundTemplate.body).toEqual(templateResponse.body)
+    expect(foundTemplate).toBeDefined();
+    expect(foundTemplate.body).toEqual(templateResponse.body);
 
     //
     // start a new empty questionnaire with that template
