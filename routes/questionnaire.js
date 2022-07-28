@@ -13,12 +13,18 @@ exports.QuestionnairesRouter = (
     This route will accept a questionnaire through a POST body and insert it into
       the database after bumping the schema_version
   @return
-    newQuestionnaire :: shaped like { id, schema_version, dnpId, questionnaire, etc. }
+    newQuestionnaire :: object
+      shaped like { _id, schema_version, dnpId, questionnaire, reason, title, savedDate }
   */
   app.post(
     "/questionnaire",
-    body("status").isString(),
-    body("version").isNumeric(),
+    body("questionnaire").isString(),
+    body("_id").isString(),
+    body("schema_version").isNumeric(),
+    body("title").isString(),
+    body("reason").isString(),
+    body("dnpId").isString(),
+    body("savedDate").isString(),
     async (req, res) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {

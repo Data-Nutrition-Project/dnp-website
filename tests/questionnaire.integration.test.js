@@ -132,10 +132,12 @@ describe("/questionnaire routes", () => {
   // make sure the database has the new version
   // and bumped the schema_version
   it("can save a questionnaire", async () => {
-    const dummyQuestionnaire = dummyTemplate();
-    dummyQuestionnaire.dnpId = "cest moi";
+    const schema_version = 3;
+    const questionnaire = dummyQuestionnaire();
+    questionnaire.schema_version = schema_version
+    questionnaire.dnpId = "cest moi";
     const newQuestionnaire = await questionnaireService.addQuestionnaire(
-      dummyQuestionnaire
+      questionnaire
     );
     questionnairesToDelete.push(newQuestionnaire.insertedId);
     const foundQuestionnaire = await questionnaireService.getQuestionnaire(
@@ -148,18 +150,26 @@ describe("/questionnaire routes", () => {
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
       .expect(200);
-    const id = new ObjectID(response.body._id);
-    questionnairesToDelete.push(id);
-    const savedQuestionnaire = await questionnaireService.getQuestionnaire(id);
+
+    const _id = new ObjectID(response.body._id);
+    questionnairesToDelete.push(_id);
+    const savedQuestionnaire = await questionnaireService.getQuestionnaire(_id);
     expect(savedQuestionnaire).toBeDefined();
-    expect(savedQuestionnaire.dnpId).toBe(dummyQuestionnaire.dnpId);
-    expect(savedQuestionnaire.schema_version).toBe(2);
+    expect(savedQuestionnaire.dnpId).toBe(questionnaire.dnpId);
+    expect(savedQuestionnaire.schema_version).toBe(schema_version + 1);
   });
 });
 
 const dummyTemplate = () => ({
-  version: 444,
   questions: ["what say you?"],
-  status: "thinking about it",
-  name: "Jimmy",
 });
+
+const dummyQuestionnaire = () => ({
+  questionnaire: "testing123",
+  _id: "testing123",
+  schema_version: 3,
+  title: "testing123",
+  reason: "testing123",
+  dnpId: "testing123",
+  savedDate: "testing123",
+})
