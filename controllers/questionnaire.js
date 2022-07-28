@@ -2,14 +2,14 @@ const { v4: uuidv4 } = require("uuid");
 
 class QuestionnaireController {
   constructor(questionnaireService, templateService, labelService) {
-    if ( !questionnaireService || !templateService || !labelService )  {
-      throw new Error("QuestionnaireController Dependency Error")
+    if (!questionnaireService || !templateService || !labelService) {
+      throw new Error("QuestionnaireController Dependency Error");
     }
 
     this.questionnaireService = questionnaireService;
     this.templateService = templateService;
     this.labelService = labelService;
-    this.lockedStates = ['APPROVED', 'IN REVIEW']
+    this.lockedStates = ["APPROVED", "IN REVIEW"];
   }
 
   /*
@@ -61,7 +61,7 @@ class QuestionnaireController {
   async saveQuestionnaire(questionnaireObject) {
     const { dnpId } = questionnaireObject;
     const label = await this.labelService.getNewestLabel(dnpId);
-    if ( label && this.lockedStates.includes(label.status) ) {
+    if (label && this.lockedStates.includes(label.status)) {
       return null;
     }
 

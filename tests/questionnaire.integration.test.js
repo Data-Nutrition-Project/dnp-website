@@ -176,6 +176,46 @@ describe("/questionnaire routes", () => {
     expect(savedQuestionnaire.dnpId).toBe(questionnaire.dnpId);
     expect(savedQuestionnaire.schema_version).toBe(schema_version + 1);
   });
+
+  it("will not edit a questionniare with an approved label", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "gonna approve this one";
+
+    const label = await labelService.addLabel({
+      ...questionnaire,
+      status: "APPROVED",
+      _id: Math.random(),
+    });
+    expect(label).toBeDefined();
+    labelsToDelete.push(label.insertedId);
+
+    const response = await request(app)
+      .post(`/questionnaire?id=${questionnaire.dnpId}`)
+      .send(questionnaire)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(405);
+  });
+
+  it("will not edit a questionniare with an in review label", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "gonna 'in review' this one for testing";
+
+    const label = await labelService.addLabel({
+      ...questionnaire,
+      status: "IN REVIEW",
+      _id: Math.random(),
+    });
+    expect(label).toBeDefined();
+    labelsToDelete.push(label.insertedId);
+
+    const response = await request(app)
+      .post(`/questionnaire?id=${questionnaire.dnpId}`)
+      .send(questionnaire)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(405);
+  });
 });
 
 const dummyTemplate = () => ({

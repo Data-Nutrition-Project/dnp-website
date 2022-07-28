@@ -206,37 +206,31 @@ describe("questionnaires controller", () => {
     let questionnaire = dummyQuestionnaire();
     questionnaire.dnpId = "gonna approve this one";
 
-    const savedQuestionnaireOne =
-      await questionnairesController.saveQuestionnaire(questionnaire);
-    questionnairesToDelete.push(savedQuestionnaireOne._id);
+    questionnaire.status = "APPROVED";
+    const label = await labelService.addLabel(questionnaire);
+    expect(label).toBeDefined();
+    labelsToDelete.push(label.insertedId);
 
-    questionnaire.status = "APPROVED"
-    const approvedLabel = await labelService.addLabel(questionnaire);
-    expect(approvedLabel).toBeDefined();
-    labelsToDelete.push(approvedLabel.insertedId);
-
-    const failedSave =
-      await questionnairesController.saveQuestionnaire(questionnaire);
-    expect(failedSave).toBe(null)
-  })
+    const failedSave = await questionnairesController.saveQuestionnaire(
+      questionnaire
+    );
+    expect(failedSave).toBe(null);
+  });
 
   it("will not edit a questionniare with an in review label", async () => {
     let questionnaire = dummyQuestionnaire();
     questionnaire.dnpId = "gonna 'in review' this one";
 
-    const savedQuestionnaireOne =
-      await questionnairesController.saveQuestionnaire(questionnaire);
-    questionnairesToDelete.push(savedQuestionnaireOne._id);
+    questionnaire.status = "IN REVIEW";
+    const label = await labelService.addLabel(questionnaire);
+    expect(label).toBeDefined();
+    labelsToDelete.push(label.insertedId);
 
-    questionnaire.status = "IN REVIEW"
-    const approvedLabel = await labelService.addLabel(questionnaire);
-    expect(approvedLabel).toBeDefined();
-    labelsToDelete.push(approvedLabel.insertedId);
-
-    const failedSave =
-      await questionnairesController.saveQuestionnaire(questionnaire);
-    expect(failedSave).toBe(null)
-  })
+    const failedSave = await questionnairesController.saveQuestionnaire(
+      questionnaire
+    );
+    expect(failedSave).toBe(null);
+  });
 });
 
 const dummyQuestionnaire = () => ({
