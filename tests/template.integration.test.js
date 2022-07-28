@@ -46,28 +46,26 @@ describe("/template routes", () => {
 
   it("adds to the database with POST", async () => {
     const dummy = {
-      version: 247,
       questionnaire: [],
-      status: "draft",
     };
 
     const response = await request(app)
       .post("/template")
       .send(dummy)
       .set("Content-Type", "application/json")
-      .set("Accept", "application/json");
+      .set("Accept", "application/json")
+      .expect(200);
 
-    const id = new ObjectID(response.body.id);
-    templatesToDelete.push(id);
+    expect(response.body._id).toBeDefined();
+    expect(response.body.questionnaire).toBeDefined();
 
-    expect(response.status).toEqual(200);
-    expect(response.body.id).toBeDefined();
+    const _id = new ObjectID(response.body._id);
+    templatesToDelete.push(_id);
 
-    const foundTemplate = await templateService.getTemplate(id);
+    const foundTemplate = await templateService.getTemplate(_id);
 
-    expect(foundTemplate._id).toEqual(id);
+    expect(foundTemplate._id).toEqual(_id);
     expect(foundTemplate.questions).toEqual(dummy.questions);
-    expect(foundTemplate.version).toEqual(dummy.version);
   });
 
   it("gets an existing one with GET", async () => {
@@ -80,7 +78,6 @@ describe("/template routes", () => {
     );
     expect(foundTemplate._id).toEqual(addedTemplate.insertedId);
     expect(foundTemplate.questions).toEqual(dummy.questions);
-    expect(foundTemplate.version).toEqual(dummy.version);
 
     const response = await request(app)
       .get(`/template?id=${addedTemplate.insertedId}`)
@@ -114,7 +111,5 @@ describe("/template routes", () => {
 });
 
 const dummyTemplate = () => ({
-  version: 3,
   questionnaire: ["how much chuck could a would chuck chuck?"],
-  status: "draft",
 });

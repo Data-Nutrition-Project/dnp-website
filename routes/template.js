@@ -1,29 +1,33 @@
 const { ObjectID } = require("mongodb");
+const { body, validationResult } = require("express-validator");
 
 exports.TemplatesRouter = (app, templateService) => {
   /*
   @params
     templateObject :: body - template that gets inserted into database
+      shaped like { questionnaire: [] }
   @desc
     This route will accept a template through a POST body and insert it into
-      the database after validating the attributes of the object
+      the database
   @return
-    idObject :: shaped like { id: _id }
+    newTemplateObject :: shaped like { _id, questionnaire }
   */
-  app.post("/template", async (req, res) => {
-    try {
-      const template = templateService.validateTemplate(req.body);
-      if (!template) {
-        res.status(400).send({
-          message: `Could not accept template :: ${req.body}`,
-        });
-      } else {
-        const newTemplate = await templateService.addTemplate(template);
+  app.post("/template", body("questionnaire").exists(), async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-        res.status(200).send({
-          id: newTemplate.insertedId,
-        });
-      }
+    try {
+      const { questionnaire } = req.body;
+      const template = {
+        questionnaire,
+      };
+
+      const newTemplate = await templateService.addTemplate(template);
+      template._id = newTemplate.insertedId;
+
+      res.status(200).send(template);
     } catch (err) {
       res.status(500).send({
         message: `Error creating template`,
@@ -34,20 +38,21 @@ exports.TemplatesRouter = (app, templateService) => {
 
   /*
   @params
-    id :: queryParam - id of the template to be fetched from database
+    id :: queryParam (optional)
   @desc
-    This route will take an id of a template and get it from the database
+    This route will accept an mongo id of a template and get it from the database,
+      newest template if no id is provided
   @return
-    templateObject - the template with the given _id
+    templateObject
   */
   app.get("/template", async (req, res) => {
     try {
       let foundTemplate = null;
 
       if (req.query.id) {
-        foundTemplate = await templateService.getTemplate(
-          new ObjectID(req.query.id)
-        );
+        // have to parse the raw string into mongo id
+        const id = new ObjectID(req.query.id);
+        foundTemplate = await templateService.getTemplate(id);
       } else {
         foundTemplate = await templateService.getNewestTemplate();
       }

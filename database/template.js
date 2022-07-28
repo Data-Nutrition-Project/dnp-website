@@ -4,7 +4,6 @@
 class TemplateService {
   constructor(templatesCollection) {
     this.templatesCollection = templatesCollection;
-    this.requiredAttributes = ["status", "questionnaire", "version"];
   }
 
   /*
@@ -32,26 +31,6 @@ class TemplateService {
   */
   getTemplate(templateId) {
     return this.templatesCollection.findOne({ _id: templateId });
-  }
-
-  /*
-  @params
-    templateObject :: object - template to be verified
-  @desc
-    This method will validate whether the proper attributes are in place
-  @return
-    null if invalid, templateObject param if valid
-  */
-  validateTemplate(templateObject) {
-    const matches = this.requiredAttributes.filter(
-      (d) => !(d in templateObject)
-    );
-
-    if (matches.length) {
-      return null;
-    } else {
-      return templateObject;
-    }
   }
 
   /*
