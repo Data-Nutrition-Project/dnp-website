@@ -7,7 +7,7 @@ class LabelController {
 
   async submitLabel(questionnaireObject) {
     const clonedQuestionnaire = JSON.parse(JSON.stringify(questionnaireObject));
-    
+
     // this needs to be a valid id
     const questionnaire =
       await this.questionnaireService.getNewestQuestionnaire(
@@ -25,9 +25,10 @@ class LabelController {
       return null;
     }
 
-
     clonedQuestionnaire.status = "IN REVIEW";
-    clonedQuestionnaire.schema_version = pastLabel ? pastLabel.schema_version : 0;
+    clonedQuestionnaire.schema_version = pastLabel
+      ? pastLabel.schema_version
+      : 0;
     const savedLabel = await this.saveLabel(clonedQuestionnaire);
     return savedLabel;
   }

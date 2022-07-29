@@ -180,7 +180,6 @@ describe("DNP API", () => {
       .expect(200);
     expect(newestQuestionnaireResponse.body.schema_version).toBe(2);
 
-
     //
     // We are ready to submit!
     //
@@ -202,7 +201,6 @@ describe("DNP API", () => {
       .set("Accept", "application/json")
       .expect(405);
 
-
     //
     // Ah it turns out we need to make changes
     //
@@ -211,16 +209,20 @@ describe("DNP API", () => {
       .expect(200);
     labelsToDelete.push(new ObjectID(needsChangesResponse.body._id));
     expect(needsChangesResponse.body.status).toBe("CHANGES REQUESTED");
-    
+
     // this is our change
-    questionnaireToBeSubmitted.questionnaire.push("Okay, maybe this is better?")
+    questionnaireToBeSubmitted.questionnaire.push(
+      "Okay, maybe this is better?"
+    );
     const changedQuestionnaireResults = await request(app)
       .post(`/questionnaire?id=${questionnaireToBeSubmitted.dnpId}`)
       .send(questionnaireToBeSubmitted)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
       .expect(200);
-    questionnairesToDelete.push(new ObjectID(changedQuestionnaireResults.body._id))
+    questionnairesToDelete.push(
+      new ObjectID(changedQuestionnaireResults.body._id)
+    );
     const changedQuestionnaire = changedQuestionnaireResults.body;
 
     //
@@ -252,14 +254,16 @@ describe("DNP API", () => {
     expect(needsChangesResponseTwo.body.status).toBe("CHANGES REQUESTED");
 
     // this is our second change requested
-    changedQuestionnaire.questionnaire.push("How much more?")
+    changedQuestionnaire.questionnaire.push("How much more?");
     const changedQuestionnaireResultsTwo = await request(app)
       .post(`/questionnaire?id=${questionnaireToBeSubmitted.dnpId}`)
       .send(questionnaireToBeSubmitted)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
       .expect(200);
-    questionnairesToDelete.push(new ObjectID(changedQuestionnaireResultsTwo.body._id))
+    questionnairesToDelete.push(
+      new ObjectID(changedQuestionnaireResultsTwo.body._id)
+    );
     const changedQuestionnaireTwo = changedQuestionnaireResultsTwo.body;
 
     const submittionResultsFinal = await request(app)

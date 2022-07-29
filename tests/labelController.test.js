@@ -122,7 +122,6 @@ describe("labels controller", () => {
     expect(submittedLabelResults).toBeDefined();
     expect(submittedLabelResults.schema_version).toBe(1);
 
-
     const foundLabelSubmitted = await labelService.getNewestLabel(
       savedQuestionnaire.dnpId
     );
@@ -133,7 +132,6 @@ describe("labels controller", () => {
     );
     expect(approvedLabelResults).toBeDefined();
     expect(approvedLabelResults.schema_version).toBe(2);
-
 
     const foundLabelApproved = await labelService.getNewestLabel(
       savedQuestionnaire.dnpId
@@ -175,7 +173,6 @@ describe("labels controller", () => {
     expect(submittedLabelResults).toBeDefined();
     expect(submittedLabelResults.schema_version).toBe(1);
 
-
     const foundLabelSubmitted = await labelService.getNewestLabel(
       savedQuestionnaire.dnpId
     );
@@ -186,7 +183,6 @@ describe("labels controller", () => {
     );
     expect(requestedLabelResults).toBeDefined();
     expect(requestedLabelResults.schema_version).toBe(2);
-
 
     const foundLabelRequested = await labelService.getNewestLabel(
       savedQuestionnaire.dnpId
