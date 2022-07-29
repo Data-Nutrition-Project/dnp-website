@@ -71,7 +71,7 @@ describe("labels controller", () => {
     const labelOne = await labelService.getLabel(labelInserted.insertedId);
     labelsToDelete.push(labelOne._id);
     expect(labelOne).toBeDefined();
-    expect(labelOne.schema_version).not.toBeDefined();
+    expect(labelOne.schema_version).toBe(1);
 
     // they save for the first time
     const savedLabelTwo = await labelsController.saveLabel(labelOne);
@@ -120,6 +120,8 @@ describe("labels controller", () => {
       savedQuestionnaire
     );
     expect(submittedLabelResults).toBeDefined();
+    expect(submittedLabelResults.schema_version).toBe(1);
+
 
     const foundLabelSubmitted = await labelService.getNewestLabel(
       savedQuestionnaire.dnpId
@@ -130,6 +132,8 @@ describe("labels controller", () => {
       savedQuestionnaire.dnpId
     );
     expect(approvedLabelResults).toBeDefined();
+    expect(approvedLabelResults.schema_version).toBe(2);
+
 
     const foundLabelApproved = await labelService.getNewestLabel(
       savedQuestionnaire.dnpId
@@ -169,6 +173,8 @@ describe("labels controller", () => {
       savedQuestionnaire
     );
     expect(submittedLabelResults).toBeDefined();
+    expect(submittedLabelResults.schema_version).toBe(1);
+
 
     const foundLabelSubmitted = await labelService.getNewestLabel(
       savedQuestionnaire.dnpId
@@ -179,6 +185,8 @@ describe("labels controller", () => {
       savedQuestionnaire.dnpId
     );
     expect(requestedLabelResults).toBeDefined();
+    expect(requestedLabelResults.schema_version).toBe(2);
+
 
     const foundLabelRequested = await labelService.getNewestLabel(
       savedQuestionnaire.dnpId
@@ -212,6 +220,7 @@ describe("labels controller", () => {
 const dummyLabel = () => ({
   version: 8675309,
   questionnaire: [],
+  schema_version: 1,
   status: "APPROVED",
   reason: "big ups ya?",
   title: "Rob",

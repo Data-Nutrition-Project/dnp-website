@@ -2,19 +2,33 @@ class LabelController {
   constructor(labelService, questionnaireService) {
     this.labelService = labelService;
     this.questionnaireService = questionnaireService;
+    this.lockedStates = ["APPROVED", "IN REVIEW"];
   }
 
   async submitLabel(questionnaireObject) {
+    const clonedQuestionnaire = JSON.parse(JSON.stringify(questionnaireObject));
+    
+    // this needs to be a valid id
     const questionnaire =
       await this.questionnaireService.getNewestQuestionnaire(
-        questionnaireObject.dnpId
+        clonedQuestionnaire.dnpId
       );
     if (!questionnaire) {
       return null;
     }
 
-    questionnaireObject.status = "IN REVIEW";
-    const savedLabel = await this.saveLabel(questionnaireObject);
+    // cant submit if you arent supposed to
+    const pastLabel = await this.labelService.getNewestLabel(
+      clonedQuestionnaire.dnpId
+    );
+    if (pastLabel && this.lockedStates.includes(pastLabel.status)) {
+      return null;
+    }
+
+
+    clonedQuestionnaire.status = "IN REVIEW";
+    clonedQuestionnaire.schema_version = pastLabel ? pastLabel.schema_version : 0;
+    const savedLabel = await this.saveLabel(clonedQuestionnaire);
     return savedLabel;
   }
 
@@ -64,11 +78,7 @@ class LabelController {
       delete clonedLabel._id;
     }
 
-    if (clonedLabel.schema_version) {
-      clonedLabel.schema_version += 1;
-    } else {
-      clonedLabel.schema_version = 2;
-    }
+    clonedLabel.schema_version += 1;
 
     // saving the date of the time we added this version
     clonedLabel.savedDate = new Date();

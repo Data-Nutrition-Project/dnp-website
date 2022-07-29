@@ -115,10 +115,9 @@ describe("/label routes", () => {
     const foundLabel = await labelService.getNewestLabel(
       newQuestionnaire.dnpId
     );
+    labelsToDelete.push(foundLabel._id);
 
     expect(foundLabel.status).toBe("IN REVIEW");
-
-    labelsToDelete.push(foundLabel._id);
   });
 
   it("can approve a label", async () => {
@@ -153,7 +152,7 @@ describe("/label routes", () => {
     labelsToDelete.push(foundLabel._id);
   });
 
-  it("can approve a label", async () => {
+  it("can request changes for a label", async () => {
     const dummyQuestionnaire = {
       version: 444,
       questions: ["what say you?"],
