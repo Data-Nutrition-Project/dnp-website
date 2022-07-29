@@ -163,35 +163,6 @@ describe("questionnaires controller", () => {
     expect(questionnaireTwo._id).not.toBe(questionnaire._id);
   });
 
-  // create a new questionnaire
-  // save it twice
-  // get the most recent version
-  it("can find the most recent questionnaire", async () => {
-    let questionnaire = dummyQuestionnaire();
-    questionnaire.dnpId = "even more unique??";
-    // initial insert, like when a user starts a questionnaire
-    const questionnaireInserted = await questionnaireService.addQuestionnaire(
-      questionnaire
-    );
-    questionnairesToDelete.push(questionnaireInserted.insertedId);
-    questionnaire._id = questionnaireInserted.insertedId;
-
-    // they save for the first time
-    const savedQuestionnaireOne =
-      await questionnairesController.saveQuestionnaire(questionnaire);
-    questionnairesToDelete.push(savedQuestionnaireOne._id);
-    // they save for the second time
-    const savedQuestionnaireTwo =
-      await questionnairesController.saveQuestionnaire(questionnaire);
-    questionnairesToDelete.push(savedQuestionnaireTwo._id);
-
-    const mostRecentQuestionnaire =
-      await questionnairesController.getNewestQuestionnaire(
-        questionnaire.dnpId
-      );
-    expect(mostRecentQuestionnaire.schema_version).toBe(2);
-  });
-
   // look for a made up template id
   // confirm that it is null
   it("will not find a made up template", async () => {

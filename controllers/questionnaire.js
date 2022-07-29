@@ -82,12 +82,6 @@ class QuestionnaireController {
 
     return questionnaireObject;
   }
-
-  async getNewestQuestionnaire(questionnaireDnpId) {
-    return await this.questionnaireService.getNewestQuestionnaire(
-      questionnaireDnpId
-    );
-  }
 }
 
 exports.QuestionnaireController = QuestionnaireController;
