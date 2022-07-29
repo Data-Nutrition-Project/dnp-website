@@ -185,10 +185,11 @@ describe("/label routes", () => {
 });
 
 const dummyQuestionnaire = () => ({
-  _id: "abcdefghijk",
-  schema_version: 444,
-  savedDate: new Date(),
-  questions: ["what say you?"],
-  reason: "thinking about it",
-  title: "Jimmy",
+  questionnaire: ["testing1234"],
+  _id: "testing1234",
+  schema_version: 3,
+  title: "testing1234",
+  reason: "testing1234",
+  dnpId: "testing1234",
+  savedDate: "testing1234",
 });

@@ -14,21 +14,21 @@ exports.LabelsRouter = (app, labelController, labelService) => {
         { _id, status, version, labelReason, questionnaire, title, dnpId, schema_version }
   */
   app.get("/label", async (req, res) => {
-    //try {
-    const foundLabel = await labelService.getNewestLabel(req.query.id);
-    if (!foundLabel) {
-      res.status(404).send({
-        message: `Could not find label with id :: ${req.query.id}`,
+    try {
+      const foundLabel = await labelService.getNewestLabel(req.query.id);
+      if (!foundLabel) {
+        res.status(404).send({
+          message: `Could not find label with id :: ${req.query.id}`,
+        });
+      } else {
+        res.status(200).send(foundLabel);
+      }
+    } catch (err) {
+      res.status(500).send({
+        message: `Error getting label`,
+        error: err,
       });
-    } else {
-      res.status(200).send(foundLabel);
     }
-    // } catch (err) {
-    //   res.status(500).send({
-    //     message: `Error getting label`,
-    //     error: err,
-    //   });
-    // }
   });
 
   /*
@@ -39,17 +39,31 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/label/submit", async (req, res) => {
-    //try {
-    const results = await labelController.submitLabel(req.body);
-    res.status(200).send(results);
-    // } catch (err) {
-    //   res.status(500).send({
-    //     message: `Error submitting label`,
-    //     error: err,
-    //   });
-    // }
-  });
+  app.post(
+    "/label/submit",
+    body("questionnaire").isArray(),
+    body("_id").isString(),
+    body("schema_version").isNumeric(),
+    body("title").isString(),
+    body("reason").isString(),
+    body("dnpId").isString(),
+    body("savedDate").isString(),
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+      try {
+        const results = await labelController.submitLabel(req.body);
+        res.status(200).send(results);
+      } catch (err) {
+        res.status(500).send({
+          message: `Error submitting label`,
+          error: err,
+        });
+      }
+    }
+  );
 
   /*
   @params
@@ -60,21 +74,21 @@ exports.LabelsRouter = (app, labelController, labelService) => {
     TBD
   */
   app.post("/label/approve", async (req, res) => {
-    // try {
-    const results = await labelController.approveLabel(req.query.id);
-    if (!results) {
-      res.status(404).send({
-        message: `Could not approve label with id :: ${req.query.id}`,
+    try {
+      const results = await labelController.approveLabel(req.query.id);
+      if (!results) {
+        res.status(404).send({
+          message: `Could not approve label with id :: ${req.query.id}`,
+        });
+      } else {
+        res.status(200).send(results);
+      }
+    } catch (err) {
+      res.status(500).send({
+        message: `Error approving label`,
+        error: err,
       });
-    } else {
-      res.status(200).send(results);
     }
-    // } catch (err) {
-    //   res.status(500).send({
-    //     message: `Error approving label`,
-    //     error: err,
-    //   });
-    // }
   });
 
   /*
@@ -86,20 +100,22 @@ exports.LabelsRouter = (app, labelController, labelService) => {
     TBD
   */
   app.post("/label/changes", async (req, res) => {
-    // try {
-    const results = await labelController.requestChangesForLabel(req.query.id);
-    if (!results) {
-      res.status(404).send({
-        message: `Could not request changes for label with id :: ${req.query.id}`,
+    try {
+      const results = await labelController.requestChangesForLabel(
+        req.query.id
+      );
+      if (!results) {
+        res.status(404).send({
+          message: `Could not request changes for label with id :: ${req.query.id}`,
+        });
+      } else {
+        res.status(200).send(results);
+      }
+    } catch (err) {
+      res.status(500).send({
+        message: `Error requesting changes label`,
+        error: err,
       });
-    } else {
-      res.status(200).send(results);
     }
-    // } catch (err) {
-    //   res.status(500).send({
-    //     message: `Error requesting changes label`,
-    //     error: err,
-    //   });
-    // }
   });
 };
