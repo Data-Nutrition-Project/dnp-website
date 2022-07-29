@@ -40,4 +40,11 @@ TEST_DB_URL=mongodb://localhost:27017/dnp-test
 1. `POST /new-questionnaire` with body => { id, reason, title }
 1. `POST /questionnaire` with body => { questionnaire, title, reason, dnpId, schema_version, _id, savedDate }
 1. Repeat last step until the questionnaire is done
-
+1. `POST /label` with body => { questionnaire, title, reason, dnpId, schema_version, _id, savedDate } to submit the label
+1. `POST /questionnaire` is locked
+1. `POST /label/changes?id=dnpId` requests changes for the given label
+1. `POST /questionnaire` with body => { questionnaire, title, reason, dnpId, schema_version, _id, savedDate }
+1. Repeat last step until the questionnaire is done
+1. `POST /label` with body => { questionnaire, title, reason, dnpId, schema_version, _id, savedDate } to submit the label again
+1. `POST /label/approve?id=dnpId` approves the given label
+1. `POST /questionnaire` is locked
