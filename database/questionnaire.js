@@ -3,7 +3,7 @@
 // nice clean way to abstract away our db details
 class QuestionnaireService {
   constructor(questionnairesCollection) {
-    this.questionnairesCollection = questionnairesCollection
+    this.questionnairesCollection = questionnairesCollection;
   }
 
   /*
@@ -17,7 +17,7 @@ class QuestionnaireService {
       was inserted under
   */
   addQuestionnaire(questionnaireObject) {
-    return this.questionnairesCollection.insertOne(questionnaireObject)
+    return this.questionnairesCollection.insertOne(questionnaireObject);
   }
 
   /*
@@ -30,7 +30,7 @@ class QuestionnaireService {
     questionnaire object - singular questionnaire that has the given _id
   */
   getQuestionnaire(questionnaireId) {
-    return this.questionnairesCollection.findOne({_id: questionnaireId})
+    return this.questionnairesCollection.findOne({ _id: questionnaireId });
   }
 
   /*
@@ -44,7 +44,7 @@ class QuestionnaireService {
       with the highest schema version
   */
   getQuestionnaireByDnpId(questionnaireDnpId) {
-    return this.questionnairesCollection.findOne({dnpId: questionnaireDnpId})
+    return this.questionnairesCollection.findOne({ dnpId: questionnaireDnpId });
   }
 
   /*
@@ -57,9 +57,11 @@ class QuestionnaireService {
     questionnaire object - singular questionnaire that has the given dnp id
   */
   getNewestQuestionnaire(questionnaireDnpId) {
-    return this.questionnairesCollection
-      .findOne({dnpId: questionnaireDnpId}, {sort: { schema_version: -1 }})
+    return this.questionnairesCollection.findOne(
+      { dnpId: questionnaireDnpId },
+      { sort: { schema_version: -1 } }
+    );
   }
 }
 
-exports.QuestionnaireService = QuestionnaireService
+exports.QuestionnaireService = QuestionnaireService;

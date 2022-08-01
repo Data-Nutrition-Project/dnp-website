@@ -12,4 +12,4 @@ exports.connect = async (uri) => {
     await client.close();
   }
   return client;
-}
+};
