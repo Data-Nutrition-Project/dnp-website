@@ -126,7 +126,7 @@ describe("questionnaires service", () => {
 });
 
 const dummyQuestionnaire = () => ({
-  version: 1,
   questions: [],
-  status: "draft",
+  title: "Titular",
+  reason: "Reasonable",
 });

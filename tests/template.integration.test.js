@@ -45,29 +45,25 @@ describe("/template routes", () => {
   });
 
   it("adds to the database with POST", async () => {
-    const dummy = {
-      version: 247,
-      questionnaire: [],
-      status: "draft",
-    };
+    const dummy = dummyTemplate();
 
     const response = await request(app)
       .post("/template")
       .send(dummy)
       .set("Content-Type", "application/json")
-      .set("Accept", "application/json");
+      .set("Accept", "application/json")
+      .expect(200);
 
-    const id = new ObjectID(response.body.id);
-    templatesToDelete.push(id);
+    expect(response.body._id).toBeDefined();
+    expect(response.body.questionnaire).toBeDefined();
 
-    expect(response.status).toEqual(200);
-    expect(response.body.id).toBeDefined();
+    const _id = new ObjectID(response.body._id);
+    templatesToDelete.push(_id);
 
-    const foundTemplate = await templateService.getTemplate(id);
+    const foundTemplate = await templateService.getTemplate(_id);
 
-    expect(foundTemplate._id).toEqual(id);
+    expect(foundTemplate._id).toEqual(_id);
     expect(foundTemplate.questions).toEqual(dummy.questions);
-    expect(foundTemplate.version).toEqual(dummy.version);
   });
 
   it("gets an existing one with GET", async () => {
@@ -80,13 +76,12 @@ describe("/template routes", () => {
     );
     expect(foundTemplate._id).toEqual(addedTemplate.insertedId);
     expect(foundTemplate.questions).toEqual(dummy.questions);
-    expect(foundTemplate.version).toEqual(dummy.version);
 
     const response = await request(app)
       .get(`/template?id=${addedTemplate.insertedId}`)
       .expect(200);
 
-    expect(response.body.version).toBe(dummy.version);
+    expect(response.body.questionnaire).toStrictEqual(dummy.questionnaire);
   });
 
   it("gets the most recent template with GET", async () => {
@@ -111,10 +106,31 @@ describe("/template routes", () => {
   it("wont find an imaginary template", (done) => {
     request(app).get(`/template?id=baddabbaddabbaddabbaddab`).expect(404, done);
   });
+
+  it("can insert with POST and find with GET", async () => {
+    const dummy = dummyTemplate();
+
+    const responsePost = await request(app)
+      .post("/template")
+      .send(dummy)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(200);
+
+    expect(responsePost.body._id).toBeDefined();
+    expect(responsePost.body.questionnaire).toBeDefined();
+
+    const _id = new ObjectID(responsePost.body._id);
+    templatesToDelete.push(_id);
+
+    const responseGet = await request(app)
+      .get(`/template?id=${responsePost.body._id}`)
+      .expect(200);
+
+    expect(responseGet.body.questionnaire).toStrictEqual(dummy.questionnaire);
+  })
 });
 
 const dummyTemplate = () => ({
-  version: 3,
   questionnaire: ["how much chuck could a would chuck chuck?"],
-  status: "draft",
 });

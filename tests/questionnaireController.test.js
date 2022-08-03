@@ -55,14 +55,17 @@ describe("questionnaires controller", () => {
   // get a questionnaire from that id
   // affirm the return and the db make sense
   it("can start a new questionnaire", async () => {
+    const title = "meh";
+    const reason = "what do you want from me";
+
     const template = await templateService.addTemplate(dummyTemplate());
     templatesToDelete.push(template.insertedId);
 
     const newQuestionnaire =
       await questionnairesController.createQuestionnaireFromTemplate(
         template.insertedId,
-        "meh",
-        "what do you want from me"
+        title,
+        reason
       );
     questionnairesToDelete.push(newQuestionnaire._id);
 
@@ -71,8 +74,10 @@ describe("questionnaires controller", () => {
     expect(newQuestionnaire._id).toBeDefined();
     expect(newQuestionnaire._id).not.toBe(template.insertedId);
     expect(newQuestionnaire.dnpId).toBeDefined();
-    expect(newQuestionnaire.title).toBeDefined();
-    expect(newQuestionnaire.labelReason).toBeDefined();
+    expect(newQuestionnaire.title).toBe(title);
+    expect(newQuestionnaire.reason).toBe(reason);
+    expect(newQuestionnaire.savedDate).toBeDefined();
+    expect(newQuestionnaire.schema_version).toBe(0);
 
     // make sure out db feels the same way
     const questionnaire = await questionnaireService.getQuestionnaire(
@@ -81,49 +86,96 @@ describe("questionnaires controller", () => {
     expect(questionnaire).toBeDefined();
     expect(questionnaire._id).toBeDefined();
     expect(questionnaire.dnpId).toBeDefined();
+    expect(questionnaire.savedDate).toBeDefined();
     expect(questionnaire.title).toBeDefined();
-    expect(questionnaire.labelReason).toBeDefined();
+    expect(questionnaire.reason).toBeDefined();
+    expect(questionnaire.schema_version).toBeDefined();
   });
 
-  // create a new template
-  // save it the first time without a version
-  // save it again with the controller to initialize the version
-  // save it third time to bump the version
+  // create a new questionnaire
+  // save it twice
+  // make sure the schema version gets bumped
   it("can save a questionnaire properly with schema versioning", async () => {
+    let questionnaire = dummyQuestionnaire();
+    const schema_version = 0;
+    questionnaire.schema_version = schema_version
     // initial insert, like when a user starts a questionnaire
     const questionnaireInserted = await questionnaireService.addQuestionnaire(
-      dummyQuestionnaire()
+      questionnaire
     );
-    const questionnaireOne = await questionnaireService.getQuestionnaire(
-      questionnaireInserted.insertedId
-    );
-    questionnairesToDelete.push(questionnaireOne._id);
-    expect(questionnaireOne).toBeDefined();
-    expect(questionnaireOne.schema_version).not.toBeDefined();
+    questionnairesToDelete.push(questionnaireInserted.insertedId);
+    questionnaire._id = questionnaireInserted.insertedId;
 
     // they save for the first time
+    const savedQuestionnaireOne =
+      await questionnairesController.saveQuestionnaire(questionnaire);
+    questionnairesToDelete.push(savedQuestionnaireOne._id);
+
+    const questionnaireOne = await questionnaireService.getQuestionnaire(
+      savedQuestionnaireOne._id
+    );
+
+    // all fields need to be the same
+    expect(questionnaireOne.title).toBe(savedQuestionnaireOne.title);
+    expect(questionnaireOne.reason).toBe(savedQuestionnaireOne.reason);
+    expect(questionnaireOne.questionnaire).toStrictEqual(
+      savedQuestionnaireOne.questionnaire
+    );
+    expect(questionnaireOne.dnpId).toBe(savedQuestionnaireOne.dnpId);
+    expect(questionnaireOne.savedDate).toBeDefined();
+    expect(questionnaireOne.schema_version).toBe(schema_version + 1);
+    // and we want a different one
+    expect(questionnaireOne._id).not.toBe(questionnaire._id);
+
+    // they save for the second time
     const savedQuestionnaireTwo =
-      await questionnairesController.saveQuestionnaire(questionnaireOne);
+      await questionnairesController.saveQuestionnaire(questionnaire);
+    questionnairesToDelete.push(savedQuestionnaireTwo._id);
+
     const questionnaireTwo = await questionnaireService.getQuestionnaire(
       savedQuestionnaireTwo._id
     );
-    questionnairesToDelete.push(questionnaireTwo._id);
-    expect(questionnaireTwo).toBeDefined();
-    expect(questionnaireTwo.schema_version).toBeDefined();
-    expect(questionnaireTwo.schema_version).toBe(2);
-    expect(questionnaireTwo._id).not.toBe(questionnaireOne._id); // we want a different one
 
-    // they save for a second time
-    const savedQuestionnaireThree =
-      await questionnairesController.saveQuestionnaire(questionnaireTwo);
-    const questionnaireThree = await questionnaireService.getQuestionnaire(
-      savedQuestionnaireThree._id
+    // all fields need to be the same
+    expect(questionnaireTwo.title).toBe(savedQuestionnaireTwo.title);
+    expect(questionnaireTwo.reason).toBe(savedQuestionnaireTwo.reason);
+    expect(questionnaireTwo.questionnaire).toStrictEqual(
+      savedQuestionnaireTwo.questionnaire
     );
-    questionnairesToDelete.push(questionnaireThree._id);
-    expect(questionnaireThree).toBeDefined();
-    expect(questionnaireThree.schema_version).toBeDefined();
-    expect(questionnaireThree.schema_version).toBe(3);
-    expect(questionnaireThree._id).not.toBe(questionnaireTwo._id); // we want a different one
+    expect(questionnaireTwo.dnpId).toBe(savedQuestionnaireTwo.dnpId);
+    expect(questionnaireTwo.savedDate).toBeDefined();
+    expect(questionnaireTwo.schema_version).toBe(2);
+    // and we want a different one
+    expect(questionnaireTwo._id).not.toBe(questionnaire._id);
+  });
+
+  // create a new questionnaire
+  // save it twice
+  // get the most recent version
+  it("can find the most recent questionnaire", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "even more unique??";
+    // initial insert, like when a user starts a questionnaire
+    const questionnaireInserted = await questionnaireService.addQuestionnaire(
+      questionnaire
+    );
+    questionnairesToDelete.push(questionnaireInserted.insertedId);
+    questionnaire._id = questionnaireInserted.insertedId;
+
+    // they save for the first time
+    const savedQuestionnaireOne =
+      await questionnairesController.saveQuestionnaire(questionnaire);
+    questionnairesToDelete.push(savedQuestionnaireOne._id);
+    // they save for the second time
+    const savedQuestionnaireTwo =
+      await questionnairesController.saveQuestionnaire(questionnaire);
+    questionnairesToDelete.push(savedQuestionnaireTwo._id);
+
+    const mostRecentQuestionnaire =
+      await questionnairesController.getNewestQuestionnaire(
+        questionnaire.dnpId
+      );
+    expect(mostRecentQuestionnaire.schema_version).toBe(2);
   });
 
   // look for a made up template id
@@ -138,13 +190,13 @@ describe("questionnaires controller", () => {
 });
 
 const dummyQuestionnaire = () => ({
-  version: 8675309,
+  schema_version: 0,
   questionnaire: [],
-  status: "big ups ya?",
-  name: "Rob",
+  dnpId: "super unique id here",
+  reason: "well I guess this is good enough",
+  title: "this is it",
 });
+
 const dummyTemplate = () => ({
-  version: 8675310,
   questionnaire: [],
-  status: "down in front",
 });

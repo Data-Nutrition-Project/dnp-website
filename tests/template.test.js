@@ -27,24 +27,6 @@ describe("templates service", () => {
     );
   });
 
-  it("can validate a valid template", () => {
-    const template = dummyTemplate();
-    const templateValidated = templateService.validateTemplate(template);
-
-    expect(templateService.validateTemplate).toBeDefined();
-    expect(templateValidated).toEqual(template);
-  });
-
-  it("doesn't validate a invalid template", () => {
-    const template = {
-      version: 1,
-      bummy: true,
-    };
-    const templateValidated = templateService.validateTemplate(template);
-
-    expect(templateValidated).toBe(null);
-  });
-
   // add a template with our methods
   // look for it in the db
   // confirm it was there :)
@@ -102,7 +84,5 @@ describe("templates service", () => {
 });
 
 const dummyTemplate = () => ({
-  version: 1,
   questionnaire: [],
-  status: "draft",
 });

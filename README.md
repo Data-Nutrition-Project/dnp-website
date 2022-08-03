@@ -32,3 +32,12 @@ TEST_DB_URL=mongodb://localhost:27017/dnp-test
 - `POST /questionnaire`: Saves a questionnaire to the database, incrementing its schema_version. Returns the new questionnaire object.
 - `GET /questionnaire?id=...`: Gets the most recent version of a questionnaire with a given id.
 - `GET /new-questionnaire?id=...`: Gets an empty template of a given id to be used as a questionnaire.
+
+## Full Flow
+
+1. `POST /template` with body => { questoinnaire }
+1. `GET /template` returns most recent template
+1. `POST /new-questionnaire` with body => { id, reason, title }
+1. `POST /questionnaire` with body => { questionnaire, title, reason, dnpId, schema_version, _id, savedDate }
+1. Repeat last step until the questionnaire is done
+

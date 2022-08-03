@@ -65,7 +65,6 @@ describe("DNP API", () => {
   // save it 2 times with post
   // get the max version with get
   it("can go through the flow of templates and questionnaires", async () => {
-    const name = "Jimmy";
     //
     // we need a template to start off with
     //
@@ -76,13 +75,15 @@ describe("DNP API", () => {
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
       .expect(200);
-    const templateId = new ObjectID(templateResponse.body.id);
+    const templateId = new ObjectID(templateResponse.body._id);
     templatesToDelete.push(templateId);
 
     // make sure we can find it in the db
     const foundTemplate = await request(app)
-      .get(`/template?id=${templateResponse.body.id}`)
+      .get(`/template?id=${templateResponse.body._id}`)
       .expect(200);
+    expect(foundTemplate).toBeDefined()
+    expect(foundTemplate.body).toEqual(templateResponse.body)
 
     //
     // start a new empty questionnaire with that template
@@ -90,8 +91,8 @@ describe("DNP API", () => {
     const newQuestionnaireResponse = await request(app)
       .post(`/new-questionnaire`)
       .send({
-        id: templateResponse.body.id,
-        title: name,
+        id: foundTemplate.body._id,
+        title: "HG's cool data",
         reason: "I wanted to!!!",
       })
       .expect(200);
@@ -103,7 +104,13 @@ describe("DNP API", () => {
       .get(`/questionnaire?id=${newQuestionnaireResponse.body.dnpId}`)
       .expect(200);
     const workingQuestionnaire = foundNewQuestionnaire.body;
-    expect(workingQuestionnaire.schema_version).not.toBeDefined();
+    expect(workingQuestionnaire.schema_version).toBe(0);
+    expect(workingQuestionnaire.questionnaire).toBeDefined();
+    expect(workingQuestionnaire._id).toBeDefined();
+    expect(workingQuestionnaire.title).toBeDefined();
+    expect(workingQuestionnaire.reason).toBeDefined();
+    expect(workingQuestionnaire.dnpId).toBeDefined();
+    expect(workingQuestionnaire.savedDate).toBeDefined();
 
     //
     // let's fill out some questions
@@ -117,7 +124,7 @@ describe("DNP API", () => {
       .expect(200);
     const firstSavedId = new ObjectID(firstSavedQuestionnaireResponse.body._id);
     questionnairesToDelete.push(firstSavedId);
-    expect(firstSavedQuestionnaireResponse.body.schema_version).toBe(2);
+    expect(firstSavedQuestionnaireResponse.body.schema_version).toBe(1);
     // need to update our model to keep track of important info the api tells us
     workingQuestionnaire._id = firstSavedId;
     workingQuestionnaire.schema_version =
@@ -137,7 +144,7 @@ describe("DNP API", () => {
       secondSavedQuestionnaireResponse.body._id
     );
     questionnairesToDelete.push(secondSavedId);
-    expect(secondSavedQuestionnaireResponse.body.schema_version).toBe(3);
+    expect(secondSavedQuestionnaireResponse.body.schema_version).toBe(2);
 
     // need to update our model to keep track of important info the api tells us
     workingQuestionnaire._id = secondSavedId;
@@ -150,12 +157,10 @@ describe("DNP API", () => {
     const newestQuestionnaireResponse = await request(app)
       .get(`/questionnaire?id=${newQuestionnaireResponse.body.dnpId}`)
       .expect(200);
-    expect(newestQuestionnaireResponse.body.schema_version).toBe(3);
+    expect(newestQuestionnaireResponse.body.schema_version).toBe(2);
   });
 });
 
 const dummyTemplate = () => ({
-  version: 444,
   questionnaire: ["what say you?"],
-  status: "thinking about it",
 });
