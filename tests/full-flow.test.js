@@ -2,13 +2,16 @@ require("dotenv").config();
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
+
 const { TemplateService } = require("../database/template.js");
 const { QuestionnaireService } = require("../database/questionnaire.js");
-
+const { LabelService } = require("../database/label.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
+const { LabelController } = require("../controllers/label.js");
 
 const { QuestionnairesRouter } = require("../routes/questionnaire.js");
 const { TemplatesRouter } = require("../routes/template.js");
+const { LabelsRouter } = require("../routes/label.js");
 
 const request = require("supertest");
 const express = require("express");
@@ -20,29 +23,42 @@ let templateService;
 let templatesCollection;
 
 let questionnaireService;
-let questionnaresCollection;
+let questionnairesCollection;
+
+let labelsCollection;
+let labelService;
+let labelController;
+
 let questionnaireController;
 
 const templatesToDelete = [];
 const questionnairesToDelete = [];
+const labelsToDelete = [];
 
 describe("DNP API", () => {
   beforeAll(async () => {
     const client = await connect(process.env.TEST_DB_URL).catch(console.dir);
     await client.connect();
     const database = client.db("dnp-test");
+
     templatesCollection = database.collection("templates");
     questionnairesCollection = database.collection("questionnaires");
+
+    labelsCollection = database.collection("labels");
+    labelService = new LabelService(labelsCollection);
 
     templateService = new TemplateService(templatesCollection);
     questionnaireService = new QuestionnaireService(questionnairesCollection);
     questionnaireController = new QuestionnaireController(
       questionnaireService,
-      templateService
+      templateService,
+      labelService
     );
+    labelController = new LabelController(labelService, questionnaireService);
 
     QuestionnairesRouter(app, questionnaireController, questionnaireService);
     TemplatesRouter(app, templateService);
+    LabelsRouter(app, labelController, labelService);
   });
 
   // we want to cleanup all the things we inserted afterwards
@@ -55,6 +71,11 @@ describe("DNP API", () => {
     await Promise.all(
       questionnairesToDelete.map((questionnaireId) =>
         questionnairesCollection.deleteOne({ _id: questionnaireId })
+      )
+    );
+    await Promise.all(
+      labelsToDelete.map((labelId) =>
+        labelsCollection.deleteOne({ _id: labelId })
       )
     );
   });
@@ -82,8 +103,8 @@ describe("DNP API", () => {
     const foundTemplate = await request(app)
       .get(`/template?id=${templateResponse.body._id}`)
       .expect(200);
-    expect(foundTemplate).toBeDefined()
-    expect(foundTemplate.body).toEqual(templateResponse.body)
+    expect(foundTemplate).toBeDefined();
+    expect(foundTemplate.body).toEqual(templateResponse.body);
 
     //
     // start a new empty questionnaire with that template
@@ -92,8 +113,8 @@ describe("DNP API", () => {
       .post(`/new-questionnaire`)
       .send({
         id: foundTemplate.body._id,
-        title: "HG's cool data",
-        reason: "I wanted to!!!",
+        title: "HG's cool data again",
+        reason: "I wanted to! So I did.",
       })
       .expect(200);
     const newQuestionnaireId = new ObjectID(newQuestionnaireResponse.body._id);
@@ -158,6 +179,114 @@ describe("DNP API", () => {
       .get(`/questionnaire?id=${newQuestionnaireResponse.body.dnpId}`)
       .expect(200);
     expect(newestQuestionnaireResponse.body.schema_version).toBe(2);
+
+    //
+    // We are ready to submit!
+    //
+    const questionnaireToBeSubmitted = newestQuestionnaireResponse.body;
+    const submittionResults = await request(app)
+      .post(`/label/submit`)
+      .send(questionnaireToBeSubmitted)
+      .expect(200);
+    labelsToDelete.push(new ObjectID(submittionResults.body._id));
+
+    expect(submittionResults.body.status).toBe("IN REVIEW");
+    const submittedLabel = submittionResults.body;
+
+    // the saving needs to be locked while in review
+    await request(app)
+      .post(`/questionnaire?id=${questionnaireToBeSubmitted.dnpId}`)
+      .send(questionnaireToBeSubmitted)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(405);
+
+    //
+    // Ah it turns out we need to make changes
+    //
+    const needsChangesResponse = await request(app)
+      .post(`/label/changes?id=${submittedLabel.dnpId}`)
+      .expect(200);
+    labelsToDelete.push(new ObjectID(needsChangesResponse.body._id));
+    expect(needsChangesResponse.body.status).toBe("CHANGES REQUESTED");
+
+    // this is our change
+    questionnaireToBeSubmitted.questionnaire.push(
+      "Okay, maybe this is better?"
+    );
+    const changedQuestionnaireResults = await request(app)
+      .post(`/questionnaire?id=${questionnaireToBeSubmitted.dnpId}`)
+      .send(questionnaireToBeSubmitted)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(200);
+    questionnairesToDelete.push(
+      new ObjectID(changedQuestionnaireResults.body._id)
+    );
+    const changedQuestionnaire = changedQuestionnaireResults.body;
+
+    //
+    // Submitting again
+    //
+    const submittionResultsTwo = await request(app)
+      .post(`/label/submit`)
+      .send(changedQuestionnaire)
+      .expect(200);
+    expect(submittionResultsTwo.body._id).toBeDefined();
+    labelsToDelete.push(new ObjectID(submittionResultsTwo.body._id));
+    expect(submittionResultsTwo.body.status).toBe("IN REVIEW");
+
+    // the saving needs to be locked while in review (again)
+    await request(app)
+      .post(`/questionnaire?id=${changedQuestionnaire.dnpId}`)
+      .send(changedQuestionnaire)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(405);
+
+    //
+    // Ah it turns out we need to make changes (again)
+    //
+    const needsChangesResponseTwo = await request(app)
+      .post(`/label/changes?id=${submittedLabel.dnpId}`)
+      .expect(200);
+    labelsToDelete.push(new ObjectID(needsChangesResponseTwo.body._id));
+    expect(needsChangesResponseTwo.body.status).toBe("CHANGES REQUESTED");
+
+    // this is our second change requested
+    changedQuestionnaire.questionnaire.push("How much more?");
+    const changedQuestionnaireResultsTwo = await request(app)
+      .post(`/questionnaire?id=${questionnaireToBeSubmitted.dnpId}`)
+      .send(questionnaireToBeSubmitted)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(200);
+    questionnairesToDelete.push(
+      new ObjectID(changedQuestionnaireResultsTwo.body._id)
+    );
+    const changedQuestionnaireTwo = changedQuestionnaireResultsTwo.body;
+
+    const submittionResultsFinal = await request(app)
+      .post(`/label/submit`)
+      .send(changedQuestionnaireTwo)
+      .expect(200);
+    expect(submittionResultsFinal.body._id).toBeDefined();
+    labelsToDelete.push(new ObjectID(submittionResultsFinal.body._id));
+    expect(submittionResultsFinal.body.status).toBe("IN REVIEW");
+
+    const approvedResponse = await request(app)
+      .post(`/label/approve?id=${submittedLabel.dnpId}`)
+      .expect(200);
+    labelsToDelete.push(new ObjectID(approvedResponse.body._id));
+    expect(approvedResponse.body.status).toBe("APPROVED");
+
+    // the saving needs to be locked after an approval
+    await request(app)
+      .post(`/questionnaire?id=${changedQuestionnaireTwo.dnpId}`)
+      .send(changedQuestionnaireTwo)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(405);
   });
 });
 

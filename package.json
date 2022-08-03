@@ -4,7 +4,7 @@
   "description": "back end for the Data Nutrition Project",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --config ./jest.json --coverage --verbose",
     "start": "node index.js"
   },
   "repository": {

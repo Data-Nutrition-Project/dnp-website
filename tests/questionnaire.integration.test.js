@@ -2,9 +2,12 @@ require("dotenv").config();
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
+
 const { TemplateService } = require("../database/template.js");
 const { QuestionnaireService } = require("../database/questionnaire.js");
+const { LabelService } = require("../database/label.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
+
 const { QuestionnairesRouter } = require("../routes/questionnaire.js");
 
 const request = require("supertest");
@@ -17,25 +20,35 @@ let templateService;
 let templatesCollection;
 
 let questionnaireService;
-let questionnaresCollection;
+let questionnairesCollection;
+
+let labelsCollection;
+let labelService;
+
 let questionnaireController;
 
-const templatesToDelete = [];
 const questionnairesToDelete = [];
+const templatesToDelete = [];
+const labelsToDelete = [];
 
 describe("/questionnaire routes", () => {
   beforeAll(async () => {
     const client = await connect(process.env.TEST_DB_URL).catch(console.dir);
     await client.connect();
     const database = client.db("dnp-test");
-    templatesCollection = database.collection("templates");
     questionnairesCollection = database.collection("questionnaires");
-
-    templateService = new TemplateService(templatesCollection);
     questionnaireService = new QuestionnaireService(questionnairesCollection);
+
+    labelsCollection = database.collection("labels");
+    labelService = new LabelService(labelsCollection);
+
+    templatesCollection = database.collection("templates");
+    templateService = new TemplateService(templatesCollection);
+
     questionnaireController = new QuestionnaireController(
       questionnaireService,
-      templateService
+      templateService,
+      labelService
     );
     QuestionnairesRouter(app, questionnaireController, questionnaireService);
   });
@@ -50,6 +63,11 @@ describe("/questionnaire routes", () => {
     await Promise.all(
       questionnairesToDelete.map((questionnaireId) =>
         questionnairesCollection.deleteOne({ _id: questionnaireId })
+      )
+    );
+    await Promise.all(
+      labelsToDelete.map((labelId) =>
+        labelsCollection.deleteOne({ _id: labelId })
       )
     );
   });
@@ -134,7 +152,7 @@ describe("/questionnaire routes", () => {
   it("can save a questionnaire", async () => {
     const schema_version = 3;
     const questionnaire = dummyQuestionnaire();
-    questionnaire.schema_version = schema_version
+    questionnaire.schema_version = schema_version;
     questionnaire.dnpId = "cest moi";
     const newQuestionnaire = await questionnaireService.addQuestionnaire(
       questionnaire
@@ -158,6 +176,46 @@ describe("/questionnaire routes", () => {
     expect(savedQuestionnaire.dnpId).toBe(questionnaire.dnpId);
     expect(savedQuestionnaire.schema_version).toBe(schema_version + 1);
   });
+
+  it("will not edit a questionniare with an approved label", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "gonna approve this one";
+
+    const label = await labelService.addLabel({
+      ...questionnaire,
+      status: "APPROVED",
+      _id: Math.random(),
+    });
+    expect(label).toBeDefined();
+    labelsToDelete.push(label.insertedId);
+
+    const response = await request(app)
+      .post(`/questionnaire?id=${questionnaire.dnpId}`)
+      .send(questionnaire)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(405);
+  });
+
+  it("will not edit a questionniare with an in review label", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "gonna 'in review' this one for testing";
+
+    const label = await labelService.addLabel({
+      ...questionnaire,
+      status: "IN REVIEW",
+      _id: Math.random(),
+    });
+    expect(label).toBeDefined();
+    labelsToDelete.push(label.insertedId);
+
+    const response = await request(app)
+      .post(`/questionnaire?id=${questionnaire.dnpId}`)
+      .send(questionnaire)
+      .set("Content-Type", "application/json")
+      .set("Accept", "application/json")
+      .expect(405);
+  });
 });
 
 const dummyTemplate = () => ({
@@ -172,4 +230,4 @@ const dummyQuestionnaire = () => ({
   reason: "testing123",
   dnpId: "testing123",
   savedDate: "testing123",
-})
+});

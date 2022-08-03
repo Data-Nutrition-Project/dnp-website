@@ -34,7 +34,13 @@ exports.QuestionnairesRouter = (
       try {
         const savedQuestionnaire =
           await questionnaireController.saveQuestionnaire(req.body);
-        res.status(200).send(savedQuestionnaire);
+        if (!savedQuestionnaire) {
+          res.status(405).send({
+            message: `Could not find template with id :: ${req.query.id}`,
+          });
+        } else {
+          res.status(200).send(savedQuestionnaire);
+        }
       } catch (err) {
         res.status(500).send({
           message: `Error saving questionnaire`,

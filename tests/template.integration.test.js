@@ -128,7 +128,7 @@ describe("/template routes", () => {
       .expect(200);
 
     expect(responseGet.body.questionnaire).toStrictEqual(dummy.questionnaire);
-  })
+  });
 });
 
 const dummyTemplate = () => ({

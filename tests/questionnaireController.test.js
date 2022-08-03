@@ -5,6 +5,7 @@ const { connect } = require("../database/connector.js");
 
 const { TemplateService } = require("../database/template.js");
 const { QuestionnaireService } = require("../database/questionnaire.js");
+const { LabelService } = require("../database/label.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
 
 let templatesCollection;
@@ -13,10 +14,14 @@ let templateService;
 let questionnairesCollection;
 let questionnaireService;
 
+let labelsCollection;
+let labelService;
+
 let questionnairesController;
 
 const questionnairesToDelete = [];
 const templatesToDelete = [];
+const labelsToDelete = [];
 
 describe("questionnaires controller", () => {
   // connect to our database at the beginning
@@ -28,12 +33,16 @@ describe("questionnaires controller", () => {
     questionnairesCollection = database.collection("questionnaires");
     questionnaireService = new QuestionnaireService(questionnairesCollection);
 
+    labelsCollection = database.collection("labels");
+    labelService = new LabelService(labelsCollection);
+
     templatesCollection = database.collection("templates");
     templateService = new TemplateService(templatesCollection);
 
     questionnairesController = new QuestionnaireController(
       questionnaireService,
-      templateService
+      templateService,
+      labelService
     );
   });
 
@@ -47,6 +56,11 @@ describe("questionnaires controller", () => {
     await Promise.all(
       templatesToDelete.map((templateId) =>
         templatesCollection.deleteOne({ _id: templateId })
+      )
+    );
+    await Promise.all(
+      labelsToDelete.map((labelId) =>
+        labelsCollection.deleteOne({ _id: labelId })
       )
     );
   });
@@ -98,7 +112,7 @@ describe("questionnaires controller", () => {
   it("can save a questionnaire properly with schema versioning", async () => {
     let questionnaire = dummyQuestionnaire();
     const schema_version = 0;
-    questionnaire.schema_version = schema_version
+    questionnaire.schema_version = schema_version;
     // initial insert, like when a user starts a questionnaire
     const questionnaireInserted = await questionnaireService.addQuestionnaire(
       questionnaire
@@ -149,35 +163,6 @@ describe("questionnaires controller", () => {
     expect(questionnaireTwo._id).not.toBe(questionnaire._id);
   });
 
-  // create a new questionnaire
-  // save it twice
-  // get the most recent version
-  it("can find the most recent questionnaire", async () => {
-    let questionnaire = dummyQuestionnaire();
-    questionnaire.dnpId = "even more unique??";
-    // initial insert, like when a user starts a questionnaire
-    const questionnaireInserted = await questionnaireService.addQuestionnaire(
-      questionnaire
-    );
-    questionnairesToDelete.push(questionnaireInserted.insertedId);
-    questionnaire._id = questionnaireInserted.insertedId;
-
-    // they save for the first time
-    const savedQuestionnaireOne =
-      await questionnairesController.saveQuestionnaire(questionnaire);
-    questionnairesToDelete.push(savedQuestionnaireOne._id);
-    // they save for the second time
-    const savedQuestionnaireTwo =
-      await questionnairesController.saveQuestionnaire(questionnaire);
-    questionnairesToDelete.push(savedQuestionnaireTwo._id);
-
-    const mostRecentQuestionnaire =
-      await questionnairesController.getNewestQuestionnaire(
-        questionnaire.dnpId
-      );
-    expect(mostRecentQuestionnaire.schema_version).toBe(2);
-  });
-
   // look for a made up template id
   // confirm that it is null
   it("will not find a made up template", async () => {
@@ -186,6 +171,36 @@ describe("questionnaires controller", () => {
         "aqui, la cuenta es pequena, los desserts son grande"
       );
     expect(foundTemplate).toEqual(null);
+  });
+
+  it("will not edit a questionniare with an approved label", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "gonna approve this one";
+
+    questionnaire.status = "APPROVED";
+    const label = await labelService.addLabel(questionnaire);
+    expect(label).toBeDefined();
+    labelsToDelete.push(label.insertedId);
+
+    const failedSave = await questionnairesController.saveQuestionnaire(
+      questionnaire
+    );
+    expect(failedSave).toBe(null);
+  });
+
+  it("will not edit a questionniare with an in review label", async () => {
+    let questionnaire = dummyQuestionnaire();
+    questionnaire.dnpId = "gonna 'in review' this one";
+
+    questionnaire.status = "IN REVIEW";
+    const label = await labelService.addLabel(questionnaire);
+    expect(label).toBeDefined();
+    labelsToDelete.push(label.insertedId);
+
+    const failedSave = await questionnairesController.saveQuestionnaire(
+      questionnaire
+    );
+    expect(failedSave).toBe(null);
   });
 });
 
