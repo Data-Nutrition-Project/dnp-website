@@ -15,7 +15,9 @@ exports.TemplatesRouter = (app, templateService) => {
   app.post("/template", body("questionnaire").exists(), async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res
+        .status(400)
+        .json({ error: errors.array(), message: "Invalid body for Template" });
     }
 
     try {
@@ -29,8 +31,9 @@ exports.TemplatesRouter = (app, templateService) => {
 
       res.status(200).send(template);
     } catch (err) {
+      console.log(err);
       res.status(500).send({
-        message: `Error creating template`,
+        message: `Server error creating Template`,
         error: err,
       });
     }
@@ -59,14 +62,15 @@ exports.TemplatesRouter = (app, templateService) => {
 
       if (!foundTemplate) {
         res.status(404).send({
-          message: `Could not find template with id :: ${req.query.id}`,
+          message: `Could not locate Template`,
         });
       } else {
         res.status(200).send(foundTemplate);
       }
     } catch (err) {
+      console.log(err);
       res.status(500).send({
-        message: `Error getting template`,
+        message: `Server error getting Template`,
         error: err,
       });
     }

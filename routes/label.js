@@ -18,14 +18,14 @@ exports.LabelsRouter = (app, labelController, labelService) => {
       const foundLabel = await labelService.getNewestLabel(req.query.id);
       if (!foundLabel) {
         res.status(404).send({
-          message: `Could not find label with id :: ${req.query.id}`,
+          message: `Could not find Label`,
         });
       } else {
         res.status(200).send(foundLabel);
       }
     } catch (err) {
       res.status(500).send({
-        message: `Error getting label`,
+        message: `Server error getting Label`,
         error: err,
       });
     }
@@ -55,10 +55,15 @@ exports.LabelsRouter = (app, labelController, labelService) => {
       }
       try {
         const results = await labelController.submitLabel(req.body);
+        if ( !results ) {
+          res.status(405).send({
+            message: `Could not save Label`,
+          });
+        }
         res.status(200).send(results);
       } catch (err) {
         res.status(500).send({
-          message: `Error submitting label`,
+          message: `Server error submitting Label`,
           error: err,
         });
       }
@@ -77,15 +82,15 @@ exports.LabelsRouter = (app, labelController, labelService) => {
     try {
       const results = await labelController.approveLabel(req.query.id);
       if (!results) {
-        res.status(404).send({
-          message: `Could not approve label with id :: ${req.query.id}`,
+        res.status(405).send({
+          message: `Could not approve Label`,
         });
       } else {
         res.status(200).send(results);
       }
     } catch (err) {
       res.status(500).send({
-        message: `Error approving label`,
+        message: `Server error approving Label`,
         error: err,
       });
     }
@@ -105,15 +110,15 @@ exports.LabelsRouter = (app, labelController, labelService) => {
         req.query.id
       );
       if (!results) {
-        res.status(404).send({
-          message: `Could not request changes for label with id :: ${req.query.id}`,
+        res.status(405).send({
+          message: `Could not request changes for Label`,
         });
       } else {
         res.status(200).send(results);
       }
     } catch (err) {
       res.status(500).send({
-        message: `Error requesting changes label`,
+        message: `Server error requesting changes for Label`,
         error: err,
       });
     }

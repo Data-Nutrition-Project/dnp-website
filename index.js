@@ -45,7 +45,10 @@ const main = async () => {
     templateService,
     labelService
   );
-  const labelController = new LabelController(labelService, questionnaireService);
+  const labelController = new LabelController(
+    labelService,
+    questionnaireService
+  );
 
   TemplatesRouter(app, templateService);
   QuestionnairesRouter(app, questionnaireController, questionnaireService);
