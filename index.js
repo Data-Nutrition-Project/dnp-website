@@ -9,7 +9,10 @@ const { TemplateService } = require("./database/template.js");
 const { TemplatesRouter } = require("./routes/template.js");
 const { QuestionnaireService } = require("./database/questionnaire.js");
 const { QuestionnaireController } = require("./controllers/questionnaire.js");
+const { LabelService } = require("./database/label.js");
+const { LabelController } = require("./controllers/label.js");
 const { QuestionnairesRouter } = require("./routes/questionnaire.js");
+const { LabelsRouter } = require("./routes/label.js");
 
 const app = express();
 const port = process.env.PORT;
@@ -29,21 +32,27 @@ const main = async () => {
   const database = client.db("dnp-api");
   const templatesCollection = database.collection("templates");
   const questionnairesCollection = database.collection("questionnaires");
+  const labelsCollection = database.collection("labels");
 
   const templateService = new TemplateService(templatesCollection);
   const questionnaireService = new QuestionnaireService(
     questionnairesCollection
   );
+  const labelService = new LabelService(labelsCollection);
+
   const questionnaireController = new QuestionnaireController(
     questionnaireService,
-    templateService
+    templateService,
+    labelService
   );
+  const labelController = new LabelController(labelService, questionnaireService);
 
   TemplatesRouter(app, templateService);
   QuestionnairesRouter(app, questionnaireController, questionnaireService);
+  LabelsRouter(app, labelController, labelService);
 
   app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`DNP API listening on port ${port}`);
   });
 };
 
