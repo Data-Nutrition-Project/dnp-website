@@ -206,6 +206,7 @@ describe("DNP API", () => {
     //
     const needsChangesResponse = await request(app)
       .post(`/label/changes?id=${submittedLabel.dnpId}`)
+      .send({password: process.env.ADMIN_PASSWORD})
       .expect(200);
     labelsToDelete.push(new ObjectID(needsChangesResponse.body._id));
     expect(needsChangesResponse.body.status).toBe("CHANGES REQUESTED");
@@ -249,6 +250,7 @@ describe("DNP API", () => {
     //
     const needsChangesResponseTwo = await request(app)
       .post(`/label/changes?id=${submittedLabel.dnpId}`)
+      .send({password: process.env.ADMIN_PASSWORD})
       .expect(200);
     labelsToDelete.push(new ObjectID(needsChangesResponseTwo.body._id));
     expect(needsChangesResponseTwo.body.status).toBe("CHANGES REQUESTED");
@@ -276,6 +278,7 @@ describe("DNP API", () => {
 
     const approvedResponse = await request(app)
       .post(`/label/approve?id=${submittedLabel.dnpId}`)
+      .send({password: process.env.ADMIN_PASSWORD})
       .expect(200);
     labelsToDelete.push(new ObjectID(approvedResponse.body._id));
     expect(approvedResponse.body.status).toBe("APPROVED");
