@@ -28,22 +28,27 @@ exports.QuestionnairesRouter = (
     async (req, res) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({
+          error: errors.array(),
+          message: "Invalid body for Questionnaire",
+        });
       }
 
       try {
         const savedQuestionnaire =
           await questionnaireController.saveQuestionnaire(req.body);
+        // TODO: handle 404 error here too
         if (!savedQuestionnaire) {
           res.status(405).send({
-            message: `Could not find template with id :: ${req.query.id}`,
+            message: `Could not save locked Questionnaire`,
           });
         } else {
           res.status(200).send(savedQuestionnaire);
         }
       } catch (err) {
+        console.log(err);
         res.status(500).send({
-          message: `Error saving questionnaire`,
+          message: `Error saving Questionnaire`,
           error: err,
         });
       }
@@ -76,7 +81,10 @@ exports.QuestionnairesRouter = (
 
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({
+          error: errors.array(),
+          message: "Invalid body for New Questionnaire",
+        });
       }
 
       try {
@@ -88,16 +96,16 @@ exports.QuestionnairesRouter = (
           );
 
         if (!emptyTemplate) {
-          res.status(400).send({
-            message: `Could not find template with id :: ${req.body.id}`,
+          res.status(404).send({
+            message: `Could not locate Template`,
           });
         } else {
           res.status(200).send(emptyTemplate);
         }
       } catch (err) {
         res.status(500).send({
-          message: `Error getting new questionnaire`,
-          err: err,
+          message: `Server error creating New Questionnaire`,
+          error: err,
         });
       }
     }
@@ -120,14 +128,14 @@ exports.QuestionnairesRouter = (
         await questionnaireService.getNewestQuestionnaire(req.query.id);
       if (!foundQuestionnaire) {
         res.status(404).send({
-          message: `Could not find questionnaire with id :: ${req.query.id}`,
+          message: `Could not locate Questionnaire`,
         });
       } else {
         res.status(200).send(foundQuestionnaire);
       }
     } catch (err) {
       res.status(500).send({
-        message: `Error getting questionnaire`,
+        message: `Server error getting Questionnaire`,
         error: err,
       });
     }

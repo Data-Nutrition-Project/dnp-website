@@ -122,7 +122,7 @@ describe("/questionnaire routes", () => {
         title: "asdfasdfasdf",
         reason: "noneeeeeee",
       })
-      .expect(400, done);
+      .expect(404, done);
   });
 
   // create a questionnaire
