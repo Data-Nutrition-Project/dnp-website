@@ -78,7 +78,18 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/label/approve", async (req, res) => {
+  app.post("/label/approve",body("password").exists(), async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    if (req.body.password != process.env.ADMIN_PASSWORD) {
+      return res.status(401).send({
+        message: `Incorrect password`,
+      });
+    }
+
     try {
       const results = await labelController.approveLabel(req.query.id);
       if (!results) {
@@ -104,7 +115,18 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/label/changes", async (req, res) => {
+  app.post("/label/changes",body("password").exists(), async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    if (req.body.password != process.env.ADMIN_PASSWORD) {
+      return res.status(401).send({
+        message: `Incorrect password`,
+      });
+    }
+
     try {
       const results = await labelController.requestChangesForLabel(
         req.query.id

@@ -97,6 +97,19 @@ describe("/label routes", () => {
     request(app).get(`/label?id=hgeezy`).expect(404, done);
   });
 
+  it("needs a password", (done) => {
+    request(app)
+      .post(`/label/approve?id=idhere`)
+      .expect(400, done);
+  });
+
+  it("needs a valid password", (done) => {
+    request(app)
+      .post(`/label/approve?id=idhere`)
+      .send({password: "password"})
+      .expect(401, done);
+  });
+
   it("can submit a label", async () => {
     const dummy = dummyQuestionnaire();
     dummy.dnpId = "c'est moi aussi";
@@ -139,6 +152,7 @@ describe("/label routes", () => {
 
     const response = await request(app)
       .post(`/label/approve?id=${newQuestionnaire.dnpId}`)
+      .send({password: process.env.ADMIN_PASSWORD})
       .expect(200);
 
     expect(response.body).toBeDefined();
@@ -170,6 +184,7 @@ describe("/label routes", () => {
 
     const response = await request(app)
       .post(`/label/changes?id=${newQuestionnaire.dnpId}`)
+      .send({password: process.env.ADMIN_PASSWORD})
       .expect(200);
 
     expect(response.body).toBeDefined();
