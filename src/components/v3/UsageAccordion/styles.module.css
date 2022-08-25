@@ -1,0 +1,44 @@
+@value layout: "../../layout.css";
+
+@value lightGray from layout;
+
+.readMore {
+    font-weight: 700;
+}
+
+.usageInfoHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.usageItem {
+    list-style-type: square;
+    list-style-image: url("../../../images/list-style-image.png");
+    border-bottom: 1px solid #E6E6E6;
+    padding: .25rem;
+}
+
+.usageHeaderTitle {
+    display: flex;
+    align-items: center;
+}
+
+.usageHeaderIcon {
+    height: 1.25rem;
+    margin-right: .5rem;
+}
+
+.accordionCaret {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: lightGray;
+    border-radius: 1rem;
+}
+
+.accordionCaretIcon {
+    width: 1rem;
+}

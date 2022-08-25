@@ -1,0 +1,71 @@
+@value layout: "../../layout.css";
+
+@value tabletMaxWidth from layout;
+@value landscapeMaxWidth from layout;
+@value portraitMaxWidth from layout;
+
+.menuTop {
+  margin-bottom: 2rem;
+}
+
+.labelMenu {
+  padding: 1.875rem 0 0 0;
+  text-align: right;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.highlightMenuTitle {
+  background-color: black;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.span {
+  display: block;
+  width: 100%;
+}
+
+.menuTitle {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 1.375rem;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: right;
+  padding: 0.5rem 2rem;
+}
+
+.menuTitle:hover {
+  cursor: pointer;
+}
+.useButton .btn-primary {
+  background-color: none !important;
+}
+
+@media (max-width: tabletMaxWidth) {
+  .menuTitle {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: landscapeMaxWidth) {
+  .menuTitle {
+    font-size: 0.8rem;
+  }
+
+  .menuTop {
+    margin-bottom: 1rem;
+  }
+
+  .labelMenu {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+  }
+}

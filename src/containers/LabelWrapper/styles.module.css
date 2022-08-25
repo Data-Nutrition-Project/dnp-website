@@ -1,0 +1,155 @@
+@value layout: "../../components/layout.css";
+
+@value v3Green from layout;
+@value v3Red from layout;
+@value v3Blue from layout;
+@value v3Yellow from layout;
+@value v3Gray from layout;
+@value v3Black from layout;
+@value lightGray from layout;
+
+.label {
+    background-color: rgba(94, 127, 247, 0.03);
+    padding: 2rem 4rem;
+}
+
+.label h2,
+.label h3,
+.label h4 {
+    font-weight: 600;
+    margin-bottom: 0rem;
+}
+
+.red {
+    background-color: v3Red;
+}
+
+.green {
+    background-color: v3Green;
+}
+
+.yellow {
+    background-color: v3Yellow;
+}
+
+.blue {
+    background-color: v3Blue;
+}
+
+.redBorder {
+    border-left-color: v3Red;
+}
+
+.greenBorder {
+    border-left-color: v3Green;
+}
+
+.yellowBorder {
+    border-left-color: v3Yellow;
+}
+
+.blueBorder {
+    border-left-color: v3Blue;
+}
+
+.labelRow {
+    margin-bottom: 1rem;
+}
+
+.labelSectionHeader {
+    margin-bottom: 2rem;
+    border-bottom: 3px solid v3Black;
+    padding-bottom: .5rem;
+}
+
+.modHowToUse {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.keywordList,
+.usageDescriptionLabels {
+    display: flex;
+}
+
+.keywordList {
+    flex-wrap: wrap;
+}
+
+.keywordListItem {
+    background: lightGray;
+    border: 1px solid #CBD1EA;
+    border-radius: 2px;
+    padding: 1rem .675rem;
+    white-space: nowrap;
+}
+
+.usageDescriptionLabelsItem {
+    display: flex;
+    align-items: center;
+    margin-left: .25rem;
+}
+
+.usageLabelIcon {
+    width: .875rem;
+    height: .875rem;
+}
+
+.usageLabelColor {
+    width: 1rem;
+    height: .25rem;
+    border-radius: 1rem;
+}
+
+.usageLabelText {
+    font-size: .75rem;
+}
+
+.usageRow {
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+}
+
+.usageDescription {
+    margin: .5rem 0;
+    border-left-style: solid;
+    border-left-width: 5px;
+    box-shadow: 0px 2px 4px rgba(94, 127, 247, 0.1);
+    border-radius: 2px;
+    background-color: white;
+    width: 49%;
+    padding: .5rem 1rem;
+}
+
+.aboutRow {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(94, 127, 247, 0.1);
+    border-radius: 2px;
+    margin: .5rem 0;
+    padding: .5rem;
+}
+
+.aboutRowTitle,
+.aboutRowContent {
+    margin-bottom: 0;
+}
+
+.aboutRowTitle {
+    min-width: 10rem;
+}
+
+.aboutRowContent {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.risksAtAGlance {
+    background-color: #F4F6FD;
+}
