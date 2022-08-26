@@ -22,7 +22,7 @@ const LabelWrapper = (props) => {
 
     const getLabelBlob = () => {
         axios
-            .get(`${process.env.BACKEND_URL}/label?id=${props.labelId}`)
+            .get(`${process.env.GATSBY_BACKEND_URL}/label?id=${props.labelId}`)
             .then((response) => {
                 setLabelBlob(formatBlobForLabel(response.data.questionnaire))
             })
