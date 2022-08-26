@@ -42,12 +42,24 @@ export const formatRepresentation = (blob) => {
     representation.push({
         name: collectedHow[1].title,
         riskLabel: OPTION_TO_RISK[collectedHow[1].answer],
-        description: (collectedHow[1].dependents[collectedHow[1].answer]) ? collectedHow[1].dependents[collectedHow[1].answer].answer : ''
+        description: (() => {
+            try {
+                return (collectedHow[1].dependents[collectedHow[1].answer]) ? collectedHow[1].dependents[collectedHow[1].answer][0].answer : ''
+            } catch (err) {
+                return ''
+            }
+        })()
     })
     representation.push({
-        name: collectedHow[1].title,
-        riskLabel: OPTION_TO_RISK[collectedHow[1].answer],
-        description: (collectedHow[1].dependents[collectedHow[1].answer]) ? collectedHow[1].dependents[collectedHow[1].answer].answer : ''
+        name: collectedHow[2].title,
+        riskLabel: OPTION_TO_RISK[collectedHow[2].answer],
+        description: (() => {
+            try {
+                return (collectedHow[2].dependents[collectedHow[2].answer]) ? collectedHow[2].dependents[collectedHow[2].answer][0].answer : ''
+            } catch (err) {
+                return ''
+            }
+        })()
     })
 
     return representation
@@ -57,23 +69,45 @@ export const formatUpstream = (blob) => {
     const upstream = blob[7].questions
 
     if (blob[1].questions[7].answer === 'no') {
-        return 'Not Applicable'
+        return [{
+            name: 'Not Applicable',
+            riskLabel: -1,
+            description: 'This dataset contains no upstream sources.'
+        }]
     } else {
-        return [
+        const upstreamstuff = [
             {
                 name: upstream[0].title.split('-')[1],
                 riskLabel: 1,
-                description: upstream[0].dependents[upstream[0].answer][0].answer || ''
+                description: (() => {
+                    try {
+                        return upstream[0].dependents[upstream[0].answer][0].answer || ''
+                    } catch (err) {
+                        return ''
+                    }    
+                })()
             },
             {
                 name: upstream[1].title.split('-')[1],
                 riskLabel: 1,
-                description: upstream[1].dependents[upstream[1].answer][0].answer || ''
+                description: (() => {
+                    try {
+                        return upstream[1].dependents[upstream[1].answer][0].answer || ''
+                    } catch (err) {
+                        return ''
+                    }    
+                })()
             },
             {
                 name: upstream[2].title.split('-')[1],
                 riskLabel: 1,
-                description: upstream[2].dependents[upstream[2].answer][0].answer || ''
+                description: (() => {
+                    try {
+                        return upstream[2].dependents[upstream[2].answer][0].answer || ''
+                    } catch (err) {
+                        return ''
+                    }    
+                })()
             },
             {
                 name: upstream[3].title.split('-')[1],
@@ -81,6 +115,8 @@ export const formatUpstream = (blob) => {
                 description: upstream[3].answer
             }
         ]
+        console.log(upstreamstuff)
+        return upstreamstuff
     }
 }
 
@@ -311,7 +347,13 @@ export const formatBlobForLabel = (blob) => {
                 {
                     name: blob[4].questions[0].title,
                     riskLabel: OPTION_TO_RISK[blob[4].questions[0].answer],
-                    description: (blob[4].questions[0].dependents[blob[4].questions[0].answer]) ? blob[4].questions[0].dependents[blob[4].questions[0].answer].answer : ''
+                    description: (() => {
+                        try {
+                            return (blob[4].questions[0].dependents[blob[4].questions[0].answer]) ? blob[4].questions[0].dependents[blob[4].questions[0].answer][0].answer : ''
+                        } catch (err) {
+                            return ''
+                        }
+                    })()       
                 },
                 {
                     name: blob[5].questions[0].title,
@@ -331,7 +373,13 @@ export const formatBlobForLabel = (blob) => {
                 {
                     name: blob[5].questions[3].title,
                     riskLabel: OPTION_TO_RISK[blob[5].questions[3].answer],
-                    description: (blob[5].questions[3].dependents[blob[5].questions[3].answer]) ? blob[5].questions[3].dependents[blob[5].questions[3].answer].answer : ''
+                    description: (() => {
+                        try {
+                            return (blob[5].questions[3].dependents[blob[5].questions[3].answer]) ? blob[5].questions[3].dependents[blob[5].questions[3].answer][0].answer : ''
+                        } catch (err) {
+                            return ''
+                        }
+                    })() 
                 }
             ],
             featureSelection: [
@@ -343,12 +391,24 @@ export const formatBlobForLabel = (blob) => {
                 {
                     name: blob[3].questions[1].title,
                     riskLabel: OPTION_TO_RISK[blob[3].questions[1].answer],
-                    description: (blob[3].questions[1].dependents[blob[3].questions[1].answer]) ? blob[3].questions[1].dependents[blob[3].questions[1].answer].answer : ''
+                    description: (() => {
+                        try {
+                            return (blob[3].questions[1].dependents[blob[3].questions[1].answer]) ? blob[3].questions[1].dependents[blob[3].questions[1].answer][0].answer : ''
+                        } catch (err) {
+                            return ''
+                        }
+                    })() 
                 },
                 {
                     name: blob[3].questions[2].title,
                     riskLabel: OPTION_TO_RISK[blob[3].questions[2].answer],
-                    description: (blob[3].questions[2].dependents[blob[3].questions[2].answer]) ? blob[3].questions[2].dependents[blob[3].questions[2].answer].answer : ''
+                    description: (() => {
+                        try {
+                            return (blob[3].questions[2].dependents[blob[3].questions[2].answer]) ? blob[3].questions[2].dependents[blob[3].questions[2].answer][0].answer : ''
+                        } catch (err) {
+                            return ''
+                        }
+                    })() 
                 },
                 {
                     name: blob[3].questions[3].title,

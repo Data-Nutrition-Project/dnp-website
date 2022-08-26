@@ -36,8 +36,6 @@ const RisksAccordion = props => {
         return count
     }, 0) 
 
-    console.log(props.risks)
-
     return (
         <div className={styles.risksSection}>
             <div className={styles.risksDescription}>
