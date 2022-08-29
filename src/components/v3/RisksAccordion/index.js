@@ -44,13 +44,20 @@ const RisksAccordion = props => {
                         <img
                             src={props.icon}
                             className={styles.icon}
+                            alt={`${props.title} icon`}
                         />
                         <div>
                             <h3>{props.title}</h3>
                             <p className={styles.subTitle}>{props.subtitle}</p>
                         </div>
                     </div>
-                    <span className={styles.accordionCaret} onClick={toggleOpen}>
+                    <span
+                        className={styles.accordionCaret}
+                        onClick={toggleOpen}
+                        onKeyPress={toggleOpen}
+                        role="button"
+                        tabIndex={0}
+                    >
                         {isOpen ? (
                             <img 
                                 className={styles.accordionCaretIcon}

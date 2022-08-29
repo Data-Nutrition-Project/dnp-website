@@ -20,10 +20,17 @@ const UsageAccordion = props => {
                     <img 
                         className={styles.usageHeaderIcon}
                         src={props.icon}
+                        alt={`${props.header} icon`}
                     />
                     <h3>{props.header}</h3>
                 </div>
-                <span className={styles.accordionCaret} onClick={toggleReadMore}>
+                <span
+                    className={styles.accordionCaret}
+                    onClick={toggleReadMore}
+                    onKeyPress={toggleReadMore}
+                    role="button"
+                    tabIndex={0}
+                >
                     {isReadMore ? (
                         <img 
                             className={styles.accordionCaretIcon}
@@ -42,7 +49,13 @@ const UsageAccordion = props => {
             {isReadMore ? (
                 <p>
                     {sampleText}
-                    <span onClick={toggleReadMore} className={styles.readMore}>
+                    <span
+                        className={styles.readMore}
+                        onClick={toggleReadMore}
+                        onKeyPress={toggleReadMore}
+                        role="button"
+                        tabIndex={0}
+                    >
                         {'...read more'}
                     </span>
                 </p>
