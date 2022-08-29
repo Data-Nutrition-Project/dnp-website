@@ -14,12 +14,12 @@ const RISK_MAP = {
         no: 'safe'
     },
     'technical-review': {
-        yes: 'risky',
-        no: 'safe'
+        yes: 'safe',
+        no: 'risky'
     },
     'ethical-review': {
-        yes: 'risky',
-        no: 'safe'
+        yes: 'safe',
+        no: 'risky'
     },
     'update-frequency': {
         yes: 'risky',
