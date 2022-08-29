@@ -9,6 +9,7 @@ import PropTypes from "prop-types"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 
+import Badge from "../../components/v3/Badge/index.js"
 import RisksAccordion from "../../components/v3/RisksAccordion/index.js"
 import UsageAccordion from "../../components/v3/UsageAccordion/index.js"
 
@@ -17,8 +18,13 @@ import * as styles from "./styles.module.css"
 
 const LabelWrapper = (props) => {
     const [labelBlob, setLabelBlob] = useState(null)
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [glanceOpen, setGlanceOpen] = useState(false)
+
+    const toggleGlanceOpen = () => {
+        setGlanceOpen(!glanceOpen)
+    }
 
     const getLabelBlob = () => {
         axios
@@ -42,13 +48,12 @@ const LabelWrapper = (props) => {
         switch (status) {
             case 404:
                 return 'We could not find the label requested.'
-                break
             case 403:
                 return 'That label is not ready yet.'
-                break
             case 500:
                 return 'There is an issue with our servers, we will check on that.'
-                break
+            default:
+                return ''
         }
     }
     
@@ -56,20 +61,28 @@ const LabelWrapper = (props) => {
         <div className={styles.label}>
         {loading ? (
             <Row>
-                <Grid
-                    height="80"
-                    width="80"
-                    color={layout.darkSlateBlue}
-                    ariaLabel="grid-loading"
-                    radius="12.5"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    visible={true}
-                />
+                <Col md={{ span: 4, offset: 4 }}>
+                    <Grid
+                        height="80"
+                        width="80"
+                        color={layout.darkSlateBlue}
+                        ariaLabel="grid-loading"
+                        radius="12.5"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                    />
+                </Col>
             </Row>
         ) : error !== null ? (
             <Row>
-                <h1>{'Sorry, something went wrong!'}</h1>
+                <Col>
+                    <h1 style={{ 
+                        textAlign: 'center'
+                    }}>
+                        {'Sorry, something went wrong!'}
+                    </h1>
+                </Col>
             </Row>
         ) : (
             <div>
@@ -197,6 +210,45 @@ const LabelWrapper = (props) => {
                             <h2 className={styles.labelSectionHeaderText}>Inference risks</h2>
                         </div>
                         <div className={styles.risksAtAGlance}>
+                            <div className={styles.atAGlanceHeader}>
+                                <h3>{'At a Glance'}</h3>
+                                <span
+                                    className={styles.accordionCaret}
+                                    onClick={toggleGlanceOpen}
+                                    onKeyPress={toggleGlanceOpen}
+                                    role="button"
+                                    tabIndex={0}
+                                >
+                                    {glanceOpen ? (
+                                        <img 
+                                            className={styles.accordionCaretIcon}
+                                            src={require('../../images/caret-up.png').default}
+                                            alt='caret up' 
+                                        />
+                                    ) : (
+                                        <img 
+                                            className={styles.accordionCaretIcon}
+                                            src={require('../../images/caret-down.png').default}
+                                            alt='caret down' 
+                                        />
+                                    )}
+                                </span>
+                            </div>
+                            <div className={styles.atAGlanceBadgeRow}>
+                            {labelBlob.inferenceRisks.glance.map((badgeInfo, i) => {
+                                return (
+                                    <Badge
+                                        className={styles.badgeColumn}
+                                        title={badgeInfo.title}
+                                        badgeAnswer={badgeInfo.badge}
+                                        description={badgeInfo.description}
+                                        reference={badgeInfo.reference}
+                                        badgeIcon={require(`../../images/${badgeInfo.reference}.png`).default}
+                                        isOpen={glanceOpen}
+                                    />
+                                )
+                            })}
+                            </div>
                         </div>
                         <RisksAccordion
                             title={'Data values'}

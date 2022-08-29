@@ -152,4 +152,33 @@
 
 .risksAtAGlance {
     background-color: #F4F6FD;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #CBD1EA;
+    border-radius: 2px;
+}
+
+.atAGlanceBadgeRow,
+.atAGlanceHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.badgeColumn {
+    width: 20%;
+}
+
+.accordionCaret {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: lightGray;
+    border-radius: 1rem;
+}
+
+.accordionCaretIcon {
+    width: 1rem;
 }
