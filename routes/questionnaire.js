@@ -71,7 +71,7 @@ exports.QuestionnairesRouter = (
   app.post(
     "/new-questionnaire",
     body("id").exists().isLength({ min: 20, max: 28 }),
-    body("title").exists().isLength({ min: 1, max: 50 }),
+    body("title").exists().isLength({ min: 1, max: 100 }),
     body("reason").exists().isLength({ min: 5, max: 5000 }),
     async (req, res) => {
       // we need this to be casted to the right type, so mongo will accept it
