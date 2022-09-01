@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
+const { ENUM } = require("../utils/ENUM.js");
 
 class QuestionnaireController {
   constructor(questionnaireService, templateService, labelService) {
@@ -9,7 +10,7 @@ class QuestionnaireController {
     this.questionnaireService = questionnaireService;
     this.templateService = templateService;
     this.labelService = labelService;
-    this.lockedStates = ["APPROVED", "IN REVIEW"];
+    this.lockedStates = [ENUM.LABEL_STATUS.APPROVED, ENUM.LABEL_STATUS.IN_REVIEW];
   }
 
   /*

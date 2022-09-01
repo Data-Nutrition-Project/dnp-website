@@ -1,3 +1,5 @@
+const { ENUM } = require("../utils/ENUM.js");
+
 // label service class
 // these will wrap our database calls,
 // nice clean way to abstract away our db details
