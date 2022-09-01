@@ -80,7 +80,7 @@ describe("/questionnaire routes", () => {
     const newTemplate = await templateService.addTemplate(dummyTemplate());
     templatesToDelete.push(newTemplate.insertedId);
     const response = await request(app)
-      .post(`/new-questionnaire`)
+      .post(`/questionnaires/new`)
       .send({
         id: newTemplate.insertedId,
         title: title,
@@ -105,7 +105,7 @@ describe("/questionnaire routes", () => {
     const newTemplate = await templateService.addTemplate(dummyTemplate());
     templatesToDelete.push(newTemplate.insertedId);
     const response = await request(app)
-      .post(`/new-questionnaire`)
+      .post(`/questionnaires/new`)
       .send({
         id: newTemplate.insertedId,
         title: name,
@@ -116,7 +116,7 @@ describe("/questionnaire routes", () => {
   // start an imaginary template through the api
   it("wont find an imaginary template", (done) => {
     request(app)
-      .post(`/new-questionnaire`)
+      .post(`/questionnaires/new`)
       .send({
         id: "baddabbaddabbaddabbaddab",
         title: "asdfasdfasdf",
@@ -138,7 +138,7 @@ describe("/questionnaire routes", () => {
     questionnairesToDelete.push(newQuestionnaire.insertedId);
 
     const response = await request(app)
-      .get(`/questionnaire?id=${dummyQuestionnaire.dnpId}`)
+      .get(`/questionnaires/${dummyQuestionnaire.dnpId}`)
       .expect(200);
     const id = new ObjectID(response.body._id);
 
@@ -163,7 +163,7 @@ describe("/questionnaire routes", () => {
     );
 
     const response = await request(app)
-      .post(`/questionnaire?id=${foundQuestionnaire.dnpId}`)
+      .post(`/questionnaires/${foundQuestionnaire.dnpId}/update`)
       .send(foundQuestionnaire)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -190,7 +190,7 @@ describe("/questionnaire routes", () => {
     labelsToDelete.push(label.insertedId);
 
     const response = await request(app)
-      .post(`/questionnaire?id=${questionnaire.dnpId}`)
+      .post(`/questionnaires/${questionnaire.dnpId}/update`)
       .send(questionnaire)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -210,7 +210,7 @@ describe("/questionnaire routes", () => {
     labelsToDelete.push(label.insertedId);
 
     const response = await request(app)
-      .post(`/questionnaire?id=${questionnaire.dnpId}`)
+      .post(`/questionnaires/${questionnaire.dnpId}/update`)
       .send(questionnaire)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")

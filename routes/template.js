@@ -12,7 +12,7 @@ exports.TemplatesRouter = (app, templateService) => {
   @return
     newTemplateObject :: shaped like { _id, questionnaire }
   */
-  app.post("/template", body("questionnaire").exists(), async (req, res) => {
+  app.post("/templates/new", body("questionnaire").exists(), async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res
@@ -48,13 +48,13 @@ exports.TemplatesRouter = (app, templateService) => {
   @return
     templateObject :: shaped like { _id, questionnaire }
   */
-  app.get("/template", async (req, res) => {
+  app.get("/templates/:id?", async (req, res) => {
     try {
       let foundTemplate = null;
 
-      if (req.query.id) {
+      if (req.params.id) {
         // mongo wont recognize the raw string
-        const id = new ObjectID(req.query.id);
+        const id = new ObjectID(req.params.id);
         foundTemplate = await templateService.getTemplate(id);
       } else {
         foundTemplate = await templateService.getNewestTemplate();

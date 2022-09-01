@@ -17,7 +17,7 @@ exports.QuestionnairesRouter = (
       shaped like { _id, schema_version, dnpId, questionnaire, reason, title, savedDate }
   */
   app.post(
-    "/questionnaire",
+    "/questionnaires/:id/update",
     body("questionnaire").isArray(),
     body("_id").isString(),
     body("schema_version").isNumeric(),
@@ -36,7 +36,7 @@ exports.QuestionnairesRouter = (
 
       try {
         const savedQuestionnaire =
-          await questionnaireController.saveQuestionnaire(req.body);
+          await questionnaireController.saveQuestionnaire(req.params.id, req.body);
         // TODO: handle 404 error here too
         if (!savedQuestionnaire) {
           res.status(405).send({
@@ -69,7 +69,7 @@ exports.QuestionnairesRouter = (
         { _id, status, version, labelReason, questionnaire, title, dnpId }
   */
   app.post(
-    "/new-questionnaire",
+    "/questionnaires/new",
     body("id").exists().isLength({ min: 20, max: 28 }),
     body("title").exists().isLength({ min: 1, max: 100 }),
     body("reason").exists().isLength({ min: 5, max: 5000 }),
@@ -122,10 +122,10 @@ exports.QuestionnairesRouter = (
       it will have the following fields:
         { _id, status, version, labelReason, questionnaire, title, dnpId, schema_version }
   */
-  app.get("/questionnaire", async (req, res) => {
+  app.get("/questionnaires/:id", async (req, res) => {
     try {
       const foundQuestionnaire =
-        await questionnaireService.getNewestQuestionnaire(req.query.id);
+        await questionnaireService.getNewestQuestionnaire(req.params.id);
       if (!foundQuestionnaire) {
         res.status(404).send({
           message: `Could not locate Questionnaire`,
