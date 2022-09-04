@@ -45,6 +45,10 @@
     border-color: transparent transparent v3Green transparent;
 }
 
+.caution {
+    border-color: transparent transparent v3Gray transparent;
+}
+
 .modCenter {
     text-align: center;
 }

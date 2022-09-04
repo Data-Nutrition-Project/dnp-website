@@ -28,6 +28,11 @@ const RISK_MAP = {
 }
 
 const Badge = props => {
+    let riskImg = 'caution'
+    if (props.badgeAnswer === 'yes' || props.badgeAnswer === 'no') {
+        riskImg = RISK_MAP[props.reference][props.badgeAnswer]
+    }
+    
     return (
         <div className={props.className}>
             <div className={styles.badge}>
@@ -36,11 +41,11 @@ const Badge = props => {
                     className={styles.badgeIcon}
                     alt={`${props.title} badge icon`}
                 />
-                <div className={classNames(styles.badgeRisk, styles[RISK_MAP[props.reference][props.badgeAnswer]])}>
+                <div className={classNames(styles.badgeRisk, styles[riskImg])}>
                     <img
-                        src={require(`../../../images/${RISK_MAP[props.reference][props.badgeAnswer]}.png`).default}
+                        src={require(`../../../images/${riskImg}.png`).default}
                         className={styles.badgeRiskIcon}
-                        alt={`${RISK_MAP[props.reference][props.badgeAnswer]} level for ${props.title}`}
+                        alt={`${riskImg} level for ${props.title}`}
                     />
                 </div>
             </div>

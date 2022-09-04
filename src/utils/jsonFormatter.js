@@ -173,7 +173,7 @@ export const formatGeneralRisks = (blob) => {
         description: collectedWhy[10].answer
     })
 
-    if (collectedWhat[4].answer !== 'no') {
+    if (collectedWhat[4].answer !== 'no' && collectedWhat[4].answer !== '') {
         generalRisks.push({
             name: collectedWhat[4].title,
             riskLabel: OPTION_TO_RISK[collectedWhat[4].answer],
