@@ -58,8 +58,7 @@ class QuestionnaireController {
     newQuestionnaire :: object - questionnaire that was just created from the template
       shaped like { questionnaire, title, reason, dnpId, _id }
   */
-  async saveQuestionnaire(questionnaireObject) {
-    const { dnpId } = questionnaireObject;
+  async saveQuestionnaire(dnpId, questionnaireObject) {
     const label = await this.labelService.getNewestLabel(dnpId);
     if (label && this.lockedStates.includes(label.status)) {
       return null;

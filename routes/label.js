@@ -13,9 +13,9 @@ exports.LabelsRouter = (app, labelController, labelService) => {
       it will have the following fields:
         { _id, status, version, labelReason, questionnaire, title, dnpId, schema_version }
   */
-  app.get("/label", async (req, res) => {
+  app.get("/labels/:id", async (req, res) => {
     try {
-      const foundLabel = await labelService.getNewestLabel(req.query.id);
+      const foundLabel = await labelService.getNewestLabel(req.params.id);
       if (!foundLabel) {
         res.status(404).send({
           message: `Could not find Label`,
@@ -40,7 +40,7 @@ exports.LabelsRouter = (app, labelController, labelService) => {
     TBD
   */
   app.post(
-    "/label/submit",
+    "/labels/submit",
     body("questionnaire").isArray(),
     body("_id").isString(),
     body("schema_version").isNumeric(),
@@ -78,7 +78,7 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/label/approve",body("password").exists(), async (req, res) => {
+  app.post("/labels/:id/approve",body("password").exists(), async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -91,7 +91,7 @@ exports.LabelsRouter = (app, labelController, labelService) => {
     }
 
     try {
-      const results = await labelController.approveLabel(req.query.id);
+      const results = await labelController.approveLabel(req.params.id);
       if (!results) {
         res.status(405).send({
           message: `Could not approve Label`,
@@ -115,7 +115,7 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/label/changes",body("password").exists(), async (req, res) => {
+  app.post("/labels/:id/changes",body("password").exists(), async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -129,7 +129,7 @@ exports.LabelsRouter = (app, labelController, labelService) => {
 
     try {
       const results = await labelController.requestChangesForLabel(
-        req.query.id
+        req.params.id
       );
       if (!results) {
         res.status(405).send({

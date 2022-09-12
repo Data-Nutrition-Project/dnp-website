@@ -82,7 +82,7 @@ describe("/label routes", () => {
     labelsToDelete.push(newLabel._id);
 
     const response = await request(app)
-      .get(`/label?id=${dummyLabel.dnpId}`)
+      .get(`/labels/${dummyLabel.dnpId}`)
       .expect(200);
     const id = new ObjectID(response.body._id);
 
@@ -94,18 +94,18 @@ describe("/label routes", () => {
   // use the app to find it
   // make sure the ids match up
   it("can't find a non-existant label", (done) => {
-    request(app).get(`/label?id=hgeezy`).expect(404, done);
+    request(app).get(`/labels/hgeezy`).expect(404, done);
   });
 
   it("needs a password", (done) => {
     request(app)
-      .post(`/label/approve?id=idhere`)
+      .post(`/labels/idhere/approve`)
       .expect(400, done);
   });
 
   it("needs a valid password", (done) => {
     request(app)
-      .post(`/label/approve?id=idhere`)
+      .post(`/labels/idhere/approve`)
       .send({password: "password"})
       .expect(401, done);
   });
@@ -114,12 +114,13 @@ describe("/label routes", () => {
     const dummy = dummyQuestionnaire();
     dummy.dnpId = "c'est moi aussi";
     const newQuestionnaire = await questionnaireController.saveQuestionnaire(
+      dummy.dnpId,
       dummy
     );
     questionnairesToDelete.push(newQuestionnaire._id);
 
     const response = await request(app)
-      .post(`/label/submit`)
+      .post(`/labels/submit`)
       .send(newQuestionnaire)
       .expect(200);
 
@@ -143,6 +144,7 @@ describe("/label routes", () => {
     dummyQuestionnaire.dnpId = "it'sa me";
 
     const newQuestionnaire = await questionnaireController.saveQuestionnaire(
+      dummyQuestionnaire.dnpId,
       dummyQuestionnaire
     );
     questionnairesToDelete.push(newQuestionnaire._id);
@@ -151,7 +153,7 @@ describe("/label routes", () => {
     labelsToDelete.push(newLabel._id);
 
     const response = await request(app)
-      .post(`/label/approve?id=${newQuestionnaire.dnpId}`)
+      .post(`/labels/${newQuestionnaire.dnpId}/approve`)
       .send({password: process.env.ADMIN_PASSWORD})
       .expect(200);
 
@@ -175,6 +177,7 @@ describe("/label routes", () => {
     };
     dummyQuestionnaire.dnpId = "it'sa me again";
     const newQuestionnaire = await questionnaireController.saveQuestionnaire(
+      dummyQuestionnaire.dnpId,
       dummyQuestionnaire
     );
     questionnairesToDelete.push(newQuestionnaire._id);
@@ -183,7 +186,7 @@ describe("/label routes", () => {
     labelsToDelete.push(newLabel._id);
 
     const response = await request(app)
-      .post(`/label/changes?id=${newQuestionnaire.dnpId}`)
+      .post(`/labels/${newQuestionnaire.dnpId}/changes`)
       .send({password: process.env.ADMIN_PASSWORD})
       .expect(200);
 

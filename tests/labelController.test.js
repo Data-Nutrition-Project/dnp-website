@@ -93,8 +93,10 @@ describe("labels controller", () => {
   });
 
   it("can submit a label from a questionnaire", async () => {
+    const dummy = dummyQuestionnaire();
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
     const submittedLabelResults = await labelsController.submitLabel(
@@ -111,8 +113,10 @@ describe("labels controller", () => {
   });
 
   it("can approve a submitted label", async () => {
+    const dummy = dummyQuestionnaire();
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
 
@@ -142,8 +146,10 @@ describe("labels controller", () => {
   });
 
   it("won't approve a non existant label", async () => {
+    const dummy = dummyQuestionnaire();
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
     const approvedLabelResults = await labelsController.approveLabel(
@@ -162,8 +168,11 @@ describe("labels controller", () => {
   });
 
   it("can request changes for a submitted label", async () => {
+    const dummy = dummyQuestionnaire();
+
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
 
@@ -193,8 +202,10 @@ describe("labels controller", () => {
   });
 
   it("won't request changes for a non existant label", async () => {
+    const dummy = dummyQuestionnaire();
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
     const requestedLabelResults = await labelsController.requestChangesForLabel(
