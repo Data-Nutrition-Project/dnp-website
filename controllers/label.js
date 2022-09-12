@@ -1,8 +1,10 @@
+const { ENUM } = require("../utils/ENUM.js");
+
 class LabelController {
   constructor(labelService, questionnaireService) {
     this.labelService = labelService;
     this.questionnaireService = questionnaireService;
-    this.lockedStates = ["APPROVED", "IN REVIEW"];
+    this.lockedStates = [ENUM.LABEL_STATUS.APPROVED, ENUM.LABEL_STATUS.IN_REVIEW];
   }
 
   async submitLabel(questionnaireObject) {
@@ -25,7 +27,7 @@ class LabelController {
       return null;
     }
 
-    clonedQuestionnaire.status = "IN REVIEW";
+    clonedQuestionnaire.status = ENUM.LABEL_STATUS.IN_REVIEW;
     clonedQuestionnaire.schema_version = pastLabel
       ? pastLabel.schema_version
       : 0;
@@ -45,7 +47,7 @@ class LabelController {
       return null;
     }
 
-    label.status = "APPROVED";
+    label.status = ENUM.LABEL_STATUS.APPROVED;
     label.version = 1;
     const savedLabel = await this.saveLabel(label);
 
@@ -63,7 +65,7 @@ class LabelController {
       return null;
     }
 
-    label.status = "CHANGES REQUESTED";
+    label.status = ENUM.LABEL_STATUS.CHANGES_REQUESTED;
     const savedLabel = await this.saveLabel(label);
 
     return savedLabel;
