@@ -50,6 +50,16 @@ class LabelService {
       { sort: { schema_version: -1 } }
     );
   }
+
+  /*
+  @desc
+    This will return all labels marked as approved from the db
+  @return
+    List of label objects of all approved labels sorted by date
+   */
+  getApprovedLabels() {
+    return this.labelsCollection.find({ status: ENUM.LABEL_STATUS.APPROVED }).toArray();
+  }
 }
 
 exports.LabelService = LabelService;
