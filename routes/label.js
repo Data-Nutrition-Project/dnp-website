@@ -15,7 +15,7 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   */
   app.get("/labels/:id", async (req, res) => {
     try {
-      const foundLabel = await labelService.getNewestLabel(req.query.id);
+      const foundLabel = await labelService.getNewestLabel(req.params.id);
       if (!foundLabel) {
         res.status(404).send({
           message: `Could not find Label`,
