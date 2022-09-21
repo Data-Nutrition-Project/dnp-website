@@ -5,14 +5,19 @@ const cors = require("cors");
 const morgan = require("morgan");
 
 const { connect } = require("./database/connector.js");
+
 const { TemplateService } = require("./database/template.js");
 const { TemplatesRouter } = require("./routes/template.js");
+
 const { QuestionnaireService } = require("./database/questionnaire.js");
 const { QuestionnaireController } = require("./controllers/questionnaire.js");
+const { QuestionnairesRouter } = require("./routes/questionnaire.js");
+
 const { LabelService } = require("./database/label.js");
 const { LabelController } = require("./controllers/label.js");
-const { QuestionnairesRouter } = require("./routes/questionnaire.js");
 const { LabelsRouter } = require("./routes/label.js");
+
+const { EmailController } = require("./controllers/email.js");
 
 const app = express();
 const port = process.env.PORT;
@@ -30,6 +35,7 @@ const main = async () => {
   await client.connect();
   console.log("Connected successfully to server");
   const database = client.db("dnp-api");
+
   const templatesCollection = database.collection("templates");
   const questionnairesCollection = database.collection("questionnaires");
   const labelsCollection = database.collection("labels");
@@ -40,6 +46,8 @@ const main = async () => {
   );
   const labelService = new LabelService(labelsCollection);
 
+  const emailController = new EmailController(process.env.SENDGRID_KEY);
+
   const questionnaireController = new QuestionnaireController(
     questionnaireService,
     templateService,
@@ -47,7 +55,8 @@ const main = async () => {
   );
   const labelController = new LabelController(
     labelService,
-    questionnaireService
+    questionnaireService,
+    emailController
   );
 
   TemplatesRouter(app, templateService);

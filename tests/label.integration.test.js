@@ -1,13 +1,20 @@
 require("dotenv").config();
+jest.mock("../controllers/email.js");
+
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
+
 const { TemplateService } = require("../database/template.js");
+
 const { QuestionnaireService } = require("../database/questionnaire.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
+
 const { LabelService } = require("../database/label.js");
 const { LabelController } = require("../controllers/label.js");
 const { LabelsRouter } = require("../routes/label.js");
+
+const { EmailController } = require("../controllers/email.js");
 
 const request = require("supertest");
 const express = require("express");
@@ -25,6 +32,8 @@ let questionnaireController;
 let labelService;
 let labelsCollection;
 let labelController;
+
+let emailController;
 
 const labelsToDelete = [];
 const questionnairesToDelete = [];
@@ -48,7 +57,13 @@ describe("/label routes", () => {
       labelService
     );
 
-    labelController = new LabelController(labelService, questionnaireService);
+    emailController = new EmailController();
+
+    labelController = new LabelController(
+      labelService,
+      questionnaireService,
+      emailController
+    );
 
     LabelsRouter(app, labelController, labelService);
   });
@@ -98,15 +113,13 @@ describe("/label routes", () => {
   });
 
   it("needs a password", (done) => {
-    request(app)
-      .post(`/labels/idhere/approve`)
-      .expect(400, done);
+    request(app).post(`/labels/idhere/approve`).expect(400, done);
   });
 
   it("needs a valid password", (done) => {
     request(app)
       .post(`/labels/idhere/approve`)
-      .send({password: "password"})
+      .send({ password: "password" })
       .expect(401, done);
   });
 
@@ -154,7 +167,7 @@ describe("/label routes", () => {
 
     const response = await request(app)
       .post(`/labels/${newQuestionnaire.dnpId}/approve`)
-      .send({password: process.env.ADMIN_PASSWORD})
+      .send({ password: process.env.ADMIN_PASSWORD })
       .expect(200);
 
     expect(response.body).toBeDefined();
@@ -187,7 +200,7 @@ describe("/label routes", () => {
 
     const response = await request(app)
       .post(`/labels/${newQuestionnaire.dnpId}/changes`)
-      .send({password: process.env.ADMIN_PASSWORD})
+      .send({ password: process.env.ADMIN_PASSWORD })
       .expect(200);
 
     expect(response.body).toBeDefined();

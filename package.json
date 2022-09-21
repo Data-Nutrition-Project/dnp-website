@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Data-Nutrition-Project/dnp-api#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "aws-sdk": "^2.1219.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",

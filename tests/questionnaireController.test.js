@@ -122,7 +122,10 @@ describe("questionnaires controller", () => {
 
     // they save for the first time
     const savedQuestionnaireOne =
-      await questionnairesController.saveQuestionnaire(questionnaire.dnpId, questionnaire);
+      await questionnairesController.saveQuestionnaire(
+        questionnaire.dnpId,
+        questionnaire
+      );
     questionnairesToDelete.push(savedQuestionnaireOne._id);
 
     const questionnaireOne = await questionnaireService.getQuestionnaire(
@@ -143,7 +146,10 @@ describe("questionnaires controller", () => {
 
     // they save for the second time
     const savedQuestionnaireTwo =
-      await questionnairesController.saveQuestionnaire(questionnaire.dnpId, questionnaire);
+      await questionnairesController.saveQuestionnaire(
+        questionnaire.dnpId,
+        questionnaire
+      );
     questionnairesToDelete.push(savedQuestionnaireTwo._id);
 
     const questionnaireTwo = await questionnaireService.getQuestionnaire(

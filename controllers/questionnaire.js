@@ -10,7 +10,10 @@ class QuestionnaireController {
     this.questionnaireService = questionnaireService;
     this.templateService = templateService;
     this.labelService = labelService;
-    this.lockedStates = [ENUM.LABEL_STATUS.APPROVED, ENUM.LABEL_STATUS.IN_REVIEW];
+    this.lockedStates = [
+      ENUM.LABEL_STATUS.APPROVED,
+      ENUM.LABEL_STATUS.IN_REVIEW,
+    ];
   }
 
   /*

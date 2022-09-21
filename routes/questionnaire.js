@@ -36,7 +36,10 @@ exports.QuestionnairesRouter = (
 
       try {
         const savedQuestionnaire =
-          await questionnaireController.saveQuestionnaire(req.params.id, req.body);
+          await questionnaireController.saveQuestionnaire(
+            req.params.id,
+            req.body
+          );
         // TODO: handle 404 error here too
         if (!savedQuestionnaire) {
           res.status(405).send({
