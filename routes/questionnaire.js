@@ -4,7 +4,7 @@ const { body, validationResult } = require("express-validator");
 exports.QuestionnairesRouter = (
   app,
   questionnaireController,
-  questionnaireService,
+  questionnaireService
 ) => {
   /*
   @params
@@ -144,7 +144,6 @@ exports.QuestionnairesRouter = (
     }
   });
 
-
   // this 'saves the questionnaire'
   // user can click a button that saves it
   // but all this does is send them an email
@@ -168,10 +167,8 @@ exports.QuestionnairesRouter = (
       }
 
       try {
-        await questionnaireController.saveQuestionnairePlace(
-          req.body
-        );
-        res.status(200).send(savedQuestionnaire);
+        await questionnaireController.saveQuestionnairePlace(req.body);
+        res.status(200).send(req.body);
       } catch (err) {
         console.log(err);
         res.status(500).send({

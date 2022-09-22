@@ -2,7 +2,12 @@ const { v4: uuidv4 } = require("uuid");
 const { ENUM } = require("../utils/ENUM.js");
 
 class QuestionnaireController {
-  constructor(questionnaireService, templateService, labelService, emailController) {
+  constructor(
+    questionnaireService,
+    templateService,
+    labelService,
+    emailController
+  ) {
     if (!questionnaireService || !templateService || !labelService) {
       throw new Error("QuestionnaireController Dependency Error");
     }
@@ -88,7 +93,9 @@ class QuestionnaireController {
   }
 
   async saveQuestionnairePlace(questionnaireObject) {
-    return this.emailController.sendSavedPlaceEmailToLabelAuthor(questionnaireObject)
+    return this.emailController.sendSavedPlaceEmailToLabelAuthor(
+      questionnaireObject
+    );
   }
 }
 
