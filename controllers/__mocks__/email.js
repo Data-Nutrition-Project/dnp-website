@@ -5,7 +5,11 @@ class EmailController {
 
   sendEmailToDnpCrew() {}
 
-  sendEmailToLabelAuthor() {}
+  sendApprovedEmailToLabelAuthor() {}
+
+  sendChangesEmailToLabelAuthor() {}
+
+  sendSavedPlaceEmailToLabelAuthor() {}
 
   getEmailFromQuestionnaire() {}
 }

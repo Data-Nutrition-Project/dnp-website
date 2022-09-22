@@ -1,11 +1,13 @@
 const sgMail = require("@sendgrid/mail");
 
 class EmailController {
-  constructor(key) {
+  constructor(key, dnpEmails, fromEmail, frontendUrl) {
     this.emailClient = sgMail;
     this.emailClient.setApiKey(key);
 
-    this.fromEmail = "info@datanutrition.org";
+    this.dnpEmails = dnpEmails;
+    this.frontendUrl = frontendUrl;
+    this.fromEmail = fromEmail;
   }
 
   sendEmail(to, subject, body) {
@@ -20,21 +22,46 @@ class EmailController {
   }
 
   sendEmailToDnpCrew(id) {
-    return this.sendEmail(
-      "hgmaxwellking@gmail.com",
-      "New Label Submition",
-      `Check out this new label! <a href='https://labelmaker.datanutrition.org/questionnaire/${id}'>Review Label</a>`
-    );
+    const sendEmailMapper = (email) =>
+      this.sendEmail(
+        email,
+        "New Label Submition",
+        `A new label has been submitted for review! <a href='${this.frontendUrl}/questionnaire/${id}'>Review Label</a>`
+      );
+
+    return Promise.all(this.dnpEmails.map(sendEmailMapper));
   }
 
-  sendEmailToLabelAuthor(questionnaire) {
+  sendApprovedEmailToLabelAuthor(questionnaire) {
     const email = this.getEmailFromQuestionnaire(questionnaire);
     const id = questionnaire.dnpId;
 
     return this.sendEmail(
       email,
-      "Updates To Your Label Status",
-      `Check out your label! <a href='https://labelmaker.datanutrition.org/questionnaire/${id}'>View Label</a>`
+      `Your Label ${questionnaire.title} has been approved`,
+      `Check out your label! <a href='${this.frontendUrl}/questionnaire/${id}'>View Label</a>`
+    );
+  }
+
+  sendChangesEmailToLabelAuthor(questionnaire) {
+    const email = this.getEmailFromQuestionnaire(questionnaire);
+    const id = questionnaire.dnpId;
+
+    return this.sendEmail(
+      email,
+      `Your Label ${questionnaire.title} has requested changes`,
+      `Check out your label! <a href='${this.frontendUrl}/questionnaire/${id}'>View Label</a>`
+    );
+  }
+
+  sendSavedPlaceEmailToLabelAuthor(questionnaire) {
+    const email = this.getEmailFromQuestionnaire(questionnaire);
+    const id = questionnaire.dnpId;
+
+    return this.sendEmail(
+      email,
+      `Your Label ${questionnaire.title} has been saved`,
+      `Check out your label! <a href='${this.frontendUrl}/questionnaire/${id}'>View Label</a>`
     );
   }
 
@@ -46,8 +73,8 @@ class EmailController {
       !questionnaire ||
       !questionnaire.questionnaire ||
       !questionnaire.questionnaire[0] ||
-      !questionnaire.questionnaire[0].questions[9]
-      || !questionnaire.questionnaire[0].questions[9].answer
+      !questionnaire.questionnaire[0].questions[9] ||
+      !questionnaire.questionnaire[0].questions[9].answer
     ) {
       return null;
     }

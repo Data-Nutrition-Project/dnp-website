@@ -87,6 +87,7 @@ exports.LabelsRouter = (app, labelController, labelService) => {
         }
         res.status(200).send(results);
       } catch (err) {
+        console.log(err)
         res.status(500).send({
           message: `Server error submitting Label`,
           error: err,

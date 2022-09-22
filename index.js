@@ -46,7 +46,12 @@ const main = async () => {
   );
   const labelService = new LabelService(labelsCollection);
 
-  const emailController = new EmailController(process.env.SENDGRID_KEY);
+  const emailController = new EmailController(
+    process.env.SENDGRID_KEY,
+    process.env.DNP_EMAILS.split(","),
+    process.env.FROM_EMAIL,
+    process.env.FRONTEND_URL
+  );
 
   const questionnaireController = new QuestionnaireController(
     questionnaireService,

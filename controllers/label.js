@@ -61,7 +61,7 @@ class LabelController {
 
     const savedLabel = await this.saveLabel(label);
 
-    await this.emailService.sendEmailToLabelAuthor(label);
+    await this.emailService.sendApprovedEmailToLabelAuthor(label);
 
     return savedLabel;
   }
@@ -81,7 +81,7 @@ class LabelController {
     label.status = ENUM.LABEL_STATUS.CHANGES_REQUESTED;
     const savedLabel = await this.saveLabel(label);
 
-    await this.emailService.sendEmailToLabelAuthor(label);
+    await this.emailService.sendChangesEmailToLabelAuthor(label);
 
     return savedLabel;
   }
