@@ -61,7 +61,8 @@ describe("DNP API", () => {
     questionnaireController = new QuestionnaireController(
       questionnaireService,
       templateService,
-      labelService
+      labelService,
+      emailController
     );
     labelController = new LabelController(
       labelService,

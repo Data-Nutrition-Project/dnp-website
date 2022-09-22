@@ -56,7 +56,8 @@ const main = async () => {
   const questionnaireController = new QuestionnaireController(
     questionnaireService,
     templateService,
-    labelService
+    labelService,
+    emailController
   );
   const labelController = new LabelController(
     labelService,

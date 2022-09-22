@@ -4,7 +4,7 @@ const { body, validationResult } = require("express-validator");
 exports.QuestionnairesRouter = (
   app,
   questionnaireController,
-  questionnaireService
+  questionnaireService,
 ) => {
   /*
   @params
@@ -143,4 +143,42 @@ exports.QuestionnairesRouter = (
       });
     }
   });
+
+
+  // this 'saves the questionnaire'
+  // user can click a button that saves it
+  // but all this does is send them an email
+  // since we update the questionnaire every few seconds
+  app.post(
+    "/questionnaires/:id/save",
+    body("questionnaire").isArray(),
+    body("_id").isString(),
+    body("schema_version").isNumeric(),
+    body("title").isString(),
+    body("reason").isString(),
+    body("dnpId").isString(),
+    body("savedDate").isString(),
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({
+          error: errors.array(),
+          message: "Invalid body for Questionnaire",
+        });
+      }
+
+      try {
+        await questionnaireController.saveQuestionnairePlace(
+          req.body
+        );
+        res.status(200).send(savedQuestionnaire);
+      } catch (err) {
+        console.log(err);
+        res.status(500).send({
+          message: `Error saving Questionnaire`,
+          error: err,
+        });
+      }
+    }
+  );
 };
