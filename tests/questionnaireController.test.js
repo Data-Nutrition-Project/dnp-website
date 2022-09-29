@@ -1,12 +1,18 @@
 require("dotenv").config();
+jest.mock("../controllers/email.js");
+
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
 
 const { TemplateService } = require("../database/template.js");
+
 const { QuestionnaireService } = require("../database/questionnaire.js");
-const { LabelService } = require("../database/label.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
+
+const { LabelService } = require("../database/label.js");
+
+const { EmailController } = require("../controllers/email.js");
 
 let templatesCollection;
 let templateService;
@@ -18,6 +24,8 @@ let labelsCollection;
 let labelService;
 
 let questionnairesController;
+
+let emailController;
 
 const questionnairesToDelete = [];
 const templatesToDelete = [];
@@ -39,10 +47,13 @@ describe("questionnaires controller", () => {
     templatesCollection = database.collection("templates");
     templateService = new TemplateService(templatesCollection);
 
+    emailController = new EmailController();
+
     questionnairesController = new QuestionnaireController(
       questionnaireService,
       templateService,
-      labelService
+      labelService,
+      emailController
     );
   });
 
@@ -122,7 +133,10 @@ describe("questionnaires controller", () => {
 
     // they save for the first time
     const savedQuestionnaireOne =
-      await questionnairesController.saveQuestionnaire(questionnaire.dnpId, questionnaire);
+      await questionnairesController.saveQuestionnaire(
+        questionnaire.dnpId,
+        questionnaire
+      );
     questionnairesToDelete.push(savedQuestionnaireOne._id);
 
     const questionnaireOne = await questionnaireService.getQuestionnaire(
@@ -143,7 +157,10 @@ describe("questionnaires controller", () => {
 
     // they save for the second time
     const savedQuestionnaireTwo =
-      await questionnairesController.saveQuestionnaire(questionnaire.dnpId, questionnaire);
+      await questionnairesController.saveQuestionnaire(
+        questionnaire.dnpId,
+        questionnaire
+      );
     questionnairesToDelete.push(savedQuestionnaireTwo._id);
 
     const questionnaireTwo = await questionnaireService.getQuestionnaire(

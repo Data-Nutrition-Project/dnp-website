@@ -36,7 +36,10 @@ exports.QuestionnairesRouter = (
 
       try {
         const savedQuestionnaire =
-          await questionnaireController.saveQuestionnaire(req.params.id, req.body);
+          await questionnaireController.saveQuestionnaire(
+            req.params.id,
+            req.body
+          );
         // TODO: handle 404 error here too
         if (!savedQuestionnaire) {
           res.status(405).send({
@@ -140,4 +143,39 @@ exports.QuestionnairesRouter = (
       });
     }
   });
+
+  // this 'saves the questionnaire'
+  // user can click a button that saves it
+  // but all this does is send them an email
+  // since we update the questionnaire every few seconds
+  app.post(
+    "/questionnaires/:id/save",
+    body("questionnaire").isArray(),
+    body("_id").isString(),
+    body("schema_version").isNumeric(),
+    body("title").isString(),
+    body("reason").isString(),
+    body("dnpId").isString(),
+    body("savedDate").isString(),
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({
+          error: errors.array(),
+          message: "Invalid body for Questionnaire",
+        });
+      }
+
+      try {
+        await questionnaireController.saveQuestionnairePlace(req.body);
+        res.status(200).send(req.body);
+      } catch (err) {
+        console.log(err);
+        res.status(500).send({
+          message: `Error saving Questionnaire`,
+          error: err,
+        });
+      }
+    }
+  );
 };

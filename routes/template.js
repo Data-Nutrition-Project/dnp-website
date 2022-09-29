@@ -12,32 +12,37 @@ exports.TemplatesRouter = (app, templateService) => {
   @return
     newTemplateObject :: shaped like { _id, questionnaire }
   */
-  app.post("/templates/new", body("questionnaire").exists(), async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res
-        .status(400)
-        .json({ error: errors.array(), message: "Invalid body for Template" });
+  app.post(
+    "/templates/new",
+    body("questionnaire").exists(),
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({
+          error: errors.array(),
+          message: "Invalid body for Template",
+        });
+      }
+
+      try {
+        const { questionnaire } = req.body;
+        const template = {
+          questionnaire,
+        };
+
+        const newTemplate = await templateService.addTemplate(template);
+        template._id = newTemplate.insertedId;
+
+        res.status(200).send(template);
+      } catch (err) {
+        console.log(err);
+        res.status(500).send({
+          message: `Server error creating Template`,
+          error: err,
+        });
+      }
     }
-
-    try {
-      const { questionnaire } = req.body;
-      const template = {
-        questionnaire,
-      };
-
-      const newTemplate = await templateService.addTemplate(template);
-      template._id = newTemplate.insertedId;
-
-      res.status(200).send(template);
-    } catch (err) {
-      console.log(err);
-      res.status(500).send({
-        message: `Server error creating Template`,
-        error: err,
-      });
-    }
-  });
+  );
 
   /*
   @params

@@ -80,13 +80,14 @@ exports.LabelsRouter = (app, labelController, labelService) => {
       }
       try {
         const results = await labelController.submitLabel(req.body);
-        if ( !results ) {
+        if (!results) {
           res.status(405).send({
             message: `Could not save Label`,
           });
         }
         res.status(200).send(results);
       } catch (err) {
+        console.log(err);
         res.status(500).send({
           message: `Server error submitting Label`,
           error: err,
@@ -103,34 +104,38 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/labels/:id/approve",body("password").exists(), async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    if (req.body.password != process.env.ADMIN_PASSWORD) {
-      return res.status(401).send({
-        message: `Incorrect password`,
-      });
-    }
-
-    try {
-      const results = await labelController.approveLabel(req.params.id);
-      if (!results) {
-        res.status(405).send({
-          message: `Could not approve Label`,
-        });
-      } else {
-        res.status(200).send(results);
+  app.post(
+    "/labels/:id/approve",
+    body("password").exists(),
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
       }
-    } catch (err) {
-      res.status(500).send({
-        message: `Server error approving Label`,
-        error: err,
-      });
+
+      if (req.body.password != process.env.ADMIN_PASSWORD) {
+        return res.status(401).send({
+          message: `Incorrect password`,
+        });
+      }
+
+      try {
+        const results = await labelController.approveLabel(req.params.id);
+        if (!results) {
+          res.status(405).send({
+            message: `Could not approve Label`,
+          });
+        } else {
+          res.status(200).send(results);
+        }
+      } catch (err) {
+        res.status(500).send({
+          message: `Server error approving Label`,
+          error: err,
+        });
+      }
     }
-  });
+  );
 
   /*
   @params
@@ -140,34 +145,39 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/labels/:id/changes",body("password").exists(), async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    if (req.body.password != process.env.ADMIN_PASSWORD) {
-      return res.status(401).send({
-        message: `Incorrect password`,
-      });
-    }
-
-    try {
-      const results = await labelController.requestChangesForLabel(
-        req.params.id
-      );
-      if (!results) {
-        res.status(405).send({
-          message: `Could not request changes for Label`,
-        });
-      } else {
-        res.status(200).send(results);
+  app.post(
+    "/labels/:id/changes",
+    body("password").exists(),
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
       }
-    } catch (err) {
-      res.status(500).send({
-        message: `Server error requesting changes for Label`,
-        error: err,
-      });
+
+      if (req.body.password != process.env.ADMIN_PASSWORD) {
+        return res.status(401).send({
+          message: `Incorrect password`,
+        });
+      }
+
+      try {
+        const results = await labelController.requestChangesForLabel(
+          req.params.id
+        );
+        if (!results) {
+          res.status(405).send({
+            message: `Could not request changes for Label`,
+          });
+        } else {
+          res.status(200).send(results);
+        }
+      } catch (err) {
+        console.log(err);
+        res.status(500).send({
+          message: `Server error requesting changes for Label`,
+          error: err,
+        });
+      }
     }
-  });
+  );
 };

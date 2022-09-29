@@ -58,7 +58,9 @@ class LabelService {
     List of label objects of all approved labels sorted by date
    */
   getApprovedLabels() {
-    return this.labelsCollection.find({ status: ENUM.LABEL_STATUS.APPROVED }).toArray();
+    return this.labelsCollection
+      .find({ status: ENUM.LABEL_STATUS.APPROVED })
+      .toArray();
   }
 }
 

@@ -1,17 +1,22 @@
 require("dotenv").config();
+jest.mock("../controllers/email.js");
+
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
 
 const { TemplateService } = require("../database/template.js");
-const { QuestionnaireService } = require("../database/questionnaire.js");
-const { LabelService } = require("../database/label.js");
-const { QuestionnaireController } = require("../controllers/questionnaire.js");
-const { LabelController } = require("../controllers/label.js");
-
-const { QuestionnairesRouter } = require("../routes/questionnaire.js");
 const { TemplatesRouter } = require("../routes/template.js");
+
+const { QuestionnaireService } = require("../database/questionnaire.js");
+const { QuestionnaireController } = require("../controllers/questionnaire.js");
+const { QuestionnairesRouter } = require("../routes/questionnaire.js");
+
+const { LabelService } = require("../database/label.js");
+const { LabelController } = require("../controllers/label.js");
 const { LabelsRouter } = require("../routes/label.js");
+
+const { EmailController } = require("../controllers/email.js");
 
 const request = require("supertest");
 const express = require("express");
@@ -31,6 +36,8 @@ let labelController;
 
 let questionnaireController;
 
+let emailController;
+
 const templatesToDelete = [];
 const questionnairesToDelete = [];
 const labelsToDelete = [];
@@ -47,14 +54,21 @@ describe("DNP API", () => {
     labelsCollection = database.collection("labels");
     labelService = new LabelService(labelsCollection);
 
+    emailController = new EmailController();
+
     templateService = new TemplateService(templatesCollection);
     questionnaireService = new QuestionnaireService(questionnairesCollection);
     questionnaireController = new QuestionnaireController(
       questionnaireService,
       templateService,
-      labelService
+      labelService,
+      emailController
     );
-    labelController = new LabelController(labelService, questionnaireService);
+    labelController = new LabelController(
+      labelService,
+      questionnaireService,
+      emailController
+    );
 
     QuestionnairesRouter(app, questionnaireController, questionnaireService);
     TemplatesRouter(app, templateService);
@@ -206,7 +220,7 @@ describe("DNP API", () => {
     //
     const needsChangesResponse = await request(app)
       .post(`/labels/${submittedLabel.dnpId}/changes`)
-      .send({password: process.env.ADMIN_PASSWORD})
+      .send({ password: process.env.ADMIN_PASSWORD })
       .expect(200);
     labelsToDelete.push(new ObjectID(needsChangesResponse.body._id));
     expect(needsChangesResponse.body.status).toBe("CHANGES REQUESTED");
@@ -250,7 +264,7 @@ describe("DNP API", () => {
     //
     const needsChangesResponseTwo = await request(app)
       .post(`/labels/${submittedLabel.dnpId}/changes`)
-      .send({password: process.env.ADMIN_PASSWORD})
+      .send({ password: process.env.ADMIN_PASSWORD })
       .expect(200);
     labelsToDelete.push(new ObjectID(needsChangesResponseTwo.body._id));
     expect(needsChangesResponseTwo.body.status).toBe("CHANGES REQUESTED");
@@ -278,7 +292,7 @@ describe("DNP API", () => {
 
     const approvedResponse = await request(app)
       .post(`/labels/${submittedLabel.dnpId}/approve`)
-      .send({password: process.env.ADMIN_PASSWORD})
+      .send({ password: process.env.ADMIN_PASSWORD })
       .expect(200);
     labelsToDelete.push(new ObjectID(approvedResponse.body._id));
     expect(approvedResponse.body.status).toBe("APPROVED");
