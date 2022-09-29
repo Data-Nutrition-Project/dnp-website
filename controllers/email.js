@@ -49,7 +49,7 @@ class EmailController {
 
     return this.sendEmail(
       email,
-      `Your Label ${questionnaire.title} has requested changes`,
+      `There is a request for changes to some of your ${questionnaire.title} questionnaire responses`,
       `Check out your label! <a href='${this.frontendUrl}/questionnaire/${id}'>View Label</a>`
     );
   }
