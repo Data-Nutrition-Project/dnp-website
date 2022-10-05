@@ -19,6 +19,9 @@ const { LabelsRouter } = require("./routes/label.js");
 
 const { EmailController } = require("./controllers/email.js");
 
+const { FileController } = require("./controllers/file.js");
+const { FilesRouter } = require("./routes/file.js");
+
 const app = express();
 const port = process.env.PORT;
 
@@ -65,9 +68,12 @@ const main = async () => {
     emailController
   );
 
+  const fileController = new FileController(process.env.LABEL_UPLOADS_BUCKET_NAME);
+  
   TemplatesRouter(app, templateService);
   QuestionnairesRouter(app, questionnaireController, questionnaireService);
   LabelsRouter(app, labelController, labelService);
+  FilesRouter(app, fileController);
 
   app.listen(port, () => {
     console.log(`DNP API listening on port ${port}`);
