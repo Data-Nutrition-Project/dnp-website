@@ -1,3 +1,5 @@
+const { ENUM } = require("../utils/ENUM.js");
+
 // label service class
 // these will wrap our database calls,
 // nice clean way to abstract away our db details
@@ -47,6 +49,18 @@ class LabelService {
       { dnpId: labelDnpId },
       { sort: { schema_version: -1 } }
     );
+  }
+
+  /*
+  @desc
+    This will return all labels marked as approved from the db
+  @return
+    List of label objects of all approved labels sorted by date
+   */
+  getApprovedLabels() {
+    return this.labelsCollection
+      .find({ status: ENUM.LABEL_STATUS.APPROVED })
+      .toArray();
   }
 }
 

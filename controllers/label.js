@@ -1,8 +1,14 @@
+const { ENUM } = require("../utils/ENUM.js");
+
 class LabelController {
-  constructor(labelService, questionnaireService) {
+  constructor(labelService, questionnaireService, emailService) {
     this.labelService = labelService;
     this.questionnaireService = questionnaireService;
-    this.lockedStates = ["APPROVED", "IN REVIEW"];
+    this.emailService = emailService;
+    this.lockedStates = [
+      ENUM.LABEL_STATUS.APPROVED,
+      ENUM.LABEL_STATUS.IN_REVIEW,
+    ];
   }
 
   async submitLabel(questionnaireObject) {
@@ -25,11 +31,16 @@ class LabelController {
       return null;
     }
 
-    clonedQuestionnaire.status = "IN REVIEW";
+    // update our questionnaire to have label fields
+    clonedQuestionnaire.status = ENUM.LABEL_STATUS.IN_REVIEW;
     clonedQuestionnaire.schema_version = pastLabel
       ? pastLabel.schema_version
       : 0;
     const savedLabel = await this.saveLabel(clonedQuestionnaire);
+
+    // notify our associates
+    await this.emailService.sendEmailToDnpCrew(clonedQuestionnaire.dnpId);
+
     return savedLabel;
   }
 
@@ -45,9 +56,12 @@ class LabelController {
       return null;
     }
 
-    label.status = "APPROVED";
+    label.status = ENUM.LABEL_STATUS.APPROVED;
     label.version = 1;
+
     const savedLabel = await this.saveLabel(label);
+
+    await this.emailService.sendApprovedEmailToLabelAuthor(label);
 
     return savedLabel;
   }
@@ -57,14 +71,17 @@ class LabelController {
     if (!label) {
       return null;
     }
+
     const questionnaire =
       await this.questionnaireService.getNewestQuestionnaire(dnpId);
     if (!questionnaire) {
       return null;
     }
 
-    label.status = "CHANGES REQUESTED";
+    label.status = ENUM.LABEL_STATUS.CHANGES_REQUESTED;
     const savedLabel = await this.saveLabel(label);
+
+    await this.emailService.sendChangesEmailToLabelAuthor(label);
 
     return savedLabel;
   }

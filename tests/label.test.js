@@ -54,6 +54,23 @@ describe("labels service", () => {
     expect(foundLabel).toEqual(labelToAdd);
   });
 
+  // add two labels into our database
+  // use our method to find only an approved one
+  // assert the draft label is not in the list
+  it("can find all approved labels", async () => {
+    const labelToAdd = dummyLabel();
+    const label = await labelsCollection.insertOne(labelToAdd);
+    labelsToDelete.push(label.insertedId);
+
+    const approvedToAdd = dummyApprovedLabel();
+    const approved = await labelsCollection.insertOne(approvedToAdd);
+    labelsToDelete.push(approved.insertedId);
+
+    const foundLabels = await labelService.getApprovedLabels();
+    expect(foundLabels.length).toEqual(1);
+    expect(foundLabels[0]).toEqual(approvedToAdd);
+  });
+
   // look for a made up label id
   // confirm that it is null
   it("will not find a made up label", async () => {
@@ -96,5 +113,11 @@ describe("labels service", () => {
 const dummyLabel = () => ({
   version: 1,
   questions: [],
-  status: "draft",
+  status: "IN REVIEW",
+});
+
+const dummyApprovedLabel = () => ({
+  version: 1,
+  questions: [],
+  status: "APPROVED",
 });

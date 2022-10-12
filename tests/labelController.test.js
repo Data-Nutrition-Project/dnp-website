@@ -1,13 +1,19 @@
 require("dotenv").config();
+jest.mock("../controllers/email.js");
+
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
 
 const { TemplateService } = require("../database/template.js");
+
 const { QuestionnaireService } = require("../database/questionnaire.js");
-const { LabelService } = require("../database/label.js");
 const { QuestionnaireController } = require("../controllers/questionnaire.js");
+
+const { LabelService } = require("../database/label.js");
 const { LabelController } = require("../controllers/label.js");
+
+const { EmailController } = require("../controllers/email.js");
 
 let templatesCollection;
 let templateService;
@@ -19,6 +25,8 @@ let questionnairesController;
 let labelsCollection;
 let labelService;
 let labelsController;
+
+let emailController;
 
 const labelsToDelete = [];
 const questionnairesToDelete = [];
@@ -39,12 +47,18 @@ describe("labels controller", () => {
     labelsCollection = database.collection("labels");
     labelService = new LabelService(labelsCollection);
 
+    emailController = new EmailController();
+
     questionnairesController = new QuestionnaireController(
       questionnaireService,
       templateService,
       labelService
     );
-    labelsController = new LabelController(labelService, questionnaireService);
+    labelsController = new LabelController(
+      labelService,
+      questionnaireService,
+      emailController
+    );
   });
 
   // we want to cleanup all the things we inserted afterwards
@@ -93,8 +107,10 @@ describe("labels controller", () => {
   });
 
   it("can submit a label from a questionnaire", async () => {
+    const dummy = dummyQuestionnaire();
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
     const submittedLabelResults = await labelsController.submitLabel(
@@ -111,8 +127,10 @@ describe("labels controller", () => {
   });
 
   it("can approve a submitted label", async () => {
+    const dummy = dummyQuestionnaire();
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
 
@@ -142,8 +160,10 @@ describe("labels controller", () => {
   });
 
   it("won't approve a non existant label", async () => {
+    const dummy = dummyQuestionnaire();
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
     const approvedLabelResults = await labelsController.approveLabel(
@@ -162,8 +182,11 @@ describe("labels controller", () => {
   });
 
   it("can request changes for a submitted label", async () => {
+    const dummy = dummyQuestionnaire();
+
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
 
@@ -193,8 +216,10 @@ describe("labels controller", () => {
   });
 
   it("won't request changes for a non existant label", async () => {
+    const dummy = dummyQuestionnaire();
     const savedQuestionnaire = await questionnairesController.saveQuestionnaire(
-      dummyQuestionnaire()
+      dummy.dnpId,
+      dummy
     );
     questionnairesToDelete.push(savedQuestionnaire._id);
     const requestedLabelResults = await labelsController.requestChangesForLabel(

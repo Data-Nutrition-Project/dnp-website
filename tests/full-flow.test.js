@@ -1,17 +1,22 @@
 require("dotenv").config();
+jest.mock("../controllers/email.js");
+
 const { ObjectID } = require("mongodb");
 
 const { connect } = require("../database/connector.js");
 
 const { TemplateService } = require("../database/template.js");
-const { QuestionnaireService } = require("../database/questionnaire.js");
-const { LabelService } = require("../database/label.js");
-const { QuestionnaireController } = require("../controllers/questionnaire.js");
-const { LabelController } = require("../controllers/label.js");
-
-const { QuestionnairesRouter } = require("../routes/questionnaire.js");
 const { TemplatesRouter } = require("../routes/template.js");
+
+const { QuestionnaireService } = require("../database/questionnaire.js");
+const { QuestionnaireController } = require("../controllers/questionnaire.js");
+const { QuestionnairesRouter } = require("../routes/questionnaire.js");
+
+const { LabelService } = require("../database/label.js");
+const { LabelController } = require("../controllers/label.js");
 const { LabelsRouter } = require("../routes/label.js");
+
+const { EmailController } = require("../controllers/email.js");
 
 const request = require("supertest");
 const express = require("express");
@@ -31,6 +36,8 @@ let labelController;
 
 let questionnaireController;
 
+let emailController;
+
 const templatesToDelete = [];
 const questionnairesToDelete = [];
 const labelsToDelete = [];
@@ -47,14 +54,21 @@ describe("DNP API", () => {
     labelsCollection = database.collection("labels");
     labelService = new LabelService(labelsCollection);
 
+    emailController = new EmailController();
+
     templateService = new TemplateService(templatesCollection);
     questionnaireService = new QuestionnaireService(questionnairesCollection);
     questionnaireController = new QuestionnaireController(
       questionnaireService,
       templateService,
-      labelService
+      labelService,
+      emailController
     );
-    labelController = new LabelController(labelService, questionnaireService);
+    labelController = new LabelController(
+      labelService,
+      questionnaireService,
+      emailController
+    );
 
     QuestionnairesRouter(app, questionnaireController, questionnaireService);
     TemplatesRouter(app, templateService);
@@ -91,7 +105,7 @@ describe("DNP API", () => {
     //
     const dummy = dummyTemplate();
     const templateResponse = await request(app)
-      .post("/template")
+      .post("/templates/new")
       .send(dummy)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -101,7 +115,7 @@ describe("DNP API", () => {
 
     // make sure we can find it in the db
     const foundTemplate = await request(app)
-      .get(`/template?id=${templateResponse.body._id}`)
+      .get(`/templates/${templateResponse.body._id}`)
       .expect(200);
     expect(foundTemplate).toBeDefined();
     expect(foundTemplate.body).toEqual(templateResponse.body);
@@ -110,7 +124,7 @@ describe("DNP API", () => {
     // start a new empty questionnaire with that template
     //
     const newQuestionnaireResponse = await request(app)
-      .post(`/new-questionnaire`)
+      .post(`/questionnaires/new`)
       .send({
         id: foundTemplate.body._id,
         title: "HG's cool data again",
@@ -122,7 +136,7 @@ describe("DNP API", () => {
 
     // make sure we can find the new questionnaire in the db
     const foundNewQuestionnaire = await request(app)
-      .get(`/questionnaire?id=${newQuestionnaireResponse.body.dnpId}`)
+      .get(`/questionnaires/${newQuestionnaireResponse.body.dnpId}`)
       .expect(200);
     const workingQuestionnaire = foundNewQuestionnaire.body;
     expect(workingQuestionnaire.schema_version).toBe(0);
@@ -138,7 +152,7 @@ describe("DNP API", () => {
     //
     workingQuestionnaire.questionnaire.push("I think, there for I am?");
     const firstSavedQuestionnaireResponse = await request(app)
-      .post(`/questionnaire?id=${workingQuestionnaire.dnpId}`)
+      .post(`/questionnaires/${workingQuestionnaire.dnpId}/update`)
       .send(workingQuestionnaire) // not so empty anymore
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -156,7 +170,7 @@ describe("DNP API", () => {
       "All we are, is dust in the wind, dude?"
     );
     const secondSavedQuestionnaireResponse = await request(app)
-      .post(`/questionnaire?id=${workingQuestionnaire.dnpId}`)
+      .post(`/questionnaires/${workingQuestionnaire.dnpId}/update`)
       .send(workingQuestionnaire) // not so empty anymore
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -176,7 +190,7 @@ describe("DNP API", () => {
     // now lets find the most recent version in our database
     //
     const newestQuestionnaireResponse = await request(app)
-      .get(`/questionnaire?id=${newQuestionnaireResponse.body.dnpId}`)
+      .get(`/questionnaires/${newQuestionnaireResponse.body.dnpId}`)
       .expect(200);
     expect(newestQuestionnaireResponse.body.schema_version).toBe(2);
 
@@ -185,7 +199,7 @@ describe("DNP API", () => {
     //
     const questionnaireToBeSubmitted = newestQuestionnaireResponse.body;
     const submittionResults = await request(app)
-      .post(`/label/submit`)
+      .post(`/labels/submit`)
       .send(questionnaireToBeSubmitted)
       .expect(200);
     labelsToDelete.push(new ObjectID(submittionResults.body._id));
@@ -195,7 +209,7 @@ describe("DNP API", () => {
 
     // the saving needs to be locked while in review
     await request(app)
-      .post(`/questionnaire?id=${questionnaireToBeSubmitted.dnpId}`)
+      .post(`/questionnaires/${questionnaireToBeSubmitted.dnpId}/update`)
       .send(questionnaireToBeSubmitted)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -205,8 +219,8 @@ describe("DNP API", () => {
     // Ah it turns out we need to make changes
     //
     const needsChangesResponse = await request(app)
-      .post(`/label/changes?id=${submittedLabel.dnpId}`)
-      .send({password: process.env.ADMIN_PASSWORD})
+      .post(`/labels/${submittedLabel.dnpId}/changes`)
+      .send({ password: process.env.ADMIN_PASSWORD })
       .expect(200);
     labelsToDelete.push(new ObjectID(needsChangesResponse.body._id));
     expect(needsChangesResponse.body.status).toBe("CHANGES REQUESTED");
@@ -216,7 +230,7 @@ describe("DNP API", () => {
       "Okay, maybe this is better?"
     );
     const changedQuestionnaireResults = await request(app)
-      .post(`/questionnaire?id=${questionnaireToBeSubmitted.dnpId}`)
+      .post(`/questionnaires/${questionnaireToBeSubmitted.dnpId}/update`)
       .send(questionnaireToBeSubmitted)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -230,7 +244,7 @@ describe("DNP API", () => {
     // Submitting again
     //
     const submittionResultsTwo = await request(app)
-      .post(`/label/submit`)
+      .post(`/labels/submit`)
       .send(changedQuestionnaire)
       .expect(200);
     expect(submittionResultsTwo.body._id).toBeDefined();
@@ -239,7 +253,7 @@ describe("DNP API", () => {
 
     // the saving needs to be locked while in review (again)
     await request(app)
-      .post(`/questionnaire?id=${changedQuestionnaire.dnpId}`)
+      .post(`/questionnaires/${changedQuestionnaire.dnpId}/update`)
       .send(changedQuestionnaire)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -249,8 +263,8 @@ describe("DNP API", () => {
     // Ah it turns out we need to make changes (again)
     //
     const needsChangesResponseTwo = await request(app)
-      .post(`/label/changes?id=${submittedLabel.dnpId}`)
-      .send({password: process.env.ADMIN_PASSWORD})
+      .post(`/labels/${submittedLabel.dnpId}/changes`)
+      .send({ password: process.env.ADMIN_PASSWORD })
       .expect(200);
     labelsToDelete.push(new ObjectID(needsChangesResponseTwo.body._id));
     expect(needsChangesResponseTwo.body.status).toBe("CHANGES REQUESTED");
@@ -258,7 +272,7 @@ describe("DNP API", () => {
     // this is our second change requested
     changedQuestionnaire.questionnaire.push("How much more?");
     const changedQuestionnaireResultsTwo = await request(app)
-      .post(`/questionnaire?id=${questionnaireToBeSubmitted.dnpId}`)
+      .post(`/questionnaires/${questionnaireToBeSubmitted.dnpId}/update`)
       .send(questionnaireToBeSubmitted)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -269,7 +283,7 @@ describe("DNP API", () => {
     const changedQuestionnaireTwo = changedQuestionnaireResultsTwo.body;
 
     const submittionResultsFinal = await request(app)
-      .post(`/label/submit`)
+      .post(`/labels/submit`)
       .send(changedQuestionnaireTwo)
       .expect(200);
     expect(submittionResultsFinal.body._id).toBeDefined();
@@ -277,15 +291,15 @@ describe("DNP API", () => {
     expect(submittionResultsFinal.body.status).toBe("IN REVIEW");
 
     const approvedResponse = await request(app)
-      .post(`/label/approve?id=${submittedLabel.dnpId}`)
-      .send({password: process.env.ADMIN_PASSWORD})
+      .post(`/labels/${submittedLabel.dnpId}/approve`)
+      .send({ password: process.env.ADMIN_PASSWORD })
       .expect(200);
     labelsToDelete.push(new ObjectID(approvedResponse.body._id));
     expect(approvedResponse.body.status).toBe("APPROVED");
 
     // the saving needs to be locked after an approval
     await request(app)
-      .post(`/questionnaire?id=${changedQuestionnaireTwo.dnpId}`)
+      .post(`/questionnaires/${changedQuestionnaireTwo.dnpId}/update`)
       .send(changedQuestionnaireTwo)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")

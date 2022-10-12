@@ -13,9 +13,34 @@ exports.LabelsRouter = (app, labelController, labelService) => {
       it will have the following fields:
         { _id, status, version, labelReason, questionnaire, title, dnpId, schema_version }
   */
-  app.get("/label", async (req, res) => {
+  app.get("/labels/:id", async (req, res) => {
     try {
-      const foundLabel = await labelService.getNewestLabel(req.query.id);
+      const foundLabel = await labelService.getNewestLabel(req.params.id);
+      if (!foundLabel) {
+        res.status(404).send({
+          message: `Could not find Label`,
+        });
+      } else {
+        res.status(200).send(foundLabel);
+      }
+    } catch (err) {
+      res.status(500).send({
+        message: `Server error getting Label`,
+        error: err,
+      });
+    }
+  });
+
+  /*
+  @desc
+    This route will return a list of all approved labels
+  @return
+    list of labels ::
+        [{ _id }, {_id }, ...]
+  */
+  app.get("/labels/approved", async (req, res) => {
+    try {
+      const foundLabel = await labelService.getApprovedLabels();
       if (!foundLabel) {
         res.status(404).send({
           message: `Could not find Label`,
@@ -40,7 +65,7 @@ exports.LabelsRouter = (app, labelController, labelService) => {
     TBD
   */
   app.post(
-    "/label/submit",
+    "/labels/submit",
     body("questionnaire").isArray(),
     body("_id").isString(),
     body("schema_version").isNumeric(),
@@ -55,13 +80,14 @@ exports.LabelsRouter = (app, labelController, labelService) => {
       }
       try {
         const results = await labelController.submitLabel(req.body);
-        if ( !results ) {
+        if (!results) {
           res.status(405).send({
             message: `Could not save Label`,
           });
         }
         res.status(200).send(results);
       } catch (err) {
+        console.log(err);
         res.status(500).send({
           message: `Server error submitting Label`,
           error: err,
@@ -78,34 +104,38 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/label/approve",body("password").exists(), async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    if (req.body.password != process.env.ADMIN_PASSWORD) {
-      return res.status(401).send({
-        message: `Incorrect password`,
-      });
-    }
-
-    try {
-      const results = await labelController.approveLabel(req.query.id);
-      if (!results) {
-        res.status(405).send({
-          message: `Could not approve Label`,
-        });
-      } else {
-        res.status(200).send(results);
+  app.post(
+    "/labels/:id/approve",
+    body("password").exists(),
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
       }
-    } catch (err) {
-      res.status(500).send({
-        message: `Server error approving Label`,
-        error: err,
-      });
+
+      if (req.body.password != process.env.ADMIN_PASSWORD) {
+        return res.status(401).send({
+          message: `Incorrect password`,
+        });
+      }
+
+      try {
+        const results = await labelController.approveLabel(req.params.id);
+        if (!results) {
+          res.status(405).send({
+            message: `Could not approve Label`,
+          });
+        } else {
+          res.status(200).send(results);
+        }
+      } catch (err) {
+        res.status(500).send({
+          message: `Server error approving Label`,
+          error: err,
+        });
+      }
     }
-  });
+  );
 
   /*
   @params
@@ -115,34 +145,39 @@ exports.LabelsRouter = (app, labelController, labelService) => {
   @return
     TBD
   */
-  app.post("/label/changes",body("password").exists(), async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    if (req.body.password != process.env.ADMIN_PASSWORD) {
-      return res.status(401).send({
-        message: `Incorrect password`,
-      });
-    }
-
-    try {
-      const results = await labelController.requestChangesForLabel(
-        req.query.id
-      );
-      if (!results) {
-        res.status(405).send({
-          message: `Could not request changes for Label`,
-        });
-      } else {
-        res.status(200).send(results);
+  app.post(
+    "/labels/:id/changes",
+    body("password").exists(),
+    async (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
       }
-    } catch (err) {
-      res.status(500).send({
-        message: `Server error requesting changes for Label`,
-        error: err,
-      });
+
+      if (req.body.password != process.env.ADMIN_PASSWORD) {
+        return res.status(401).send({
+          message: `Incorrect password`,
+        });
+      }
+
+      try {
+        const results = await labelController.requestChangesForLabel(
+          req.params.id
+        );
+        if (!results) {
+          res.status(405).send({
+            message: `Could not request changes for Label`,
+          });
+        } else {
+          res.status(200).send(results);
+        }
+      } catch (err) {
+        console.log(err);
+        res.status(500).send({
+          message: `Server error requesting changes for Label`,
+          error: err,
+        });
+      }
     }
-  });
+  );
 };

@@ -15,7 +15,7 @@ let templateService;
 let templatesCollection;
 const templatesToDelete = [];
 
-describe("/template routes", () => {
+describe("/templates routes", () => {
   beforeAll(async () => {
     const client = await connect(process.env.TEST_DB_URL).catch(console.dir);
     await client.connect();
@@ -37,7 +37,7 @@ describe("/template routes", () => {
 
   it("denies an invalid template", (done) => {
     request(app)
-      .post("/template")
+      .post("/templates/new")
       .send({ arco: "iris" })
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -48,7 +48,7 @@ describe("/template routes", () => {
     const dummy = dummyTemplate();
 
     const response = await request(app)
-      .post("/template")
+      .post("/templates/new")
       .send(dummy)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -78,7 +78,7 @@ describe("/template routes", () => {
     expect(foundTemplate.questions).toEqual(dummy.questions);
 
     const response = await request(app)
-      .get(`/template?id=${addedTemplate.insertedId}`)
+      .get(`/templates/${addedTemplate.insertedId}`)
       .expect(200);
 
     expect(response.body.questionnaire).toStrictEqual(dummy.questionnaire);
@@ -97,21 +97,21 @@ describe("/template routes", () => {
     const addedTemplate3 = await templateService.addTemplate(dummy3);
     templatesToDelete.push(addedTemplate3.insertedId);
 
-    const response = await request(app).get(`/template`).expect(200);
+    const response = await request(app).get(`/templates/`).expect(200);
 
     expect(response.body._id).toEqual(addedTemplate3.insertedId.toString());
     expect(response.body._id).not.toEqual(addedTemplate.insertedId.toString());
   });
 
   it("wont find an imaginary template", (done) => {
-    request(app).get(`/template?id=baddabbaddabbaddabbaddab`).expect(404, done);
+    request(app).get(`/templates/baddabbaddabbaddabbaddab`).expect(404, done);
   });
 
   it("can insert with POST and find with GET", async () => {
     const dummy = dummyTemplate();
 
     const responsePost = await request(app)
-      .post("/template")
+      .post("/templates/new")
       .send(dummy)
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
@@ -124,7 +124,7 @@ describe("/template routes", () => {
     templatesToDelete.push(_id);
 
     const responseGet = await request(app)
-      .get(`/template?id=${responsePost.body._id}`)
+      .get(`/templates/${responsePost.body._id}`)
       .expect(200);
 
     expect(responseGet.body.questionnaire).toStrictEqual(dummy.questionnaire);
