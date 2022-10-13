@@ -34,7 +34,7 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
-    padding: 0 5rem;
+    padding: 0 4rem;
 }
 
 .logoSection {
@@ -80,15 +80,19 @@
     width: 40%;
 }
 
+.labelDesc {
+    margin-top: .75rem;
+}
+
 .metaLabelList {
-    width: 33.33%;
+    width: 30%;
     list-style-type: none;
 }
 
 .metaLabelListItem {
     display: flex;
     justify-content: space-between;
-    padding: .25rem;
+    padding: .75rem .25rem;
     border-bottom: 1px solid v3Gray;
 }
 
@@ -96,9 +100,13 @@
     font-weight: 700;
 }
 
+.metaLabelListItemData {
+    text-align: right;
+}
+
 .labelDropdown {
-    margin-top: 1rem;
-    text-decoration: underline;
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .metaLabelHideButton {
@@ -107,6 +115,7 @@
     padding: 1rem;
     height: 3.5rem;
     font-weight: 700;
+    font-size: 1.25rem;
     border-radius: .5rem;
 }
 

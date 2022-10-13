@@ -16,7 +16,7 @@ const LabelHeader = (props) => {
         setIsOpen(!isOpen)
     }
 
-    const r = 50;
+    const r = 75;
     const circ = 2 * Math.PI * r;
     const strokePct = ((100 - props.percentage) * circ) / 100;
 
@@ -41,43 +41,55 @@ const LabelHeader = (props) => {
                             <div className={styles.metaLabel}>
                                 <div className={styles.metaLabelFYI}>
                                     <div className={styles.progressCircle}>
-                                        <svg width={150} height={150}>
-                                          <g transform={`rotate(-90 ${"75 75"})`}>
-                                            <circle
-                                              r={r}
-                                              cx={75}
-                                              cy={75}
-                                              fill="transparent"
-                                              stroke={""}
-                                              strokeWidth={"1rem"}
-                                              strokeDasharray={circ}
-                                              strokeDashoffset={0}
-                                            ></circle>
-                                            <circle
-                                              r={r}
-                                              cx={75}
-                                              cy={75}
-                                              fill="transparent"
-                                              stroke={strokePct !== circ ? styles.teal : ""}
-                                              strokeWidth={"1rem"}
-                                              strokeDasharray={circ}
-                                              strokeDashoffset={strokePct}
-                                            ></circle>
-                                          </g>
-                                          <text
+                                        <svg width={200} height={200}>
+                                            <g transform={`rotate(-90 ${"100 100"})`}>
+                                                <circle
+                                                  r={r}
+                                                  cx={100}
+                                                  cy={100}
+                                                  fill="transparent"
+                                                  stroke={""}
+                                                  strokeWidth={"1rem"}
+                                                  strokeDasharray={circ}
+                                                  strokeDashoffset={0}
+                                                ></circle>
+                                                <circle
+                                                  r={r}
+                                                  cx={100}
+                                                  cy={100}
+                                                  fill="transparent"
+                                                  stroke={strokePct !== circ ? styles.teal : ""}
+                                                  strokeWidth={"1rem"}
+                                                  strokeDasharray={circ}
+                                                  strokeDashoffset={strokePct}
+                                                ></circle>
+                                            </g>
+                                            <text
                                               x="50%"
-                                              y="50%"
+                                              y="45%"
                                               dominantBaseline="central"
                                               textAnchor="middle"
-                                              fontSize={"1.5em"}
+                                              fontSize={"2em"}
                                               stroke={"white"}
                                               fill={"white"}
                                             >
                                               {props.percentage.toFixed(0)}%
                                             </text>
+                                            <text
+                                              x="50%"
+                                              y="60%"
+                                              dominantBaseline="central"
+                                              textAnchor="middle"
+                                              fontSize={".5em"}
+                                              stroke={"white"}
+                                              fill={"white"}
+                                              textLength={'50%'}
+                                            >
+                                              {'COMPLETENESS'}
+                                            </text>
                                         </svg>
                                     </div>
-                                    <div>
+                                    <div className={styles.labelDesc}>
                                         <b>{'What is this label?'}</b>
                                         <p>
                                             {'The Dataset Nutrition Label enhances context, contents, and legibility of datasets. Information about this Dataset Nutrition Label, a standard of documentation that describes how to understand and use this dataset.'}
