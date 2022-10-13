@@ -115,7 +115,6 @@ export const formatUpstream = (blob) => {
                 description: upstream[3].answer
             }
         ]
-        console.log(upstreamstuff)
         return upstreamstuff
     }
 }
@@ -201,9 +200,50 @@ export const formatGeneralRisks = (blob) => {
     return generalRisks
 }
 
-export const formatBlobForLabel = (blob) => {
+export const getPercentageCompleted = (blob) => {
+    const values = blob.reduce((prev, cur) => {
+        return cur.questions.reduce((counts, question) => {
+            return [(counts[0] + 1), (question.answer.length === 0) ? counts[1] : (counts[1] + 1)]
+        }, [prev[0], prev[1]])
+    }, [0, 0])
+    return (values[1]/values[0] * 100)
+}
+
+export const formatBlobForLabel = (data) => {
+    const blob = data.questionnaire
+    let publishDate = ''
+    try {
+        const savedDate = new Date(Date.parse(data.savedDate))
+        publishDate = savedDate.toLocaleDateString()
+    } catch (error) {
+        publishDate = ''
+    }
+
     return {
         title: blob[0].questions[4].answer,
+        metadata: {
+            labelAuthor: {
+                title: blob[0].questions[0].title,
+                answer: blob[0].questions[0].answer
+            },
+            relationship: {
+                title: blob[0].questions[2].title,
+                answer: blob[0].questions[2].answer
+            },
+            labelPublishDate: {
+                title: 'First published on',
+                answer: publishDate
+            },
+            consulted: {
+                title: blob[0].questions[3].title,
+                answer: blob[0].questions[3].answer
+            },
+            labelVersion: {
+                title: 'Label version',
+                answer: data.schema_version
+            },
+            percentage: getPercentageCompleted(blob)
+        },
         description: {
             about: blob[0].questions[5].answer,
             keywordList: blob[1].questions[0].answer.split(",")

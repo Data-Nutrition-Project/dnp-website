@@ -1,0 +1,157 @@
+@value layout: "../layout.css";
+
+@value darkSlateBlue from layout;
+@value teal from layout;
+@value v3Gray from layout;
+@value v3Blue from layout;
+
+@value tabletMaxWidth from layout;
+@value landscapeMaxWidth from layout;
+
+.header {
+    position: relative;
+    background: transparent;
+    border-bottom: none;
+    z-index: 199;
+    color: white;
+}
+
+.headerWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: darkSlateBlue;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.headerWrap.modOpen {
+    padding: 2rem 0;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    padding: 0 5rem;
+}
+
+.logoSection {
+    width: 16.67%;
+}
+
+.logoSection .modOpen {
+    padding-top: 1rem;
+}
+
+.logo {
+  position: relative;
+  float: left;
+  font-size: 2rem;
+  line-height: 100%;
+  margin-right: 2.25rem;
+}
+
+.logo a {
+  display: block;
+  color: white;
+}
+
+.logoImg {
+  display: block;
+  max-width: 100%;
+  height: 5rem;
+}
+
+.logo a.standardLogo {
+  display: block;
+}
+
+.metaLabel {
+    display: flex;
+    justify-content: space-between;
+    width: 83.33%;
+}
+
+.metaLabelFYI {
+    display: flex;
+    align-items: flex-start;
+    width: 40%;
+}
+
+.metaLabelList {
+    width: 33.33%;
+    list-style-type: none;
+}
+
+.metaLabelListItem {
+    display: flex;
+    justify-content: space-between;
+    padding: .25rem;
+    border-bottom: 1px solid v3Gray;
+}
+
+.metaLabelListItemTitle {
+    font-weight: 700;
+}
+
+.labelDropdown {
+    margin-top: 1rem;
+    text-decoration: underline;
+}
+
+.metaLabelHideButton {
+    align-self: flex-end;
+    background-color: v3Blue;
+    padding: 1rem;
+    height: 3.5rem;
+    font-weight: 700;
+    border-radius: .5rem;
+}
+
+.accordionCaretIcon {
+    color: white;
+    margin-left: .5rem;
+}
+
+@media (max-width: tabletMaxWidth) {
+    .logoSection {
+        width: 30%;
+    }
+
+    .metaLabelFYI {
+        width: 40%;
+        flex-direction: column;
+    }
+
+    .metaLabelList {
+        width: 40%;
+        padding-left: 0;
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: landscapeMaxWidth) {
+    .headerContainer.modOpen {
+        flex-direction: column;
+    }
+
+    .logoSection {
+        width: 100%;
+    }
+
+    .metaLabel {
+        flex-direction: column;
+    }
+
+    .metaLabelFYI {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .metaLabelList {
+        width: 100%;
+        padding-left: 0;
+    }
+}

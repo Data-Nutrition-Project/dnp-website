@@ -11,6 +11,7 @@
 .label {
     background-color: rgba(94, 127, 247, 0.03);
     padding: 2rem 4rem;
+    margin-top: 5rem;
 }
 
 .label h2,
