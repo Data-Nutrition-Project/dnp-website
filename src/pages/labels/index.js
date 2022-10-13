@@ -6,8 +6,6 @@ import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleDown, faAngleRight } from "@fortawesome/free-solid-svg-icons"
 import ReactMarkdown from "react-markdown"
 
 import Layout from "../../components/layout"
