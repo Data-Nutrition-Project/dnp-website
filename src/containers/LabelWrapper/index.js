@@ -83,7 +83,7 @@ const LabelWrapper = (props) => {
             </div>
         ) : error !== null ? (
             <div>
-                <LabelHeader loading={loading} />
+                <LabelHeader loading={true} />
                 <div className={styles.label}>
                     <Row>
                         <Col>
