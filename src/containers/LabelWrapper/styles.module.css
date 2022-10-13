@@ -79,17 +79,18 @@
 }
 
 .keywordListItem {
-    background: lightGray;
+    margin: .25rem;
+    background: #F4F6FD;
     border: 1px solid #CBD1EA;
     border-radius: 2px;
-    padding: 1rem .675rem;
+    padding: .675rem;
     white-space: nowrap;
 }
 
 .usageDescriptionLabelsItem {
     display: flex;
     align-items: center;
-    margin-left: .25rem;
+    margin: 0 .5rem;
 }
 
 .usageLabelIcon {
@@ -98,6 +99,7 @@
 }
 
 .usageLabelColor {
+    margin: 0 .25rem;
     width: 1rem;
     height: .25rem;
     border-radius: 1rem;
@@ -132,7 +134,7 @@
     box-shadow: 0px 2px 4px rgba(94, 127, 247, 0.1);
     border-radius: 2px;
     margin: .5rem 0;
-    padding: .5rem;
+    padding: 1rem;
 }
 
 .aboutRowTitle,
