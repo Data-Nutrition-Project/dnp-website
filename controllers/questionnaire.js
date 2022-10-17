@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
-const { ENUM } = require("../utils/ENUM.js");
+const { ENUM } = require("../utils/enum.js");
 
 class QuestionnaireController {
   constructor(
