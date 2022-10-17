@@ -1,4 +1,4 @@
-const { ENUM } = require("../utils/ENUM.js");
+const { ENUM } = require("../utils/enum.js");
 
 class LabelController {
   constructor(labelService, questionnaireService, emailService) {
