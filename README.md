@@ -18,7 +18,7 @@ There are no real secrets in here yet :)
 PORT=3000
 DB_URL=mongodb://localhost:27017/dnp-api
 TEST_DB_URL=mongodb://localhost:27017/dnp-test
-DNP_EMAIL=example@email.com
+DNP_EMAILS=example@email.com
 ```
 - replace "example@email.com" with your actual email.
 #### Routes
