@@ -1,6 +1,6 @@
 import React from "react"
 
-import LabelWrapper from "../../containers/LabelWrapper/index.js"
+import LabelContainer from "../../containers/LabelContainer/index.js"
 
 const v3 = (props) => {
     const params = new URLSearchParams(props.location.search)
@@ -8,7 +8,7 @@ const v3 = (props) => {
 
     return (
         <>
-            <LabelWrapper labelId={labelId} />
+            <LabelContainer labelId={labelId} />
         </>
     )
 }
