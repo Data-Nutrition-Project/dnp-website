@@ -102,7 +102,18 @@ const LabelHeader = (props) => {
                                             {props.labelAuthor.title}
                                         </span>
                                         <span className={styles.metaLabelListItemData}>
-                                            {props.labelAuthor.answer}
+                                            {props.labelAuthor.email ? (    
+                                                <span className={styles.authorLink}>  
+                                                    {props.labelAuthor.answer}          
+                                                    <a href={`mailto:${props.labelAuthor.email}`}>
+                                                        <img 
+                                                            className={styles.emailIcon}
+                                                            src={require('../../images/icon-email-white.png').default}
+                                                            alt='email icon' 
+                                                        />
+                                                    </a>
+                                                </span>
+                                            ) : (<span>{props.labelAuthor.answer}</span>)}
                                         </span>
                                     </li>
                                     <li className={styles.metaLabelListItem}>
@@ -126,7 +137,14 @@ const LabelHeader = (props) => {
                                             {props.consulted.title}
                                         </span>
                                         <span className={styles.metaLabelListItemData}>
-                                            {props.consulted.answer}
+                                            {Array.isArray(props.consulted.answer) ? (
+                                                props.consulted.answer.reduce(
+                                                    (accum, answerObj) => {
+                                                        return accum.concat(', ', `${answerObj.Name} (${answerObj.affiliation})`)
+                                                    }, '')
+                                            ) : (
+                                                props.consulted.answer
+                                            )}
                                         </span>
                                     </li>
                                     <li className={styles.metaLabelListItem}>
@@ -182,11 +200,9 @@ LabelHeader.propTypes = {
     percentage: PropTypes.number,
     labelAuthor: PropTypes.shape({
         title: PropTypes.string,
-        answer: PropTypes.string
-    }),
-    relationship: PropTypes.shape({
-        title: PropTypes.string,
-        answer: PropTypes.string
+        answer: PropTypes.string,
+        email: PropTypes.string,
+        relationship: PropTypes.string
     }),
     labelPublishDate: PropTypes.shape({
         title: PropTypes.string,

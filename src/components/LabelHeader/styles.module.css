@@ -104,6 +104,15 @@
     text-align: right;
 }
 
+.authorLink {
+    display: flex;
+    align-items: center;
+}
+
+.authorLink a {
+    margin-left: .5rem;
+}
+
 .labelDropdown {
     margin-top: 1.5rem;
     font-size: 1.25rem;
