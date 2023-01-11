@@ -23,7 +23,7 @@ const LabelContainer = (props) => {
     const [loading, setLoading] = useState(true)
 
     const getLabelWrapper = (labelBlob, loading) => {
-        if (labelBlob.version === 13) {
+        if (labelBlob.version === 2) {
             return (
                 <LabelWrapper2 
                     labelBlob={formatBlobForLabel2(labelBlob)}
