@@ -28,6 +28,7 @@ const LabelContainer = (props) => {
                 <LabelWrapper2 
                     labelBlob={formatBlobForLabel2(labelBlob)}
                     loading={loading}
+                    status={labelBlob.status}
                 />
             )
         } else {
