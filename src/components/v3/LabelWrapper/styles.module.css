@@ -53,6 +53,84 @@
     border-left-color: v3Blue;
 }
 
+/* non-approved label formatting */
+
+.draftHeader,
+.underReviewHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.draftHeader {
+    padding-top: 1rem;
+    background-color: #fae1c1;
+    color: v3Black;
+}
+
+.underReviewHeader {
+    background-color: #f4d9d7;
+    color: v3Black;
+}
+
+.draftWatermark:before,
+.reviewWatermark:before {
+    content: '';
+    position: fixed;
+    top: 6rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-position: center;  
+    opacity: 0.2;
+}
+
+.draftWatermark:before {
+    background: url('../../../images/draft.png') 0 0 repeat;
+}
+
+.reviewWatermark:before {
+    background: url('../../../images/under-review.png') 0 0 repeat;
+}
+
+.watermarkInner {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0px;
+    top: 5rem;
+    height: 100%;
+    width: 100%;
+}
+
+.watermarkBody {
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 15rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    user-select: none;
+}
+
+.watermarkIcon {
+    height: 1.5rem;
+    margin-right: .5rem;
+}
+
+.draftHeaderTitle {
+    display: flex;
+}
+
+.draftHeaderTitleText {
+    margin-bottom: 0rem;
+    font-weight: 700;
+}
+
+/* Global label formatting */
+
 .labelRow {
     margin-bottom: 1rem;
 }

@@ -20,13 +20,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: darkSlateBlue;
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
     width: 100%;
-}
-
-.headerWrap.modOpen {
-    padding: 2rem 0;
 }
 
 .headerContainer {
@@ -35,6 +30,11 @@
     position: relative;
     width: 100%;
     padding: 0 4rem;
+    background-color: darkSlateBlue;
+}
+
+.headerContainer.modOpen {
+    padding: 2rem;
 }
 
 .logoSection {

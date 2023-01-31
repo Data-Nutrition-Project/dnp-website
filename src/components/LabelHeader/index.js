@@ -21,8 +21,9 @@ const LabelHeader = (props) => {
     const strokePct = ((100 - props.percentage) * circ) / 100;
 
     return (
-        <header className={styles.header}>
+        <div className={styles.header}>
             <div className={classNames(styles.headerWrap, {[styles.modOpen] : isOpen})}>
+                {props.children}
                 <div className={classNames(styles.headerContainer, {[styles.modOpen] : isOpen})}>
                     <div className={classNames(styles.logoSection, {[styles.modOpen] : isOpen})}>
                         <div className={styles.logo}>
@@ -191,7 +192,7 @@ const LabelHeader = (props) => {
                     )}
                 </div>
             </div>
-        </header>
+        </div>
     )
 }
 

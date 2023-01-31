@@ -18,9 +18,18 @@ import UsageAccordion from "../UsageAccordion/index.js"
 import * as layout from "../../layout.css"
 import * as styles from "./styles.module.css"
 
+const STATUS_ENUM = {
+    IN_PROGRESS: "IN PROGRESS",
+    APPROVED: "APPROVED",
+    IN_REVIEW: "IN REVIEW",
+    CHANGES_REQUESTED: "CHANGES REQUESTED"
+}
+
 const LabelWrapper = (props) => {
-    const { labelBlob, loading } = props
+    const { labelBlob, loading, status } = props
     const [glanceOpen, setGlanceOpen] = useState(false)
+
+    console.log(status)
 
     const toggleGlanceOpen = () => {
         setGlanceOpen(!glanceOpen)
@@ -37,8 +46,52 @@ const LabelWrapper = (props) => {
                 labelPublishDate={labelBlob.metadata.labelPublishDate}
                 consulted={labelBlob.metadata.consulted}
                 labelVersion={labelBlob.metadata.labelVersion}
-            />
-            <div className={styles.label} key={1}>
+            >
+            {(status === STATUS_ENUM.IN_PROGRESS || status === STATUS_ENUM.CHANGES_REQUESTED) && (
+                <div className={styles.draftHeader}>
+                    <div className={styles.draftHeaderTitle}>
+                        <img
+                            className={styles.watermarkIcon}
+                            src={require('../../../images/draft-icon.png').default}
+                            alt="alert_icon"
+                        />
+                        <p className={styles.draftHeaderTitleText}>This label is a draft</p>
+                    </div>
+                    <p>The below is not a final, just a preview</p>
+                </div>
+            )}
+            {status === STATUS_ENUM.IN_REVIEW && (
+                <div className={styles.underReviewHeader}>
+                    <img
+                        className={styles.watermarkIcon}
+                        src={require('../../../images/under-review-icon.png').default}
+                        alt="alert_icon"
+                    />
+                    <div>
+                        <p className={styles.draftHeaderTitle}>This label is under review</p>
+                        <p>The content of this label may change based on input from others.</p>
+                    </div>
+                </div>
+            )}
+            </LabelHeader>
+            <div 
+                className={classNames(
+                    styles.label,
+                    {[styles.draftWatermark]: (status === STATUS_ENUM.IN_PROGRESS || status === STATUS_ENUM.CHANGES_REQUESTED)},
+                    {[styles.reviewWatermark]: (status === STATUS_ENUM.IN_REVIEW)}
+                )} 
+                key={1}
+            >
+                {(status === STATUS_ENUM.IN_PROGRESS || status === STATUS_ENUM.CHANGES_REQUESTED) && (
+                    <div className={styles.watermarkInner}>
+                        <div className={styles.watermarkBody}>DRAFT</div>
+                    </div>
+                )}
+                {status === STATUS_ENUM.IN_REVIEW && (
+                    <div className={styles.watermarkInner}>
+                        <div className={styles.watermarkBody}>UNDER REVIEW</div>
+                    </div>
+                )}
                 <Row>
                     <h1>{labelBlob.title}</h1>
                     <div></div>
@@ -242,7 +295,8 @@ const LabelWrapper = (props) => {
 
 LabelWrapper.propTypes = {
     labelBlob: PropTypes.object.isRequired,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    status: PropTypes.string.isRequired
 }
 
 export default LabelWrapper
