@@ -5,7 +5,7 @@ const getLabel = label => ({ type: GET_LABEL, label })
 export const fetchLabelThunk = jsonFile => async dispatch => {
   try {
     const label = await (
-      await fetch(`${process.env.GATSBY_SITE_URL}/blobs/${jsonFile}.json`, {
+      await fetch('/blobs/' + jsonFile + ".json", {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
