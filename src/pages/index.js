@@ -39,13 +39,18 @@ const IndexPage = props => (
             </span>
           </div>
           <div className={classNames(styles.centerText, styles.mobileSpacer)}>
-            <AnchorLink to="/#section-solution-tool" className={styles.tealButtonLink}>
+            <a href={process.env.GATSBY_LABELMAKER_URL} className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
               >
-                <i className="icon-play-circle"></i>the dataset nutrition label
+                <img 
+                    src={require('../images/linkimg.png').default}
+                    alt="external link icon"
+                    className={styles.icon}
+                />
+                the dataset nutrition label
               </Button>
-            </AnchorLink>
+            </a>
             <AnchorLink to="/#section-solution-research" className={styles.tealButtonLink}>
               <Button
                 className={classNames(styles.tealButton, styles.modButtonLarge)}
@@ -200,18 +205,16 @@ const IndexPage = props => (
               </a>.             
             </p>
             <Row style={{'justify-content': 'space-around'}}>
-              <Link to="/labels/">
+              <a href={process.env.GATSBY_LABELMAKER_URL}>
                 <Button
                   className={classNames(styles.tealButton, styles.modButtonMed, styles.modButtonParagraph, styles.mobileSpacer)}
                 >
-                  <i className="icon-play-circle"></i>{' '}Go to Label 2.0
-                </Button>
-              </Link>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAX48nSAUBcmDM7EyghODzeyoxXPVchitLXdNmGmODNWGjtQ/viewform" target="_blank">
-                <Button
-                  className={classNames(styles.tealButton, styles.modButtonMed, styles.modButtonParagraph, styles.mobileSpacer)}
-                >
-                  <i className="icon-play-circle"></i>{' '}Build a Label
+                  <img 
+                      src={require('../images/linkimg.png').default}
+                      alt="external link icon"
+                      className={styles.icon}
+                  />
+                  Build a Label
                 </Button>
               </a>
             </Row>

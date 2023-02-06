@@ -167,6 +167,12 @@
 
 /* Title Block */
 
+.icon {
+  height: 1.25rem;
+  margin-bottom: .35rem;
+  margin-right: .25rem;
+}
+
 .slider {
     display: block;
     position: relative;
