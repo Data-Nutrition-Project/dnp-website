@@ -1,6 +1,6 @@
 @value layout: "../../layout.css";
 
-@value v3Red from layout;
+@value v3Yellow from layout;
 @value v3Green from layout;
 @value v3Gray from layout;
 @value v3Black from layout;
@@ -39,7 +39,9 @@
 }
 .risksList {
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: flex-start;
+    padding: .5rem;
 }
 
 .icon {
@@ -70,6 +72,9 @@
     margin-right: 4rem;
     margin-bottom: 1.5rem;
     width: 100%;
+    border-left-style: solid;
+    border-left-width: 5px;
+    padding-left: .5rem;
 }
 
 
@@ -100,37 +105,27 @@
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    width: 50%;
-}
-
-.riskClosed > p {
-    margin-bottom: 0;
+    margin-right: .5rem;
+    width: 48%;
+    border-style: solid;
+    border-left-width: 5px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
     font-weight: 600;
-}
-
-.riskIcon {
-    margin-right: .25rem;
+    padding: .5rem;
 }
 
 .safe {
-    width: 0;
-    height: 0;
-    border-top: .875rem solid v3Green;
-    border-right: .875rem solid transparent;
+    border-left-color: v3Green;
 }
 
 .risky {
-    width: 0;
-    height: 0;
-    border-bottom: .875rem solid v3Red;
-    border-left: .875rem solid transparent;
+    border-left-color: v3Yellow;
 }
 
 .unknown {
-    width: 0;
-    height: 0;
-    border-bottom: .875rem solid v3Gray;
-    border-right: .875rem solid transparent;
+    border-left-color: v3Gray;
 }
 
 .issueRow {
@@ -153,7 +148,7 @@
 }
 
 .modRisky {
-    background-color: v3Red;
+    background-color: v3Yellow;
 }
 
 .modSafe {

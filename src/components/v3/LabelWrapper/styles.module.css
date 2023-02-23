@@ -70,6 +70,7 @@
 }
 
 .underReviewHeader {
+    padding-top: 1rem;
     background-color: #f4d9d7;
     color: v3Black;
 }
@@ -121,11 +122,13 @@
     margin-right: .5rem;
 }
 
-.draftHeaderTitle {
+.draftHeaderTitle,
+.underReviewHeaderTitle {
     display: flex;
 }
 
-.draftHeaderTitleText {
+.draftHeaderTitleText,
+.underReviewHeaderTitleText {
     margin-bottom: 0rem;
     font-weight: 700;
 }
@@ -148,8 +151,7 @@
     align-items: flex-end;
 }
 
-.keywordList,
-.usageDescriptionLabels {
+.keywordList {
     display: flex;
 }
 
@@ -164,12 +166,6 @@
     border-radius: 2px;
     padding: .675rem;
     white-space: nowrap;
-}
-
-.usageDescriptionLabelsItem {
-    display: flex;
-    align-items: center;
-    margin: 0 .5rem;
 }
 
 .usageLabelIcon {

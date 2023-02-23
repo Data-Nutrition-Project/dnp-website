@@ -62,15 +62,15 @@ const LabelWrapper = (props) => {
             )}
             {status === STATUS_ENUM.IN_REVIEW && (
                 <div className={styles.underReviewHeader}>
-                    <img
-                        className={styles.watermarkIcon}
-                        src={require('../../../images/under-review-icon.png').default}
-                        alt="alert_icon"
-                    />
-                    <div>
-                        <p className={styles.draftHeaderTitle}>This label is under review</p>
-                        <p>The content of this label may change based on input from others.</p>
+                    <div className={styles.underReviewHeaderTitle}>
+                        <img
+                            className={styles.watermarkIcon}
+                            src={require('../../../images/under-review-icon.png').default}
+                            alt="alert_icon"
+                        />
+                        <p className={styles.underReviewHeaderTitleText}>This label is under review</p>
                     </div>
+                    <p>The content of this label may change based on input from others.</p>
                 </div>
             )}
             </LabelHeader>
@@ -114,35 +114,6 @@ const LabelWrapper = (props) => {
                     <Col md={8}>
                         <div className={classNames(styles.labelSectionHeader, styles.modHowToUse)}>
                             <h2 className={styles.labelSectionHeaderText}>How to use it?</h2>
-                            <div className={styles.usageDescriptionLabels}>
-                                <div className={styles.usageDescriptionLabelsItem}>
-                                    <img
-                                        className={styles.usageLabelIcon}
-                                        src={require('../../../images/safe.png').default}
-                                        alt={'Icon safe'}
-                                    />
-                                    <span className={classNames(styles.usageLabelColor, styles.green)}></span>
-                                    <span className={styles.usageLabelText}>Safe</span>
-                                </div>
-                                <div className={styles.usageDescriptionLabelsItem}>
-                                    <img
-                                        className={styles.usageLabelIcon}
-                                        src={require('../../../images/caution.png').default}
-                                        alt={'Icon caution'}
-                                    />
-                                    <span className={classNames(styles.usageLabelColor, styles.yellow)}></span>
-                                    <span className={styles.usageLabelText}>Caution</span>
-                                </div>
-                                <div className={styles.usageDescriptionLabelsItem}>
-                                    <img
-                                        className={styles.usageLabelIcon}
-                                        src={require('../../../images/risky.png').default}
-                                        alt={'Icon Risk'}
-                                    />
-                                    <span className={classNames(styles.usageLabelColor, styles.red)}></span>
-                                    <span className={styles.usageLabelText}>Risky</span>
-                                </div>
-                            </div>
                         </div>
                         <Row className={styles.usageRow}>
                             <div className={classNames(styles.usageDescription, styles.greenBorder)}>

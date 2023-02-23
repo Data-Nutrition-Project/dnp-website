@@ -76,8 +76,7 @@ const RisksAccordion = props => {
                 {isOpen ? (
                     <div className={styles.risksList}>
                     {props.risks.map(risk => (
-                        <div className={styles.riskOpen}>
-                            <span className={classNames(styles.riskIcon, ISSUE_STYLE_MAP[risk.riskLabel])}></span>
+                        <div className={classNames(styles.riskOpen, ISSUE_STYLE_MAP[risk.riskLabel])}>
                             <div className={styles.riskOpenDescription}>
                                 <p className={styles.riskOpenDescriptionHeader}>{risk.name}</p>
                                 <p className={styles.riskOpenDescriptionDesc}><Linkify>{risk.description}</Linkify></p>
@@ -88,10 +87,9 @@ const RisksAccordion = props => {
                 ) : (
                     <div className={styles.risksList}>
                     {props.risks.map(risk => (
-                        <div className={styles.riskClosed}>
-                            <span className={classNames(styles.riskIcon, ISSUE_STYLE_MAP[risk.riskLabel])}></span>
-                            <p>{risk.name}</p>
-                        </div>
+                        <p className={classNames(styles.riskClosed, ISSUE_STYLE_MAP[risk.riskLabel])}>
+                            {risk.name}
+                        </p>
                     ))}
                     </div>
                 )}
