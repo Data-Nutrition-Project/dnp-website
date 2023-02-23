@@ -96,6 +96,11 @@
     background: url('../../../images/under-review.png') 0 0 repeat;
 }
 
+.draftWatermark,
+.reviewWatermark {
+    margin-top: 9rem;
+}
+
 .watermarkInner {
     position: fixed;
     display: flex;
