@@ -202,6 +202,7 @@ export const formatGeneralRisks = (blob) => {
 
 export const formatBlobForLabel2 = (data) => {
     const blob = data.questionnaire
+    
     let publishDate = ''
     try {
         const savedDate = new Date(Date.parse(data.savedDate))
@@ -210,7 +211,13 @@ export const formatBlobForLabel2 = (data) => {
         publishDate = ''
     }
 
-    console.log(blob[0].questions[0].answer)
+    let consulted = ''
+    if (blob[0].questions[1].answer.length > 0) {
+        consulted = blob[0].questions[1].answer[0].Name.answer
+        for (let i = 1; i < blob[0].questions[1].answer.length; i++) {
+            consulted.concat(`, ${blob[0].questions[1].answer[i].Name.answer}`)
+        }
+    }
 
     return {
         title: blob[0].questions[2].answer,
@@ -230,7 +237,7 @@ export const formatBlobForLabel2 = (data) => {
             },
             consulted: {
                 title: blob[0].questions[1].title,
-                answer: blob[0].questions[1].answer[0].Name.answer
+                answer: consulted
             },
             labelVersion: {
                 title: 'Label version',
