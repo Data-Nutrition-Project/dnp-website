@@ -11,7 +11,10 @@ const UsageAccordion = props => {
         setIsReadMore(!isReadMore)
     }
 
-    const sampleText = `${props.text[0].title}. ${props.text[0].description.slice(0, 100)}`
+    let sampleText = ''
+    if (props.text.length > 0) {
+        sampleText = `${props.text[0].title}. ${props.text[0].description.slice(0, 100)}`
+    }
 
     return (
         <div className={classNames(styles.usageInfo, props.className)}>
