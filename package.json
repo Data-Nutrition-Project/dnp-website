@@ -58,7 +58,7 @@
         "react-test-renderer": "^17.0.0",
         "react-vega": "7.5.1",
         "typeface-raleway": "1.1.13",
-        "vega": "5.22.1",
+        "vega": "5.23.0",
         "vega-lite": "5.2.0"
     },
     "keywords": [
