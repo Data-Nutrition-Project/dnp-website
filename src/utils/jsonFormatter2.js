@@ -203,6 +203,24 @@ export const formatGeneralRisks = (blob) => {
 export const formatBlobForLabel2 = (data) => {
     const blob = data.questionnaire
     
+    // get label author info, handle edge case of no author
+    let labelAuthor = {
+        title: blob[0].questions[0].title
+    }
+    let relationship = {
+        title: 'Relationship to Dataset Creator'
+    }
+    try {
+        labelAuthor.answer = blob[0].questions[0].answer[0].Name.answer
+        labelAuthor.email = blob[0].questions[0].answer[0].Email.answer
+        relationship.answer = blob[0].questions[0].answer[0]['Relationship to Dataset'].answer
+    } catch (error) {
+        labelAuthor.answer = ''
+        labelAuthor.email = ''
+        relationship.answer = ''
+    }
+
+    // format published date if possible
     let publishDate = ''
     try {
         const savedDate = new Date(Date.parse(data.savedDate))
@@ -222,15 +240,8 @@ export const formatBlobForLabel2 = (data) => {
     return {
         title: blob[0].questions[2].answer,
         metadata: {
-            labelAuthor: {
-                title: blob[0].questions[0].title,
-                answer: blob[0].questions[0].answer[0].Name.answer,
-                email: blob[0].questions[0].answer[0].Email.answer,
-            },
-            relationship: {
-                title: 'Relationship to Dataset Creator',
-                answer: blob[0].questions[0].answer[0]['Relationship to Dataset'].answer
-            },
+            labelAuthor: labelAuthor,
+            relationship: relationship,
             labelPublishDate: {
                 title: 'First published on',
                 answer: publishDate
