@@ -79,7 +79,17 @@ const RisksAccordion = props => {
                         <div className={classNames(styles.riskOpen, ISSUE_STYLE_MAP[risk.riskLabel])}>
                             <div className={styles.riskOpenDescription}>
                                 <p className={styles.riskOpenDescriptionHeader}>{risk.name}</p>
-                                <p className={styles.riskOpenDescriptionDesc}><Linkify>{risk.description}</Linkify></p>
+                                {Array.isArray(risk.description) ? (
+                                    <ul>
+                                        {risk.description.map(item => (
+                                            <li className={styles.riskSubItem}>
+                                                <Linkify>{item}</Linkify>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p className={styles.riskOpenDescriptionDesc}><Linkify>{risk.description}</Linkify></p>
+                                )}
                             </div>
                         </div>
                     ))}
@@ -121,7 +131,10 @@ RisksAccordion.propTypes = {
     subtitle: PropTypes.string.isRequired,
     risks: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        description: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.arrayOf(PropTypes.string)
+        ]),
         riskLabel: PropTypes.number.isRequired
     })).isRequired,
     icon: PropTypes.any.isRequired

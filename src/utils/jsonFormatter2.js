@@ -1,7 +1,8 @@
 const OPTION_TO_RISK = {
     yes: 2,
     no: 0,
-    unsure: 1
+    unsure: 1,
+    '': 1
 }
 
 export const formatRepresentation = (blob) => {
@@ -66,9 +67,9 @@ export const formatRepresentation = (blob) => {
 }
 
 export const formatUpstream = (blob) => {
-    const upstream = blob[7].questions
+    const upstreams = blob.slice(7)
 
-    if (blob[1].questions[7].answer === 'no') {
+    if (blob[1].questions[7].answer !== 'yes') {
         return [{
             name: 'Not Applicable',
             riskLabel: -1,
@@ -77,44 +78,59 @@ export const formatUpstream = (blob) => {
     } else {
         const upstreamstuff = [
             {
-                name: upstream[0].title.split('-')[1],
+                name: upstreams[0].questions[0].title.split('-')[1],
                 riskLabel: 1,
-                description: (() => {
-                    try {
-                        return upstream[0].dependents[upstream[0].answer][0].answer || ''
-                    } catch (err) {
-                        return ''
-                    }    
-                })()
+                description: []
             },
             {
-                name: upstream[1].title.split('-')[1],
+                name: upstreams[0].questions[1].title.split('-')[1],
                 riskLabel: 1,
-                description: (() => {
-                    try {
-                        return upstream[1].dependents[upstream[1].answer][0].answer || ''
-                    } catch (err) {
-                        return ''
-                    }    
-                })()
+                description: []
             },
             {
-                name: upstream[2].title.split('-')[1],
+                name: upstreams[0].questions[2].title.split('-')[1],
                 riskLabel: 1,
-                description: (() => {
-                    try {
-                        return upstream[2].dependents[upstream[2].answer][0].answer || ''
-                    } catch (err) {
-                        return ''
-                    }    
-                })()
+                description: []
             },
             {
-                name: upstream[3].title.split('-')[1],
+                name: upstreams[0].questions[3].title.split('-')[1],
                 riskLabel: 1,
-                description: upstream[3].answer
+                description: []
             }
         ]
+
+        upstreams.map((upstream) => {
+            const upstreamSection = upstream.questions
+            let upstreamSource = ''
+            try {
+                upstreamSource = upstream.category.split(':')[1].trim()
+            } catch (err) {
+                // move on
+            }
+
+            upstreamstuff[0].description.push((() => {
+                try {
+                    return `${upstreamSource}: ${upstreamSection[0].answer}. ${upstreamSection[0].dependents[upstreamSection[0].answer][0].answer || ''}`
+                } catch (err) {
+                    return ''
+                }    
+            })())
+            upstreamstuff[1].description.push((() => {
+                try {
+                    return `${upstreamSource}: ${upstreamSection[1].answer}. ${upstreamSection[1].dependents[upstreamSection[1].answer][0].answer || ''}`
+                } catch (err) {
+                    return ''
+                }    
+            })())
+            upstreamstuff[2].description.push((() => {
+                try {
+                    return `${upstreamSource}: ${upstreamSection[2].answer}. ${upstreamSection[2].dependents[upstreamSection[2].answer][0].answer || ''}`
+                } catch (err) {
+                    return ''
+                }    
+            })())
+            upstreamstuff[3].description.push(upstreamSection[3].answer)
+        })
         return upstreamstuff
     }
 }

@@ -101,6 +101,13 @@
     line-height: 1.375rem;
 }
 
+.riskSubItem {
+    list-style-type: square;
+    list-style-image: url("../../../images/list-style-image.png");
+    border-bottom: 1px solid #E6E6E6;
+    padding: .25rem;
+}
+
 .riskClosed {
     display: flex;
     align-items: center;
