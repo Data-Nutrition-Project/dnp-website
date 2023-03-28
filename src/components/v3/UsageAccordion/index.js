@@ -50,7 +50,7 @@ const UsageAccordion = props => {
                 </span>
             </div>
             {isReadMore ? (
-                <p>
+                <p className={styles.readMoreSection}>
                     {sampleText}
                     <span
                         className={styles.readMore}

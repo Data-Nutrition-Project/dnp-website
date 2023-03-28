@@ -2,6 +2,10 @@
 
 @value lightGray from layout;
 
+.readMoreSection {
+    overflow-wrap: anywhere;
+}
+
 .readMore {
     font-weight: 700;
 }
