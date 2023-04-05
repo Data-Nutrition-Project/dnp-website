@@ -87,7 +87,7 @@ const Badge = props => {
             {props.isOpen &&
                 <p className={styles.modCenter}>
                 {(props.reference === 'upstream-sources') ? (
-                    <span>
+                    <span className={styles.badgeDescription}>
                     {props.description.map((source, i, sources) => (
                         <LinkedDescription
                             source={source}
@@ -97,7 +97,9 @@ const Badge = props => {
                     ))}
                     </span>
                 ) : (
-                   <span>{props.description}</span>
+                    <span className={styles.badgeDescription}>
+                        {props.description}
+                    </span>
                 )}
                 </p>
             }

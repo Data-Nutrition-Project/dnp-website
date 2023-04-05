@@ -63,3 +63,7 @@
 .badgeAnswer {
     font-weight: 700;
 }
+
+.badgeDescription {
+    overflow-wrap: anywhere;
+}
