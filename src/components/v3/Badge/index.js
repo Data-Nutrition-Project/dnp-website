@@ -1,6 +1,6 @@
 import classNames from "classnames"
-import React from "react"
 import PropTypes from "prop-types"
+import React from "react"
 
 import * as styles from "./styles.module.css"
 
@@ -25,6 +25,35 @@ const RISK_MAP = {
         yes: 'risky',
         no: 'safe'
     }
+}
+
+const LinkedDescription = ({ source, i, length }) => {
+    let validURL = false
+    let trailingString = ''
+    try {
+        const url = new URL(source['Access Point'].answer)
+        validURL = url.protocol === "http:" || url.protocol === "https:"
+    } catch {
+        validURL = false
+    }
+
+    if ((i + 1) < length) {
+        trailingString = ', '
+    }
+    return (
+        <>
+        {validURL ? (
+            <span>
+                <a href={source['Access Point'].answer}>
+                    {source['Source Name'].answer}
+                </a>
+                {trailingString}
+            </span>
+        ) : (
+            <>{source['Source Name'].answer.concat(trailingString)}</>
+        )}
+        </>
+    )
 }
 
 const Badge = props => {
@@ -57,7 +86,19 @@ const Badge = props => {
             </p>
             {props.isOpen &&
                 <p className={styles.modCenter}>
-                    {props.description}
+                {(props.reference === 'upstream-sources') ? (
+                    <span>
+                    {props.description.map((source, i, sources) => (
+                        <LinkedDescription
+                            source={source}
+                            i={i}
+                            length={sources.length}
+                        />
+                    ))}
+                    </span>
+                ) : (
+                   <span>{props.description}</span>
+                )}
                 </p>
             }
         </div>
@@ -69,7 +110,10 @@ Badge.propTypes = {
     reference: PropTypes.string.isRequired,
     badgeAnswer: PropTypes.string.isRequired,
     badgeIcon: PropTypes.any.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
     className: PropTypes.string,
     isOpen: PropTypes.bool.isRequired
 }
