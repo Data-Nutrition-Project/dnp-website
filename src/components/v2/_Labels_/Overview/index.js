@@ -264,8 +264,6 @@ class Overview extends Component {
   }
 
   renderAlertsHarm = (alertsByHarm) => {
-    console.log(alertsByHarm)
-    console.log(COLOR_MAP)
     const spec = {
       layer: [
         {

@@ -283,7 +283,6 @@ class AllAlerts extends Component {
                     {Object.entries(this.props.fyis).length > 0 && (
                       <div>
                         {Object.entries(this.props.fyis).map(([key, fyi], i) => {
-                          console.log(fyi.content)
                           return (
                             <AlertCard
                               key={i}

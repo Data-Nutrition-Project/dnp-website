@@ -29,8 +29,6 @@ const LabelWrapper = (props) => {
     const { labelBlob, loading, status } = props
     const [glanceOpen, setGlanceOpen] = useState(false)
 
-    console.log(status)
-
     const toggleGlanceOpen = () => {
         setGlanceOpen(!glanceOpen)
     }
