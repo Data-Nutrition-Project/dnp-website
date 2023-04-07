@@ -58,19 +58,6 @@ const LabelWrapper = (props) => {
                     <p>The below is not a final, just a preview</p>
                 </div>
             )}
-            // {status === STATUS_ENUM.IN_REVIEW && (
-            //     <div className={styles.underReviewHeader}>
-            //         <div className={styles.underReviewHeaderTitle}>
-            //             <img
-            //                 className={styles.watermarkIcon}
-            //                 src={require('../../../images/under-review-icon.png').default}
-            //                 alt="alert_icon"
-            //             />
-            //             <p className={styles.underReviewHeaderTitleText}>This label is under review</p>
-            //         </div>
-            //         <p>The content of this label may change based on input from others.</p>
-            //     </div>
-            // )}
             </LabelHeader>
             <div 
                 className={classNames(
@@ -84,11 +71,6 @@ const LabelWrapper = (props) => {
                         <div className={styles.watermarkBody}>DRAFT</div>
                     </div>
                 )}
-                // {status === STATUS_ENUM.IN_REVIEW && (
-                //     <div className={styles.watermarkInner}>
-                //         <div className={styles.watermarkBody}>UNDER REVIEW</div>
-                //     </div>
-                // )}
                 <Row>
                     <h1>{labelBlob.title}</h1>
                     <div></div>
