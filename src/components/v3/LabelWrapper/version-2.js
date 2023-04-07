@@ -75,21 +75,20 @@ const LabelWrapper = (props) => {
             <div 
                 className={classNames(
                     styles.label,
-                    {[styles.draftWatermark]: (status === STATUS_ENUM.IN_PROGRESS || status === STATUS_ENUM.CHANGES_REQUESTED)},
-                    {[styles.reviewWatermark]: (status === STATUS_ENUM.IN_REVIEW)}
+                    {[styles.draftWatermark]: (status !== STATUS_ENUM.APPROVED)},
                 )} 
                 key={1}
             >
-                {(status === STATUS_ENUM.IN_PROGRESS || status === STATUS_ENUM.CHANGES_REQUESTED) && (
+                {(status !== STATUS_ENUM.APPROVED) && (
                     <div className={styles.watermarkInner}>
                         <div className={styles.watermarkBody}>DRAFT</div>
                     </div>
                 )}
-                {status === STATUS_ENUM.IN_REVIEW && (
-                    <div className={styles.watermarkInner}>
-                        <div className={styles.watermarkBody}>UNDER REVIEW</div>
-                    </div>
-                )}
+                // {status === STATUS_ENUM.IN_REVIEW && (
+                //     <div className={styles.watermarkInner}>
+                //         <div className={styles.watermarkBody}>UNDER REVIEW</div>
+                //     </div>
+                // )}
                 <Row>
                     <h1>{labelBlob.title}</h1>
                     <div></div>
