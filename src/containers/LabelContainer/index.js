@@ -4,7 +4,6 @@ import { formatBlobForLabel } from "../../utils/jsonFormatter.js"
 import { formatBlobForLabel2 } from "../../utils/jsonFormatter2.js"
 import { Grid } from  'react-loader-spinner'
 import Helmet from "react-helmet"
-import Linkify from 'react-linkify';
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
