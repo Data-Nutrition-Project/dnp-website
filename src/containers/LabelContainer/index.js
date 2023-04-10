@@ -18,21 +18,31 @@ import LabelWrapper2 from "../../components/v3/LabelWrapper/version-2.js"
 import * as layout from "../../components/layout.css"
 import * as styles from "./styles.module.css"
 
+const STATUS_ENUM = {
+    IN_PROGRESS: "IN PROGRESS",
+    APPROVED: "APPROVED",
+    IN_REVIEW: "IN REVIEW",
+    CHANGES_REQUESTED: "CHANGES REQUESTED"
+}
+
 const LabelContainer = (props) => {
     const [labelBlob, setLabelBlob] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
     const [title, setTitle] = useState("Dataset Nutrition Label v3")
     const [keywords, setKeywords] = useState("")
-    const [version, setVersion] = useState(-1)
+    const [metadata, setMetadata] = useState({
+        version: -1,
+        status: STATUS_ENUM.IN_PROGRESS
+    })
 
-    const getLabelWrapper = (labelBlob, loading, version) => {
-        if (version === 2) {
+    const getLabelWrapper = (labelBlob, loading, metadata) => {
+        if (metadata.version === 2) {
             return (
                 <LabelWrapper2 
                     labelBlob={labelBlob}
                     loading={loading}
-                    status={labelBlob.status}
+                    status={metadata.status}
                 />
             )
         } else {
@@ -47,7 +57,10 @@ const LabelContainer = (props) => {
 
     const setDataFromVersion = (data) => {
         let blob = null
-        setVersion(data.version)
+        setMetadata({
+            version: data.version,
+            status: data.status
+        })
         if (data.version === 2) {
             blob = formatBlobForLabel2(data)
             setLabelBlob(blob)
@@ -108,6 +121,10 @@ const LabelContainer = (props) => {
                         name: "keywords",
                         content: "AI,Data,Quality".concat(",", keywords)
                     },
+                    {
+                        name: "robots",
+                        content: metadata.status === STATUS_ENUM.APPROVED ? "index, follow" : "noindex, nofollow"
+                    }
                 ]}
                 bodyAttributes={{
                   class: "stretched",
@@ -152,7 +169,7 @@ const LabelContainer = (props) => {
                     </div>
                 </div>
             ) : (
-                getLabelWrapper(labelBlob, loading, version)
+                getLabelWrapper(labelBlob, loading, metadata)
             )}
             </div> 
         </>  
