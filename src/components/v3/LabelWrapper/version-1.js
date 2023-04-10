@@ -103,19 +103,20 @@ const LabelWrapper = (props) => {
                             <div>
                                 <h4>People</h4>
                                 {labelBlob.aboutTheDataset.people.map(item => (
-                                    <div className={styles.aboutRow}>
-                                        <p className={styles.aboutRowTitle}>{item.title}</p>
-                                        <p className={styles.aboutRowContent}>{item.description}</p>
-                                    </div>
+                                    <AboutAccordion
+                                        title={item.title}
+                                        description={item.description}
+                                    />
+            
                                 ))}
                             </div>
                             <div>
                                 <h4>Technical information</h4>
                                 {labelBlob.aboutTheDataset.technical.map(item => (
-                                    <div className={styles.aboutRow}>
-                                        <p className={styles.aboutRowTitle}>{item.title}</p>
-                                        <p className={styles.aboutRowContent}>{item.description}</p>
-                                    </div>
+                                    <AboutAccordion
+                                        title={item.title}
+                                        description={item.description}
+                                    />
                                 ))}
                             </div>
                             <div>
