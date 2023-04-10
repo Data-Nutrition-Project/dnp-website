@@ -1,4 +1,5 @@
 import classNames from "classnames"
+import Linkify from 'react-linkify'
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -97,9 +98,11 @@ const Badge = props => {
                     ))}
                     </span>
                 ) : (
-                    <span className={styles.badgeDescription}>
-                        {props.description}
-                    </span>
+                    <Linkify>
+                        <span className={styles.badgeDescription}>
+                            {props.description}
+                        </span>
+                    </Linkify>
                 )}
                 </p>
             }
