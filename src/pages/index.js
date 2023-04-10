@@ -847,7 +847,7 @@ const IndexPage = props => (
             </h4>
             <p>
               You can take a look at the Dataset Nutrition Label&nbsp;
-              <Link to="/labels">here</Link> and corresponding methodology paper <a href="http://securedata.lol/camera_ready/26.pdf">here</a>.&nbsp;
+              <a href={process.env.GATSBY_LABELMAKER_URL}>here</a>.&nbsp;
               Older versions (<a href="https://ahmedhosny.github.io/datanutrition/">Label</a>,&nbsp;
               <a href="https://arxiv.org/abs/1805.03677">paper</a>) are also still available online.
             </p>
@@ -858,14 +858,7 @@ const IndexPage = props => (
               Q. What inspired this project?
             </h4>
             <p>
-              We believe that algorithm developers want to build responsible and
-              smart AI models, but that there is a key step missing in the
-              standard way these models are built. This step is to interrogate
-              the dataset for a variety of imbalances or problems it could have
-              and ascertain if it is the right dataset for the model. We are
-              inspired by the FDA's Nutrition Facts label in that it provides
-              basic yet powerful facts that highlight issues in an accessible
-              way. We aspire to do the same for datasets.
+              We believe that engineers want to build responsible and smart AI models, but that there is a key step missing in the way these models are built. This step is to interrogate the dataset for a variety of imbalances or problems it may have, and ascertain if it is the right dataset for the model. We are inspired by the FDA's Nutrition Facts label in that it provides basic yet powerful facts that highlight issues in an accessible way. We aspire to do the same for datasets.
             </p>
 
             <div className={styles.line}></div>
@@ -874,11 +867,24 @@ const IndexPage = props => (
               Q. Whom have you been speaking with?
             </h4>
             <p>
-              We have been speaking with researchers in academia, practitioners
-              at large technology companies, individual data scientists,
-              organizations, and government institutions that host or open
-              datasets to the public. If you’re interested in getting involved,
-              please <a href="mailto:nutrition@media.mit.edu">contact us</a>.
+              We have been speaking with researchers in academia, practitioners at large technology companies, individual data scientists, organizations, and government institutions that host or open datasets to the public. If you’re interested in getting involved, please <a href="mailto:info@datanutrition.org">contact us</a>.
+            </p>
+          </Col>
+          <Col md={{ span: 5 }}>
+            <h4>
+              Q. Who is the intended beneficiary of this work?
+            </h4>
+            <p>
+              Our primary audience for the Dataset Nutrition Label is the data science and developer community who are building  models. An additional audience for our labels are researchers or journalists who want to better understand a particular dataset. We believe that broad, interdisciplinary engagement is required to shift the industry toward better standards of dataset quality and dataset documentation. Thus, we also engage with educators, policymakers, and researchers on best ways to amplify and highlight the potential of the Dataset Nutrition Label and the importance of data interrogation before model creation. If you’re interested in getting involved, please{" "}<a href="mailto:info@datanutrition.org">contact us</a>.
+            </p>
+
+            <div className={styles.line}></div>
+
+            <h4>
+              Q. How will this project scale?
+            </h4>
+            <p>
+              We believe that the Data Nutrition Project addresses a broad need in the model development ecosystem, and that the project will scale to address that need. We are still refining the process for label validation and we expect to share more about our approach to that process later this year.
             </p>
 
             <div className={styles.line}></div>
@@ -889,45 +895,6 @@ const IndexPage = props => (
             <p>
               Yes. You can view the Dataset Nutrition Label code&nbsp;
               <a href="https://github.com/Data-Nutrition-Project/dnp-website">here</a>. 
-            </p>
-          </Col>
-          <Col md={{ span: 5 }}>
-            <h4>
-              Q. Who is the intended beneficiary of this work?
-            </h4>
-            <p>
-              Our primary audience for the Dataset Nutrition Label is primarily
-              the data science and developer community who are building
-              algorithmic AI models. However, we believe that a larger
-              conversation must take place in order to shift the industry. Thus,
-              we are also engaging with educators, policymakers, and researchers
-              on best ways to amplify and highlight the potential of the Dataset
-              Nutrition Label and the importance of data interrogation before
-              model creation. If you’re interested in getting involved, please{" "}
-              <a href="mailto:nutrition@media.mit.edu">contact us</a>.
-            </p>
-
-            <div className={styles.line}></div>
-
-            <h4>
-              Q. How will this project scale?
-            </h4>
-            <p>
-              We believe that the Data Nutrition Project addresses a broad need
-              in the model development ecosystem, and that the project will
-              scale to address that need. Feedback on our prototype and
-              opportunities to build additional prototypes on more datasets will
-              certainly help us make strides.
-            </p>
-
-            <div className={styles.line}></div>
-
-            <h4>
-              Q. Is this a Harvard/MIT project?
-            </h4>
-            <p>
-              This is a project of Assembly, a program run by the MIT Media Lab
-              and the Berkman Klein Center.
             </p>
           </Col>
         </Row>
