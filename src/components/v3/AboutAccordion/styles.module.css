@@ -1,0 +1,27 @@
+@value layout: "../../layout.css";
+
+.aboutSection {
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(94, 127, 247, 0.1);
+    border-radius: 2px;
+    margin: .5rem 0;
+    padding: 1rem;
+}
+
+.aboutTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.aboutTitleText {
+    margin-bottom: 0;
+}
+
+.aboutSubtitle {
+    margin-right: .5rem;
+    font-weight: 600;
+}
+
+.aboutDescription {
+    margin-top: 1rem;
+}

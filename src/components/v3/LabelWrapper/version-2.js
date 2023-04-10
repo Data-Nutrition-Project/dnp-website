@@ -2,13 +2,14 @@ import axios from "axios"
 import classNames from "classnames"
 import { formatBlobForLabel } from "../../../utils/jsonFormatter.js"
 import { Grid } from  'react-loader-spinner'
-import Linkify from 'react-linkify';
+import Linkify from 'react-linkify'
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 
+import AboutAccordion from "../AboutAccordion/index.js"
 import AuthorAccordion from "../AuthorAccordion/index.js"
 import Badge from "../Badge/index.js"
 import LabelHeader from "../../LabelHeader/index.js"
@@ -144,19 +145,19 @@ const LabelWrapper = (props) => {
                             <div>
                                 <h4>Technical information</h4>
                                 {labelBlob.aboutTheDataset.technical.map(item => (
-                                    <div className={styles.aboutRow}>
-                                        <p className={styles.aboutRowTitle}>{item.title}</p>
-                                        <p className={styles.aboutRowContent}>{item.description}</p>
-                                    </div>
+                                    <AboutAccordion
+                                        title={item.title}
+                                        description={item.description}
+                                    />
                                 ))}
                             </div>
                             <div>
                                 <h4>Useful links</h4>
                                 {labelBlob.aboutTheDataset.usefulLinks.map(item => (
-                                    <div className={styles.aboutRow}>
-                                        <p className={styles.aboutRowTitle}>{item.title}</p>
-                                        <p className={styles.aboutRowContent}>{item.description}</p>
-                                    </div>
+                                    <AboutAccordion
+                                        title={item.title}
+                                        description={item.description}
+                                    />
                                 ))}
                             </div>
                         </Linkify>
