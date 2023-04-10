@@ -97,7 +97,11 @@ const RisksAccordion = props => {
                 ) : (
                     <div className={styles.risksList}>
                     {props.risks.map(risk => (
-                        <p className={classNames(styles.riskClosed, ISSUE_STYLE_MAP[risk.riskLabel])}>
+                        <p 
+                            className={classNames(styles.riskClosed, ISSUE_STYLE_MAP[risk.riskLabel])}
+                            onClick={toggleOpen}
+                            tabIndex={-1}
+                        >
                             {risk.name}
                         </p>
                     ))}

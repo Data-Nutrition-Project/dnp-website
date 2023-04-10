@@ -121,6 +121,7 @@
     border-bottom-width: 1px;
     font-weight: 600;
     padding: .5rem;
+    cursor: pointer;
 }
 
 .safe {
