@@ -1116,7 +1116,7 @@ const IndexPage = props => (
           <Col sm={4} xs={12} className={styles.centerText}>
             <Button
               as="a"
-              href="mailto:nutrition@media.mit.edu"
+              href="mailto:info@datanutrition.org"
               className={classNames(styles.tealButton, styles.modButtonLarge)}
             >
               <i class="icon-line2-users"></i>{' '}Send us an email
