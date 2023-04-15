@@ -5,6 +5,13 @@ const OPTION_TO_RISK = {
     '': 1
 }
 
+const REVERSE_OPTION_TO_RISK = {
+    yes: 0,
+    no: 2,
+    unsure: 1,
+    '': 1
+}
+
 export const formatRepresentation = (blob) => {
     const justFacts = blob[1].questions
     const collectedWhy = blob[2].questions
@@ -40,9 +47,11 @@ export const formatRepresentation = (blob) => {
         riskLabel: 1,
         description: collectedWhy[11].answer
     })
+
+    // representation in collection process
     representation.push({
         name: collectedHow[1].title,
-        riskLabel: OPTION_TO_RISK[collectedHow[1].answer],
+        riskLabel: REVERSE_OPTION_TO_RISK[collectedHow[1].answer],
         description: (() => {
             try {
                 return (collectedHow[1].dependents[collectedHow[1].answer]) ? collectedHow[1].dependents[collectedHow[1].answer][0].answer : ''
@@ -51,6 +60,8 @@ export const formatRepresentation = (blob) => {
             }
         })()
     })
+
+    // general representation issues
     representation.push({
         name: collectedHow[2].title,
         riskLabel: OPTION_TO_RISK[collectedHow[2].answer],
@@ -153,7 +164,7 @@ export const formatGeneralRisks = (blob) => {
         // add consent info
         generalRisks.push({
             name: justFacts[13].dependents.yes[4].title,
-            riskLabel: OPTION_TO_RISK[justFacts[13].dependents.yes[4].answer],
+            riskLabel: REVERSE_OPTION_TO_RISK[justFacts[13].dependents.yes[4].answer],
             description: justFacts[13].dependents.yes[4].answer === 'yes' ? 'Yes'.concat(',', justFacts[13].dependents.yes[4].dependents.yes[0].answer) : 'Consent was not given.'
         })
     } else {
@@ -462,7 +473,7 @@ export const formatBlobForLabel2 = (data) => {
                 },
                 {
                     name: blob[5].questions[3].title,
-                    riskLabel: OPTION_TO_RISK[blob[5].questions[3].answer],
+                    riskLabel: REVERSE_OPTION_TO_RISK[blob[5].questions[3].answer],
                     description: (() => {
                         try {
                             return (blob[5].questions[3].dependents[blob[5].questions[3].answer]) ? blob[5].questions[3].dependents[blob[5].questions[3].answer][0].answer : ''
@@ -490,8 +501,9 @@ export const formatBlobForLabel2 = (data) => {
                     })() 
                 },
                 {
+                    // representation in definition process
                     name: blob[3].questions[2].title,
-                    riskLabel: OPTION_TO_RISK[blob[3].questions[2].answer],
+                    riskLabel: REVERSE_OPTION_TO_RISK[blob[3].questions[2].answer],
                     description: (() => {
                         try {
                             return (blob[3].questions[2].dependents[blob[3].questions[2].answer]) ? blob[3].questions[2].dependents[blob[3].questions[2].answer][0].answer : ''
