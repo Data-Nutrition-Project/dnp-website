@@ -11,6 +11,13 @@
 @value backgroundGray: #F9F9F9;
 @value black: #000000;
 
+@value v3Green: #16A387;
+@value v3Red: #C23F38;
+@value v3Yellow: #F1A13F;
+@value v3Blue: #5E7FF7;
+@value v3Black: #454545;
+@value v3Gray: #8087A0;
+
 /* responsive constants */
 @value tabletMaxWidth: 1024px;
 @value landscapeMaxWidth: 767px;

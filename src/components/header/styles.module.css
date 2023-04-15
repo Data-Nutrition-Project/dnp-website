@@ -127,6 +127,12 @@
   color: white;
 }
 
+.icon {
+  height: 1.25rem;
+  margin-bottom: .35rem;
+  margin-left: .25rem;
+}
+
 .navLink {
   padding: 0.5rem 1rem;
 }

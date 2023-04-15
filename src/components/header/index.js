@@ -41,20 +41,15 @@ const Header = () => {
                             }
                             activeKey="/#section-mission"
                         >
-                            <Nav.Item>
-                                <AnchorLink to="/#section-mission" className={styles.navLink}>
-                                    <div>Mission</div>
-                                </AnchorLink>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <AnchorLink to="/#section-problem" className={styles.navLink}>
-                                    <div>Problem</div>
-                                </AnchorLink>
-                            </Nav.Item>
-                            <NavDropdown title="Solutions" id="solutions" className={styles.navDropdown}>
+                            <NavDropdown title="About" id="about" className={styles.navDropdown}>
                                 <NavDropdown.Item className={styles.dropdownItem}>
-                                    <AnchorLink to="/#section-solution-tool" className={classNames(styles.navLink, styles.dropdownLink)}>
-                                        The Label
+                                    <AnchorLink to="/#section-mission" className={classNames(styles.navLink, styles.dropdownLink)}>
+                                        Mission
+                                    </AnchorLink>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item className={styles.dropdownItem}>
+                                    <AnchorLink to="/#section-problem" className={classNames(styles.navLink, styles.dropdownLink)}>
+                                        Problem
                                     </AnchorLink>
                                 </NavDropdown.Item>
                                 <NavDropdown.Item className={styles.dropdownItem}>
@@ -62,12 +57,22 @@ const Header = () => {
                                         Our Research
                                     </AnchorLink>
                                 </NavDropdown.Item>
-                                <NavDropdown.Item className={styles.dropdownItem}>
-                                    <AnchorLink to="/#section-solution-workshops" className={classNames(styles.navLink, styles.dropdownLink)}>
-                                        Workshops
-                                    </AnchorLink>
-                                </NavDropdown.Item>
                             </NavDropdown>
+                            <Nav.Item>
+                                <a href={process.env.GATSBY_LABELMAKER_URL} className={styles.navLink}>
+                                    Label
+                                    <img 
+                                        src={require('../../images/linkimg.png').default}
+                                        alt="external link icon"
+                                        className={styles.icon}
+                                    />
+                                </a>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <AnchorLink to="/#section-solution-workshops" className={styles.navLink}>
+                                    Workshops
+                                </AnchorLink>
+                            </Nav.Item>
                             <Nav.Item>
                                 <AnchorLink to="/#section-team" className={styles.navLink}>
                                     <div>Team</div>

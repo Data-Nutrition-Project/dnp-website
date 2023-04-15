@@ -1,0 +1,69 @@
+@value layout: "../../layout.css";
+
+@value v3Green from layout;
+@value v3Yellow from layout;
+@value v3Gray from layout;
+
+.badge {
+    margin: 1rem auto;
+    border: 3px solid v3Gray;
+    box-shadow: 0 .5rem 1.5rem rgba(94, 127, 247, 0.1);
+    border-radius: 0 1.25rem;
+    width: 3.875rem;
+    height: 3.875rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.badgeIcon {
+    margin-left: .25rem;
+    margin-top: .25rem;
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.badgeTitle {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.badgeRisk {
+    margin-left: auto;
+    margin-top: -1rem;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 2.5rem 2.5rem;
+    border-color: transparent transparent transparent transparent;
+}
+
+.risky {
+    border-color: transparent transparent v3Yellow transparent;
+}
+
+.safe {
+    border-color: transparent transparent v3Green transparent;
+}
+
+.caution {
+    border-color: transparent transparent v3Gray transparent;
+}
+
+.modCenter {
+    text-align: center;
+}
+
+.badgeRiskIcon {
+    width: 1rem;
+    height: 1rem;
+    margin-left: -1.25rem;
+    margin-top: 1.25rem;
+}
+
+.badgeAnswer {
+    font-weight: 700;
+}
+
+.badgeDescription {
+    overflow-wrap: anywhere;
+}

@@ -1,7 +1,7 @@
 import React from "react"
 import { Provider } from "react-redux"
 
-import LabelWrapper from "../../components/LabelWrapper/index.js"
+import LabelWrapper from "../../components/v2/LabelWrapper/index.js"
 import Header from "../../components/header/index.js"
 import store from "../../store/index"
 
