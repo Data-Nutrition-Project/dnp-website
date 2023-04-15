@@ -154,7 +154,7 @@ export const formatGeneralRisks = (blob) => {
         generalRisks.push({
             name: justFacts[13].dependents.yes[4].title,
             riskLabel: OPTION_TO_RISK[justFacts[13].dependents.yes[4].answer],
-            description: justFacts[13].dependents.yes[4].answer === 'yes' ? justFacts[13].dependents.yes[4].dependents.yes[0].answer : 'Consent was not given.'
+            description: justFacts[13].dependents.yes[4].answer === 'yes' ? 'Yes'.concat(',', justFacts[13].dependents.yes[4].dependents.yes[0].answer) : 'Consent was not given.'
         })
     } else {
         generalRisks.push({
