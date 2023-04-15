@@ -893,8 +893,7 @@ const IndexPage = props => (
               Q. Is your work open source?
             </h4>
             <p>
-              Yes. You can view the Dataset Nutrition Label code&nbsp;
-              <a href="https://github.com/Data-Nutrition-Project/dnp-website">here</a>. 
+              Some of it is! You can view the Dataset Nutrition Label code <a href="https://github.com/Data-Nutrition-Project/dnp-website">here</a>, and our label maker code will be open sourced in the future.
             </p>
           </Col>
         </Row>
