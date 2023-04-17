@@ -1028,7 +1028,10 @@ const IndexPage = props => (
             public. We’d love to hear from you.
           </span>
         </div>
-        <Row className={styles.alignCenter}>
+        <Row 
+          className={styles.alignCenter}
+          style={{ "margin-bottom": "1.75rem" }}
+        >
           <Col sm={{ span: 4, offset: 1 }} xs={12}>
             <div>
               <div id="snav-content1">
@@ -1120,6 +1123,16 @@ const IndexPage = props => (
               className={classNames(styles.tealButton, styles.modButtonLarge)}
             >
               <i class="icon-line2-users"></i>{' '}Send us an email
+            </Button>
+          </Col>
+        </Row>
+        <Row className={styles.centerText}>
+          <Col md={{span: 2, offset: 5}}>
+            <Button
+              href="https://www.paypal.com/donate/?hosted_button_id=PRZBEG68NPELL"
+              className={classNames(styles.modButtonLarge)}
+            >
+              Donate
             </Button>
           </Col>
         </Row>
