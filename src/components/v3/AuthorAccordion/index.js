@@ -22,7 +22,7 @@ const AuthorAccordion = props => {
     }
     if ((props.answer.length - 2) > 0) {
         moreItemsCount = props.answer.length - 2;
-        subtitle = subtitle.concat(`& ${moreItemsCount} others`);
+        subtitle = subtitle.concat(` & ${moreItemsCount} others`);
     }
 
     return (
