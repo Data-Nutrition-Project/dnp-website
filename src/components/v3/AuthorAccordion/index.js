@@ -18,11 +18,11 @@ const AuthorAccordion = props => {
         subtitle = props.answer[0].Name.answer;
     }
     if (props.answer.length > 1) {
-        subtitle.concat(`, ${props.answer[1].Name.answer}`);
+        subtitle = subtitle.concat(`, ${props.answer[1].Name.answer}`);
     }
     if ((props.answer.length - 2) > 0) {
         moreItemsCount = props.answer.length - 2;
-        subtitle.concat(`& ${moreItemsCount} others`);
+        subtitle = subtitle.concat(`& ${moreItemsCount} others`);
     }
 
     return (
