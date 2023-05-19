@@ -183,26 +183,25 @@ const IndexPage = props => (
               The Data Nutrition{' '}
               Project takes inspiration from nutritional labels on food, aiming{' '}
               to build labels that highlight the key ingredients in a dataset such{' '}
-              as meta-data and populations, as well as unique or anomalous{' '}
+              as metadata and demographic representation, as well as unique or anomalous{' '}
               features regarding distributions, missing data, and comparisons{' '}
-              to other ‘ground truth’ datasets. 
+              to other "ground truth" datasets. 
             </p>
             <p>
-              Building off of the ‘modular’ framework initially presented in our{' '}
+              Building off of the modular framework initially presented in our{' '}
               <a href="https://ahmedhosny.github.io/datanutrition/">
                 2018 prototype
               </a>{' '}
-              and based on feedback from data scientists and dataset owners, we{' '}
+              and further refined in our <a href="https://arxiv.org/abs/2201.03954">2nd Generation Label (2020)</a>,
+              based on feedback from data scientists and dataset owners, we{' '}
               have further adjusted the Label to support a common user journey: a data{' '}
               scientist looking for a dataset with a particular purpose in mind.{' '}
-              The <Link to="/labels">second generation Dataset Nutrition Label</Link>{' '}
-              now provides targeted information about a dataset based on its{' '}
-              intended use case, including alerts and flags that are pertinent{' '}
-              to that particular use. Read more about the methodology behind the{' '}
-              second generation in our most recent{' '}
-              <a href="http://securedata.lol/camera_ready/26.pdf">
-                white paper
-              </a>.             
+              The <a href={process.env.GATSBY_LABELMAKER_URL}>third generation Dataset Nutrition Label</a>{' '}
+              now provides information about a dataset including its{' '}
+              intended use and other known uses, the process of cleaning, managing, and curating that data, ethical 
+              and or technical reviews, the inclusion of subpopulations in the dataset, and a series of potential 
+              risks or limitations in the dataset. You may additionally want to read <a href="https://arxiv.org/abs/2201.03954">here</a> 
+              about the second generation (2020) label, which informed the third generation label.             
             </p>
             <Row style={{'justify-content': 'space-around'}}>
               <a href={process.env.GATSBY_LABELMAKER_URL}>
@@ -269,7 +268,7 @@ const IndexPage = props => (
               space for our internal use as a team has proved invaluable at articulating a clear{' '}
               and growing need for effective dataset documentation and algorithmic auditing. You{' '}
               can learn more about our work and its position in the landscape in our published{' '}
-              white papers [<a href="https://arxiv.org/abs/1805.03677">2018</a>, <a href="http://securedata.lol/camera_ready/26.pdf">2020</a>, <a href="http://securedata.lol/camera_ready/26.pdf">Neurips Draft</a>]. 
+              white papers [<a href="https://arxiv.org/abs/1805.03677">2018</a>, <a href="http://securedata.lol/camera_ready/26.pdf">2020</a>]. 
             </p>
             <p>
               We take inspiration from related initiatives such as <a href=" https://arxiv.org/pdf/1803.09010.pdf">Datasheets for Datasets</a> [Gebru et al],{' '}
@@ -283,14 +282,16 @@ const IndexPage = props => (
           </Col>
           <Col xl={{ span: 5 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <div className={styles.talksSection}>
-              <b>Recent Talks</b>
+              <b>Recent Outreach</b>
               <ul>
-                <li>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; <a href="http://securedata.lol/camera_ready/26.pdf">paper</a></li>
+                <li>Policy Lab on AI and Bias, Penn Law School (2023)</li>
+                <li>Howard/Mathematica Summer Institute in Computational Social Science (2023)</li>
+                <li>
+                  Comment in <a href="https://www.regulations.gov/comment/FTC-2022-0053-0651">collaboration with Berkman Klein Center</a>: FTC Trade Regulation Rule on Commercial Surveillance and Data Security (2022)
+                </li>
                 <li>Putting Science into Standards (PSIS) Program, the European Commission’s Joint Research Centre (JRC) CEN, CENELEC (2022)</li>
                 <li>Understanding Bias and Fairness in AI-enabled Healthcare Software, Duke-Margolis Center for Health Policy (2021)</li>
-                <li>WARNING: This Label is Really Important - From Broadband to IoT, the Next Generation of Consumer Nutrition Labels, New America and Consumer Reports (2021)</li>
-                <li>RightsCon Presenter (2021)</li>
-                <li>Howard/Mathematica Summer Institute in Computational Social Science (2021)</li>
+                <li>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; <a href="http://securedata.lol/camera_ready/26.pdf">paper</a></li>
               </ul>
             </div>
             <img
@@ -406,16 +407,7 @@ const IndexPage = props => (
           <span className={styles.headingSubHeader}>
             We are a group of researchers and technologists working together to
             tackle the challenges of ethics and governance of Artificial
-            Intelligence as a part of the{" "}
-            <a
-              href="https://bkmla.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Assembly program
-            </a>{" "}
-            at the Berkman Klein Center at Harvard University &amp; MIT Media
-            Lab.
+            Intelligence.
           </span>
         </div>
         <Container fluid>
@@ -426,7 +418,7 @@ const IndexPage = props => (
                 imgAlt="chmielinski_kasia"
                 name="Kasia Chmielinski"
                 role="Project Lead"
-                bio="Technologist and product leader focused on building data-driven systems. Current Shorenstein Fellow at Harvard Kennedy School and Affiliate at the Berkman Klein Center. Previously at McKinsey &amp; Company, the US Digital Service (The White House), MIT Media Lab, and Google. Native Bostonian, enthusiastic cyclist. Avid bird-watcher."
+                bio="Technologist and product leader focused on building data-driven systems. Current Digital Civil Society Practitioner Fellow (Stanford University) and Affiliate at the Berkman Klein Center (Harvard University). Previously at McKinsey &amp; Company, the US Digital Service, MIT Media Lab, and Google. Native Bostonian, enthusiastic cyclist. Avid bird-watcher."
                 socialMedia={[
                   {
                     href: "https://www.linkedin.com/in/kchmielinski/",
@@ -442,7 +434,7 @@ const IndexPage = props => (
                 imgAlt="newman_sarah"
                 name="Sarah Newman"
                 role="Research Lead"
-                bio="Director of Art &amp; Education at metaLAB at Harvard. Interested in interrelations within complex systems. Creates interactive art installations that explore social and cultural dimensions of new tech, runs research workshops with creative materials. Former AI Grant Fellow, Rockefeller Bellagio AI Resident. Persuaded by the power of metaphors. Avid sheller."
+                bio="Director of Art &amp; Education at metaLAB at Harvard. Interested in interrelations within complex systems. Creates interactive art installations that explore social and cultural dimensions of new tech; runs critical and creative workshops on AI. Persuaded by the power of metaphors. Avid sheller."
                 socialMedia={[
                   {
                     href: "https://www.linkedin.com/in/sarah-newman-ba340867/",
@@ -1022,7 +1014,7 @@ const IndexPage = props => (
         <div className={classNames(styles.headingBlock, styles.centerText)}>
           <h2>Contact</h2>
           <span className={styles.headingSubHeader}>
-            The DNP project is a cross-industry collective. We are happy to
+            DNP is a 501c3 nonprofit initiative. We are happy to
             welcome more into the fold, whether you are a policymaker,
             scientist, engineer, designer, or just a curious member of the
             public. We’d love to hear from you.
