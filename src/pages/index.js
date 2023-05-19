@@ -79,7 +79,7 @@ const IndexPage = props => (
             <div>
               <p className={styles.headerSentence}>
                 We believe that technology should help us move forward without
-                mirroring existing systemic injustice
+                mirroring societal biases
               </p>
             </div>
           </Col>
