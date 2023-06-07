@@ -235,12 +235,17 @@ export const formatBlobForLabel2 = (data) => {
         title: blob[0].questions[0].title
     }
     let relationship = {
-        title: 'Relationship to Dataset Creator'
+        title: 'Connection to Dataset Creator'
     }
     try {
         labelAuthor.answer = blob[0].questions[0].answer[0].Name.answer
         labelAuthor.email = blob[0].questions[0].answer[0].Email.answer
-        relationship.answer = blob[0].questions[0].answer[0]['Relationship to Dataset'].answer
+        
+        try {
+            relationship.answer = blob[0].questions[0].answer[0]['Relationship to Dataset'].answer
+        } catch (error) {
+            relationship.answer = blob[0].questions[0].answer[0]['Connection (if any) to Dataset'].answer
+        }
     } catch (error) {
         labelAuthor.answer = ''
         labelAuthor.email = ''
