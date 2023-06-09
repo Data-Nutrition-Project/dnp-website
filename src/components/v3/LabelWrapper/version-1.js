@@ -18,6 +18,12 @@ import UsageAccordion from "../UsageAccordion/index.js"
 import * as layout from "../../layout.css"
 import * as styles from "./styles.module.css"
 
+import DataValuesIcon from "../../../images/data-values.inline.svg"
+import FeatureSelectionIcon from "../../../images/feature-selection.inline.svg"
+import GeneralRisksIcon from "../../../images/general-risks.inline.svg"
+import RepresentationIcon from "../../../images/representation.inline.svg"
+import UpstreamSourcesIcon from "../../../images/upstream-sources.inline.svg"
+
 const LabelWrapper = (props) => {
     const { labelBlob, loading } = props
     const [glanceOpen, setGlanceOpen] = useState(false)
@@ -179,31 +185,31 @@ const LabelWrapper = (props) => {
                             title={'Data values'}
                             subtitle={'What values are in each column?'}
                             risks={labelBlob.inferenceRisks.dataValues}
-                            icon={require('../../../images/data-values.png').default}
+                            icon={DataValuesIcon}
                         />
                         <RisksAccordion
                             title={'Feature selection'}
                             subtitle={'Which columns were chosen and why?'}
                             risks={labelBlob.inferenceRisks.featureSelection}
-                            icon={require('../../../images/feature-selection.png').default}
+                            icon={FeatureSelectionIcon}
                         />
                         <RisksAccordion
                             title={'Representation'}
                             subtitle={'Which rows were included and why?'}
                             risks={labelBlob.inferenceRisks.representation}
-                            icon={require('../../../images/representation.png').default}
+                            icon={RepresentationIcon}
                         />
                         <RisksAccordion
                             title={'Upstream sources'}
                             subtitle={'Are there known risks in datasets upstream?'}
                             risks={labelBlob.inferenceRisks.upstream}
-                            icon={require('../../../images/upstream-sources.png').default}
+                            icon={UpstreamSourcesIcon}
                         />
                         <RisksAccordion
                             title={'General risks'}
                             subtitle={'Any additional risks?'}
                             risks={labelBlob.inferenceRisks.general}
-                            icon={require('../../../images/general-risks.png').default}
+                            icon={GeneralRisksIcon}
                         />
                     </Col>
                 </Row>

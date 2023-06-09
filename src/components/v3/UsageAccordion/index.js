@@ -24,10 +24,10 @@ const UsageAccordion = props => {
         <div className={classNames(styles.usageInfo, props.className)}>
             <div className={styles.usageInfoHeader}>
                 <div className={styles.usageHeaderTitle}>
-                    <img 
-                        className={styles.usageHeaderIcon}
-                        src={props.icon}
-                        alt={`${props.header} icon`}
+                    <props.icon
+                        style={{
+                            'margin-right': '8px',
+                        }}
                     />
                     <h3>{props.header}</h3>
                 </div>

@@ -41,11 +41,11 @@ const RisksAccordion = props => {
             <div className={styles.risksDescription}>
                 <div className={styles.risksDescriptionTitle}>
                     <div className={styles.risksDescriptionTitleText}>
-                        <img
-                            src={props.icon}
-                            className={styles.icon}
-                            alt={`${props.title} icon`}
-                        />
+                        {<props.icon
+                            style={{
+                                'margin-right': '8px',
+                            }}
+                        />}
                         <div>
                             <h3>{props.title}</h3>
                             <p className={styles.subTitle}>{props.subtitle}</p>

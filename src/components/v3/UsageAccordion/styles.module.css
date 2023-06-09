@@ -4,6 +4,7 @@
 
 .readMoreSection {
     overflow-wrap: anywhere;
+    font-size: 1rem !important;
 }
 
 .readMore {
