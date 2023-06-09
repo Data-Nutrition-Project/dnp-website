@@ -61,7 +61,7 @@
 .logoImg {
   display: block;
   max-width: 100%;
-  height: 5rem;
+  height: 3.5rem;
 }
 
 .logo a.standardLogo {
@@ -114,8 +114,8 @@
 }
 
 .labelDropdown {
-    margin-top: 1.5rem;
-    font-size: 1.25rem;
+    margin-top: 1rem;
+    font-size: 1rem;
 }
 
 .metaLabelHideButton {

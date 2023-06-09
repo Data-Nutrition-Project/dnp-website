@@ -144,8 +144,8 @@ const LabelWrapper = (props) => {
                             <div className={styles.labelSectionHeader}>
                                 <h2 className={styles.labelSectionHeaderText}>About the dataset</h2>
                             </div>
-                            <div>
-                                <h4>People</h4>
+                            <div className={styles.labelSubSection}>
+                                <h3>People</h3>
                                 {labelBlob.aboutTheDataset.people.map(item => (
                                     <AuthorAccordion
                                         title={item.title}
@@ -153,8 +153,8 @@ const LabelWrapper = (props) => {
                                     />
                                 ))}
                             </div>
-                            <div>
-                                <h4>Technical information</h4>
+                            <div className={styles.labelSubSection}>
+                                <h3>Technical information</h3>
                                 {labelBlob.aboutTheDataset.technical.map(item => (
                                     <AboutAccordion
                                         title={item.title}
@@ -162,8 +162,8 @@ const LabelWrapper = (props) => {
                                     />
                                 ))}
                             </div>
-                            <div>
-                                <h4>Useful links</h4>
+                            <div className={styles.labelSubSection}>
+                                <h3>Useful links</h3>
                                 {labelBlob.aboutTheDataset.usefulLinks.map(item => (
                                     <AboutAccordion
                                         title={item.title}
