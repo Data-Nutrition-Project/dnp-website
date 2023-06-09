@@ -544,6 +544,16 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
+            <Col xl={{ span: 5 }} md={12}>
+              <Bio
+                imgPath={require("../images/chang_audrey.jpg").default}
+                imgAlt="chang_audrey"
+                name="Audrey Chang"
+                role="Research Collaborator"
+                bio="Undergraduate studying statistics and sociology at Harvard to advocate for responsible AI-related innovation, with special consideration to combatting technology’s reproduction of current societal inequities. Previously, researched cancer biology at Stanford and materials science at Harvard. Keen on exploring the design of physical and social spaces. Crafty naturalist. Bay Area native."
+                socialMedia={[]}
+              />
+            </Col>
           </Row>
           <div className={classNames(styles.headingBlock, styles.centerText)}>
             <h2>Collaborators</h2>
