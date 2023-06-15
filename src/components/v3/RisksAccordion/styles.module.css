@@ -3,7 +3,7 @@
 @value v3Yellow from layout;
 @value v3Green from layout;
 @value v3Gray from layout;
-@value v3Black from layout;
+@value v3LightGray from layout;
 @value lightGray from layout;
 
 .risksSection {
@@ -42,13 +42,6 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: .5rem;
-}
-
-.icon {
-    width: 1rem;
-    height: 1rem;
-    margin-right: .25rem;
-    margin-top: .75rem;
 }
 
 .accordionCaret {
@@ -119,6 +112,7 @@
     border-right-width: 1px;
     border-top-width: 1px;
     border-bottom-width: 1px;
+    border-color: #DADADA;
     font-weight: 600;
     padding: .5rem;
     cursor: pointer;
@@ -139,10 +133,16 @@
 .issueRow {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #E6E6E6;
 }
-
-.issueRow:first-child {
-    margin-top: 1rem;
+.issueRow:last-child {
+    border-bottom: 0;
+}
+.issueRow > p {
+    margin-bottom: 0;
 }
 
 .countBg {
@@ -152,7 +152,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 1rem;
-    color: white;
+    color: #303030;
 }
 
 .modRisky {
@@ -164,5 +164,5 @@
 }
 
 .modUnknown {
-    background-color: v3Black;
+    background-color: v3LightGray;
 }

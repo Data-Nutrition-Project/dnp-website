@@ -17,6 +17,7 @@
 @value v3Blue: #5E7FF7;
 @value v3Black: #454545;
 @value v3Gray: #8087A0;
+@value v3LightGray: #A5A5A5;
 
 /* responsive constants */
 @value tabletMaxWidth: 1024px;

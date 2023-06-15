@@ -13,6 +13,8 @@
     height: 3.875rem;
     display: flex;
     flex-direction: column;
+    padding-top: .25rem;
+    padding-left: .25rem;
 }
 
 .badgeIcon {
@@ -20,11 +22,6 @@
     margin-top: .25rem;
     width: 1.75rem;
     height: 1.75rem;
-}
-
-.badgeTitle {
-    margin-top: 1rem;
-    text-align: center;
 }
 
 .badgeRisk {
@@ -62,6 +59,7 @@
 
 .badgeAnswer {
     font-weight: 700;
+    font-size: 1rem !important;
 }
 
 .badgeDescription {

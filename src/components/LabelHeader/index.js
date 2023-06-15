@@ -8,6 +8,9 @@ import React, { useState } from "react"
 
 import * as styles from "./styles.module.css"
 
+import EmailIcon from "../../images/email-white.inline.svg"
+import LogoIcon from "../../images/logo.inline.svg"
+
 const LabelHeader = (props) => {
     // updates the display class for the mobile nav
     const [showMobileNav, setShowMobileNav] = useState(false)
@@ -28,11 +31,7 @@ const LabelHeader = (props) => {
                     <div className={classNames(styles.logoSection, {[styles.modOpen] : isOpen})}>
                         <div className={styles.logo}>
                             <AnchorLink to="/" className={styles.standardLogo}>
-                                <img
-                                    className={styles.logoImg}
-                                    src={require("../../images/logo-s.png").default}
-                                    alt="logo"
-                                />
+                                <LogoIcon />
                             </AnchorLink>
                         </div>
                     </div>
@@ -49,8 +48,8 @@ const LabelHeader = (props) => {
                                                   cx={100}
                                                   cy={100}
                                                   fill="transparent"
-                                                  stroke={""}
-                                                  strokeWidth={"1rem"}
+                                                  stroke={"#939FB1"}
+                                                  strokeWidth={"6px"}
                                                   strokeDasharray={circ}
                                                   strokeDashoffset={0}
                                                 ></circle>
@@ -59,8 +58,8 @@ const LabelHeader = (props) => {
                                                   cx={100}
                                                   cy={100}
                                                   fill="transparent"
-                                                  stroke={strokePct !== circ ? styles.teal : ""}
-                                                  strokeWidth={"1rem"}
+                                                  stroke={strokePct !== circ ? styles.teal : "#939FB1"}
+                                                  strokeWidth={"6px"}
                                                   strokeDasharray={circ}
                                                   strokeDashoffset={strokePct}
                                                 ></circle>
@@ -81,17 +80,19 @@ const LabelHeader = (props) => {
                                               y="60%"
                                               dominantBaseline="central"
                                               textAnchor="middle"
-                                              fontSize={".5em"}
+                                              fontSize={".75em"}
                                               stroke={"white"}
                                               fill={"white"}
-                                              textLength={'50%'}
+                                              textLength={'40%'}
                                             >
-                                              {'COMPLETENESS'}
+                                              {'COMPLETE'}
                                             </text>
                                         </svg>
                                     </div>
                                     <div className={styles.labelDesc}>
                                         <b>{'What is this label?'}</b>
+                                        <br/>
+                                        <br/>
                                         <p>
                                             {'The Dataset Nutrition Label enhances context, contents, and legibility of datasets. Information about this Dataset Nutrition Label, a standard of documentation that describes how to understand and use this dataset.'}
                                         </p>
@@ -107,11 +108,7 @@ const LabelHeader = (props) => {
                                                 <span className={styles.authorLink}>  
                                                     {props.labelAuthor.answer}          
                                                     <a href={`mailto:${props.labelAuthor.email}`}>
-                                                        <img 
-                                                            className={styles.emailIcon}
-                                                            src={require('../../images/icon-email-white.png').default}
-                                                            alt='email icon' 
-                                                        />
+                                                        <EmailIcon />
                                                     </a>
                                                 </span>
                                             ) : (<span>{props.labelAuthor.answer}</span>)}

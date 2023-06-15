@@ -5,7 +5,7 @@
     box-shadow: 0px 2px 4px rgba(94, 127, 247, 0.1);
     border-radius: 2px;
     margin: .5rem 0;
-    padding: 1rem;
+    padding: .875rem;
 }
 
 .aboutTitle {
@@ -16,6 +16,7 @@
 .aboutTitleText {
     margin-bottom: 0;
     margin-right: 1rem;
+    font-size: 1rem !important;
 }
 
 .aboutListSubtitle {
@@ -25,18 +26,22 @@
 
 .itemList {
     margin-top: 1rem;
-    list-style-image: url("../../../images/list-style-image.png");
     padding-right: 2rem;
 }
 
 .item {
     display: flex;
     justify-content: space-between;
+    list-style-type: square;
+    list-style-image: url("../../../images/list-style-image.png");
     border-bottom: 1px solid #E6E6E6;
 }
-
 .item:last-of-type {
     border-bottom: none;
+}
+
+.item p {
+    font-size: 1rem;
 }
 
 .aboutInfoName {

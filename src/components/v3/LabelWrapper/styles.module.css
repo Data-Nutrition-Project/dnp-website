@@ -14,11 +14,29 @@
     margin-top: 5rem;
 }
 
+.label h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
 .label h2,
 .label h3,
 .label h4 {
     font-weight: 600;
     margin-bottom: 0rem;
+}
+
+.label h2 {
+    font-size: 1.625rem;
+}
+.label h3 {
+    font-size: 1.125rem;
+}
+.label h4 {
+    font-size: 1rem;
+}
+.label p {
+    font-size: .875rem;
 }
 
 .red {
@@ -64,7 +82,7 @@
 }
 
 .draftHeader {
-    padding-top: 1rem;
+    padding-top: .875rem;
     background-color: #fae1c1;
     color: v3Black;
 }
@@ -124,17 +142,22 @@
 }
 
 .watermarkIcon {
-    height: 1.5rem;
     margin-right: .5rem;
+}
+
+.draftHeader > p {
+    font-size: .875rem;
 }
 
 .draftHeaderTitle,
 .underReviewHeaderTitle {
     display: flex;
+    align-items: center;
 }
 
 .draftHeaderTitleText,
 .underReviewHeaderTitleText {
+    font-size: 1rem;
     margin-bottom: 0rem;
     font-weight: 700;
 }
@@ -142,13 +165,21 @@
 /* Global label formatting */
 
 .labelRow {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .labelSectionHeader {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     border-bottom: 3px solid v3Black;
     padding-bottom: .5rem;
+}
+
+.labelSubSection {
+    margin-bottom: 1.5rem;
+}
+
+.labelSubSection h3 {
+    margin-bottom: 1rem;
 }
 
 .modHowToUse {
@@ -170,7 +201,8 @@
     background: #F4F6FD;
     border: 1px solid #CBD1EA;
     border-radius: 2px;
-    padding: .675rem;
+    padding: .625rem;
+    font-size: .875rem;
     white-space: nowrap;
 }
 
