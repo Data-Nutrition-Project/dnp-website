@@ -142,7 +142,6 @@
 }
 
 .watermarkIcon {
-    height: 1.25rem;
     margin-right: .5rem;
 }
 
@@ -153,11 +152,12 @@
 .draftHeaderTitle,
 .underReviewHeaderTitle {
     display: flex;
+    align-items: center;
 }
 
 .draftHeaderTitleText,
 .underReviewHeaderTitleText {
-    font-size: .875rem;
+    font-size: 1rem;
     margin-bottom: 0rem;
     font-weight: 700;
 }

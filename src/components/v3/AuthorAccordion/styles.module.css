@@ -30,6 +30,8 @@
 }
 
 .item {
+    display: flex;
+    justify-content: space-between;
     list-style-type: square;
     list-style-image: url("../../../images/list-style-image.png");
     border-bottom: 1px solid #E6E6E6;

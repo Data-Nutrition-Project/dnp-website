@@ -48,8 +48,8 @@ const LabelHeader = (props) => {
                                                   cx={100}
                                                   cy={100}
                                                   fill="transparent"
-                                                  stroke={""}
-                                                  strokeWidth={"1rem"}
+                                                  stroke={"#939FB1"}
+                                                  strokeWidth={"6px"}
                                                   strokeDasharray={circ}
                                                   strokeDashoffset={0}
                                                 ></circle>
@@ -58,8 +58,8 @@ const LabelHeader = (props) => {
                                                   cx={100}
                                                   cy={100}
                                                   fill="transparent"
-                                                  stroke={strokePct !== circ ? styles.teal : ""}
-                                                  strokeWidth={"1rem"}
+                                                  stroke={strokePct !== circ ? styles.teal : "#939FB1"}
+                                                  strokeWidth={"6px"}
                                                   strokeDasharray={circ}
                                                   strokeDashoffset={strokePct}
                                                 ></circle>
@@ -80,17 +80,19 @@ const LabelHeader = (props) => {
                                               y="60%"
                                               dominantBaseline="central"
                                               textAnchor="middle"
-                                              fontSize={".5em"}
+                                              fontSize={".75em"}
                                               stroke={"white"}
                                               fill={"white"}
-                                              textLength={'50%'}
+                                              textLength={'40%'}
                                             >
-                                              {'COMPLETENESS'}
+                                              {'COMPLETE'}
                                             </text>
                                         </svg>
                                     </div>
                                     <div className={styles.labelDesc}>
                                         <b>{'What is this label?'}</b>
+                                        <br/>
+                                        <br/>
                                         <p>
                                             {'The Dataset Nutrition Label enhances context, contents, and legibility of datasets. Information about this Dataset Nutrition Label, a standard of documentation that describes how to understand and use this dataset.'}
                                         </p>
