@@ -5,6 +5,9 @@ import PropTypes from "prop-types"
 
 import * as styles from "./styles.module.css"
 
+import CaretDownIcon from "../../../images/caret-down.inline.svg"
+import CaretUpIcon from "../../../images/caret-up.inline.svg"
+
 const ISSUE_STYLE_MAP = [
     styles.safe,
     styles.unknown,
@@ -59,17 +62,9 @@ const RisksAccordion = props => {
                         tabIndex={0}
                     >
                         {isOpen ? (
-                            <img 
-                                className={styles.accordionCaretIcon}
-                                src={require('../../../images/caret-up.png').default}
-                                alt='caret up' 
-                            />
+                            <CaretUpIcon />
                         ) : (
-                            <img 
-                                className={styles.accordionCaretIcon}
-                                src={require('../../../images/caret-down.png').default}
-                                alt='caret down' 
-                            />
+                            <CaretDownIcon />
                         )}
                     </span>
                 </div>

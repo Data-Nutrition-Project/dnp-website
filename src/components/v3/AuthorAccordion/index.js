@@ -4,6 +4,8 @@ import PropTypes from "prop-types"
 
 import * as styles from "./styles.module.css"
 
+import CaretDownIcon from "../../../images/caret-down.inline.svg"
+import CaretUpIcon from "../../../images/caret-up.inline.svg"
 import EmailIcon from "../../../images/email.inline.svg"
 
 const AuthorAccordion = props => {
@@ -40,11 +42,7 @@ const AuthorAccordion = props => {
                         role="button"
                         tabIndex={0}
                     >
-                        <img 
-                            className={styles.accordionCaretIcon}
-                            src={require('../../../images/caret-up.png').default}
-                            alt='caret up' 
-                        />
+                        <CaretUpIcon />
                     </span>
                 ) : (
                     <span
@@ -57,11 +55,7 @@ const AuthorAccordion = props => {
                         <span className={styles.aboutListSubtitle}>
                             {subtitle}
                         </span>
-                        <img 
-                            className={styles.accordionCaretIcon}
-                            src={require('../../../images/caret-down.png').default}
-                            alt='caret down' 
-                        />
+                        <CaretDownIcon />
                     </span>
                 )}
             </div>

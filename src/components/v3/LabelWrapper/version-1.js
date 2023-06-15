@@ -18,6 +18,8 @@ import UsageAccordion from "../UsageAccordion/index.js"
 import * as layout from "../../layout.css"
 import * as styles from "./styles.module.css"
 
+import CaretDownIcon from "../../../images/caret-down.inline.svg"
+import CaretUpIcon from "../../../images/caret-up.inline.svg"
 import DataValuesIcon from "../../../images/data-values.inline.svg"
 import FeatureSelectionIcon from "../../../images/feature-selection.inline.svg"
 import GeneralRisksIcon from "../../../images/general-risks.inline.svg"
@@ -156,17 +158,9 @@ const LabelWrapper = (props) => {
                                     tabIndex={0}
                                 >
                                     {glanceOpen ? (
-                                        <img 
-                                            className={styles.accordionCaretIcon}
-                                            src={require('../../../images/caret-up.png').default}
-                                            alt='caret up' 
-                                        />
+                                        <CaretUpIcon />
                                     ) : (
-                                        <img 
-                                            className={styles.accordionCaretIcon}
-                                            src={require('../../../images/caret-down.png').default}
-                                            alt='caret down' 
-                                        />
+                                        <CaretDownIcon />
                                     )}
                                 </span>
                             </div>
@@ -179,7 +173,6 @@ const LabelWrapper = (props) => {
                                         badgeAnswer={badgeInfo.badge}
                                         description={badgeInfo.description}
                                         reference={badgeInfo.reference}
-                                        badgeIcon={require(`../../../images/${badgeInfo.reference}.png`).default}
                                         isOpen={glanceOpen}
                                     />
                                 )

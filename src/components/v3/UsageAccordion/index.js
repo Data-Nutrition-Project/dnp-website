@@ -5,6 +5,9 @@ import PropTypes from "prop-types"
 
 import * as styles from "./styles.module.css"
 
+import CaretDownIcon from "../../../images/caret-down.inline.svg"
+import CaretUpIcon from "../../../images/caret-up.inline.svg"
+
 const UsageAccordion = props => {
     const [isReadMore, setIsReadMore] = useState(true)
     const toggleReadMore = () => {
@@ -39,17 +42,9 @@ const UsageAccordion = props => {
                     tabIndex={0}
                 >
                     {isReadMore ? (
-                        <img 
-                            className={styles.accordionCaretIcon}
-                            src={require('../../../images/caret-down.png').default}
-                            alt='caret down' 
-                        />
+                        <CaretDownIcon />
                     ) : (
-                        <img 
-                            className={styles.accordionCaretIcon}
-                            src={require('../../../images/caret-up.png').default}
-                            alt='caret up' 
-                        />
+                        <CaretUpIcon />
                     )}
                 </span>
             </div>
