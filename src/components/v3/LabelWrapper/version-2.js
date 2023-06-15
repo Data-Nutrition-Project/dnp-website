@@ -20,6 +20,7 @@ import * as layout from "../../layout.css"
 import * as styles from "./styles.module.css"
 
 import DataValuesIcon from "../../../images/data-values.inline.svg"
+import DraftIcon from "../../../images/draft.inline.svg"
 import FeatureSelectionIcon from "../../../images/feature-selection.inline.svg"
 import GeneralRisksIcon from "../../../images/general-risks.inline.svg"
 import RepresentationIcon from "../../../images/representation.inline.svg"
@@ -60,11 +61,7 @@ const LabelWrapper = (props) => {
             {(status !== STATUS_ENUM.APPROVED) && (
                 <div className={styles.draftHeader}>
                     <div className={styles.draftHeaderTitle}>
-                        <img
-                            className={styles.watermarkIcon}
-                            src={require('../../../images/draft-icon.png').default}
-                            alt="alert_icon"
-                        />
+                        <DraftIcon className={styles.watermarkIcon} />
                         <p className={styles.draftHeaderTitleText}>This label is a draft</p>
                     </div>
                     <p>The below is not a final, just a preview</p>

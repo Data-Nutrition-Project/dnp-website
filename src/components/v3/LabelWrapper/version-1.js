@@ -24,6 +24,11 @@ import GeneralRisksIcon from "../../../images/general-risks.inline.svg"
 import RepresentationIcon from "../../../images/representation.inline.svg"
 import UpstreamSourcesIcon from "../../../images/upstream-sources.inline.svg"
 
+import CautionIcon from "../../../images/caution.inline.svg"
+import KnownUseIcon from "../../../images/known-use.inline.svg"
+import RiskyIcon from "../../../images/risky.inline.svg"
+import SafeIcon from "../../../images/safe.inline.svg"
+
 const LabelWrapper = (props) => {
     const { labelBlob, loading } = props
     const [glanceOpen, setGlanceOpen] = useState(false)
@@ -73,28 +78,28 @@ const LabelWrapper = (props) => {
                                 <UsageAccordion
                                     header={'Intended Use'}
                                     text={labelBlob.howToUseIt.intended}
-                                    icon={require('../../../images/safe.png').default}
+                                    icon={SafeIcon}
                                 />
                             </div>
                             <div className={classNames(styles.usageDescription, styles.yellowBorder)}>
                                 <UsageAccordion
                                     header={'Restrictions on Use'}
                                     text={labelBlob.howToUseIt.restrictions}
-                                    icon={require('../../../images/caution.png').default}
+                                    icon={CautionIcon}
                                 />
                             </div>
                             <div className={classNames(styles.usageDescription, styles.blueBorder)}>
                                 <UsageAccordion
                                     header={'Known Uses'}
                                     text={labelBlob.howToUseIt.known}
-                                    icon={require('../../../images/known-use.png').default}
+                                    icon={KnownUseIcon}
                                 />
                             </div>
                             <div className={classNames(styles.usageDescription, styles.redBorder)}>
                                 <UsageAccordion
                                     header={'Do Not Use'}
                                     text={labelBlob.howToUseIt.doNot}
-                                    icon={require('../../../images/risky.png').default}
+                                    icon={RiskyIcon}
                                 />
                             </div>
                         </Row>

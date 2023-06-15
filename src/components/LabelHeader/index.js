@@ -8,6 +8,9 @@ import React, { useState } from "react"
 
 import * as styles from "./styles.module.css"
 
+import EmailIcon from "../../images/email-white.inline.svg"
+import LogoIcon from "../../images/logo.inline.svg"
+
 const LabelHeader = (props) => {
     // updates the display class for the mobile nav
     const [showMobileNav, setShowMobileNav] = useState(false)
@@ -28,11 +31,7 @@ const LabelHeader = (props) => {
                     <div className={classNames(styles.logoSection, {[styles.modOpen] : isOpen})}>
                         <div className={styles.logo}>
                             <AnchorLink to="/" className={styles.standardLogo}>
-                                <img
-                                    className={styles.logoImg}
-                                    src={require("../../images/logo-s.png").default}
-                                    alt="logo"
-                                />
+                                <LogoIcon />
                             </AnchorLink>
                         </div>
                     </div>
@@ -107,11 +106,7 @@ const LabelHeader = (props) => {
                                                 <span className={styles.authorLink}>  
                                                     {props.labelAuthor.answer}          
                                                     <a href={`mailto:${props.labelAuthor.email}`}>
-                                                        <img 
-                                                            className={styles.emailIcon}
-                                                            src={require('../../images/icon-email-white.png').default}
-                                                            alt='email icon' 
-                                                        />
+                                                        <EmailIcon />
                                                     </a>
                                                 </span>
                                             ) : (<span>{props.labelAuthor.answer}</span>)}

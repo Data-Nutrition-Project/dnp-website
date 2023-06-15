@@ -12,13 +12,12 @@ import EthicalReviewIcon from "../../../images/ethical-review.inline.svg"
 import UpdateFrequencyIcon from "../../../images/update-frequency.inline.svg"
 
 import CautionIcon from "../../../images/caution.inline.svg"
-import RiskyIcon from "../../../images/risky.inline.svg"
 import SafeIcon from "../../../images/safe.inline.svg"
 
-const RISKY_ICON = <RiskyIcon 
+const RISKY_ICON = <CautionIcon 
     style={{ 
         'margin-left': '-1.5rem',
-        'margin-top': '1rem' 
+        'margin-top': '1.25rem' 
     }} 
 />
 const SAFE_ICON = <SafeIcon 
@@ -116,7 +115,12 @@ const LinkedDescription = ({ source, i, length }) => {
 }
 
 const Badge = props => {
-    let riskImg = <CautionIcon />
+    let riskImg = <CautionIcon
+        style={{ 
+            'margin-left': '-1.5rem',
+            'margin-top': '1.25rem' 
+        }} 
+    />
     let riskLevel = 'caution'
     if (props.badgeAnswer === 'yes' || props.badgeAnswer === 'no') {
         riskImg = RISK_MAP[props.reference][props.badgeAnswer].icon

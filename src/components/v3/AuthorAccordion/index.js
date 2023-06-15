@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 
 import * as styles from "./styles.module.css"
 
+import EmailIcon from "../../../images/email.inline.svg"
 
 const AuthorAccordion = props => {
     const [isOpen, setIsOpen] = useState(false)
@@ -75,11 +76,7 @@ const AuthorAccordion = props => {
                         {item.Email && (
                             <div className={styles.aboutLinks}>
                                 <a href={'mailto:'.concat(item.Email.answer)}>
-                                    <img 
-                                        className={styles.accordionCaretIcon}
-                                        src={require('../../../images/icon-email.png').default}
-                                        alt='email icon' 
-                                    />
+                                    <EmailIcon />
                                 </a>
                             </div>
                         )}
