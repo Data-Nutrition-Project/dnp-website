@@ -5,26 +5,83 @@ import React from "react"
 
 import * as styles from "./styles.module.css"
 
+import AboutHumansIcon from "../../../images/about-humans.inline.svg"
+import UpstreamSourcesIcon from "../../../images/upstream-sources-big.inline.svg"
+import TechnicalReviewIcon from "../../../images/technical-review.inline.svg"
+import EthicalReviewIcon from "../../../images/ethical-review.inline.svg"
+import UpdateFrequencyIcon from "../../../images/update-frequency.inline.svg"
+
+import CautionIcon from "../../../images/caution.inline.svg"
+import SafeIcon from "../../../images/safe.inline.svg"
+
+const RISKY_ICON = <CautionIcon 
+    style={{ 
+        'margin-left': '-1.5rem',
+        'margin-top': '1.25rem' 
+    }} 
+/>
+const SAFE_ICON = <SafeIcon 
+    style={{ 
+        'margin-left': '-1.5rem', 
+        'margin-top': '1rem' 
+    }} 
+/>
+
 const RISK_MAP = {
     'about-humans': {
-        yes: 'risky',
-        no: 'safe'
+        yes: {
+            icon: RISKY_ICON,
+            style: 'risky'
+        },
+        no: {
+            icon: SAFE_ICON,
+            style: 'safe'
+        },
+        icon: <AboutHumansIcon />
     },
     'upstream-sources': {
-        yes: 'risky',
-        no: 'safe'
+        yes: {
+            icon: RISKY_ICON,
+            style: 'risky'
+        },
+        no: {
+            icon: SAFE_ICON,
+            style: 'safe'
+        },
+        icon: <UpstreamSourcesIcon />
     },
     'technical-review': {
-        yes: 'safe',
-        no: 'risky'
+        yes: {
+            icon: SAFE_ICON,
+            style: 'safe'
+        },
+        no: {
+            icon: RISKY_ICON,
+            style: 'risky'
+        },
+        icon: <TechnicalReviewIcon />
     },
     'ethical-review': {
-        yes: 'safe',
-        no: 'risky'
+        yes: {
+            icon: SAFE_ICON,
+            style: 'safe'
+        },
+        no: {
+            icon: RISKY_ICON,
+            style: 'risky'
+        },
+        icon: <EthicalReviewIcon />
     },
     'update-frequency': {
-        yes: 'risky',
-        no: 'safe'
+        yes: {
+            icon: RISKY_ICON,
+            style: 'risky'
+        },
+        no: {
+            icon: SAFE_ICON,
+            style: 'safe'
+        },
+        icon: <UpdateFrequencyIcon />
     }
 }
 
@@ -58,25 +115,24 @@ const LinkedDescription = ({ source, i, length }) => {
 }
 
 const Badge = props => {
-    let riskImg = 'caution'
+    let riskImg = <CautionIcon
+        style={{ 
+            'margin-left': '-1.5rem',
+            'margin-top': '1.25rem' 
+        }} 
+    />
+    let riskLevel = 'caution'
     if (props.badgeAnswer === 'yes' || props.badgeAnswer === 'no') {
-        riskImg = RISK_MAP[props.reference][props.badgeAnswer]
+        riskImg = RISK_MAP[props.reference][props.badgeAnswer].icon
+        riskLevel = RISK_MAP[props.reference][props.badgeAnswer].style
     }
     
     return (
         <div className={props.className}>
             <div className={styles.badge}>
-                <img
-                    src={props.badgeIcon}
-                    className={styles.badgeIcon}
-                    alt={`${props.title} badge icon`}
-                />
-                <div className={classNames(styles.badgeRisk, styles[riskImg])}>
-                    <img
-                        src={require(`../../../images/${riskImg}.png`).default}
-                        className={styles.badgeRiskIcon}
-                        alt={`${riskImg} level for ${props.title}`}
-                    />
+                {RISK_MAP[props.reference].icon}
+                <div className={classNames(styles.badgeRisk, styles[riskLevel])}>
+                    {riskImg}
                 </div>
             </div>
             <p className={styles.modCenter}>

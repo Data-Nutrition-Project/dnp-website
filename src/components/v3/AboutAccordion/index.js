@@ -5,6 +5,8 @@ import PropTypes from "prop-types"
 
 import * as styles from "./styles.module.css"
 
+import CaretDownIcon from "../../../images/caret-down.inline.svg"
+import CaretUpIcon from "../../../images/caret-up.inline.svg"
 
 const PREVIEW_LENGTH = 30;
 
@@ -35,11 +37,7 @@ const AboutAccordion = props => {
                             role="button"
                             tabIndex={0}
                         >
-                            <img 
-                                className={styles.accordionCaretIcon}
-                                src={require('../../../images/caret-up.png').default}
-                                alt='caret up' 
-                            />
+                            <CaretUpIcon />
                         </span>
                     ) : (
                         <span
@@ -52,11 +50,7 @@ const AboutAccordion = props => {
                             <span className={styles.aboutSubtitle}>
                                 {props.description.slice(0,PREVIEW_LENGTH).concat('...')}
                             </span>
-                            <img 
-                                className={styles.accordionCaretIcon}
-                                src={require('../../../images/caret-down.png').default}
-                                alt='caret down' 
-                            />
+                            <CaretDownIcon />
                         </span>
                     )}
                     </>

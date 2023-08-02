@@ -18,6 +18,19 @@ import UsageAccordion from "../UsageAccordion/index.js"
 import * as layout from "../../layout.css"
 import * as styles from "./styles.module.css"
 
+import CaretDownIcon from "../../../images/caret-down.inline.svg"
+import CaretUpIcon from "../../../images/caret-up.inline.svg"
+import DataValuesIcon from "../../../images/data-values.inline.svg"
+import FeatureSelectionIcon from "../../../images/feature-selection.inline.svg"
+import GeneralRisksIcon from "../../../images/general-risks.inline.svg"
+import RepresentationIcon from "../../../images/representation.inline.svg"
+import UpstreamSourcesIcon from "../../../images/upstream-sources.inline.svg"
+
+import CautionIcon from "../../../images/caution.inline.svg"
+import KnownUseIcon from "../../../images/known-use.inline.svg"
+import RiskyIcon from "../../../images/risky.inline.svg"
+import SafeIcon from "../../../images/safe.inline.svg"
+
 const LabelWrapper = (props) => {
     const { labelBlob, loading } = props
     const [glanceOpen, setGlanceOpen] = useState(false)
@@ -67,28 +80,28 @@ const LabelWrapper = (props) => {
                                 <UsageAccordion
                                     header={'Intended Use'}
                                     text={labelBlob.howToUseIt.intended}
-                                    icon={require('../../../images/safe.png').default}
+                                    icon={SafeIcon}
                                 />
                             </div>
                             <div className={classNames(styles.usageDescription, styles.yellowBorder)}>
                                 <UsageAccordion
                                     header={'Restrictions on Use'}
                                     text={labelBlob.howToUseIt.restrictions}
-                                    icon={require('../../../images/caution.png').default}
+                                    icon={CautionIcon}
                                 />
                             </div>
                             <div className={classNames(styles.usageDescription, styles.blueBorder)}>
                                 <UsageAccordion
                                     header={'Known Uses'}
                                     text={labelBlob.howToUseIt.known}
-                                    icon={require('../../../images/known-use.png').default}
+                                    icon={KnownUseIcon}
                                 />
                             </div>
                             <div className={classNames(styles.usageDescription, styles.redBorder)}>
                                 <UsageAccordion
                                     header={'Do Not Use'}
                                     text={labelBlob.howToUseIt.doNot}
-                                    icon={require('../../../images/risky.png').default}
+                                    icon={RiskyIcon}
                                 />
                             </div>
                         </Row>
@@ -145,17 +158,9 @@ const LabelWrapper = (props) => {
                                     tabIndex={0}
                                 >
                                     {glanceOpen ? (
-                                        <img 
-                                            className={styles.accordionCaretIcon}
-                                            src={require('../../../images/caret-up.png').default}
-                                            alt='caret up' 
-                                        />
+                                        <CaretUpIcon />
                                     ) : (
-                                        <img 
-                                            className={styles.accordionCaretIcon}
-                                            src={require('../../../images/caret-down.png').default}
-                                            alt='caret down' 
-                                        />
+                                        <CaretDownIcon />
                                     )}
                                 </span>
                             </div>
@@ -168,7 +173,6 @@ const LabelWrapper = (props) => {
                                         badgeAnswer={badgeInfo.badge}
                                         description={badgeInfo.description}
                                         reference={badgeInfo.reference}
-                                        badgeIcon={require(`../../../images/${badgeInfo.reference}.png`).default}
                                         isOpen={glanceOpen}
                                     />
                                 )
@@ -179,31 +183,31 @@ const LabelWrapper = (props) => {
                             title={'Data values'}
                             subtitle={'What values are in each column?'}
                             risks={labelBlob.inferenceRisks.dataValues}
-                            icon={require('../../../images/data-values.png').default}
+                            icon={DataValuesIcon}
                         />
                         <RisksAccordion
                             title={'Feature selection'}
                             subtitle={'Which columns were chosen and why?'}
                             risks={labelBlob.inferenceRisks.featureSelection}
-                            icon={require('../../../images/feature-selection.png').default}
+                            icon={FeatureSelectionIcon}
                         />
                         <RisksAccordion
                             title={'Representation'}
                             subtitle={'Which rows were included and why?'}
                             risks={labelBlob.inferenceRisks.representation}
-                            icon={require('../../../images/representation.png').default}
+                            icon={RepresentationIcon}
                         />
                         <RisksAccordion
                             title={'Upstream sources'}
                             subtitle={'Are there known risks in datasets upstream?'}
                             risks={labelBlob.inferenceRisks.upstream}
-                            icon={require('../../../images/upstream-sources.png').default}
+                            icon={UpstreamSourcesIcon}
                         />
                         <RisksAccordion
                             title={'General risks'}
                             subtitle={'Any additional risks?'}
                             risks={labelBlob.inferenceRisks.general}
-                            icon={require('../../../images/general-risks.png').default}
+                            icon={GeneralRisksIcon}
                         />
                     </Col>
                 </Row>
