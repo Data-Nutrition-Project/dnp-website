@@ -497,7 +497,7 @@ const IndexPage = props => (
                 imgAlt="kranzinger_chris"
                 name="Chris Kranzinger"
                 role="Data Science Advisor"
-                bio="Data Scientist, Economist, and ML enthusiast combining data and social science to inform strategic decision making and studies questions around trust and safety in AI. Former McCloy Fellow at Harvard and current Sr. Applied Scientist at Uber with a background in Engineering and Economics. Passionate European, staunch free athlete, and aspiring photographer."
+                bio="Data Scientist, Economist, and ML enthusiast combining data science and economics to inform strategic decision making and studies questions around trust and safety in AI. Former McCloy Fellow at Harvard and current Sr. Applied Scientist at Uber with a background in Engineering and Economics."
                 socialMedia={[
                   {
                     href: "https://www.linkedin.com/in/cnk/",
