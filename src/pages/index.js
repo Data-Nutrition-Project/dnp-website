@@ -8,6 +8,8 @@ import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Form from "react-bootstrap/Form"
 import Row from "react-bootstrap/Row"
+import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 import Banner from "../components/Banner"
 import Bio from "../components/Bio"
@@ -162,7 +164,7 @@ const IndexPage = props => (
             styles.pageSection
           )}
         >
-          <h2>The Tool</h2>
+          <h2>The Dataset Nutrition Label</h2>
           <span className={styles.headingSubHeader}>
             A "nutrition label" for datasets.
           </span>
@@ -243,7 +245,7 @@ const IndexPage = props => (
             styles.pageSection
           )}
         >
-          <h2>Our Research</h2>
+          <h2>Research</h2>
           <span className={styles.headingSubHeader}>
             Published and Related Works
           </span>
@@ -257,17 +259,7 @@ const IndexPage = props => (
               Alongside development of the tool, we have been doing ongoing research{' '}
               into the <b>broader landscape of tools and practices designed to address problems{' '}
               in underlying data</b>, whether due to the data itself, the data collection{' '}
-              practices, or the dataset documentation.
-            </p>
-            <p>
-              Since 2018, we have seen a confluence of initiatives arise in the domain of tools{' '}
-              to combat bias in data. In order to understand both the unique offering of our{' '}
-              Label, and to learn from others so that we do not reinvent the wheel, we have been{' '}
-              tracking related research, the development of new and related tools, and the{' '}
-              general trajectory of labeling as an intervention. The exercise of mapping the{' '}
-              space for our internal use as a team has proved invaluable at articulating a clear{' '}
-              and growing need for effective dataset documentation and algorithmic auditing. You{' '}
-              can learn more about our work and its position in the landscape in our published{' '}
+              practices, or the dataset documentation. You can learn more about our work and its position in the landscape in our published{' '}
               white papers [<a href="https://arxiv.org/abs/1805.03677">2018</a>, <a href="http://securedata.lol/camera_ready/26.pdf">2020</a>]. 
             </p>
             <p>
@@ -282,28 +274,67 @@ const IndexPage = props => (
           </Col>
           <Col xl={{ span: 5 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <div className={styles.talksSection}>
-              <b>Recent Outreach</b>
-              <ul>
-                <li>Policy Lab on AI and Bias, Penn Law School (2023)</li>
-                <li>Howard/Mathematica Summer Institute in Computational Social Science (2023)</li>
-                <li>
+              <p className={styles.headerSentence}>
+                Recent Outreach
+              </p>
+              <ListGroup>
+                <ListGroup.Item>
+                  <a href="https://shorensteincenter.org/clear-documentation-framework-ai-transparency-recommendations-practitioners-context-policymakers/">
+                    The CLeAR Documentation Framework
+                  </a> for AI Transparency
+                  Policy Lab on AI and Bias, Penn Law School (2023)
+                </ListGroup.Item>
+                <ListGroup.Item>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; <a href="http://securedata.lol/camera_ready/26.pdf">paper</a></ListGroup.Item>
+                <ListGroup.Item>
                   Comment in <a href="https://www.regulations.gov/comment/FTC-2022-0053-0651">collaboration with Berkman Klein Center</a>: FTC Trade Regulation Rule on Commercial Surveillance and Data Security (2022)
-                </li>
-                <li>Putting Science into Standards (PSIS) Program, the European Commission’s Joint Research Centre (JRC) CEN, CENELEC (2022)</li>
-                <li>Understanding Bias and Fairness in AI-enabled Healthcare Software, Duke-Margolis Center for Health Policy (2021)</li>
-                <li>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; <a href="http://securedata.lol/camera_ready/26.pdf">paper</a></li>
-              </ul>
+                </ListGroup.Item>
+                <ListGroup.Item><a href="https://arxiv.org/abs/2201.03954">The Dataset Nutrition Label (2nd Gen):</a> Leveraging Context to Mitigate Harms in Artificial Intelligence</ListGroup.Item>
+              </ListGroup>
             </div>
-            <img
-              alt="zoom panel on coded bias december 2020"
-              className={styles.img}
-              src={require("../images/cr-panel-dec2020.png").default}
-            />
-            <div class={styles.photoCredit}>
-              <span>
-                Consumer Reports virtual panel featuring Amira Dhalla, Kasia Chmielinski, Joy Buolamwini, Shalini Kantayya, Jade Magnus
-              </span>
-            </div> 
+          </Col>
+        </Row>
+        <br />
+        <div
+          id="section-solution-engagement"
+          className={classNames(
+            styles.headingBlock,
+            styles.centerText,
+            styles.pageSection
+          )}
+        >
+          <h2>Engagement</h2>
+          <span className={styles.headingSubHeader}>
+            Projects, Events and Collaborations
+          </span>
+        </div>
+        <Row>
+          <Col xl={{ span: 4, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
+            <p className={styles.headerSentence}>
+              Ongoing and Recent Engagements
+            </p>
+            <ListGroup>
+              <ListGroup.Item>
+                The Burroughs Wellcome Fund (BWF) Innovation in Regulatory Science Innovation in Regulatory Science awardee (2023) 
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Mozilla Foundation Infrastructure Grant Awardee (2023)
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Howard/Mathematica Summer Institute in Computational Social Science (2023)
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Putting Science into Standards (PSIS) Program, the European Commission’s Joint Research Centre (JRC) CEN, CENELEC (2022)
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Understanding Bias and Fairness in AI-enabled Healthcare Software, Duke-Margolis Center for Health Policy (2021)
+              </ListGroup.Item>
+            </ListGroup>
+          </Col>
+          <Col xl={{ span: 5 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
+            <p className={styles.headerSentence}>
+              Collaboration with Microsoft Research &amp; ASL Citizen Dataset
+            </p>
+            <iframe src="https://drive.google.com/file/d/1O47tQalwgCxS1GcavMx4-6k176jmkRnq/preview" width="640" height="480" allow="autoplay"></iframe>
           </Col>
         </Row>
       </Container>
@@ -311,49 +342,30 @@ const IndexPage = props => (
     <section id="content" className={styles.section}>
       <Container fluid>
         <div
-          id="section-solution-workshops"
+          id="section-solution-services"
           className={classNames(
             styles.headingBlock,
             styles.centerText,
             styles.pageSection
           )}
         >
-          <h2>Workshops &amp; Facilitation</h2>
+          <h2>Services</h2>
           <span className={styles.headingSubHeader}>
             Demystifying how AI Perpetuates Systemic Biases
           </span>
         </div>
         <Row>
-          <Col xl={{ span: 4, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
+          <Col xl={{ span: 5, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
             <p className={styles.headerSentence}>
               We believe that building artificial intelligence is as much about learning as it is about technical implementation.
             </p>
             <p>
-              Through our workshops, the Data Nutrition Project brings a curriculum of
-              awareness to organizations of all sizes and types - from small
-              technical teams to larger, non-technical communities.
-            </p>
-            <b>Example: Demystifying AI</b>
-            <p>
-              This workshop is a brief, non-technical overview of how Artificial 
-              Intelligence (AI) algorithms work. Participants move through an 
-              experiential activity in which one gets to “be the algorithm”, and 
-              subsequently reflect on how bias is perpetuated in that process. We also tie this experience 
-              to current industry themes and examples, and discuss the complexities 
-              of building tools that mitigate the issue.
-            </p>
-            <p>
-              We have facilitated this workshop at conferences, as well as at local events for community 
-              organizers. This workshop is great for community groups looking to better
-              understand how AI works, and how it is used in tools that we all
-              use on a daily basis. It's also helpful for tech professionals who
-              do not code, such as designers, project managers, etc.
-            </p>
-            <p>
-              <AnchorLink to="#section-contact">Contact Us</AnchorLink> to find out more about ongoing workshops!
+              To that end, the Data Nutrition Project offers certification, consulting and educational services 
+              that address data quality and transparency. We offer these services to organizations of all sizes and types - from small
+              technical teams to larger, non-technical communities. Our services include:
             </p>
           </Col>
-          <Col xl={{ span: 5, offset: 1 }} lg={{ span: 8, offset: 2 }} md={{ span: 10, offset: 1 }}>
+          <Col xl={{ span: 4, offset: 1 }} lg={{ span: 8, offset: 2 }} md={{ span: 10, offset: 1 }}>
             <img
               alt="workshop presentation"
               className={styles.img}
@@ -372,6 +384,70 @@ const IndexPage = props => (
               </span>
             </div>
           </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col xl={{ span: 3, offset: 1}} lg={6} md={12}>
+            <Card>
+              <Card.Body className={styles.modGray}>
+                <Card.Title className={styles.subHeaderSentence}>
+                  Label-as-a-Service
+                </Card.Title>
+                <Card.Text>
+                  Creating nutrition labels for datasets is helpful for ensuring thoughtful usage of public data and also as a form 
+                  of transparency and trust-building with the public when releasing products built on proprietary data. If you would 
+                  like to create a Dataset Nutrition Label on a proprietary dataset, DNP can work with you to build a certified 
+                  Dataset Nutrition Label. 
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col xl={4} lg={6} md={12}>
+            <Card>
+              <Card.Body className={styles.modGray}>
+                <Card.Title className={styles.subHeaderSentence}>
+                  Data System Consulting
+                </Card.Title>
+                <Card.Text>
+                  When documentation is created at the end of an algorithmic decision making process, you run the risk of discovering 
+                  too late that the data used may present some unintended risks. One way to address this issue is by learning how to 
+                  incorporate the concepts that are part of the Dataset Nutrition Labeling process within your dataset definition and 
+                  collection processes. If you build the concepts into your process, you will end up with better quality data, and 
+                  will be able to produce documentation quickly and easily. We offer strategic consulting to help organizations and 
+                  teams sustainably embed these responsible data practices into their product development. 
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col xl={3} lg={6} md={12}>
+            <Card>
+              <Card.Body className={styles.modGray}>
+                <Card.Title className={styles.subHeaderSentence}>
+                  Professional Development Workshops
+                </Card.Title>
+                <Card.Text>
+                  When building artificial intelligence systems, it is important to understand both the technical tools required 
+                  and the social context in which the system sits. Through our educational offerings, the Data Nutrition Project trains 
+                  organizations of all sizes — from small technical teams to large, non-technical communities — to understand and approach 
+                  AI from a sociotechnical perspective.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <br />
+        <br />
+        <Row style={{ 'justify-content': 'center' }}>
+            <b className={styles.centerText}>
+              If you'd like to find out more about our services, please reach out!
+            </b>
+            <Button
+              as="a"
+              href="mailto:info@datanutrition.org"
+              className={classNames(styles.tealButton, styles.modButtonLarge)}
+            >
+              <i class="icon-line2-users"></i>{' '}Contact Us
+            </Button>
         </Row>
       </Container>
     </section>
@@ -472,21 +548,16 @@ const IndexPage = props => (
             </Col>
             <Col xl={{ span: 5 }} md={12}>
               <Bio
-                imgPath={require("../images/thomas_kemi.jpg").default}
-                imgAlt="thomas_kemi"
-                name="Kemi Thomas"
-                role="Software Engineering Collaborator"
-                bio="Full-stack engineer passionate about building REST API applications and making people’s lives easier. Primary focus in the NERD stack (Node.js, Express, React, Databases using SQL), but open to other technologies. Background in journalism and associate production, most recently at a top 20 news station."
+                imgPath={require("../images/yurkofsky_jess.jpg").default}
+                imgAlt="yurkofsky_jessica"
+                name="Jessica Yurkofsky"
+                role="Design Research Collaborator"
+                bio="Designer, technologist, and librarian focused on visual communication and experimental pedagogy. Principal at Harvard's metaLAB, with a background in Sociology and Urban Planning. Lives in the woods in Vermont. Dedicated builder of cardboard models and drawer of cartoons."
                 socialMedia={[
                   {
-                    href: "https://www.linkedin.com/in/kemi-thomas/",
-                    icon: "icon-linkedin",
-                    className: "si-linkedin",
-                  },
-                  {
-                    href: "https://github.com/kem247",
-                    icon: "icon-github",
-                    className: "si-github",
+                    href: "http://jessyurko.com/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
                   },
                 ]}
               />
@@ -552,6 +623,27 @@ const IndexPage = props => (
                 role="Research Collaborator"
                 bio="Undergraduate studying statistics and sociology at Harvard to advocate for responsible AI-related innovation, with special consideration to combatting technology’s reproduction of current societal inequities. Previously, researched cancer biology at Stanford and materials science at Harvard. Keen on exploring the design of physical and social spaces. Crafty naturalist. Bay Area native."
                 socialMedia={[]}
+              />
+            </Col>
+            <Col xl={{ span: 5, offset: 1 }} md={12}>
+              <Bio
+                imgPath={require("../images/thomas_kemi.jpg").default}
+                imgAlt="thomas_kemi"
+                name="Kemi Thomas"
+                role="Software Engineering Collaborator"
+                bio="Full-stack engineer passionate about building REST API applications and making people’s lives easier. Primary focus in the NERD stack (Node.js, Express, React, Databases using SQL), but open to other technologies. Background in journalism and associate production, most recently at a top 20 news station."
+                socialMedia={[
+                  {
+                    href: "https://www.linkedin.com/in/kemi-thomas/",
+                    icon: "icon-linkedin",
+                    className: "si-linkedin",
+                  },
+                  {
+                    href: "https://github.com/kem247",
+                    icon: "icon-github",
+                    className: "si-github",
+                  },
+                ]}
               />
             </Col>
           </Row>
@@ -654,7 +746,7 @@ const IndexPage = props => (
             <h2>Alums</h2>
           </div>
           <Row>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
+            <Col xl={{ span: 3, offset: 2 }} md={6}>
               <Bio
                 alum={true}
                 imgPath={require("../images/holland_sarah.png").default}
@@ -675,7 +767,7 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5 }} md={12}>
+            <Col xl={{ span: 3 }} md={6}>
               <Bio
                 alum={true}
                 imgPath={require("../images/hosny_ahmed.png").default}
@@ -706,8 +798,9 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
+            <Col xl={{ span: 3 }} md={6}>
               <Bio
+                alum={true}
                 imgPath={require("../images/josh.jpg").default}
                 imgAlt="joseph_josh"
                 name="Josh Joseph"
@@ -721,8 +814,9 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5 }} md={12}>
+            <Col xl={{ span: 3, offset: 2 }} md={6}>
               <Bio
+                alum={true}
                 imgPath={require("../images/luzzi_erica.png").default}
                 imgAlt="luzzi_erica"
                 name="Erica Luzzi"
@@ -741,7 +835,7 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
+            <Col xl={{ span: 3 }} md={6}>
               <Bio
                 alum={true}
                 imgPath={require("../images/oduro_serena.jpg").default}
@@ -762,7 +856,7 @@ const IndexPage = props => (
                 ]}
               />
             </Col>
-            <Col xl={{ span: 5  }} md={12}>
+            <Col xl={{ span: 3  }} md={6}>
               <Bio
                 alum={true}
                 imgPath={require("../images/YQiu.png").default}
@@ -779,21 +873,6 @@ const IndexPage = props => (
                     href: "https://www.linkedin.com/in/chelseaqiu/",
                     icon: "icon-linkedin",
                     className: "si-linkedin",
-                  },
-                ]}
-              />
-            </Col>
-            <Col xl={{ span: 5, offset: 1 }} md={12}>
-              <Bio
-                imgPath={require("../images/yurkofsky_jess.jpg").default}
-                imgAlt="yurkofsky_jessica"
-                name="Jessica Yurkofsky"
-                role="Design Research Collaborator"
-                socialMedia={[
-                  {
-                    href: "http://jessyurko.com/",
-                    icon: "icon-line-globe",
-                    className: "si-dribble",
                   },
                 ]}
               />
@@ -1022,7 +1101,7 @@ const IndexPage = props => (
     >
       <Container>
         <div className={classNames(styles.headingBlock, styles.centerText)}>
-          <h2>Contact</h2>
+          <h2>Support Us</h2>
           <span className={styles.headingSubHeader}>
             DNP is a 501c3 nonprofit initiative. We are happy to
             welcome more into the fold, whether you are a policymaker,
@@ -1132,7 +1211,7 @@ const IndexPage = props => (
           <Col md={{span: 2, offset: 5}}>
             <Button
               href="https://www.paypal.com/donate/?hosted_button_id=PRZBEG68NPELL"
-              className={classNames(styles.modButtonLarge)}
+              className={classNames(styles.tealButton, styles.modButtonLarge)}
             >
               Donate
             </Button>

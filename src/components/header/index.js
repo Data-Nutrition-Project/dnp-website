@@ -41,23 +41,6 @@ const Header = () => {
                             }
                             activeKey="/#section-mission"
                         >
-                            <NavDropdown title="About" id="about" className={styles.navDropdown}>
-                                <NavDropdown.Item className={styles.dropdownItem}>
-                                    <AnchorLink to="/#section-mission" className={classNames(styles.navLink, styles.dropdownLink)}>
-                                        Mission
-                                    </AnchorLink>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item className={styles.dropdownItem}>
-                                    <AnchorLink to="/#section-problem" className={classNames(styles.navLink, styles.dropdownLink)}>
-                                        Problem
-                                    </AnchorLink>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item className={styles.dropdownItem}>
-                                    <AnchorLink to="/#section-solution-research" className={classNames(styles.navLink, styles.dropdownLink)}>
-                                        Our Research
-                                    </AnchorLink>
-                                </NavDropdown.Item>
-                            </NavDropdown>
                             <Nav.Item>
                                 <a href={process.env.GATSBY_LABELMAKER_URL} className={styles.navLink}>
                                     Label
@@ -69,23 +52,30 @@ const Header = () => {
                                 </a>
                             </Nav.Item>
                             <Nav.Item>
-                                <AnchorLink to="/#section-solution-workshops" className={styles.navLink}>
-                                    Workshops
+                                <AnchorLink to="/#section-solution-research" className={styles.navLink}>
+                                    Research
                                 </AnchorLink>
                             </Nav.Item>
                             <Nav.Item>
-                                <AnchorLink to="/#section-team" className={styles.navLink}>
-                                    <div>Team</div>
+                                <AnchorLink to="/#section-solution-services" className={styles.navLink}>
+                                    Services
                                 </AnchorLink>
                             </Nav.Item>
-                            <Nav.Item>
-                                <AnchorLink to="/#section-faq" className={styles.navLink}>
-                                    <div>Faq</div>
-                                </AnchorLink>
-                            </Nav.Item>
+                            <NavDropdown title="About Us" id="about" className={styles.navDropdown}>
+                                <NavDropdown.Item className={styles.dropdownItem}>
+                                    <AnchorLink to="/#section-team" className={classNames(styles.navLink, styles.dropdownLink)}>
+                                        Team
+                                    </AnchorLink>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item className={styles.dropdownItem}>
+                                    <AnchorLink to="/#section-faq" className={classNames(styles.navLink, styles.dropdownLink)}>
+                                        FAQ
+                                    </AnchorLink>
+                                </NavDropdown.Item>
+                            </NavDropdown>
                             <Nav.Item>
                                 <AnchorLink to="/#section-contact" className={styles.navLink}>
-                                    <div>Contact</div>
+                                    <div>Donate</div>
                                 </AnchorLink>
                             </Nav.Item>
                         </Nav>

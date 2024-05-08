@@ -213,6 +213,10 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
     font-weight: 700;
 }
 
+.subHeaderSentence {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
 
 /* Info sections */
 
