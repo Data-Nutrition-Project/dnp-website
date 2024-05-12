@@ -29,7 +29,7 @@ const IndexPage = props => (
       )}
     >
       <div className={styles.sliderParallaxInner}>
-        <div className="container vertical-middle clearfix">
+        <div className="vertical-middle clearfix">
           <div className={styles.titleBlock}>
             <h1 className={styles.pageTitleHeader}>
               {"The Data Nutrition Project"}

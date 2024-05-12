@@ -46,7 +46,7 @@
 
 .titleBlock {
     text-align: center;
-    margin-top: 22.5vh;
+    margin-top: 27vh;
     margin-bottom: 3.5rem;
     border-bottom: none;
     color: #FFF;
@@ -67,7 +67,7 @@
     display: block;
     margin-top: 10px;
     font-weight: 500;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 300;
 }
 
@@ -126,14 +126,14 @@
 }
 
 .headingBlock {
-    margin-bottom: 3.125rem;
+    margin-bottom: 3rem;
 }
 
 .headingBlock::after {
     content: '';
     display: block;
     width: 2.5rem;
-    margin: 2.875rem auto 0;
+    margin: 2rem auto 0;
     border-top: .125rem solid black;
 }
 
@@ -150,14 +150,14 @@
 }
 
 .headingBlock h2 {
-    font-size: 2.25rem;
+    font-size: 2rem;
 }
 
 .headingSubHeader {
     display: block;
     margin-top: .875rem;
     font-weight: 300;
-    font-size: 1.5rem;  
+    font-size: 1.25rem;  
     color: #777;
     max-width: 43.75rem;
     margin-left: auto;
@@ -209,12 +209,12 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 .header.transparentHeader + .sliderParallax .sliderParallaxInner { top: 0; } */
 
 .headerSentence {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
 .subHeaderSentence {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
@@ -222,17 +222,17 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 
 .missionRow {
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
 }
 
 .lead {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
 }
 
 .missionList {
     list-style-type: none;
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding-left: 0;
 }
 
@@ -245,7 +245,7 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 }
 
 .talksSection {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.25rem;
 }
 
 
@@ -258,11 +258,11 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 /* FAQ */
 
 .faq h4 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
 }
 
 .faq p {
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 .line {
@@ -328,6 +328,14 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 }
 
 @media (max-width: landscapeMaxWidth) {
+    .titleBlock {
+        text-align: center;
+        margin-top: 10vh;
+        margin-bottom: 3.5rem;
+        border-bottom: none;
+        color: #FFF;
+    }
+
     .modButtonLarge {
         padding: .25rem 2rem;
         line-height: 2rem;
