@@ -259,8 +259,7 @@ const IndexPage = props => (
               Alongside development of the tool, we have been doing ongoing research{' '}
               into the <b>broader landscape of tools and practices designed to address problems{' '}
               in underlying data</b>, whether due to the data itself, the data collection{' '}
-              practices, or the dataset documentation. You can learn more about our work and its position in the landscape in our published{' '}
-              white papers [<a href="https://arxiv.org/abs/1805.03677">2018</a>, <a href="http://securedata.lol/camera_ready/26.pdf">2020</a>]. 
+              practices, or the dataset documentation. 
             </p>
             <p>
               We take inspiration from related initiatives such as <a href=" https://arxiv.org/pdf/1803.09010.pdf">Datasheets for Datasets</a> [Gebru et al],{' '}
@@ -275,20 +274,30 @@ const IndexPage = props => (
           <Col xl={{ span: 5 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <div className={styles.talksSection}>
               <p className={styles.headerSentence}>
-                Recent Outreach
+                Recent Publications
               </p>
               <ListGroup>
                 <ListGroup.Item>
                   <a href="https://shorensteincenter.org/clear-documentation-framework-ai-transparency-recommendations-practitioners-context-policymakers/">
                     The CLeAR Documentation Framework
-                  </a> for AI Transparency
+                  </a> for AI Transparency, Harvard Kennedy School Report (2024)
                   Policy Lab on AI and Bias, Penn Law School (2023)
                 </ListGroup.Item>
-                <ListGroup.Item>NeurIPS 2020: Workshop on Dataset Curation and Security, Poster session &amp; <a href="http://securedata.lol/camera_ready/26.pdf">paper</a></ListGroup.Item>
                 <ListGroup.Item>
-                  Comment in <a href="https://www.regulations.gov/comment/FTC-2022-0053-0651">collaboration with Berkman Klein Center</a>: FTC Trade Regulation Rule on Commercial Surveillance and Data Security (2022)
+                  <a href="https://cyber.harvard.edu/story/2022-11/bkc-comment-ftc-transparency-and-commercial-surveillance">
+                    Comment: FTC Trade Regulation Rule on Commercial Surveillance and Data Security
+                  </a>, in collaboration with Berkman Klein Center at Harvard University (2022)
                 </ListGroup.Item>
-                <ListGroup.Item><a href="https://arxiv.org/abs/2201.03954">The Dataset Nutrition Label (2nd Gen):</a> Leveraging Context to Mitigate Harms in Artificial Intelligence</ListGroup.Item>
+                <ListGroup.Item>
+                  <a href="https://arxiv.org/abs/2201.03954">
+                    The Dataset Nutrition Label (2nd Gen): Leveraging Context to Mitigate Harms in Artificial Intelligence
+                  </a>, presented at NeurIPS 2020: Workshop on Dataset Curation and Security (2020)
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <a href="https://arxiv.org/abs/1805.03677">
+                    The Dataset Nutrition Label: A Framework To Drive Higher Data Quality Standards
+                  </a> (2018)
+                </ListGroup.Item>
               </ListGroup>
             </div>
           </Col>
@@ -310,23 +319,35 @@ const IndexPage = props => (
         <Row>
           <Col xl={{ span: 4, offset: 1 }} lg={{ span: 10, offset: 1 }} md={12}>
             <p className={styles.headerSentence}>
-              Ongoing and Recent Engagements
+              Recent Engagements
             </p>
             <ListGroup>
               <ListGroup.Item>
-                The Burroughs Wellcome Fund (BWF) Innovation in Regulatory Science Innovation in Regulatory Science awardee (2023) 
+                <b>Innovation in Regulatory Science awardee, The Burroughs Wellcome Fund</b> (2023)
+                <br />
+                Awarded for developing an independent audit framework for artificial intelligence in medicine in collaboration with 
+                Dr. Rotemberg from Memorial Sloan Kettering Cancer Center
               </ListGroup.Item>
               <ListGroup.Item>
-                Mozilla Foundation Infrastructure Grant Awardee (2023)
+                <b>Infrastructure Grant Awardee, Mozilla Foundation</b> (2023)
+                <br />
+                Awarded for explorations of the AI auditing landscape through convening experts in a closed-door, facilitated session
               </ListGroup.Item>
               <ListGroup.Item>
-                Howard/Mathematica Summer Institute in Computational Social Science (2023)
+                <b>Howard/Mathematica Summer Institute in Computational Social Science</b> (2023)
+                <br />
+                Multiple-year engagement as guest lecturers in ethical AI / data quality for the summer institute
               </ListGroup.Item>
               <ListGroup.Item>
-                Putting Science into Standards (PSIS) Program, the European Commission’s Joint Research Centre (JRC) CEN, CENELEC (2022)
+                <b>Putting Science into Standards (PSIS) Program, the European Commission’s Joint Research Centre (JRC) CEN, CENELEC</b> (2022)
+                <br />
+                Participation in programming around dataset standards
               </ListGroup.Item>
               <ListGroup.Item>
-                Understanding Bias and Fairness in AI-enabled Healthcare Software, Duke-Margolis Center for Health Policy (2021)
+                <b>Digital Humanity Award, Prix Ars Electronica</b> (2022) 
+                <br />
+                International arts-science honor awarded to the Data Nutrition Project for the design and release of the second generation of the 
+                Dataset Nutrition Label 
               </ListGroup.Item>
             </ListGroup>
           </Col>
@@ -735,11 +756,15 @@ const IndexPage = props => (
             <h2>Former Collaborators</h2>
           </div>
           <Row>
-            <Col xl={{ span: 5, offset: 1 }} md={12} className={styles.centerText}>
-              <h3><a href="https://www.humanityinnovationlabs.com">Humanity Innovation Labs</a></h3>
+            <Col xl={{ span: 3, offset: 2 }} md={12}>
+              <h3 style={{ 'font-size': '1.5rem' }}>
+                <a href="https://www.humanityinnovationlabs.com">Humanity Innovation Labs</a>
+              </h3>
             </Col>
-            <Col xl={{ span: 5 }} md={12} className={styles.centerText}>
-              <h3><a href="https://www.justfix.nyc/">JustFix.nyc</a></h3>
+            <Col xl={{ span: 3, offset: 3 }} md={12}>
+              <h3 style={{ 'font-size': '1.5rem' }}>
+                <a href="https://www.justfix.nyc/">JustFix.nyc</a>
+              </h3>
             </Col>
           </Row>
           <div className={classNames(styles.headingBlock, styles.centerText)}>
