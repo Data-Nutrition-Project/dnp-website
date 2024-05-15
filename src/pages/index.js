@@ -281,7 +281,11 @@ const IndexPage = props => (
                   <a href="https://shorensteincenter.org/clear-documentation-framework-ai-transparency-recommendations-practitioners-context-policymakers/">
                     The CLeAR Documentation Framework
                   </a> for AI Transparency, Harvard Kennedy School Report (2024)
-                  Policy Lab on AI and Bias, Penn Law School (2023)
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <a href="https://centre.humdata.org/quality-measures-for-humanitarian-data/">
+                    Quality Measures for Humanitarian Data
+                  </a>, in collaboration with the United Nations Humanitarian Data Exchange (2023)
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <a href="https://cyber.harvard.edu/story/2022-11/bkc-comment-ftc-transparency-and-commercial-surveillance">
@@ -517,6 +521,11 @@ const IndexPage = props => (
                 role="Project Lead"
                 bio="Technologist and product leader focused on building data-driven systems. Current Digital Civil Society Practitioner Fellow (Stanford University) and Affiliate at the Berkman Klein Center (Harvard University). Previously at McKinsey &amp; Company, the US Digital Service, MIT Media Lab, and Google. Native Bostonian, enthusiastic cyclist. Avid bird-watcher."
                 socialMedia={[
+                  {
+                    href: "https://www.kasiachmielinski.com/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
+                  },
                   {
                     href: "https://www.linkedin.com/in/kchmielinski/",
                     icon: "icon-linkedin",
