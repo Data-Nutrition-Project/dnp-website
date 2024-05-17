@@ -338,11 +338,6 @@ const IndexPage = props => (
                 Awarded for explorations of the AI auditing landscape through convening experts in a closed-door, facilitated session
               </ListGroup.Item>
               <ListGroup.Item>
-                <b>Howard/Mathematica Summer Institute in Computational Social Science</b> (2023)
-                <br />
-                Multiple-year engagement as guest lecturers in ethical AI / data quality for the summer institute
-              </ListGroup.Item>
-              <ListGroup.Item>
                 <b>Putting Science into Standards (PSIS) Program, the European Commission’s Joint Research Centre (JRC) CEN, CENELEC</b> (2022)
                 <br />
                 Participation in programming around dataset standards
@@ -359,7 +354,16 @@ const IndexPage = props => (
             <p className={styles.headerSentence}>
               Collaboration with Microsoft Research &amp; ASL Citizen Dataset
             </p>
-            <iframe src="https://drive.google.com/file/d/1O47tQalwgCxS1GcavMx4-6k176jmkRnq/preview" width="640" height="480" allow="autoplay"></iframe>
+            <div style={{padding: '56.25% 0 0 0', position: 'relative'}}>
+              <iframe 
+                src="https://player.vimeo.com/video/947450120?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                style={{ position: 'absolute', top:0, left:0, width: '100%', height: '100%'}}
+                title="Redefining Data"
+              ></iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
           </Col>
         </Row>
       </Container>
@@ -766,14 +770,32 @@ const IndexPage = props => (
           </div>
           <Row>
             <Col xl={{ span: 3, offset: 2 }} md={12}>
-              <h3 style={{ 'font-size': '1.5rem' }}>
-                <a href="https://www.humanityinnovationlabs.com">Humanity Innovation Labs</a>
-              </h3>
+              <Bio
+                alum={true}
+                name="Humanity Innovation Labs"
+                role="UX Design Collaborator"
+                socialMedia={[
+                  {
+                    href: "https://www.humanityinnovationlabs.com",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
+                  }
+                ]}
+              />
             </Col>
             <Col xl={{ span: 3, offset: 3 }} md={12}>
-              <h3 style={{ 'font-size': '1.5rem' }}>
-                <a href="https://www.justfix.nyc/">JustFix.nyc</a>
-              </h3>
+              <Bio
+                alum={true}
+                name="JustFix.nyc"
+                role="Label Research Collaborator"
+                socialMedia={[
+                  {
+                    href: "https://www.justfix.nyc/",
+                    icon: "icon-line-globe",
+                    className: "si-dribble",
+                  }
+                ]}
+              />
             </Col>
           </Row>
           <div className={classNames(styles.headingBlock, styles.centerText)}>
