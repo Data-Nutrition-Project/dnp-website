@@ -317,14 +317,15 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 }
 
 .sliderSlide {
+    display: block;
     height: 400px;
 }
 
 .sliderSlideIframe {
     position: relative;
     top: 0;
-    left: -4;
-    width: 100%;
+    left: 0;
+    width: 99%;
     height: 100%;
 }
 
