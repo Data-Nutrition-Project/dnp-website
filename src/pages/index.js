@@ -10,12 +10,49 @@ import Form from "react-bootstrap/Form"
 import Row from "react-bootstrap/Row"
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Slider from 'react-slick'
 
 import Banner from "../components/Banner"
 import Bio from "../components/Bio"
 import Layout from "../components/layout"
 
 import * as styles from "./index.module.css"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
+function NextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ 
+        ...style, 
+        display: "block", 
+        background: styles.darkSlateBlue, 
+        borderRadius: "1rem",
+        paddingTop: "2px"
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function PrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ 
+        ...style, 
+        display: "block", 
+        background: styles.darkSlateBlue, 
+        borderRadius: "1rem",
+        paddingTop: "2px"
+      }}
+      onClick={onClick}
+    />
+  );
+}
 
 const IndexPage = props => (
   <Layout>
@@ -368,7 +405,72 @@ const IndexPage = props => (
         </Row>
       </Container>
     </div>
-    <section id="content" className={styles.section}>
+     <div
+      id="section-featured-collab"
+      className={styles.section}
+    >
+      <div
+        className={classNames(
+          styles.headingBlock,
+          styles.centerText,
+          styles.pageSection
+        )}
+      >
+        <h2>Featured Collaboration - Microsoft Research</h2>
+        <p>
+          DNP has worked with Microsoft Research to develop dataset labels and educational anmiations about a few datasets to demonstrate inclusive methods for dataset construction.
+        </p> 
+      </div>
+      <Container>
+        <Row>
+          <Slider
+            id="collab-slider"
+            dots={true}
+            infinite={true}
+            speed={500}
+            slidesToShow={1}
+            slidesToScroll={1}
+            nextArrow={<NextArrow />}
+            prevArrow={<PrevArrow />}
+          >
+            <div>
+              <p className={styles.headerSentence}>
+                Is a Dosa a Crepe? The Importance of Cultural Diversity in AI Training Data
+              </p>
+              <p>
+                Co-created between the Data Nutrition Project and the Microsoft Research DOSA team, this short animated video aims to summarize and explain the process and insights from the DOSA Research Project (summarized below), and convey the findings to broad audiences.
+              </p>
+              <div className={styles.sliderSlide}>
+                <iframe 
+                  className={styles.sliderSlideIframe}
+                  src="https://player.vimeo.com/video/1018720653?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                  title="Is a Dosa a Crepe? The Importance of Cultural Diversity in AI Training Data"                  
+                  frameborder="0" 
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                ></iframe>
+              </div>
+              <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
+            <div className={styles.sliderSlide}>
+              <p className={styles.headerSentence}>
+                What Language Does AI Speak? by the Data Nutrition Project | AAAI-24 Award Winner
+              </p>
+              <div className={styles.sliderSlide}>
+                <iframe
+                  className={styles.sliderSlideIframe}
+                  src="https://www.youtube-nocookie.com/embed/XsGqgaxy3Mo?si=swanV83Lhwd4sPm2"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+            </div>
+          </Slider>
+        </Row>
+      </Container>
+    </div>
+    <section id="content" className={classNames(styles.section, styles.modGray)}>
       <Container fluid>
         <div
           id="section-solution-services"
@@ -1038,7 +1140,7 @@ const IndexPage = props => (
     </div>
     <div
       id="section-support"
-      className={classNames(styles.section, styles.modGray)}
+      className={classNames(styles.section,styles.modGray)}
     >
       <Container>
         <div className={classNames(styles.centerText)}>
@@ -1151,7 +1253,7 @@ const IndexPage = props => (
     </div>
     <Container
       as="section"
-      className={styles.section}
+      className={classNames(styles.section, styles.modGray)}
       id="section-contact"
       style={{ "padding-bottom": "3.75rem" }}
     >
