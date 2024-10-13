@@ -316,6 +316,18 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
     margin-bottom: 0;
 }
 
+.sliderSlide {
+    height: 400px;
+}
+
+.sliderSlideIframe {
+    position: relative;
+    top: 0;
+    left: -4;
+    width: 100%;
+    height: 100%;
+}
+
 @media (max-width: tabletMaxWidth) {
     .modButtonLarge {
         padding: .25rem 2rem;
@@ -376,5 +388,9 @@ body:not(.stretched) .sliderParallax .sliderParallaxInner { left: auto; }
 
     .sectionImageImg {
         margin: 0;
+    }
+
+    .sliderSlide {
+        height: 300px;
     }
 }
