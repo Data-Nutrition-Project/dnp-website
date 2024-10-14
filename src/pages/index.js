@@ -10,12 +10,49 @@ import Form from "react-bootstrap/Form"
 import Row from "react-bootstrap/Row"
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Slider from 'react-slick'
 
 import Banner from "../components/Banner"
 import Bio from "../components/Bio"
 import Layout from "../components/layout"
 
 import * as styles from "./index.module.css"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
+function NextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ 
+        ...style, 
+        display: "block", 
+        background: styles.darkSlateBlue, 
+        borderRadius: "1rem",
+        paddingTop: "2px"
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function PrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ 
+        ...style, 
+        display: "block", 
+        background: styles.darkSlateBlue, 
+        borderRadius: "1rem",
+        paddingTop: "2px"
+      }}
+      onClick={onClick}
+    />
+  );
+}
 
 const IndexPage = props => (
   <Layout>
@@ -352,7 +389,7 @@ const IndexPage = props => (
           </Col>
           <Col xl={{ span: 5 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <p className={styles.headerSentence}>
-              Collaboration with Microsoft Research &amp; ASL Citizen Dataset
+              Collaboration with ASL Citizen Dataset Team
             </p>
             <div style={{padding: '56.25% 0 0 0', position: 'relative'}}>
               <iframe 
@@ -368,7 +405,83 @@ const IndexPage = props => (
         </Row>
       </Container>
     </div>
-    <section id="content" className={styles.section}>
+     <div
+      id="section-featured-collab"
+      className={styles.section}
+    >
+      <div
+        className={classNames(
+          styles.headingBlock,
+          styles.centerText,
+          styles.pageSection
+        )}
+      >
+        <h2>Featured Collaboration - Microsoft Research</h2>
+        <p>
+          DNP has been working with Microsoft Research to develop educational anmiations about data transparency to highlight inclusive methods for research and dataset creation.
+        </p> 
+      </div>
+      <Container>
+        <Row>
+          <Slider
+            id="collab-slider"
+            dots={true}
+            infinite={true}
+            speed={500}
+            slidesToShow={1}
+            slidesToScroll={1}
+            nextArrow={<NextArrow />}
+            prevArrow={<PrevArrow />}
+          >
+            <div>
+              <p className={styles.headerSentence}>
+                Is a Dosa a Crepe? The Importance of Cultural Diversity in AI Training Data
+              </p>
+              <p>
+                Co-created between the Data Nutrition Project and the Microsoft Research DOSA team, 
+                this animation showcases the DOSA team’s{' '}
+                <a href="https://aclanthology.org/2024.lrec-main.474.pdf">research insights</a>, including 
+                the lack of Indian cultural knowledge in AI training data and how to work with local 
+                populations to create high quality datasets. 
+              </p>
+              <div className={styles.sliderSlide}>
+                <iframe 
+                  className={styles.sliderSlideIframe}
+                  src="https://player.vimeo.com/video/1018720653?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                  title="Is a Dosa a Crepe? The Importance of Cultural Diversity in AI Training Data"                  
+                  frameborder="0" 
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                ></iframe>
+              </div>
+              <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
+            <div className={styles.sliderSlide}>
+              <p className={styles.headerSentence}>
+                What Language Does AI Speak? by the Data Nutrition Project | AAAI-24 Award Winner
+              </p>
+              <p>
+                Co-created between the Data Nutrition Project and the ASL Citizen Dataset team, 
+                this animation summarizes the{' '}
+                <a href="https://arxiv.org/pdf/2304.05934">team’s research</a> on the limitations 
+                and gaps in AI ASL translation tools and offers recommendations for how to create 
+                more accurate, equitable, and useful translation tools by engaging with the ASL community. 
+              </p>
+              <div className={styles.sliderSlide}>
+                <iframe
+                  className={styles.sliderSlideIframe}
+                  src="https://www.youtube-nocookie.com/embed/XsGqgaxy3Mo?si=swanV83Lhwd4sPm2"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+            </div>
+          </Slider>
+        </Row>
+      </Container>
+    </div>
+    <section id="content" className={classNames(styles.section, styles.modGray)}>
       <Container fluid>
         <div
           id="section-solution-services"
@@ -1038,7 +1151,7 @@ const IndexPage = props => (
     </div>
     <div
       id="section-support"
-      className={classNames(styles.section, styles.modGray)}
+      className={classNames(styles.section,styles.modGray)}
     >
       <Container>
         <div className={classNames(styles.centerText)}>
@@ -1151,7 +1264,7 @@ const IndexPage = props => (
     </div>
     <Container
       as="section"
-      className={styles.section}
+      className={classNames(styles.section, styles.modGray)}
       id="section-contact"
       style={{ "padding-bottom": "3.75rem" }}
     >
