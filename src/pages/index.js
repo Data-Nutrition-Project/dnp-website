@@ -389,7 +389,7 @@ const IndexPage = props => (
           </Col>
           <Col xl={{ span: 5 }} lg={{ span: 10, offset: 1 }} md={{ span: 10, offset: 1 }}>
             <p className={styles.headerSentence}>
-              Collaboration with Microsoft Research &amp; ASL Citizen Dataset
+              Collaboration with ASL Citizen Dataset Team
             </p>
             <div style={{padding: '56.25% 0 0 0', position: 'relative'}}>
               <iframe 
@@ -418,7 +418,7 @@ const IndexPage = props => (
       >
         <h2>Featured Collaboration - Microsoft Research</h2>
         <p>
-          DNP has worked with Microsoft Research to develop dataset labels and educational anmiations about a few datasets to demonstrate inclusive methods for dataset construction.
+          DNP has been working with Microsoft Research to develop educational anmiations about data transparency to highlight inclusive methods for research and dataset creation.
         </p> 
       </div>
       <Container>
@@ -438,7 +438,11 @@ const IndexPage = props => (
                 Is a Dosa a Crepe? The Importance of Cultural Diversity in AI Training Data
               </p>
               <p>
-                Co-created between the Data Nutrition Project and the Microsoft Research DOSA team, this short animated video aims to summarize and explain the process and insights from the DOSA Research Project (summarized below), and convey the findings to broad audiences.
+                Co-created between the Data Nutrition Project and the Microsoft Research DOSA team, 
+                this animation showcases the DOSA team’s{' '}
+                <a href="https://aclanthology.org/2024.lrec-main.474.pdf">research insights</a>, including 
+                the lack of Indian cultural knowledge in AI training data and how to work with local 
+                populations to create high quality datasets. 
               </p>
               <div className={styles.sliderSlide}>
                 <iframe 
@@ -454,6 +458,13 @@ const IndexPage = props => (
             <div className={styles.sliderSlide}>
               <p className={styles.headerSentence}>
                 What Language Does AI Speak? by the Data Nutrition Project | AAAI-24 Award Winner
+              </p>
+              <p>
+                Co-created between the Data Nutrition Project and the ASL Citizen Dataset team, 
+                this animation summarizes the{' '}
+                <a href="https://arxiv.org/pdf/2304.05934">team’s research</a> on the limitations 
+                and gaps in AI ASL translation tools and offers recommendations for how to create 
+                more accurate, equitable, and useful translation tools by engaging with the ASL community. 
               </p>
               <div className={styles.sliderSlide}>
                 <iframe
