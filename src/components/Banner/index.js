@@ -6,10 +6,10 @@ import ReactMarkdown from "react-markdown"
 import * as styles from "./styles.module.css"
 
 const Banner = props => (
-  <ReactMarkdown
-    className={classNames(styles.banner, props.className)}
-    source={props.content}
-  />
+  <ReactMarkdown className={classNames(styles.banner, props.className)}>
+    {props.content}
+  </ReactMarkdown>
+
 )
 
 Banner.propTypes = {
