@@ -18,9 +18,6 @@
     color: lightGray;
 }
 
-.banner > p > a {
-    margin-left: .25rem;
-    border-radius: .375rem;
-    background-color: lightGray !important;
-    padding: .5rem;
+.banner > p > a:hover{
+    color: alertBlue;
 }

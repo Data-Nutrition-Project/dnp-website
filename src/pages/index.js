@@ -56,9 +56,6 @@ function PrevArrow(props) {
 
 const IndexPage = props => (
   <Layout>
-    <Banner
-      content="PUBLIC AI SUMMIT: Join us August 13-14, 2025 to learn more about AI! [Register Now &rarr;](https://publicaisummit.org/)"
-    />
     <section
       id="slider"
       className={classNames(
